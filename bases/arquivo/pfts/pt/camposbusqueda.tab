@@ -1,0 +1,18 @@
+Setor|10|SE_|
+Documento/Assunto|20|MH_|
+Título|30|TI_|
+Autor|40|AU_|
+Descrição|50|DE_|
+Nome/Instituição|60|AI_|
+Data|71|DA_|
+Número|90|ID_|
+Ano descarte|100|AD_|
+Empréstimo|120|EM_|
+Observações|140|PS_|
+Arquivo central: estante|111|CE_|
+Arquivo central: prateleira|112|CP_|
+Arquivo setorial: localização|113|AS_|
+Biblioteca: classificação|114|BI_|
+Imagem|130|IM_|
+Anexo|160|AX_|
+Todos os campos|10|TW_|

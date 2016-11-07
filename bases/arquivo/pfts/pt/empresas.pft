@@ -1,0 +1,4 @@
+(if v4 = 'bettanew' THEN 'Bettanew' fi),
+(if v4 = 'bettamark' THEN 'Bettamark' fi),
+(if v4 = 'bettapar' THEN 'Betta Par' fi),
+(if v4 = 'valeverde' THEN 'Vale Verde' fi),

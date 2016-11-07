@@ -1,0 +1,24 @@
+'<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="/bases/etiquetas/P6280.css" media="all" />
+</head><body>'
+
+'<div class="tudo">'
+('<dl class="barcodebox">
+    <dt>Biblioteca FDRH</dt>'
+        
+        if v10='fdrh' then
+        '<dd>'ref([v10] l([v10],"CN_FDRH_"v1),v245^a*0.25)'</dd>'
+        fi,
+
+        if v10='title' then
+        '<dd>'ref([v10] l([v10],"CN_TITLE_"v1),v245^a*0.25)'</dd>'
+        fi,
+
+        '<dd class="barcode"><img src="/bases/php-barcode/barcode.php?code='v30'&mode=png&size=1&scale=1.5" /></dd>
+</dl>'/) 
+
+'</div>'
+
+
+'</body>'

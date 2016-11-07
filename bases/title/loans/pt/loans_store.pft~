@@ -1,0 +1,98 @@
+'^y'v9,
+
+v90, '^z',
+
+v100,
+	if s(v100,v140)<>'' then ' / ' fi,
+v140,
+
+'. '
+
+if p(v302) then
+	/* Coloca "Vol." apenas se é preenchido com número */
+	if v302*0.1='1' or 
+	   v302*0.1='2' or 
+	   v302*0.1='3' or 
+	   v302*0.1='4' or 
+	   v302*0.1='5' or 
+	   v302*0.1='6' or 
+	   v302*0.1='7' or 
+	   v302*0.1='8' or 
+	   v302*0.1='9' or 
+	   v302*0.1='0' then
+		'Vol. 'v302 else v302 
+	fi,
+fi,
+
+	if p(v302) and p(v303) then ', ' fi,
+
+if p(v303) then
+	/* Coloca "n." apenas se é preenchido com número */
+	if v303*0.1='1' or 
+	   v303*0.1='2' or 
+	   v303*0.1='3' or 
+	   v303*0.1='4' or 
+	   v303*0.1='5' or 
+	   v303*0.1='6' or 
+	   v303*0.1='7' or 
+	   v303*0.1='8' or 
+	   v303*0.1='9' or 
+	   v303*0.1='0' then
+		'n. 'v303 else v303 
+	fi,
+fi,
+
+	if s(v302,v303,v305,v306)<>'' then '-' fi,
+
+if p(v305) then
+	/* Coloca "Vol." apenas se é preenchido com número */
+	if v305*0.1='1' or 
+	   v305*0.1='2' or 
+	   v305*0.1='3' or 
+	   v305*0.1='4' or 
+	   v305*0.1='5' or 
+	   v305*0.1='6' or 
+	   v305*0.1='7' or 
+	   v305*0.1='8' or 
+	   v305*0.1='9' or 
+	   v305*0.1='0' then
+		'Vol. 'v305 else v305 
+	fi,
+fi,
+
+	if p(v305) and p(v306) then ', ' fi,
+
+if p(v306) then
+	/* Coloca "n." apenas se é preenchido com número */
+	if v306*0.1='1' or 
+	   v306*0.1='2' or 
+	   v306*0.1='3' or 
+	   v306*0.1='4' or 
+	   v306*0.1='5' or 
+	   v306*0.1='6' or 
+	   v306*0.1='7' or 
+	   v306*0.1='8' or 
+	   v306*0.1='9' or 
+	   v306*0.1='0' then
+		'n. 'v306 else v306 
+	fi,
+fi,
+
+/* Coloca espaços se não acabou e ponto se acabou */
+if a(v305) and a(v306) then 
+
+	'&nbsp;&nbsp;&nbsp;&nbsp;.'
+	else '.'
+
+fi,
+
+
+ ' &ndash; ' 
+
+if p(v490) then v490 fi,
+	if p(v490) and p(v480) then ' : ' fi,
+if p(v480) then v480 fi,
+
+if p(v301) then ', 'v301'-' fi,
+if p(v304) then v304,'.' 
+	else '&nbsp;&nbsp;&nbsp;&nbsp;.' fi,

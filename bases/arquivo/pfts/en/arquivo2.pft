@@ -1,0 +1,15 @@
+'<table border=0 width=90%>'
+if p(v10) then '<tr><td width=20% valign=top><font face=arial size=2><b>Setor</b></td><td valign=top><font face=arial size=2>'v10+|<br>|,'</td>' fi/
+if p(v20) then '<tr><td width=20% valign=top><font face=arial size=2><b>Documento/Assunto</b></td><td valign=top><font face=arial size=2>'v20+|<br>|,'</td>' fi/
+if p(v30) then '<tr><td width=20% valign=top><font face=arial size=2><b>Descrição</b></td><td valign=top><font face=arial size=2>'v30+|<br>|,'</td>' fi/
+if p(v40) then '<tr><td width=20% valign=top><font face=arial size=2><b>Nome</b></td><td valign=top><font face=arial size=2>'v40+|<br>|,'</td>' fi/
+if p(v50) then '<tr><td width=20% valign=top><font face=arial size=2><b>Data</b></td><td valign=top><font face=arial size=2>'v50+|<br>|,'</td>' fi/
+if p(v60) then '<tr><td width=20% valign=top><font face=arial size=2><b>Data indexar</b></td><td valign=top><font face=arial size=2>'v60+|<br>|,'</td>' fi/
+if p(v70) then '<tr><td width=20% valign=top><font face=arial size=2><b>Número</b></td><td valign=top><font face=arial size=2>'v70+|<br>|,'</td>' fi/
+if p(v80) then '<tr><td width=20% valign=top><font face=arial size=2><b>Ano descarte</b></td><td valign=top><font face=arial size=2>'v80+|<br>|,'</td>' fi/
+if p(v90) then '<tr><td width=20% valign=top><font face=arial size=2><b>Localização</b></td><td valign=top><font face=arial size=2>'v90+|<br>|,'</td>' fi/
+if p(v100) then '<tr><td width=20% valign=top><font face=arial size=2><b>Empréstimo</b></td><td valign=top><font face=arial size=2>'v100+|<br>|,'</td>' fi/
+if p(v110) then '<tr><td width=20% valign=top><font face=arial size=2><b>Imagem</b></td><td valign=top><font face=arial size=2>'v110+|<br>|,'</td>' fi/
+if p(v120) then '<tr><td width=20% valign=top><font face=arial size=2><b>Observações</b></td><td valign=top><font face=arial size=2>'v120+|<br>|,'</td>' fi/
+if p(v130) then '<tr><td width=20% valign=top><font face=arial size=2><b>Criado em</b></td><td valign=top><font face=arial size=2>'v130+|<br>|,'</td>' fi/
+'</table><p>'

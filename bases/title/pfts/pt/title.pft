@@ -1,0 +1,93 @@
+'<head>
+
+<link rel="stylesheet" type="text/css" href="/bases/geral/css/estilo.css" />
+</head><body>'
+
+'<div style="float:left;width:100%;"><table width="100%" border="0" cellpadding="2" cellspacing="2">'/,
+
+
+'<p class="cabecalho">'
+v245^a, " : "v245^b,
+	if s(v245^a,v245^c)<>'' then ' / ' fi,
+v245^c,
+
+'. '
+
+v362^a
+
+
+ ' &ndash; ' 
+
+v260^a, ":"v260^b, 
+
+if p(v363^i) then ', 'v363^i'-' fi,
+if p(v363^j) then v363^j,'.' 
+	else '&nbsp;&nbsp;&nbsp;&nbsp;.' fi,
+'</p>'
+
+
+
+if p(v22) then '<tr class="mrc"><th class="mrc">ISSN</th><td class="mrc">'(if p(v22) then | |v22^1,| |v22^2,| |v22^a,| |v22^y,| |v22^z,| |v22^2,| |v22^6, if iocc<>nocc(v22) then '<br>' fi fi/),'</td>' fi/
+if p(v41) then '<tr class="mrc"><th class="mrc">Idioma</th><td class="mrc">'(if p(v41) then | |v41^1,| |v41^2,| |v41^a,| |v41^b,| |v41^d,| |v41^e,| |v41^f,| |v41^g,| |v41^h,| |v41^j,| |v41^2,| |v41^6, if iocc<>nocc(v41) then '<br>' fi fi/),'</td>' fi/
+if p(v84) then '<tr class="mrc"><th class="mrc">Outro número de classificação</th><td class="mrc">'(if p(v84) then | |v84^1,| |v84^2,| |v84^a,| |v84^b,| |v84^2,| |v84^6, if iocc<>nocc(v84) then '<br>' fi fi/),'</td>' fi/
+if p(v245) then '<tr class="mrc"><th class="mrc">Título principal</th><td class="mrc">'(if p(v245) then | |v245^1,| |v245^2,| |v245^a,| |v245^b,| |v245^c,| |v245^f,| |v245^g,| |v245^k,| |v245^h,| |v245^n,| |v245^p,| |v245^s,| |v245^6, if iocc<>nocc(v245) then '<br>' fi fi/),'</td>' fi/
+if p(v246) then '<tr class="mrc"><th class="mrc">Forma variante do título</th><td class="mrc">'(if p(v246) then | |v246^1,| |v246^2,| |v246^a,| |v246^b,| |v246^c,| |v246^f,| |v246^g,| |v246^h,| |v246^n,| |v246^i,| |v246^p,| |v246^5,| |v246^6, if iocc<>nocc(v246) then '<br>' fi fi/),'</td>' fi/
+if p(v247) then '<tr class="mrc"><th class="mrc">Título anterior ou variações do título</th><td class="mrc">'(if p(v247) then | |v247^1,| |v247^2,| |v247^a,| |v247^b,| |v247^f,| |v247^g,| |v247^h,| |v247^n,| |v247^p,| |v247^x,| |v247^6, if iocc<>nocc(v247) then '<br>' fi fi/),'</td>' fi/
+if p(v260) then '<tr class="mrc"><th class="mrc">Área de publicação</th><td class="mrc">'(if p(v260) then | |v260^1,| |v260^2,| |v260^a,| |v260^b,| |v260^c,| |v260^e,| |v260^f,| |v260^g,| |v260^3,| |v260^6, if iocc<>nocc(v260) then '<br>' fi fi/),'</td>' fi/
+if p(v310) then '<tr class="mrc"><th class="mrc">Periodicidade corrente</th><td class="mrc">'(if p(v310) then | |v310^1,| |v310^2,| |v310^a,| |v310^b,| |v310^6, if iocc<>nocc(v310) then '<br>' fi fi/),'</td>' fi/
+if p(v362) then '<tr class="mrc"><th class="mrc">Datas de publicação e/ou designação sequencial</th><td class="mrc">'(if p(v362) then | |v362^1,| |v362^2,| |v362^a,| |v362^z,| |v362^6, if iocc<>nocc(v362) then '<br>' fi fi/),'</td>' fi/
+if p(v590) then '<tr class="mrc"><th class="mrc">Notal local</th><td class="mrc">'(if p(v590) then | |v590^1,| |v590^2,| |v590^a,| |v590^6, if iocc<>nocc(v590) then '<br>' fi fi/),'</td>' fi/
+if p(v592) then '<tr class="mrc"><th class="mrc">Dados da coleção para seriado</th><td class="mrc">'(if p(v592) then | |v592^1,| |v592^2,| |v592^a,| |v592^b,| |v592^c,| |v592^d,| |v592^e,| |v592^f,| |v592^y,| |v592^z, if iocc<>nocc(v592) then '<br>' fi fi/),'</td>' fi/
+if p(v650) then '<tr class="mrc"><th class="mrc">Assunto - Termo tópico</th><td class="mrc">'(if p(v650) then | |v650^1,| |v650^2,| |v650^a,| |v650^b,| |v650^c,| |v650^d,| |v650^e,| |v650^v,| |v650^x,| |v650^y,| |v650^z,| |v650^2,| |v650^3,| |v650^4,| |v650^6, if iocc<>nocc(v650) then '<br>' fi fi/),'</td>' fi/
+if p(v760) then '<tr class="mrc"><th class="mrc">Entrada de série principal</th><td class="mrc">'(if p(v760) then | |v760^1,| |v760^2,| |v760^a,| |v760^b,| |v760^c,| |v760^d,| |v760^g,| |v760^h,| |v760^i,| |v760^m,| |v760^n,| |v760^o,| |v760^s,| |v760^t,| |v760^w,| |v760^x,| |v760^y,| |v760^4,| |v760^6,| |v760^7, if iocc<>nocc(v760) then '<br>' fi fi/),'</td>' fi/
+if p(v762) then '<tr class="mrc"><th class="mrc">Entrada de subsérie</th><td class="mrc">'(if p(v762) then | |v762^1,| |v762^2,| |v762^a,| |v762^b,| |v762^c,| |v762^d,| |v762^g,| |v762^h,| |v762^i,| |v762^m,| |v762^n,| |v762^o,| |v762^s,| |v762^t,| |v762^w,| |v762^x,| |v762^y,| |v762^4,| |v762^6,| |v762^7, if iocc<>nocc(v762) then '<br>' fi fi/),'</td>' fi/
+if p(v765) then '<tr class="mrc"><th class="mrc">Entrada de idioma original</th><td class="mrc">'(if p(v765) then | |v765^1,| |v765^2,| |v765^a,| |v765^b,| |v765^c,| |v765^d,| |v765^g,| |v765^h,| |v765^i,| |v765^k,| |v765^m,| |v765^n,| |v765^o,| |v765^r,| |v765^s,| |v765^t,| |v765^w,| |v765^x,| |v765^y,| |v765^z,| |v765^4,| |v765^6,| |v765^7, if iocc<>nocc(v765) then '<br>' fi fi/),'</td>' fi/
+if p(v767) then '<tr class="mrc"><th class="mrc">Entrada de tradução</th><td class="mrc">'(if p(v767) then | |v767^1,| |v767^2,| |v767^a,| |v767^b,| |v767^c,| |v767^d,| |v767^g,| |v767^h,| |v767^i,| |v767^k,| |v767^m,| |v767^n,| |v767^o,| |v767^r,| |v767^s,| |v767^t,| |v767^w,| |v767^x,| |v767^y,| |v767^z,| |v767^4,| |v767^6,| |v767^7, if iocc<>nocc(v767) then '<br>' fi fi/),'</td>' fi/
+if p(v770) then '<tr class="mrc"><th class="mrc">Entrada de suplemento/Edição especial</th><td class="mrc">'(if p(v770) then | |v770^1,| |v770^2,| |v770^a,| |v770^b,| |v770^c,| |v770^d,| |v770^g,| |v770^h,| |v770^i,| |v770^k,| |v770^m,| |v770^n,| |v770^o,| |v770^r,| |v770^s,| |v770^t,| |v770^w,| |v770^x,| |v770^y,| |v770^z,| |v770^4,| |v770^6,| |v770^7, if iocc<>nocc(v770) then '<br>' fi fi/),'</td>' fi/
+if p(v772) then '<tr class="mrc"><th class="mrc">Entrada de registro principal</th><td class="mrc">'(if p(v772) then | |v772^1,| |v772^2,| |v772^a,| |v772^b,| |v772^c,| |v772^d,| |v772^g,| |v772^h,| |v772^i,| |v772^k,| |v772^m,| |v772^n,| |v772^o,| |v772^r,| |v772^s,| |v772^t,| |v772^w,| |v772^x,| |v772^y,| |v772^z,| |v772^4,| |v772^6,| |v772^7, if iocc<>nocc(v772) then '<br>' fi fi/),'</td>' fi/
+if p(v780) then '<tr class="mrc"><th class="mrc">Entrada anterior</th><td class="mrc">'(if p(v780) then | |v780^1,| |v780^2,| |v780^a,| |v780^b,| |v780^c,| |v780^d,| |v780^g,| |v780^h,| |v780^i,| |v780^k,| |v780^m,| |v780^n,| |v780^o,| |v780^r,| |v780^s,| |v780^t,| |v780^w,| |v780^x,| |v780^y,| |v780^z,| |v780^4,| |v780^6,| |v780^7, if iocc<>nocc(v780) then '<br>' fi fi/),'</td>' fi/
+if p(v785) then '<tr class="mrc"><th class="mrc">Entrada posterior</th><td class="mrc">'(if p(v785) then | |v785^1,| |v785^2,| |v785^a,| |v785^b,| |v785^c,| |v785^d,| |v785^g,| |v785^h,| |v785^i,| |v785^k,| |v785^m,| |v785^n,| |v785^o,| |v785^r,| |v785^s,| |v785^t,| |v785^w,| |v785^x,| |v785^y,| |v785^z,| |v785^4,| |v785^6,| |v785^7, if iocc<>nocc(v785) then '<br>' fi fi/),'</td>' fi/
+'<br />'
+
+
+ '</table></div>'	
+ /*
+ '<!-- Itens na copies -->'
+
+
+'<a href="/cgi-bin/wxis.exe/iah/scripts/?IsisScript=itens.xis&lang=pt&base=COPIES&nextAction=lnk&exprSearch='v1'&exprSearch='v30'&indexSearch=ID&format=itens.pft" target="itens" title="Veja detalhes deste registro">Visualizar fascículos &#11015;</a>'
+
+'<br /><strong>Registro</strong>: ano, volume, número.<br /><br />'
+'<div style="position:relative;width:40%; height:500px; float:right">
+
+
+<iframe frameborder="0" width="100%" height="500px" name="itens"></iframe>	
+
+</div>'
+
+'<!-- FIM Itens na copies -->'
+*/
+'<!-- Dados de controle -->'
+
+'<br />'
+
+if s(v1,v8,v980)<>'' then 
+'<dl class="ctrl">
+	<dt class="destaque">MFN:</dt>
+		<dd>'mfn(6)'</dd>
+	<dt class="destaque">Número de controle:</dt>
+		<dd>'v1'</dd>
+	<dt class="destaque">Data de inclusão:</dt>
+		<dd>' v8*4.2"/",v8*2.2"/",v8*0.2, '</dd>'
+	if p(v980^d) then
+	'<dt class="destaque">Última alteração:</dt>
+		<dd>' v980[last]^d*6.2"/", v980[last]^d*4.2,"/" v980[last]^d*0.4, '</dd>'
+	fi,
+	if p(v980^o) then
+	'<dt class="destaque">Responsável:</dt>
+		<dd>' v980[last]^o '</dd>'
+	fi,
+'</dl>'
+fi,
+
+'<!-- FIM Dados de controle -->'

@@ -1,0 +1,43 @@
+'<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="/bases/users/css/card.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/bases/users/css/estilo.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/bases/etiquetas/Code39Azalea.css" media="all" />
+</head><body>'
+
+'<div class="tudo">'
+
+
+'<div class="carteirabox">'
+
+	'<div class="topo">'
+		'Biblioteca<br /><br />'
+		'<span class="nome">'if p(v30) then v30 fi,'</span><br />'
+	'</div>'
+
+	'<div class="esquerda">'
+		if a(v109) then '<img src="/bases/users/noimage.jpg" />' fi
+		if p(v109) then '<img src="/bases/users/'v109'" />' fi'<br />'
+	v14*6.2,"/"v14*4.2,"/"v14*0.4,
+	'</div>'
+
+	'<div class="direita">'
+
+		'<span>'if p(v101) then 'RG: ' v101 fi,'</span><br />'
+		'<span>'if a(v101) and p(v104) then 'CPF: ' v104 '</span><br />' fi,
+		'<span>'if a(v101) and a(v104) then 'Cadastrar documento </span><br />' fi, 
+		'<span>'if p(v103) then 'Nascimento: ' v103, '</span><br />'  fi,
+		'<span>Validade: 'if p(v15) then v15 '</span><br />' else 'Sem validade </span><br />' fi,
+		
+		'<p class="barcode">*'v20'*</p><br>'
+      '<p class="barcodenumber">'v20'</p>'
+
+
+	'</div>'
+
+		
+'</div>'
+
+'</div></body>'
+
+

@@ -1,0 +1,21 @@
+---Tipo Monográfico----
+M|Monografia (M)|lildbi_monografia.fmt
+MC|Conferência em Monografia (MC)|lildbi_monografia.fmt
+MCP|Projeto e conferência em Monografia (MCP)|lildbi_monografia.fmt
+MP|Projeto em uma Monografia (MP)|lildbi_monografia.fmt
+MS|Série monográfica (MS)|lildbi_serie_monografica.fmt
+MSC|Conferência em série Monográfica (MSC)|lildbi_monografia.fmt
+MSP|Projeto em uma série Monográfica (MSP)|lildbi_monografia.fmt
+---Tipo Não Convencional----
+N|Material Não Convencional (N) |n_conv.fmt
+NC|Conferência em forma Não Convencional (NC) |n_conv.fmt
+NP|Projeto em forma Não Convencional (NP) |n_conv.fmt
+---Tipo Tese----
+T|Tese, Dissertação (publicado ou não) (T)|lildbi_tese_dissertacao.fmt
+TS|Tese, Dissertação pertencente a uma série monográfica (TS)|lildbi_tese_dissertacao_serie.fmt
+---Tipo Série----
+AS|Analítica de série(AS)|aperiodicos.fmt
+S|Série Periódica(S)|lildbi_serie_periodica.fmt
+SC|Conferência em uma Série Periódica(SC)|aperiodicos.fmt
+SCP|Projeto e conferência em uma Série Periódica (SCP)|aperiodicos.fmt
+SP|Projeto em uma Série Periódica (S)|aperiodicos.fmt

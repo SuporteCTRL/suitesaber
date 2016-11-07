@@ -1,0 +1,43 @@
+'<style>
+table, td, tr, th {
+		border: 1px #3A89AF solid;
+		border-collapse: collapse;
+		text-align: center;
+	}
+tr:first-child  {
+	background: #3A89AF;
+	color: #fff;
+	font-size: 12px;
+}
+
+tr:last-child {
+	background: #3A89AF;
+}
+tr:hover.result {
+	background: #eee;
+}
+</style>'
+'<tr class="result">
+<td>'
+if p(v20) then v20 fi,
+'</td>',
+
+'<td>'
+if p(v10) then v10^b fi,
+'</td>',
+'<td>'
+if p(v30) then v30 fi,
+'</td>',
+'<td>'
+if p(v101) then v101 fi,
+'</td>',
+'<td>'
+if p(v103) then v103 fi,
+'</td>',
+'<td>'
+if p(v102) then v102 fi,
+'</td>',
+'<td>'
+if p(v216) then v216 fi,
+'</td>
+</tr>',

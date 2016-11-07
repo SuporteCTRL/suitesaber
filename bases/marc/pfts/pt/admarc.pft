@@ -1,0 +1,308 @@
+if v3005='a' or v3005='c' or v3005='n'  then 
+
+'<div class="row">'
+'<div class="col-md-2">'
+  
+/* Capa */
+
+if p(v9) then '<img src="/bases/marc/'v9'" title="'v9'" width="100">' fi/
+
+if v3006:'a' and v3007:'m' and a(v9) then
+   '<h1 class="glyphicon glyphicon-book material" title="Livro"></h1>'
+else
+   if v3006:'a' and v3007:'a' then
+      'Capítulo de livro<br />'
+   else
+      if v3006:'s' and v3007:'b' then
+         'Artigo de periódico'
+      else
+         if v3006:'a' and v3007:'t' then
+            'Tese/Dissertação<br />'
+         else
+            if v3006:'s' and v3007:'s' then
+               'Periódico<br />'
+            else
+              if v3006:'g' and v3007:'m' then
+                 'Projetável<br />'
+              else
+                 if v3006:'e' and v3007:'m' then
+                    'Cartográfico<br />'
+                 else
+                    if v3006:'o' and v3007:'m' then
+                       'Kit - dois ou mais tipos juntos<br />'
+                    else
+                       if v3006:'p' and v3007:'c' then
+                          'Misto - vários tipos<br />'
+                       else
+                          'Desconhecido<br />'
+                       fi,
+                    fi,
+                  fi,
+               fi,
+            fi,
+         fi,
+      fi,
+   fi,
+fi,
+
+'<h5>Localização</h5>'
+
+'<h5>'
+(if v90^a='AM' then 'Acervo Memória (AM)<br />' fi
+if v90^a='AS' then 'Assuntos (AS)<br />' fi
+if v90^a='AU' then 'Audiolivro (AU)<br />' fi
+if v90^a='BI' then 'Literatura Infanto Juvenil (BI)<br />' fi
+if v90^a='C' then 'Coleção (C)<br />' fi
+if v90^a='DVD' then 'DVD<br />' fi
+if v90^a='F' then 'Folheto (F)<br />' fi
+if v90^a='LI' then 'Literatura (LI)<br />' fi
+if v90^a='MP' then 'Mapas (MP)<br />' fi
+if v90^a='MU' then 'Música (MU)<br />' fi
+if v90^a='RF' then 'Referência (RF)<br />' fi
+if v90^a='SB' then 'Braile (SB)<br />' fi
+if v90^a='SR' then 'Séries (SR)<br />' fi
+
+if p(v90^b) then v90^b|<br>| fi
+if p(v90^c) then v90^c|<br>| fi 
+if p(v90^d) then v90^d|<br>| fi '<hr>')
+
+'</h5><h6>' 
+
+ /*('<!--Tombo: ',v949^a'<br>-->')*/
+'MFN: ',f(mfn,1,0), '</h6>' 
+
+/*colocar aqui emprestimo*/
+if nocc(v949^k)<nocc(v949^a)  then  f(nocc(v949^a),949,0), fi
+
+/* FIM Capa */ 
+'</div>'
+
+
+
+
+'<div class="col-md-10">
+<table class="table table-striped">'
+
+
+/*Autores principais 1xx*/
+
+if s(v100^a,v110^a,v111^a)<>'' then '<tr class="mrc">
+<th class="mrc">Autor</th>
+<td class="mrc">',, 
+    if p(v100) then '<span class="destaque">' v100^a,'</span>' 
+        if p(v100^d) then ' (' v100^d ')' fi, '<br />' 
+    fi,
+	if p(v110) then '<span class="destaque">' v110^a, " "v110^b,'</span><br />' fi,
+
+	if p(v111) then '<span class="destaque">' v111^a" ", 
+		if s(v111^n,v111^d,v111^c,)<>'' then
+			'(' v111^n,
+					if p(v111^n) and p(v111^d) then ' : ' fi,
+				v111^d,
+					if s(v111^n,v111^d)<>'' and p(v111^c) then ' : ' fi,
+				v111^c, ')'
+		fi,
+	'</span>' fi,
+
+fi,
+
+if s(v100^a,v110^a,v111^a)<>'' then '</tr>' fi/
+/*FIM Autores principais*/
+
+/*Títulos*/
+
+if p(v245^a) then '<tr class="mrc"><th class="mrc">Título</th><td class="mrc"><span class="destaque">',, v245^a, | : | v245^b, '</span>'" / "v245^c, / fi/ 
+
+if p(v245) then '</tr>' fi,
+
+if s(v240^a,v730^a,v740^a)<>'' then 
+'<tr class="mrc"><th class="mrc">Título uniforme</th>
+<td class="mrc">',
+
+     (v240^a'<br />' )
+	 (v730^a'<br />' )
+	 (v740^a'<br />' ) fi,
+	 
+if s(v240^a,v730^a,v740^a)<>'' then  '</td></tr>'/ fi, 
+
+	
+/*Exibe formas variantes do título conforme o indicador 2 do v246*/
+
+(if p(v246^a) then  
+
+    if v246*1.1='0' then '<tr class="mrc"><th class="mrc">Parte do título</th><td class="mrc">',fi, 
+    if v246*1.1='1' then '<tr class="mrc"><th class="mrc">Título paralelo</th><td class="mrc">',fi, 
+    if v246*1.1='2' then '<tr class="mrc"><th class="mrc">Título especial</th><td class="mrc">',fi, 
+    if v246*1.1='3' then '<tr class="mrc"><th class="mrc">Outro título</th><td class="mrc">',fi, 
+    if v246*1.1='4' then '<tr class="mrc"><th class="mrc">Título de capa</th><td class="mrc">',fi, 
+    if v246*1.1='5' then '<tr class="mrc"><th class="mrc">Título secundário na página de rosto</th><td class="mrc">',fi, 
+    if v246*1.1='6' then '<tr class="mrc"><th class="mrc">Título explicativo</th><td class="mrc">',fi, 
+    if v246*1.1='7' then '<tr class="mrc"><th class="mrc">Título corrente</th><td class="mrc">',fi, 
+    if v246*1.1='8' then '<tr class="mrc"><th class="mrc">Título de lombada</th><td class="mrc">',fi, 	
+	if v246*1.1='#' then '<tr class="mrc"><th class="mrc">Forma variante do título</th><td class="mrc">' fi,	
+
+  v246^a, if p(v246^b) then ' : 'v246^b fi, if p(v246^c) then ' / 'v246^c fi,'<br />'/fi/) 
+
+if p(v246^a) then '</td></tr>' fi,
+
+if p(v242^a) then '<tr class="mrc"><th class="mrc">Título traduzido</th><td class="mrc">',
+    v242^a,fi,
+
+if p(v242^a) then '</td></tr>'/fi/
+
+if p(v767) then '<tr class="mrc"><th class="mrc">Traduzido como</th><td class="mrc">',
+    v767^t ,fi,
+if p(v767) then '</td></tr>'/fi/
+
+/*Exibe entradas anteriores do título conforme o indicador 2 do v780*/
+
+(if s(v780^a,v780^t,v780^g)<>'' then  
+
+    if v780*1.1='0' then '<tr class="mrc"><th class="mrc">Continuação de</th><td class="mrc">',fi, 
+    if v780*1.1='1' then '<tr class="mrc"><th class="mrc">Continuação parcial de</th><td class="mrc">',fi, 
+    if v780*1.1='2' then '<tr class="mrc"><th class="mrc">Substitui</th><td class="mrc">',fi, 
+    if v780*1.1='3' then '<tr class="mrc"><th class="mrc">Substitui em parte</th><td class="mrc">',fi, 
+    if v780*1.1='4' then '<tr class="mrc"><th class="mrc">Formado pela junção de</th><td class="mrc">',fi, 
+    if v780*1.1='5' then '<tr class="mrc"><th class="mrc">Absorveu</th><td class="mrc">',fi, 
+    if v780*1.1='6' then '<tr class="mrc"><th class="mrc">Absorveu em parte</th><td class="mrc">',fi, 
+    if v780*1.1='7' then '<tr class="mrc"><th class="mrc">Separado de</th><td class="mrc">',fi, 
+	if v780*1.1='#' then '<tr class="mrc"><th class="mrc">Entrada anterior</th><td class="mrc">' fi, 
+
+  v780^a, 
+	if p(v780^a) and p(v780^t) then '. ' fi, 
+  if v780*1.1<>'4' then v780^t, else v780[1]^t '<span class="destaque"> e: </span>' v780[2]^t fi,
+	if p(v780^t) and p(v780^g) then ', ' fi, 
+  v780^g'.', '<br />'/fi/) 
+
+if s(v780^a,v780^t,v780^g)<>'' then '</td></tr>' fi,
+
+/*FIM Títulos*/
+
+/* Edição */
+
+if p(v250^a) then '<tr class="mrc"><th class="mrc">Edição</th><td class="mrc">'fi,
+    v250^a |  |, v250^b |  |, '</td>'/, 
+if p(v250^a) then '</td></tr>' fi,
+
+/* FIM Edição */
+
+/* Dados de publicação Cidade : Editora, 9999 */
+if p(v260^*) then '<tr class="mrc"><th class="mrc">Publicação</th><td class="mrc">'fi,
+    (v260^a | : |, v260^b |, |, v260^c|.| ,'<br />'/), 
+if p(v260^*) then '</td></tr>' fi,
+
+/* FIM Dados de publicação */
+
+/* 3xx */
+
+(if p(v300) then if occ=1 then '<tr class="mrc"><th class="mrc">Descrição física</th><td class="mrc">' fi,,v300^a,  " : "v300^b,  " ; "v300^c, if p(v300^e) then ' + 'v300^e fi "<br />"/fi/) if p(v300) then '</td></tr>' fi,
+
+if p(v362^a) then '<tr class="mrc"><th class="mrc">Data de publicação</th><td class="mrc">',v362^a/ '</td></tr>' fi,
+
+if p(v310^a) then '<tr class="mrc"><th class="mrc">Periodicidade</th><td class="mrc">',v310^a , '</td></tr>',/fi,
+
+/* FIM 3xx */
+
+/* ISBN e ISSN */
+
+(if p(v20^a) then if occ=1 then '<tr class="mrc"><th class="mrc">ISBN</th><td class="mrc">',fi,
+    v20^a, '<br />'/fi/) , if p(v20) then '</td></tr>' fi, 
+
+(if p(v22^a) then if occ=1 then '<tr class="mrc"><th class="mrc">ISSN</th><td class="mrc">' fi,
+
+    v22^a, '<br />'/fi/) , if p(v22) then '</td></tr>' fi, 
+
+/* FIM ISBN e ISSN */	
+
+/* Série */
+	
+(if p(v490^a) then if occ=1 then '<tr class="mrc"><th class="mrc">Título da Série</th><td class="mrc">',fi,
+
+      v490^a, |; |v490^v, |. ISSN: |v490^x|.|,'<br />'/fi/) if p(v490^a) then '</td></tr>' fi,
+	  
+/* FIM Série */	  
+
+/* URL */
+
+(if s(v856^z,v856^u,v856^q)<>'' then if occ=1 then '<tr class="mrc"><th class="mrc">Endereço eletrônico</th><td class="mrc">' fi,, v856^z,'<a href="'v856^u'" target="_blank" class="pftLink" title="Clique para abrir o endereço eletrônico em nova janela">'v856^u+|<br/>|,'</a>' if p(v856^q) then 'Tipo: ' v856^q fi, fi,/),  if s(v856^z,v856^u,v856^q)<>'' then '</td></tr>' fi,
+
+/* FIM URL */
+
+/* Notas */
+
+(if p(v500^a) then '<tr class="mrc"><th class="mrc">Nota geral</th><td class="mrc">',,v500^a+|;  |,,'<br />'/fi/), if p(v500) then '</td></tr>' fi, 
+
+(if p(v502^a) then if occ=1 then '<tr class="mrc"><th class="mrc">Nota de dissertação ou tese</th><td class="mrc">',fi,,v502^a+|;  |,,'<br />'/fi/), if p(v502) then '</td></tr>' fi, 
+
+(if p(v504^a) then if occ=1 then '<tr class="mrc"><th class="mrc">Nota de bibliografia</th><td class="mrc">' fi,,v504^a+|;  |, V504^b| refs.  |,,'<br />'/fi/), if p(v504) then '</td></tr>' fi, 
+
+(if p(v505^a) then if occ=1 then '<tr class="mrc"><th class="mrc">Nota de conteúdo</th><td class="mrc">' fi,,v505^a+|;  | ,'<br />'/fi/), if p(v505) then '</td></tr>' fi, 
+
+(if p(v520^a) then if occ=1 then '<tr class="mrc"><th class="mrc">Resumo</th><td class="mrc">' fi,v520^a'<br />'/fi/),, if p(v520) then '</td></tr>' fi, 
+
+(if p(v533^a) then if occ=1 then '<tr class="mrc"><th class="mrc">Nota de reprodução</th><td class="mrc">',fi,v533^a| |, v533^c| |,  
+
+    v533^b| |, v533^d| |, v533^e| |, v533^f| |, v533^m| |, v533^n| |,,'<br />'/fi/),  , if p(v533) then '</td></tr>' fi, 
+
+(if p(v534^a) then  if occ=1 then '<tr class="mrc"><th class="mrc">Nota de versão original</th><td class="mrc">',fi,,v534^a| |, v534^t| |, 
+
+    v534^b| |,v534^d| |, v534^c| |, v534^e| |, v534^p| |,,'<br />'/fi/), , if p(v534) then '</td></tr>' fi, 
+
+(if p(v538^a) then if occ=1 then '<tr class="mrc"><th class="mrc">Nota de detalhes do sistema</th><td class="mrc">',fi,,v538^a+|;  |  ,'<br />'/fi/), if p(v538) then '</td></tr>' fi, 
+
+(if p(v546^a) then if occ=1 then '<tr class="mrc"><th class="mrc">Nota de idioma</th><td class="mrc">',fi,,|; |+v546^a| |, v546^b,'<br />'/fi/) , if p(v546) then '</td></tr>' fi, 
+
+/* FIM Notas */	
+	
+/* Assuntos */
+
+,if s(v600^a,v610^a,v611^a,v630^a,v650^a,v651^a,v653^a)<>'' then '<tr class="mrc"><th class="mrc">Assuntos</th><td class="mrc">'
+
+if v600*4<>'' then (v600^a, | |v600^d,  | |v600^t, | |v600^u,|  :  |v600^x,  |  :  |v600^z, |  :  |v600^y,  |  :  |v600^v,,'<br />'/)fi,
+if v610*4<>'' then (v610^a, | |v610^b,  | |v610^e,  | |v610^t,  | |v610^u,|  :  |v610^x,  |  :  |v610^z,  |  :  |v610^y,   |  :  |v610^v,,'<br />'/)fi,
+if v611*4<>'' then (v611^a, | |v611^n,   | |v611^d,  | |v611^c,  | |v611^e,   |  :  |v611^x,  |  :  |v611^z, |  :  |v611^y,   |  :  |v611^v,,'<br />'/)fi,
+if v630*4<>'' then (v630^a,  | |v630^n, | |v630^p, |  :  |v630^x, |  :  |v630^z,  |  :  |v630^y,   |  :  |v630^v,,'<br />'/)fi,
+if v650*4<>'' then (v650^a,  | - |v650^e,  | - |v650^x, | - |v650^z,  | - |v650^y,   | - |v650^v,'<br />'/)fi,
+if v651*4<>'' then (v651^a, |  :  |v651^x,  |  :  |v651^z,  |  :  |v651^y,   |  :  |v651^v,'<br />'/)fi,
+if v653*4<>'' then (v653^a,,'<br />'/)fi,
+
+if s(v600^a,v610^a,v611^a,v630^a,v650^a,v651^a,v653^a)<>'' then '</td></tr>' fi,fi,
+
+
+/* FIM Assuntos */
+
+/* Autores adicionais 7xx */
+
+if s(v700^a,v710^a,v711^a)<>'' then '<tr class="mrc"><th class="mrc">Autores adicionais </th><td class="mrc">'
+
+
+		if p(v700^a) then (v700^a if p(v700^d) then ' (' v700^d ')' fi,'<br />'/)fi,
+		if p(v710^a) then (v710^a if p(v710^b) then '. 'v710^b fi, '<br />'/)fi,
+		if p(v711^a) then (v711^a, if s(v711^d,v711^c)<>'' then ' ('v711^d,| : |v711^c')'fi,  '<br />'/)fi,
+
+
+ fi, if s(v700^a,v710^a,v711^a)<>'' then ,'</td></tr>' fi,
+
+/* FIM Autores adicionais 7xx */
+
+/* Analíticas 773 */
+
+
+
+/* FIM Analíticas 773 */
+
+/* Itens na copies */
+
+
+
+/* FIM Itens na copies */
+
+'</table>
+
+</div>'	
+
+'</div>'
+
+fi
+
+if v3005='d' then 'Esta obra não existe mais em nosso acervo.' fi

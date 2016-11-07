@@ -1,0 +1,14 @@
+Número de controle|1|CN_|
+Nome pessoal (x00)|100|CP_|
+Entidade (x10)|110|CE_|
+Evento (x11)|111|CV_|
+Título uniforme (x30)|130|CT_|
+Período cronológico (x48)|148|CR_|
+Assunto tópico (x50)|150|CM_|
+Assunto nome geográfico (x51)|151|CG_|
+Termo de gênero/forma (x55)|155|GF_|
+Subdivisão geral (x80)|180|ST_
+Subdivisão geográfica (x81)|181|SG_|
+Subdivisão cronológica (x82)|182|SC_|
+Subdivisão de forma (x85)|185|SF_|
+Por palavra em todos os campos|900|TW_|

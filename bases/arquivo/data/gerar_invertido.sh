@@ -1,0 +1,1 @@
+mx arquivo fst=@arquivo.fst stw=@ uctab=isisuc.tab actab=isisac.tab fullinv=arquivo -all now tell=10

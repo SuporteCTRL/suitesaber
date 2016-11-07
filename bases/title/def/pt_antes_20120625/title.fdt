@@ -1,0 +1,81 @@
+F|1|Nome da base|0|0|||X|||||||||0||
+F|3|Código local|0|0|||X|||||||||0||
+F|5|Tipo de Literatura|0|0|||S||1|P|05.tab|||||0|
+F|6|Nível de tratamento|0|0|||S||1|P|06.tab|||||0||
+F|10|Código do centro|0|0|||X|||||||||0||
+F|20|Código nacional|0|0|||X|||||||||0||
+F|30|Número de registro|0|0|||X|||||||||0||
+F|37|Número SECS|0|0|||X|||||||||0||
+F|40|Sistemas relacionados|0|0|||X|||||||||0||
+F|50|Sistema relacionado|0|0|||X|||||||||0||
+F|99|ID(?)|0|0|||X|||||||||0||
+F|100|Título da publicação	|0|0|||X|||||||||0||
+F|110|Subtítulo|0|0|||X|||||||||0||
+F|120|Seção ou parte|0|0|||X|||||||||0||
+F|130|Título da parte|0|0|||X|||||||||0||
+F|140|Responsabilidade|0|0|||X|||||||||0||
+F|150|Título Abrev. ISSN|0|0|||X|||||||||0||
+F|160|TítuloAbrev. out. Bases|0|0|||X|||||||||0||
+F|230|Título paralelo|0|0|||X|||||||||0||
+F|235|Título abreviado paralelo|0|0|||X|||||||||0||
+F|240|Outras formas do título|0|0|||X|||||||||0||
+F|301|Data inicial|0|0|||X|||||||||0||
+F|302|Volume inicial|0|0|||X|||||||||0||
+F|303|Número inicial|0|0|||X|||||||||0||
+F|304|Data final|0|0|||X|||||||||0||
+F|305|Volume final|0|0|||X|||||||||0||
+F|306|Número final|0|0|||X|||||||||0||
+F|310|País|0|0|||X|||||||||0||
+F|320|Estado|0|0|||X|||||||||0||
+F|330|Nível de publicação|0|0|||X|||||||||0||
+F|340|Alfabeto do título|0|0|||X|||||||||0||
+F|350|Idiomas do texto|0|0|||X|||||||||0||
+F|360|Idiomas do resumo|0|0|||X|||||||||0||
+F|380|Freqüência|0|0|||X|||||||||0||
+F|400|ISSN|0|0|||X|||||||||0||
+F|410|CODEN|0|0|||X|||||||||0||
+F|420|Código MEDLINE|0|0|||X|||||||||0||
+F|430|Classificação|0|0|||X|||||||||0||
+F|435|Área Temática|0|0|||X|||||||||0||
+F|436|Especialidade BVS|0|0|||X|||||||||0||
+F|440|Descritores ASTILL DeCS|0|0|||X|||||||||0||
+F|445|Usuário BVS|0|0|||X|||||||||0||
+F|450|Cobertura de indexação|0|0|||X|||||||||0||
+F|460|Forma de obtenção|0|0|||X|||||||||0||
+F|470|Prioridade de Aquisição|0|0|||X|||||||||0||
+F|480|Editor|0|0|||X|||||||||0||
+F|490|Cidade|0|0|||X|||||||||0||
+F|500|Ano e Inicio da Indexação|0|0|||X|||||||||0||
+F|510|Tem edição em outro idioma|0|0|||X|||||||||0||
+F|520|é edição em outro idioma de|0|0|||X|||||||||0||
+F|530|Tem subsérie|0|0|||X|||||||||0||
+F|540|é subsérie de|0|0|||X|||||||||0||
+F|550|Tem suplemento ou inserção|0|0|||X|||||||||0||
+F|560|é suplemento ou inserção de|0|0|||X|||||||||0||
+F|600|?|0|0|||X|||||||||0||
+F|610|Continuação de|0|0|||X|||||||||0||
+F|620|Continuação parcial de|0|0|||X|||||||||0||
+F|650|Absorveu|0|0|||X|||||||||0||
+F|660|Absorveu em parte|0|0|||X|||||||||0||
+F|670|Formado pela subdivisão de|0|0|||X|||||||||0||
+F|680|Fusão de, com|0|0|||X|||||||||0||
+F|710|Continuado por|0|0|||X|||||||||0||
+F|720|Continuado em parte por|0|0|||X|||||||||0||
+F|750|Absorvido por|0|0|||X|||||||||0||
+F|760|Absorvido em parte por|0|0|||X|||||||||0||
+F|770|Subdividido em|0|0|||X|||||||||0||
+F|780|Fundiu-se com|0|0|||X|||||||||0||
+F|790|Para formar|0|0|||X|||||||||0||
+F|800|Tipo de obtenção|0|0|||X|||||||||0||
+F|810|Deixou de ser LILACS|0|0|||X|||||||||0||
+F|820|Deixou de ser indexado|0|0|||X|||||||||0||
+F|830|?|0|0|||X|||||||||0||
+F|840|SERLINE(Não metodologia)|0|0|||X|||||||||0||
+F|900|Notas|0|0|||X|||||||||0||
+F|910|Notas BVS|0|0|||X|||||||||0||
+F|920|Centro indexador|0|0|||X|||||||||0||
+F|930|Código do Editor|0|0|||X|||||||||0||
+F|940|Data da Criação do Registro|0|0|||X|||||||||0||
+F|941|Data de modificação|0|0|||X|||||||||0||
+F|950|Documentalista|0|0|||X|||||||||0||
+F|951|Documentalista (modificação)|0|0|||X|||||||||0||

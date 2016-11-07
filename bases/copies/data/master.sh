@@ -1,0 +1,1 @@
+../../../cgi-bin/mx iso=copies.iso fst=@loan.fst create=loanobjects -all now tell=100

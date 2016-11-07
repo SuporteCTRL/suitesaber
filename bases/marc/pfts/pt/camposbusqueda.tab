@@ -1,0 +1,40 @@
+Líder|3005|LDR_|
+Data(FIX)|8|FIX0_|
+P6(FIX)|8|FIX6_|
+P7(FIX)|8|FIX7_|
+P11(FIX)|8|FIX11_|
+P15(FIX)|8|FIX15_|
+P18(FIX)|8|FIX18_|
+P22(FIX)|8|FIX22_|
+P23(FIX)|8|FIX23_|
+P24(FIX)|8|FIX24_|
+P28(FIX)|8|FIX28_|
+P29(FIX)|8|FIX29_|
+P30(FIX)|8|FIX30_|
+P31(FIX)|8|FIX31_|
+P32(FIX)|8|FIX32_|
+P33(FIX)|8|FIX33_|
+P34(FIX)|8|FIX34_|
+P35(FIX)|8|FIX35_|
+P38(FIX)|8|FIX38_|
+P39(FIX)|8|FIX39_|
+Palavra|999|TW_|
+Palavra do título|999|TT_|
+Número de classificação|50,82|ST_|
+Número de chamada|90|CH_|
+Número de controle|1|CN_|
+Número de tombo|949|IN_|
+ISBN/ISSN|20,22|IS_|
+Autor pessoal|100|AU_|
+Autor institucional|110|AI_|
+Nome de evento|111|CF_|
+Título|245|TI_|
+Título de série|490|MS_|
+Assunto (Tópico)|650|MA_|
+Assunto (Nome geográfico)|651|DG_|
+Assunto (Gênero/Forma)|655|GF_|
+Editor/Publicador|260|ED_|
+Lugar de publicação|260|PA_|
+Catalogador|280|OP_|
+Data de inclusão|280|DOP_|
+Tipo de aquisição|949|AQ_|

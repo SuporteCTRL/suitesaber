@@ -1,0 +1,51 @@
+[FILE_LOCATION]
+
+FILE DATABASE.*=%path_database%arquivo/data/arquivo.*
+FILE DATABASE.XML=%path_database%arquivo/pfts/lilXML.pft
+FILE standard.pft=%path_database%arquivo/pfts/%lang%/detalhado.pft
+FILE descritores.pft=%path_database%arquivo/pfts/%lang%/descritores.pft
+FILE BOOKMARK.PFT=%path_database%arquivo/pfts/%lang%/bookmark.pft
+FILE DBLIL_LINK.PFT=%path_database%arquivo/pfts/%lang%/dblil_link.pft
+
+[INDEX_DEFINITION]
+
+INDEX Se=^1Setor^2Setor^3Setor^4Setor^xSE ^uSE_^yDATABASE^mSE_
+INDEX Mh=^1Documento/Assunto^2Documento/Assunto^3Documento/Assunto^4Documento/Assunto^xMH ^uMH_^yDATABASE^mMH_
+INDEX Ti=^1Título^2Título^3Título^4Título^xTI ^uTI_^yDATABASE^mTI_
+INDEX Au=^1Autor^2Autor^3Autor^4Autor^xAU ^uAU_^yDATABASE^mAU_
+INDEX De=^1Descrição^2Descrição^3Descrição^4Descrição^xDE ^uDE_^yDATABASE^mDE_
+INDEX Ai=^1Nome/Instituição^2Nome/Instituição^3Nome/Instituição^4Nome/Instituição^xAI ^uAI_^yDATABASE^mAI_
+INDEX Vl=^1Volume^2Volume^3Volume^4Volume^xVL ^uVL_^yDATABASE^mVL_
+INDEX Da=^1Data^2Data^3Data^4Data^xDA ^uDA_^yDATABASE^mDA_
+INDEX Id=^1Número^2Número^3Número^4Número^xID ^uID_^yDATABASE^mID_
+INDEX Ad=^1Ano descarte^2Ano descarte^3Ano descarte^4Ano descarte^xAD ^uAD_^yDATABASE^mAD_
+INDEX Em=^1Empréstimo^2Empréstimo^3Empréstimo^4Empréstimo^xEM v^yDATABASE^mEM_
+INDEX Ps=^1Observações^2Observações^3Observações^4Observações^xPS ^uPS_^yDATABASE^mPS_
+INDEX Ce=^1Arquivo Central: Estante^2Arquivo Central: Estante^3Arquivo Central: Estante^4Arquivo Central: Estante^xCE ^uCE_^yDATABASE^mCE_
+INDEX Cp=^1Arquivo Central: Prateleira^2Arquivo Central: Prateleira^3Arquivo Central: Prateleira^4Arquivo Central: Prateleira^xCP ^uCP_^yDATABASE^mCP_
+INDEX As=^1Arquivo Setorial^2Arquivo Setorial^3Arquivo Setorial^4Arquivo Setorial^xAS ^uAS_^yDATABASE^mAS_
+INDEX Bi=^1Biblioteca: Classificação^2Biblioteca: Classificação^3Biblioteca: Classificação^4Biblioteca: Classificação^xBI ^uBI_^yDATABASE^mBI_
+INDEX Im=^1Imagem^2Imagem^3Imagem^4Imagem^xIM ^uIM_^yDATABASE^mIM_
+INDEX Ax=^1Anexo^2Anexo^3Anexo^4Anexo^xAX ^uAX_^yDATABASE^mAX_
+INDEX Tw=^1Todos os campos^2Todos os campos^3Todos os campos^4Todos os campos^d*^xTW ^uTW_^yDATABASE^mTW_
+
+[APPLY_GIZMO]
+
+
+[FORMAT_NAME]
+
+FORMAT standard.pft=^1Padrão^2Padrão^3Padrão^4Padrão
+FORMAT DEFAULT=standard.pft
+
+[HELP_FORM]
+
+HELP FORM=help_form_lilacs.htm
+NOTE FORM F=note_form_lilacs.htm
+
+[PREFERENCES]
+
+AVAILABLE FORMS=F,A
+SEND RESULT BY EMAIL=OFF
+NAVIGATION BAR=ON
+DOCUMENTS PER PAGE=20
+FEATURES=XML

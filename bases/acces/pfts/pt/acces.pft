@@ -1,0 +1,22 @@
+'<table>'
+'<tr>'
+'<th>Mfn</th>'
+'<td>'f(mfn,1,0)'</td>'
+'</tr>'
+
+'<tr>'
+'<th>Nome de usuário</th>'
+'<td>'v10'</td>'
+'</tr>'
+
+'<tr>'
+'<th>Login</th>'
+'<td>'v20'</td>'
+'</tr>'
+
+'<tr>'
+'<th>Perfil</th>'
+'<td>'(|<br>|+v40^a,| (|v40^b|)|)'</td>'
+'</tr>'
+'</table>'
+

@@ -1,0 +1,110 @@
+'<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/bases/fdrh/css/estilo.css" />
+</head>
+<div id="wrap">
+<table class="mrc" cellpadding="3">'
+'<tr class="mrc"><th class="mrc narrow">MFN</th><td class="mrc">'mfn(1)'</td></tr>' 
+if p(v3005) or p(v3006) or p(v3007) or p(v3017) or p(v3018) then '<tr class="mrc"><th class="mrc narrow">LDR</th><td class="mrc">'v3005,v3006,v3007,v3017,v3018'</td>' fi,/
+if p(v1) then '<tr class="mrc"><th class="mrc narrow">1</th><td class="mrc">'v1+|<br />|,'</td></tr>' fi/
+if p(v3) then '<tr class="mrc"><th class="mrc narrow">3</th><td class="mrc">'v3+|<br />|,'</td></tr>' fi/
+if p(v5) then '<tr class="mrc"><th class="mrc narrow">5</th><td class="mrc">'v5+|<br />|,'</td></tr>' fi/
+if p(v8) then '<tr class="mrc"><th class="mrc narrow">8</th><td class="mrc">'v8+|<br />|,'</td></tr>' fi/
+if p(v20) then '<tr class="mrc"><th class="mrc narrow">20</th><td class="mrc">'v20+|<br />|,'</td></tr>' fi/
+if p(v22) then '<tr class="mrc"><th class="mrc narrow">22</th><td class="mrc">'v22+|<br />|,'</td></tr>' fi/
+if p(v24) then '<tr class="mrc"><th class="mrc narrow">24</th><td class="mrc">'v24+|<br />|,'</td></tr>' fi/
+if p(v35) then '<tr class="mrc"><th class="mrc narrow">35</th><td class="mrc">'v35+|<br />|,'</td></tr>' fi/
+if p(v40) then '<tr class="mrc"><th class="mrc narrow">40</th><td class="mrc">'v40+|<br />|,'</td></tr>' fi/
+if p(v43) then '<tr class="mrc"><th class="mrc narrow">43</th><td class="mrc">'v43+|<br />|,'</td></tr>' fi/
+if p(v45) then '<tr class="mrc"><th class="mrc narrow">45</th><td class="mrc">'v45+|<br />|,'</td></tr>' fi/
+if p(v46) then '<tr class="mrc"><th class="mrc narrow">46</th><td class="mrc">'v46+|<br />|,'</td></tr>' fi/
+if p(v80) then '<tr class="mrc"><th class="mrc narrow">80</th><td class="mrc">'v80+|<br />|,'</td></tr>' fi/
+if p(v100) then '<tr class="mrc"><th class="mrc narrow">100</th><td class="mrc">'v100+|<br />|,'</td></tr>' fi/
+if p(v110) then '<tr class="mrc"><th class="mrc narrow">110</th><td class="mrc">'v110+|<br />|,'</td></tr>' fi/
+if p(v111) then '<tr class="mrc"><th class="mrc narrow">111</th><td class="mrc">'v111+|<br />|,'</td></tr>' fi/
+if p(v130) then '<tr class="mrc"><th class="mrc narrow">130</th><td class="mrc">'v130+|<br />|,'</td></tr>' fi/
+if p(v148) then '<tr class="mrc"><th class="mrc narrow">148</th><td class="mrc">'v148+|<br />|,'</td></tr>' fi/
+if p(v150) then '<tr class="mrc"><th class="mrc narrow">150</th><td class="mrc">'v150+|<br />|,'</td></tr>' fi/
+if p(v151) then '<tr class="mrc"><th class="mrc narrow">151</th><td class="mrc">'v151+|<br />|,'</td></tr>' fi/
+if p(v155) then '<tr class="mrc"><th class="mrc narrow">155</th><td class="mrc">'v155+|<br />|,'</td></tr>' fi/
+if p(v180) then '<tr class="mrc"><th class="mrc narrow">180</th><td class="mrc">'v180+|<br />|,'</td></tr>' fi/
+if p(v181) then '<tr class="mrc"><th class="mrc narrow">181</th><td class="mrc">'v181+|<br />|,'</td></tr>' fi/
+if p(v182) then '<tr class="mrc"><th class="mrc narrow">182</th><td class="mrc">'v182+|<br />|,'</td></tr>' fi/
+if p(v185) then '<tr class="mrc"><th class="mrc narrow">185</th><td class="mrc">'v185+|<br />|,'</td></tr>' fi/
+if p(v260) then '<tr class="mrc"><th class="mrc narrow">260</th><td class="mrc">'v260+|<br />|,'</td></tr>' fi/
+if p(v336) then '<tr class="mrc"><th class="mrc narrow">336</th><td class="mrc">'v336+|<br />|,'</td></tr>' fi/
+if p(v360) then '<tr class="mrc"><th class="mrc narrow">360</th><td class="mrc">'v360+|<br />|,'</td></tr>' fi/
+if p(v370) then '<tr class="mrc"><th class="mrc narrow">370</th><td class="mrc">'v370+|<br />|,'</td></tr>' fi/
+if p(v371) then '<tr class="mrc"><th class="mrc narrow">371</th><td class="mrc">'v371+|<br />|,'</td></tr>' fi/
+if p(v372) then '<tr class="mrc"><th class="mrc narrow">372</th><td class="mrc">'v372+|<br />|,'</td></tr>' fi/
+if p(v373) then '<tr class="mrc"><th class="mrc narrow">373</th><td class="mrc">'v373+|<br />|,'</td></tr>' fi/
+if p(v374) then '<tr class="mrc"><th class="mrc narrow">374</th><td class="mrc">'v374+|<br />|,'</td></tr>' fi/
+if p(v375) then '<tr class="mrc"><th class="mrc narrow">375</th><td class="mrc">'v375+|<br />|,'</td></tr>' fi/
+if p(v376) then '<tr class="mrc"><th class="mrc narrow">376</th><td class="mrc">'v376+|<br />|,'</td></tr>' fi/
+if p(v377) then '<tr class="mrc"><th class="mrc narrow">377</th><td class="mrc">'v377+|<br />|,'</td></tr>' fi/
+if p(v380) then '<tr class="mrc"><th class="mrc narrow">380</th><td class="mrc">'v380+|<br />|,'</td></tr>' fi/
+if p(v381) then '<tr class="mrc"><th class="mrc narrow">381</th><td class="mrc">'v381+|<br />|,'</td></tr>' fi/
+if p(v382) then '<tr class="mrc"><th class="mrc narrow">382</th><td class="mrc">'v382+|<br />|,'</td></tr>' fi/
+if p(v383) then '<tr class="mrc"><th class="mrc narrow">383</th><td class="mrc">'v383+|<br />|,'</td></tr>' fi/
+if p(v384) then '<tr class="mrc"><th class="mrc narrow">384</th><td class="mrc">'v384+|<br />|,'</td></tr>' fi/
+if p(v400) then '<tr class="mrc"><th class="mrc narrow">400</th><td class="mrc">'v400+|<br />|,'</td></tr>' fi/
+if p(v410) then '<tr class="mrc"><th class="mrc narrow">410</th><td class="mrc">'v410+|<br />|,'</td></tr>' fi/
+if p(v411) then '<tr class="mrc"><th class="mrc narrow">411</th><td class="mrc">'v411+|<br />|,'</td></tr>' fi/
+if p(v430) then '<tr class="mrc"><th class="mrc narrow">430</th><td class="mrc">'v430+|<br />|,'</td></tr>' fi/
+if p(v448) then '<tr class="mrc"><th class="mrc narrow">448</th><td class="mrc">'v448+|<br />|,'</td></tr>' fi/
+if p(v450) then '<tr class="mrc"><th class="mrc narrow">450</th><td class="mrc">'v450+|<br />|,'</td></tr>' fi/
+if p(v451) then '<tr class="mrc"><th class="mrc narrow">451</th><td class="mrc">'v451+|<br />|,'</td></tr>' fi/
+if p(v455) then '<tr class="mrc"><th class="mrc narrow">455</th><td class="mrc">'v455+|<br />|,'</td></tr>' fi/
+if p(v480) then '<tr class="mrc"><th class="mrc narrow">480</th><td class="mrc">'v480+|<br />|,'</td></tr>' fi/
+if p(v481) then '<tr class="mrc"><th class="mrc narrow">481</th><td class="mrc">'v481+|<br />|,'</td></tr>' fi/
+if p(v482) then '<tr class="mrc"><th class="mrc narrow">482</th><td class="mrc">'v482+|<br />|,'</td></tr>' fi/
+if p(v485) then '<tr class="mrc"><th class="mrc narrow">485</th><td class="mrc">'v485+|<br />|,'</td></tr>' fi/
+if p(v500) then '<tr class="mrc"><th class="mrc narrow">500</th><td class="mrc">'v500+|<br />|,'</td></tr>' fi/
+if p(v510) then '<tr class="mrc"><th class="mrc narrow">510</th><td class="mrc">'v510+|<br />|,'</td></tr>' fi/
+if p(v511) then '<tr class="mrc"><th class="mrc narrow">511</th><td class="mrc">'v511+|<br />|,'</td></tr>' fi/
+if p(v530) then '<tr class="mrc"><th class="mrc narrow">530</th><td class="mrc">'v530+|<br />|,'</td></tr>' fi/
+if p(v548) then '<tr class="mrc"><th class="mrc narrow">548</th><td class="mrc">'v548+|<br />|,'</td></tr>' fi/
+if p(v550) then '<tr class="mrc"><th class="mrc narrow">550</th><td class="mrc">'v550+|<br />|,'</td></tr>' fi/
+if p(v551) then '<tr class="mrc"><th class="mrc narrow">551</th><td class="mrc">'v551+|<br />|,'</td></tr>' fi/
+if p(v555) then '<tr class="mrc"><th class="mrc narrow">555</th><td class="mrc">'v555+|<br />|,'</td></tr>' fi/
+if p(v580) then '<tr class="mrc"><th class="mrc narrow">580</th><td class="mrc">'v580+|<br />|,'</td></tr>' fi/
+if p(v581) then '<tr class="mrc"><th class="mrc narrow">581</th><td class="mrc">'v581+|<br />|,'</td></tr>' fi/
+if p(v582) then '<tr class="mrc"><th class="mrc narrow">582</th><td class="mrc">'v582+|<br />|,'</td></tr>' fi/
+if p(v585) then '<tr class="mrc"><th class="mrc narrow">585</th><td class="mrc">'v585+|<br />|,'</td></tr>' fi/
+if p(v640) then '<tr class="mrc"><th class="mrc narrow">640</th><td class="mrc">'v640+|<br />|,'</td></tr>' fi/
+if p(v641) then '<tr class="mrc"><th class="mrc narrow">641</th><td class="mrc">'v641+|<br />|,'</td></tr>' fi/
+if p(v642) then '<tr class="mrc"><th class="mrc narrow">642</th><td class="mrc">'v642+|<br />|,'</td></tr>' fi/
+if p(v643) then '<tr class="mrc"><th class="mrc narrow">643</th><td class="mrc">'v643+|<br />|,'</td></tr>' fi/
+if p(v644) then '<tr class="mrc"><th class="mrc narrow">644</th><td class="mrc">'v644+|<br />|,'</td></tr>' fi/
+if p(v645) then '<tr class="mrc"><th class="mrc narrow">645</th><td class="mrc">'v645+|<br />|,'</td></tr>' fi/
+if p(v646) then '<tr class="mrc"><th class="mrc narrow">646</th><td class="mrc">'v646+|<br />|,'</td></tr>' fi/
+if p(v663) then '<tr class="mrc"><th class="mrc narrow">663</th><td class="mrc">'v663+|<br />|,'</td></tr>' fi/
+if p(v664) then '<tr class="mrc"><th class="mrc narrow">664</th><td class="mrc">'v664+|<br />|,'</td></tr>' fi/
+if p(v665) then '<tr class="mrc"><th class="mrc narrow">665</th><td class="mrc">'v665+|<br />|,'</td></tr>' fi/
+if p(v666) then '<tr class="mrc"><th class="mrc narrow">666</th><td class="mrc">'v666+|<br />|,'</td></tr>' fi/
+if p(v667) then '<tr class="mrc"><th class="mrc narrow">667</th><td class="mrc">'v667+|<br />|,'</td></tr>' fi/
+if p(v670) then '<tr class="mrc"><th class="mrc narrow">670</th><td class="mrc">'v670+|<br />|,'</td></tr>' fi/
+if p(v675) then '<tr class="mrc"><th class="mrc narrow">675</th><td class="mrc">'v675+|<br />|,'</td></tr>' fi/
+if p(v678) then '<tr class="mrc"><th class="mrc narrow">678</th><td class="mrc">'v678+|<br />|,'</td></tr>' fi/
+if p(v680) then '<tr class="mrc"><th class="mrc narrow">680</th><td class="mrc">'v680+|<br />|,'</td></tr>' fi/
+if p(v681) then '<tr class="mrc"><th class="mrc narrow">681</th><td class="mrc">'v681+|<br />|,'</td></tr>' fi/
+if p(v682) then '<tr class="mrc"><th class="mrc narrow">682</th><td class="mrc">'v682+|<br />|,'</td></tr>' fi/
+if p(v688) then '<tr class="mrc"><th class="mrc narrow">688</th><td class="mrc">'v688+|<br />|,'</td></tr>' fi/
+if p(v700) then '<tr class="mrc"><th class="mrc narrow">700</th><td class="mrc">'v700+|<br />|,'</td></tr>' fi/
+if p(v710) then '<tr class="mrc"><th class="mrc narrow">710</th><td class="mrc">'v710+|<br />|,'</td></tr>' fi/
+if p(v711) then '<tr class="mrc"><th class="mrc narrow">711</th><td class="mrc">'v711+|<br />|,'</td></tr>' fi/
+if p(v730) then '<tr class="mrc"><th class="mrc narrow">730</th><td class="mrc">'v730+|<br />|,'</td></tr>' fi/
+if p(v748) then '<tr class="mrc"><th class="mrc narrow">748</th><td class="mrc">'v748+|<br />|,'</td></tr>' fi/
+if p(v750) then '<tr class="mrc"><th class="mrc narrow">750</th><td class="mrc">'v750+|<br />|,'</td></tr>' fi/
+if p(v751) then '<tr class="mrc"><th class="mrc narrow">751</th><td class="mrc">'v751+|<br />|,'</td></tr>' fi/
+if p(v755) then '<tr class="mrc"><th class="mrc narrow">755</th><td class="mrc">'v755+|<br />|,'</td></tr>' fi/
+if p(v780) then '<tr class="mrc"><th class="mrc narrow">780</th><td class="mrc">'v780+|<br />|,'</td></tr>' fi/
+if p(v781) then '<tr class="mrc"><th class="mrc narrow">781</th><td class="mrc">'v781+|<br />|,'</td></tr>' fi/
+if p(v782) then '<tr class="mrc"><th class="mrc narrow">782</th><td class="mrc">'v782+|<br />|,'</td></tr>' fi/
+if p(v785) then '<tr class="mrc"><th class="mrc narrow">785</th><td class="mrc">'v785+|<br />|,'</td></tr>' fi/
+if p(v788) then '<tr class="mrc"><th class="mrc narrow">788</th><td class="mrc">'v788+|<br />|,'</td></tr>' fi/
+if p(v856) then '<tr class="mrc"><th class="mrc narrow">856</th><td class="mrc">'v856+|<br />|,'</td></tr>' fi/
+if p(v880) then '<tr class="mrc"><th class="mrc narrow">880</th><td class="mrc">'v880+|<br />|,'</td></tr>' fi/
+'</table>
+</div></body>
+</html>'

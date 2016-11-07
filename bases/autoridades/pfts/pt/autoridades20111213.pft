@@ -1,0 +1,493 @@
+'<head>
+<link rel="stylesheet" type="text/css" href="/bases/fdrh/css/estilo.css" />
+</head>'
+
+'<!-- Entradas autorizadas 1xx -->'
+
+if s(v100^a,v110^a,v111^a,v130^a,v148^a,v150^a,v151^a,v155^a,v180^x,v181^z,v182^y,v185^v)<>'' then
+'<p class="cabecalho" title="Entrada autorizada">'
+	v100^a, "  "v100^q, ", "v100^d, " &mdash; "v100^v," &mdash; "v100^x," &mdash; "v100^y," &mdash; "v100^z,
+	v110^a, ". "v110^b, ". "v110^c, "("v110^d,")", " &mdash; "v110^v," &mdash; "v110^x," &mdash; "v110^y," &mdash; "v110^z,
+	v111^a, " (" v111^n, " : " v111^d " : " v111^c ")",  " &mdash; "v111^v," &mdash; "v111^x," &mdash; "v111^y," &mdash; "v111^z,
+	v130^a, " &mdash; "v130^d," &mdash; "v130^f," &mdash; "v130^l," &mdash; "v130^p," &mdash; "v130^v," &mdash; "v130^x," &mdash; "v130^y," &mdash; "v130^z,
+	v148^a,
+	v150^a, " &mdash; "v150^b," &mdash; "v150^v," &mdash; "v150^x," &mdash; "v150^y," &mdash; "v150^z,
+	v151^a, " &mdash; "v151^v," &mdash; "v151^x," &mdash; "v151^y,
+	v155^a, " &mdash; "v155^v," &mdash; "v155^x," &mdash; "v155^y,
+	v180^x, " &mdash; "v180^v," &mdash; "v180^y," &mdash; "v180^z,
+	v181^z, " &mdash; "v181^v," &mdash; "v181^x," &mdash; "v181^y,
+	v182^y, " &mdash; "v182^v," &mdash; "v182^x," &mdash; "v182^z,
+	v185^v, " &mdash; "v185^x," &mdash; "v185^y," &mdash; "v185^z,
+
+'</p>'
+fi,
+(if s(v100^g,v110^g,v111^g,v130^g,)<>'' then
+'<p class="infoAdicional" title="Informações adicionais">'
+	v100^g, v110^g, v111^g, v130^g, 
+'</p>'
+fi,/)
+
+
+'<!-- FIM Entradas autorizadas 1xx -->'
+
+'<ul class="atr">'
+
+'<!-- Remissivas VER 4xx -->'
+
+(if p(v400) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v400^a, 
+		if p(v400^a) and p(v400^q) then '  ' fi,
+	v400^q, 
+		if s(v400^a,v400^q)<>'' and p(v400^d) then ',  ' fi,
+	v400^d, 
+		if s(v400^a,v400^q,v400^d)<>'' and s(v400^v,v400^x,v400^y,v400^z)<>'' then ' &mdash; ' fi,
+	v400^v,
+		if p(v400^v) and s(v400^x,v400^y,v400^z)<>'' then ' &mdash; ' fi,
+	v400^x,
+		if p(v400^x) and s(v400^y,v400^z)<>'' then ' &mdash; ' fi,
+	v400^y,
+		if p(v400^y) and p(v400^z) then ' &mdash; ' fi,
+	v400^z,
+'</li>' fi,/)
+
+(if p(v410) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v410^a,
+		if p(v410^a) and p(v410^b) then '. ' fi,
+	v410^b,
+		if s(v410^a,v410^b)<>'' and s(v410^c,v410^d,v410^n)<>'' then ' ' fi,
+
+	if s(v410^n,v410^d,v410^c,)<>'' then
+		'(' v410^n,
+				if p(v410^n) and p(v410^d) then ' : ' fi,
+			v410^d,
+				if s(v410^n,v410^d)<>'' and p(v410^c) then ' : ' fi,
+			v410^c, ')'
+	fi,
+		if s(v410^a,v410^b,v410^n,v410^d,v410^c)<>'' and s(v410^l,v410^g)<>'' then '. ' fi,
+	v410^l,
+		if s(v410^a,v410^b,v410^n,v410^d,v410^c,v410^l)<>'' and s(v410^g)<>'' then '. ' fi,
+	v410^g,
+		if s(v410^a,v410^b,v410^n,v410^d,v410^c,v410^l,v410^g)<>'' and s(v410^v,v410^x,v410^y,v410^z)<>'' then ' &mdash; ' fi,
+	v410^v,
+		if p(v410^v) and s(v410^x,v410^y,v410^z)<>'' then ' &mdash; ' fi,
+	v410^x,
+		if p(v410^x) and s(v410^y,v410^z)<>'' then ' &mdash; ' fi,
+	v410^y,
+		if p(v410^y) and p(v410^z) then ' &mdash; ' fi,
+	v410^z,
+'</li>' fi,/)
+
+(if p(v411) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v411^a,
+		if p(v411^a) and p(v411^e) then '. ' fi,
+	v411^e,
+		if s(v411^a,v411^e)<>'' and s(v411^c,v411^d,v411^n)<>'' then ' ' fi,
+
+	if s(v411^n,v411^d,v411^c,)<>'' then
+		'(' v411^n,
+				if p(v411^n) and p(v411^d) then ' : ' fi,
+			v411^d,
+				if s(v411^n,v411^d)<>'' and p(v411^c) then ' : ' fi,
+			v411^c, ')'
+	fi,
+		if s(v411^a,v411^e,v411^n,v411^d,v411^c)<>'' and s(v411^l,v411^g)<>'' then '. ' fi,
+	v411^l,
+		if s(v411^a,v411^e,v411^n,v411^d,v411^c,v411^l)<>'' and s(v411^g)<>'' then '. ' fi,
+	v411^g,
+		if s(v411^a,v411^e,v411^n,v411^d,v411^c,v411^l,v411^g)<>'' and s(v411^v,v411^x,v411^y,v411^z)<>'' then ' &mdash; ' fi,
+	v411^v,
+		if p(v411^v) and s(v411^x,v411^y,v411^z)<>'' then ' &mdash; ' fi,
+	v411^x,
+		if p(v411^x) and s(v411^y,v411^z)<>'' then ' &mdash; ' fi,
+	v411^y,
+		if p(v411^y) and p(v411^z) then ' &mdash; ' fi,
+	v411^z,
+'</li>' fi,/)
+
+(if p(v430) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v430^a,
+		if p(v430^a) and p(v430^d) then '. ' fi,
+	v430^d,
+		if s(v430^a,v430^d)<>'' and s(v430^g)<>'' then '. ' fi,
+	v430^g,
+		if s(v430^a,v430^d,v430^g)<>'' and s(v430^n)<>'' then '. ' fi,
+	v430^n,
+		if s(v430^a,v430^d,v430^g,v430^n)<>'' and s(v430^l)<>'' then '. ' fi,
+	v430^l,
+		if s(v430^a,v430^d,v430^g,v430^n,v430^l)<>'' and s(v430^v,v430^x,v430^y,v430^z)<>'' then ' &mdash; ' fi,
+	v430^v,
+		if p(v430^v) and s(v430^x,v430^y,v430^z)<>'' then ' &mdash; ' fi,
+	v430^x,
+		if p(v430^x) and s(v430^y,v430^z)<>'' then ' &mdash; ' fi,
+	v430^y,
+		if p(v430^y) and p(v430^z) then ' &mdash; ' fi,
+	v430^z,
+'</li>' fi,/)
+
+(if p(v448) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'v448^a'</li>' fi,/)
+
+(if p(v450) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v450^a,
+		if p(v450^a) and s(v450^b)<>'' then '. ' fi,
+	v450^b
+		if s(v450^a,v450^b)<>'' and s(v450^v,v450^x,v450^y,v450^z)<>'' then ' &mdash; ' fi,
+	v450^v,
+		if p(v450^v) and s(v450^x,v450^y,v450^z)<>'' then ' &mdash; ' fi,
+	v450^x,
+		if p(v450^x) and s(v450^y,v450^z)<>'' then ' &mdash; ' fi,
+	v450^y,
+		if p(v450^y) and p(v450^z) then ' &mdash; ' fi,
+	v450^z,
+'</li>' fi,/)
+
+(if p(v451) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v451^a
+		if p(v451^a) and s(v451^v,v451^x,v451^y)<>'' then ' &mdash; ' fi,
+	v451^v,
+		if p(v451^v) and s(v451^x,v451^y)<>'' then ' &mdash; ' fi,
+	v451^x,
+		if p(v451^x) and s(v451^y)<>'' then ' &mdash; ' fi,
+	v451^y,
+'</li>' fi,/)
+
+(if p(v455) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v455^a
+		if p(v455^a) and s(v455^v,v455^x,v455^y)<>'' then ' &mdash; ' fi,
+	v455^v,
+		if p(v455^v) and s(v455^x,v455^y)<>'' then ' &mdash; ' fi,
+	v455^x,
+		if p(v455^x) and s(v455^y)<>'' then ' &mdash; ' fi,
+	v455^y,
+'</li>' fi,/)
+
+(if p(v480) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v480^x,
+		if p(v480^x) and s(v480^v,v480^y,v480^z)<>'' then ' &mdash; ' fi,
+	v480^v,
+		if p(v480^v) and s(v480^y,v480^z)<>'' then ' &mdash; ' fi,
+	v480^y,
+		if p(v480^y) and p(v480^z) then ' &mdash; ' fi,
+	v480^z,
+'</li>' fi,/)
+
+(if p(v481) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v481^z,
+		if p(v481^z) and s(v481^v,v481^x,v481^y)<>'' then ' &mdash; ' fi,
+	v481^v,
+		if p(v481^v) and s(v481^x,v481^y)<>'' then ' &mdash; ' fi,
+	v481^x,
+		if p(v481^x) and p(v481^y) then ' &mdash; ' fi,
+	v481^y,
+'</li>' fi,/)
+
+(if p(v482) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v482^y,
+		if p(v482^y) and s(v482^v,v482^x,v482^z)<>'' then ' &mdash; ' fi,
+	v482^v,
+		if p(v482^v) and s(v482^x,v482^z)<>'' then ' &mdash; ' fi,
+	v482^x,
+		if p(v482^x) and p(v482^z) then ' &mdash; ' fi,
+	v482^z,
+'</li>' fi,/)
+
+(if p(v485) then '<li class="negativo" title="Variantes do termo (entradas não autorizadas)">'
+	v485^v,
+		if p(v485^v) and s(v485^x,v485^y,v485^z)<>'' then ' &mdash; ' fi,
+	v485^x,
+		if p(v485^x) and s(v485^y,v485^z)<>'' then ' &mdash; ' fi,
+	v485^y,
+		if p(v485^y) and p(v485^z) then ' &mdash; ' fi,
+	v485^z,
+
+'</li>' fi,/)
+
+'<!-- FIM Remissivas VER 4xx -->'
+
+'<!-- Remissivas VER TAMBÉM 5xx -->'
+
+(if p(v500) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v500^a, 
+		if p(v500^a) and s(v500^q)<>'' then '  ' fi,
+	v500^q, 
+		if s(v500^a,v500^q)<>'' and s(v500^d)<>'' then ',  ' fi,
+	v500^d, 
+		if s(v500^a,v500^q,v500^d)<>'' and s(v500^v,v500^x,v500^y,v500^z)<>'' then ' &mdash; ' fi,
+	v500^v,
+		if s(v500^v)<>'' and s(v500^x,v500^y,v500^z)<>'' then ' &mdash; ' fi,
+	v500^x,
+		if p(v500^x) and s(v500^y,v500^z)<>'' then ' &mdash; ' fi,
+	v500^y,
+		if p(v500^y) and s(v500^z)<>'' then ' &mdash; ' fi,
+	v500^z,
+'</li>' fi,/)
+
+(if p(v510) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v510^a,
+		if p(v510^a) and p(v510^b) then '. ' fi,
+	v510^b,
+		if s(v510^a,v510^b)<>'' and s(v510^c,v510^d,v510^n)<>'' then ' ' fi,
+
+	if s(v510^n,v510^d,v510^c,)<>'' then
+		'(' v510^n,
+				if p(v510^n) and p(v510^d) then ' : ' fi,
+			v510^d,
+				if s(v510^n,v510^d)<>'' and p(v510^c) then ' : ' fi,
+			v510^c, ')'
+	fi,
+		if s(v510^a,v510^b,v510^n,v510^d,v510^c)<>'' and s(v510^l,v510^g)<>'' then '. ' fi,
+	v510^l,
+		if s(v510^a,v510^b,v510^n,v510^d,v510^c,v510^l)<>'' and s(v510^g)<>'' then '. ' fi,
+	v510^g,
+		if s(v510^a,v510^b,v510^n,v510^d,v510^c,v510^l,v510^g)<>'' and s(v510^v,v510^x,v510^y,v510^z)<>'' then ' &mdash; ' fi,
+	v510^v,
+		if p(v510^v) and s(v510^x,v510^y,v510^z)<>'' then ' &mdash; ' fi,
+	v510^x,
+		if p(v510^x) and s(v510^y,v510^z)<>'' then ' &mdash; ' fi,
+	v510^y,
+		if p(v510^y) and p(v510^z) then ' &mdash; ' fi,
+	v510^z,
+'</li>' fi,/)
+
+(if p(v511) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v511^a,
+		if p(v511^a) and p(v511^e) then '. ' fi,
+	v511^e,
+		if s(v511^a,v511^e)<>'' and s(v511^c,v511^d,v511^n)<>'' then ' ' fi,
+
+	if s(v511^n,v511^d,v511^c,)<>'' then
+		'(' v511^n,
+				if p(v511^n) and p(v511^d) then ' : ' fi,
+			v511^d,
+				if s(v511^n,v511^d)<>'' and p(v511^c) then ' : ' fi,
+			v511^c, ')'
+	fi,
+		if s(v511^a,v511^e,v511^n,v511^d,v511^c)<>'' and s(v511^l,v511^g)<>'' then '. ' fi,
+	v511^l,
+		if s(v511^a,v511^e,v511^n,v511^d,v511^c,v511^l)<>'' and s(v511^g)<>'' then '. ' fi,
+	v511^g,
+		if s(v511^a,v511^e,v511^n,v511^d,v511^c,v511^l,v511^g)<>'' and s(v511^v,v511^x,v511^y,v511^z)<>'' then ' &mdash; ' fi,
+	v511^v,
+		if p(v511^v) and s(v511^x,v511^y,v511^z)<>'' then ' &mdash; ' fi,
+	v511^x,
+		if p(v511^x) and s(v511^y,v511^z)<>'' then ' &mdash; ' fi,
+	v511^y,
+		if p(v511^y) and p(v511^z) then ' &mdash; ' fi,
+	v511^z,
+'</li>' fi,/)
+
+(if p(v530) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v530^a,
+		if p(v530^a) and p(v530^d) then '. ' fi,
+	v530^d,
+		if s(v530^a,v530^d)<>'' and s(v530^g)<>'' then '. ' fi,
+	v530^g,
+		if s(v530^a,v530^d,v530^g)<>'' and s(v530^n)<>'' then '. ' fi,
+	v530^n,
+		if s(v530^a,v530^d,v530^g,v530^n)<>'' and s(v530^l)<>'' then '. ' fi,
+	v530^l,
+		if s(v530^a,v530^d,v530^g,v530^n,v530^l)<>'' and s(v530^v,v530^x,v530^y,v530^z)<>'' then ' &mdash; ' fi,
+	v530^v,
+		if p(v530^v) and s(v530^x,v530^y,v530^z)<>'' then ' &mdash; ' fi,
+	v530^x,
+		if p(v530^x) and s(v530^y,v530^z)<>'' then ' &mdash; ' fi,
+	v530^y,
+		if p(v530^y) and p(v530^z) then ' &mdash; ' fi,
+	v530^z,
+'</li>' fi,/)
+
+(if p(v548) then '<li class="verTambem" title="Termos relacionados (veja também)">'v548^a'</li>' fi,/)
+
+(if p(v550) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v550^a,
+		if p(v550^a) and s(v550^b)<>'' then '. ' fi,
+	v550^b
+		if s(v550^a,v550^b)<>'' and s(v550^v,v550^x,v550^y,v550^z)<>'' then ' &mdash; ' fi,
+	v550^v,
+		if p(v550^v) and s(v550^x,v550^y,v550^z)<>'' then ' &mdash; ' fi,
+	v550^x,
+		if p(v550^x) and s(v550^y,v550^z)<>'' then ' &mdash; ' fi,
+	v550^y,
+		if p(v550^y) and p(v550^z) then ' &mdash; ' fi,
+	v550^z,
+'</li>' fi,/)
+
+(if p(v551) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v551^a
+		if p(v551^a) and s(v551^v,v551^x,v551^y)<>'' then ' &mdash; ' fi,
+	v551^v,
+		if p(v551^v) and s(v551^x,v551^y)<>'' then ' &mdash; ' fi,
+	v551^x,
+		if p(v551^x) and s(v551^y)<>'' then ' &mdash; ' fi,
+	v551^y,
+'</li>' fi,/)
+
+(if p(v555) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v555^a
+		if p(v555^a) and s(v555^v,v555^x,v555^y)<>'' then ' &mdash; ' fi,
+	v555^v,
+		if p(v555^v) and s(v555^x,v555^y)<>'' then ' &mdash; ' fi,
+	v555^x,
+		if p(v555^x) and s(v555^y)<>'' then ' &mdash; ' fi,
+	v555^y,
+'</li>' fi,/)
+
+(if p(v580) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v580^x,
+		if p(v580^x) and s(v580^v,v580^y,v580^z)<>'' then ' &mdash; ' fi,
+	v580^v,
+		if p(v580^v) and s(v580^y,v580^z)<>'' then ' &mdash; ' fi,
+	v580^y,
+		if p(v580^y) and p(v580^z) then ' &mdash; ' fi,
+	v580^z,
+'</li>' fi,/)
+
+(if p(v581) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v581^z,
+		if p(v581^z) and s(v581^v,v581^x,v581^y)<>'' then ' &mdash; ' fi,
+	v581^v,
+		if p(v581^v) and s(v581^x,v581^y)<>'' then ' &mdash; ' fi,
+	v581^x,
+		if p(v581^x) and p(v581^y) then ' &mdash; ' fi,
+	v581^y,
+'</li>' fi,/)
+
+(if p(v582) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v582^y,
+		if p(v582^y) and s(v582^v,v582^x,v582^z)<>'' then ' &mdash; ' fi,
+	v582^v,
+		if p(v582^v) and s(v582^x,v582^z)<>'' then ' &mdash; ' fi,
+	v582^x,
+		if p(v582^x) and p(v582^z) then ' &mdash; ' fi,
+	v582^z,
+'</li>' fi,/)
+
+(if p(v585) then '<li class="verTambem" title="Termos relacionados (veja também)">'
+	v585^v,
+		if p(v585^v) and s(v585^x,v585^y,v585^z)<>'' then ' &mdash; ' fi,
+	v585^x,
+		if p(v585^x) and s(v585^y,v585^z)<>'' then ' &mdash; ' fi,
+	v585^y,
+		if p(v585^y) and p(v585^z) then ' &mdash; ' fi,
+	v585^z,
+'</li>' fi,/)
+
+'<!-- FIM Remissivas VER TAMBÉM 5xx -->'
+
+'<!-- Fontes positiva/negativa dos dados -->'
+
+if s(v670,v675)<>'' then
+	'<br /><span class="destaque">Fontes: </span><br /><br />'
+fi,
+
+(if p(v670) then '<li class="positivo" title="Fonte positiva dos dados">'
+	if p(v670^u) then '<a href="'v670^u'" title="'if p(v670^a) then v670^a else v670^u fi,'" target="_blank" class="pftLink">'if p(v670^a) then v670^a else v670^u fi,'</a>' fi,
+		if p(v670^u) and p(v670^b) then '<span class="destaque"> : </span>' v670^b, fi,
+	
+	if a(v670^u) and p(v670^a) then v670^a 
+		if p(v670^b) then '<span class="destaque"> : </span>' v670^b, fi,
+	fi,
+	if a(v670^a) and a(v670^u) then v670^b fi,
+'</li>' fi,/)
+
+(if p(v675) then '<li class="negativo" title="Fonte negativa dos dados">'v675^a'</li>' fi,/)
+
+'<!-- FIM Fontes positiva/negativa dos dados -->'
+
+'<!-- Notas -->'
+
+if s(v260,v360,v663,v664,v665,v666,v667,v678,v680,v688,v856)<>'' then
+	'<br /><span class="destaque">Notas: </span><br /><br />'
+fi,
+
+(if p(v260) then '<li class="nota" title="Nota remissiva explicativa VER (Assunto)">'
+	v260^a
+		if p(v260^a) and p(v260^i) then  '<span class="destaque"> : </span>' fi,
+	v260^i
+'</li>' fi,/)
+
+(if p(v360) then '<li class="nota" title="Nota remissiva explicativa VER TAMBÉM (Assunto)">'
+	v360^a
+		if p(v360^a) and p(v360^i) then  '<span class="destaque"> : </span>' fi,
+	v360^i
+'</li>' fi,/)
+
+(if p(v663) then '<li class="nota" title="Nota remissiva explicativa VER TAMBÉM (Nome)">'v663^a'</li>' fi,/)
+
+(if p(v664) then '<li class="nota" title="Nota remissiva explicativa VER (Nome)">'v664^a'</li>'fi,/)
+
+(if p(v665) then '<li class="nota" title="Nota remissiva histórica (Nome)">'v665^a'</li>'fi,/)
+
+(if p(v666) then '<li class="nota" title="Nota remissiva explicativa geral (Nome)">'v666^a'</li>'fi,/)
+
+(if p(v667) then '<li class="nota" title="Nota interna geral">'v667^a'</li>'fi,/)
+
+(if p(v678) then '<li class="nota" title="Dados biográficos ou históricos">'v678^a'</li>'fi,/)
+
+(if p(v680) then '<li class="nota" title="Nota geral pública">'v680^a'</li>'fi,/)
+
+(if p(v688) then '<li class="nota" title="Nota de história de aplicação">'v688^a'</li>'fi,/)
+
+(if p(v856) then '<li class="nota" title="Endereço eletrônico">'
+	if p(v856^u) then '<a href="'v856^u'" title="'if p(v856^z) then v856^z else v856^u fi,'" target="_blank" class="pftLink">'if p(v856^z) then v856^z else v856^u fi,'</a>' fi,
+'</li>' fi,/)
+
+'<!-- FIM Notas -->'
+
+'</ul>'
+
+'<!-- Tipo de autoridade -->'
+'<br />'
+
+'<dl class="ctrl">
+	<dt class="destaque">Tipo:</dt>
+		<dd>'
+			if v8*9.1='a' then 'Cabeçalho estabelecido de ' fi,
+			if v8*9.1='b' then 'Referência não rastreada de ' fi,
+			if v8*9.1='c' then 'Referência rastreada de ' fi,
+			if v8*9.1='d' then 'Subdivisão ' fi,
+			if v8*9.1='e' then 'Rótulo de nó de ' fi,
+			if v8*9.1='f' then 'Cabeçalho estabelecido/subdivisão de ' fi,
+			if v8*9.1='g' then 'Referência/subdivisão de ' fi,
+			if v8*9.1='-' then '[Não se tentou codificar]' fi,
+			if v8*9.1=' ' then '<span class="erro" title="Erro de preenchimento!">[Posição 9 do 008 não preenchida] </span>' fi,
+			if p(v100) then 'nome pessoal' fi,
+			if p(v110) then 'entidade' fi,
+			if p(v111) then 'evento' fi,
+			if p(v130) then 'título uniforme' fi,
+			if p(v148) then 'período cronológico' fi,
+			if p(v150) then 'assunto tópico' fi,
+			if p(v151) then 'assunto nome geográfico' fi,
+			if p(v155) then 'termo de gênero/forma' fi,
+			if p(v180) then 'geral' fi,
+			if p(v181) then 'geográfica' fi,
+			if p(v182) then 'cronológica' fi,
+			if p(v185) then 'de forma' fi,
+		'</dd>
+</dl>'
+'<!-- FIM Tipo de autoridade -->'
+
+'<!-- Dados de controle -->'
+if s(v1,v8,v980)<>'' then 
+'<dl class="ctrl">
+	<dt class="destaque">MFN:</dt> 
+		<dd>'mfn(6)'</dd>
+	<dt class="destaque">Número de controle:</dt>
+		<dd>'v1'</dd>
+	<dt class="destaque">Data de inclusão:</dt>
+		<dd>' v8*4.2"/",v8*2.2"/",v8*0.2, '</dd>'
+	if p(v980^d) then
+	'<dt class="destaque">Última alteração:</dt>
+		<dd>' v980[last]^d*6.2"/", v980[last]^d*4.2,"/" v980[last]^d*0.4, '</dd>'
+	fi,
+	if a(v980^d) and p(v5) then
+	'<dt class="destaque">Última alteração:</dt>
+		<dd>'v5*6.2,"/"v5*4.2,"/"v5*0.4,'</dd>'
+	fi,
+	if p(v980^o) then
+	'<dt class="destaque">Responsável:</dt>
+		<dd>' v980[last]^o '</dd>'
+	fi,
+'</dl>'
+fi,
+
+'<!-- FIM Dados de controle -->'

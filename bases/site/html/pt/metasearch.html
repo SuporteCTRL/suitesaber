@@ -1,0 +1,14 @@
+<h4>Pesquisa no Acervo</h4>
+
+	<form class="form-horizontal" name="searchForm" action="#" method="post" onsubmit="return(executeSearch());">
+
+	<input type="hidden" name="lang" value="pt"/><input type="hidden" name="engine" value="metaiah"/>
+	<input type="hidden" name="group" value="<?= $_REQUEST['id'] ?>"/>
+	<input type="hidden" name="view" value="<?= $def['RESULT'] ?>"/>
+
+		<div class="form-group">
+			<input type="text" class="form-control input-lg" placeholder="Entre uma ou mais palavras" name="expression" class="expression"/>
+			<button type="submit" class="btn btn-primary btn-lg" name="submit"><i class="fa fa-search"></i> </button>
+		</div>
+
+	</form>

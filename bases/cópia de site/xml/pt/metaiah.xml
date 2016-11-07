@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<define>
+  <sourceList>
+    <group label="Bases de dados da Instituição">
+      <item id="40-1" label="Base bibliográfica" href="/iah/?base=MARC&amp;lang=pt" base-search-url="http://localhost:9090/cgi-bin/wxis.exe/iah/scripts/?IsisScript=iah.xis&amp;lang=pt&amp;base=MARC&amp;nextAction=xml&amp;count=1" base-browse-url="http://localhost:9090/cgi-bin/wxis.exe/iah/scripts/?IsisScript=iah.xis&amp;lang=pt&amp;base=MARC&amp;nextAction=lnk"/>
+      <item id="40-4" label="Lilacs" href="/iah/?base=DBLIL&amp;lang=pt" base-search-url="http://localhost:9090/cgi-bin/wxis.exe/iah/scripts/?IsisScript=iah.xis&amp;lang=pt&amp;base=DBLIL&amp;nextAction=xml&amp;count=1" base-browse-url="http://localhost:9090/cgi-bin/wxis.exe/iah/scripts/?IsisScript=iah.xis&amp;lang=pt&amp;base=DBLIL&amp;nextAction=lnk"/>
+    </group>
+  </sourceList>
+  <search>
+    <item source="40-1" search-parameters="exprSearch="/>
+    <item source="40-4" search-parameters="exprSearch="/>
+  </search>
+</define>

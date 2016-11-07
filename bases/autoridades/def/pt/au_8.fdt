@@ -1,0 +1,24 @@
+M|8|Campo Fixo (008)|0|0||||||||||||1|
+S||00-05 Data de entrada|0|0|||X||6|||||||0|
+S||06-06 Subdivisão geográfica direta ou indireta|0|0|||X||1|P|008_06.tab|||||0|
+S||07-07 Esquema de romanização|0|0|||X||1|P|008_07.tab|||||0|
+S||08-08 Idioma do catálogo|0|0|||X||1|P|008_08.tab|||||0|
+S||09-09 Tipo de registro|0|0|||X||1|P|008_09.tab|||||0|
+S||10-10 Forma de catalogação descritiva|0|0|||X||1|P|008_10.tab|||||0|
+S||11-11 Sistema de cabeçalho de assunto/tesauro|0|0|||X||1|P|008_11.tab|||||0|
+S||12-12 Tipo de série|0|0|||X||1|P|008_12.tab|||||0|
+S||13-13 Série numerada ou não|0|0|||X||1|P|008_13.tab|||||0|
+S||14-14 Uso de cabeçalho - Entrada principal ou secundária|0|0|||X||1|P|008_14.tab|||||0|
+S||15-15 Uso de cabeçalho - Entrada secundária de assunto|0|0|||X||1|P|008_15.tab|||||0|
+S||16-16 Uso de cabeçalho - Entrada secundária de série|0|0|||X||1|P|008_16.tab|||||0|
+S||17-17 Tipo de subdivisão de assunto|0|0|||X||1|P|008_17.tab|||||0|
+S||18-27 Não usado|0|0|||X||10|P|undefined10.tab|||||0|
+S||28-28 Tipo de agência governamental|0|0|||X||1|P|008_28.tab|||||0|
+S||29-29 Nível de relacionamento|0|0|||X||1|P|008_29.tab|||||0|
+S||30-30 Não usado|0|0|||X||1|P|undefined1.tab|||||0|
+S||31-31 Registro em fase de atualização|0|0|||X||1|P|008_31.tab|||||0|
+S||32-32 Homônimo|0|0|||X||1|P|008_32.tab|||||0|
+S||33-33 Nível de autorização|0|0|||X||1|P|008_33.tab|||||0|
+S||34-37 Não usado|0|0|||X||4|P|undefined4.tab|||||0|
+S||38-38 Modificação do registro|0|0|||X||1|P|008_38.tab|||||0|
+S||39-39 Fonte de catalogação|0|0|||X||1|P|008_39.tab|||||0|

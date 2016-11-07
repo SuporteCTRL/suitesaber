@@ -1,0 +1,153 @@
+'<html>
+
+
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<style>
+body {
+
+
+}
+#a'mfn' {
+        margin-top: 5%;
+        position: relative;
+        margin-left: -3px;
+        margin-right: 30px;
+        margin-bottom: 70px;
+        float: left;
+        background-color: #ffffff;      
+}
+#assunto {
+	margin-top: 20%;
+	border:0px; 
+	border-color:#000; 
+	border-style: solid;
+
+}
+
+table#etiqueta {
+
+	border:1px; 
+	border-color:#000; 
+	border-style: solid;
+	width: 424px;	
+	height: 585px; 
+}
+td {
+
+	border:1px; 
+	border-color:#000; 
+	border-style: solid;
+	vertical-align: top;
+
+}
+
+tr {
+
+	height: 30px;
+}
+
+#middle10 {
+		height: 450px;
+		
+
+}
+
+/* */
+h1 {
+	font-family: Arial;
+	color: #000;
+	font-size: 20px;
+	text-align: center;
+	vertical-align: middle;
+
+}
+
+/* */
+h2 {
+	font-family: Arial;
+	color: #000;
+	font-size: 16px;
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+}
+
+/* */
+h3 {
+	font-family: Arial;
+	color: #000;
+	font-size: 12px;
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+}
+
+h4 {
+	font-family: Arial;
+	color: #000;
+	font-size: 7px;
+	display: inline;
+	font-weight: normal;
+
+}
+
+ #mfn {
+
+ 	margin-top: -150px;
+ 	margin-left: -400px;
+	-webkit-transform: rotate(-90deg); 
+	-moz-transform: rotate(-90deg);	
+ 
+ 
+ }
+
+</style>
+</head>
+<body>
+
+<div id="a'mfn'">
+<table id="etiqueta">
+<tr>
+<td>
+
+<!--<img src="http://local/bases/'v5001'.jpg" />-->
+<img src="/bases/image/'v5001'" />
+
+</td>
+<td><h2>ARQUIVO</h2> </td>
+</tr>
+
+<tr>
+<td colspan="3">
+
+<h3>Setor: </h3>
+
+<h2>'v10'</h2></td>
+
+
+</tr>
+
+
+<tr id="middle10">
+<td colspan="3">
+
+<h2 class="assunto">Documento/Assunto/Período:</h2>
+
+<div id="assunto">
+<h1>'v20'</h1>
+<h1>'v70'</h1>
+</div>
+<div id="mfn"><h4>'mfn'</h4></div>
+</td>
+</tr>
+
+<tr>
+<td><h3>Ano de Descarte:</h3></td>
+<td><h2>'v100'</h2></td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>'

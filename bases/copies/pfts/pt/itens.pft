@@ -1,0 +1,18 @@
+'<body style="overflow-x:hidden;padding:0 20px; -moz-column-width: 120px; -webkit-column-width: 120px; -moz-column-gap: 15px; -webkit-column-gap: 15px; -moz-column-rule: 1px solid #0e5188; 	-webkit-column-rule: 1px solid #0e5188;">'
+
+'</div><ul><li style="list-style-position:inside; list-style-type: square;"><strong>'v30[1]': </strong>' 
+
+if p(v50) then 
+
+	v50*6.2, if v50*6.2<>'' then '/' fi, v50*4.2, if v50*4.2<>'' then '/' fi, v50*0.4
+
+fi,
+
+	if p(v50) and p(v60) then ', ' fi,
+
+if p(v60) then 'v. 'v60 fi,
+
+	if p(v60) and p(v40) then ', ' fi,
+	if p(v50) and a(v60) and p(v40) then ', ' fi,
+
+if p(v40) then 'n. 'v40 fi, '</li></ul></div>'

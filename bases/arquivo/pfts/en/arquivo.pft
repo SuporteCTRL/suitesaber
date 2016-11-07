@@ -1,0 +1,80 @@
+'<html>
+<head>
+<style type="text/css">
+body
+{
+font-family:"Arial", sans-serif;
+font-size:14px;
+color:#000000;
+}
+.etiqueta {
+font-weight:bold;
+font-size:100%;
+color:#969696;
+}
+.conteudo {
+color:#5F5F5F;
+}
+.destaque {
+color:#4F4F4F;
+text-transform:uppercase;
+font-weight:bold;
+}
+div#pft {
+min-height:220px;
+padding-left:5px;
+padding-right:5px;
+overflow:auto;
+line-height:20px;
+text-align:justify;
+}
+div#descricao {
+position:relative;
+float:left;
+width:70%;
+}
+div#direita {
+position:relative;
+float:right;
+width:30%;
+text-align:right;
+}
+div#direita img {
+width:30%;
+height:30%;
+}
+</style>
+</head>
+<body><div id="pft"><div id="descricao">
+<!-- Início bloco de registro de documento -->'
+if p(v10) then '<br /><span class="etiqueta">Setor:</span> <span class="conteudo">'v10+|; |/, fi'</span>'
+if p(v20) then '<br /><span class="etiqueta">Documento/Assunto:</span> <span class="conteudo">'v20+|; |, fi'</span>'
+if p(v30) then '<br /><span class="etiqueta">Título:</span> <span class="conteudo">'v30+|; |, fi'</span>'
+if p(v40) then '<br /><span class="etiqueta">Autor:</span> <span class="conteudo">'v40+|; |, fi'</span>'
+if p(v50) then '<br /><span class="etiqueta">Descrição:</span> <span class="conteudo">'v50+|; |, fi'</span>'
+if p(v60) then '<br /><span class="etiqueta">Nome/Instituição:</span> <span class="conteudo">'v60+|; |, fi'</span>'
+if p(v70) then '<br /><span class="etiqueta">Data:</span> <span class="conteudo">'v70+|; |, fi'</span>'
+if p(v90) then '<br /><span class="etiqueta">Número:</span> <span class="conteudo">'v90+|; |, fi'</span>'
+if p(v100) then '<br /><span class="etiqueta">Ano descarte:</span> <span class="conteudo">'v100+|; |, fi'</span>'
+if p(v120) then '<br /><span class="etiqueta">Empréstimo:</span> <span class="conteudo">'v120+|; |, fi'</span>'
+if p(v140) then '<br /><span class="etiqueta">Observações:</span> <span class="conteudo">'v140+|; |, fi'</span>'
+if p(v150) then '<br /><span class="etiqueta">Criado em:</span> <span class="conteudo">'v150+|; |, fi'</span>'
+'<!-- Início localização -->
+<!-- Arquivo central -->'
+if p(v111) or p(v112) then '<br /><br /><span class="destaque">Arquivo Central:</span>' fi,
+if p(v111) then '<br /><span class="etiqueta">Estante:</span> <span class="conteudo">'v111+|; |, fi'</span>'
+if p(v112) then '<br /><span class="etiqueta">Prateleira:</span> <span class="conteudo">'v112+|; |, fi'</span>
+<!-- Arquivo setorial -->'
+if p(v113) then '<br /><br /><span class="destaque">Arquivo Setorial:</span>' fi,
+if p(v113) then '<br /><span class="etiqueta">Localização:</span> <span class="conteudo">'v113+|; |, fi'</span>
+<!-- Biblioteca -->'
+if p(v114) then '<br /><br /><span class="destaque">Biblioteca:</span>' fi,
+if p(v114) then '<br /><span class="etiqueta">Classificação:</span> <span class="conteudo">'v114+|; |, fi'</span></div>
+<!-- Início bloco da direita. Inclui imagem. -->
+<div id="direita">'
+if p(v130) then '<br /><span class="etiqueta">Imagem:</span>' fi, '<br />'
+(if p(v130) then '<a href="../../bases/arquivo/'v130'" target="_blank" title="Clique para abrir"><img src="../../bases/arquivo/'v130'" title="'v130'" alt="'v50'" /></a><br />' fi/)
+
+'</div></body>
+</html>'
+

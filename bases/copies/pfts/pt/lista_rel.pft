@@ -1,0 +1,26 @@
+'<style>
+table, td.lista, tr.lista, th.lista {
+		border: 1px #3A89AF solid;
+		border-collapse: collapse;
+		text-align: center;
+	}
+tr.lista:first-child  {
+	background: #3A89AF;
+	color: #fff;
+	font-size: 12px;
+}
+
+tr.lista:last-child {
+	background: #3A89AF;
+}
+tr.lista:hover.result {
+	background: #eee;
+}
+</style>'
+'<tr class="lista"><td class="lista">',
+v30
+
+'</td>
+<td class="lista">',v200,'</td>
+<td class="lista">',v260^c,'</td>
+<td class="lista">'v90[1]^d"<br />",v90[1]^a"&nbsp;&nbsp;&nbsp;",v90[1]^b"&nbsp;&nbsp;&nbsp;",v90[1]^c"&nbsp;&nbsp;&nbsp;",v90[1]^g,'</td></tr>'

@@ -1,0 +1,72 @@
+'<head>
+
+<link rel="stylesheet" type="text/css" href="/bases/marc/css/estilo.css" />
+</head><body>
+<div id="wrap">'
+
+'<p class="cabecalho">'v30, ' (Cód.: ' v20 ')' '</p>'
+
+'<table cellspacing="0" cellpadding="3" class="mrc">'
+if a(v109) then '<tr><td rowspan="100%" valign="top"><img width="100px" src="/bases/users/noimage.jpg"></td><td></td></tr>' fi
+if p(v109) then '<tr><td rowspan="100%" valign="top"><img width="100px" src="/bases/users/'v109'"></td></tr>' fi
+
+if p(v20) then '<tr class="mrc"><th class="mrc">Código do leitor</th><td class="mrc">'v20+|<br />|,'</td></tr>' fi/
+if p(v10) then '<tr class="mrc"><th class="mrc">Tipo de leitor</th><td class="mrc">',v10^b, '</td></tr>' fi/
+if p(v14) then '<tr class="mrc"><th class="mrc">Data de cadastro</th><td class="mrc">'v14*6.2,'/'v14*4.2,'/'v14*0.4,'</td></tr>' fi/
+if p(v15) then '<tr class="mrc"><th class="mrc">Validade do cartão</th><td class="mrc">'v15+|<br />|,'</td></tr>' fi/
+
+if s(v30,v101,v102)<>'' then '<tr><th class="mrc rotulo" colspan="2">Dados pessoais</th></tr>'
+	if p(v30) then '<tr class="mrc"><th class="mrc">Nome completo</th><td class="mrc">'v30+|<br />|,'</td></tr>' fi/
+	if p(v102) then '<tr class="mrc"><th class="mrc">Sexo</th><td class="mrc">',if v102='F' then 'Feminino' fi, if v102='M' then 'Masculino' fi, '</td></tr>' fi/
+
+	if p(v103) then '<tr class="mrc"><th class="mrc">Data de nascimento</th><td class="mrc">'v103+|<br />|,'</td></tr>' fi/
+
+	if p(v101) then '<tr class="mrc"><th class="mrc">Documento de identidade</th><td class="mrc">'v101+|<br />|,'</td></tr>' fi/
+
+	if p(v104) then '<tr class="mrc"><th class="mrc">CPF</th><td class="mrc">'v104+|<br />|,'</td></tr>' fi/
+
+fi,
+
+if s(v210,v211,v212,v213,v214,v215,v216)<>'' then '<tr><th class="mrc rotulo" colspan="2">Dados pessoais &ndash; Contato</th></tr>'
+	if p(v210) then '<tr class="mrc"><th class="mrc">Endereço</th><td class="mrc">',v210,mpl,'</td></tr>' fi/
+	if p(v211) then '<tr class="mrc"><th class="mrc">CEP</th><td class="mrc">',v211,mpl,'</td></tr>' fi/
+	if p(v217) then '<tr class="mrc"><th class="mrc">Bairro</th><td class="mrc">',v217,mpl,'</td></tr>' fi/
+	if p(v212) then '<tr class="mrc"><th class="mrc">Cidade</th><td class="mrc">',v212,mpl,'</td></tr>' fi/
+	if p(v213) then '<tr class="mrc"><th class="mrc">Estado</th><td class="mrc">',v213,mpl,'</td></tr>' fi/
+	if p(v214) then '<tr class="mrc"><th class="mrc">Telefone</th><td class="mrc">',v214+|<br>|,mpl,'</td></tr>' fi/
+	if p(v215) then '<tr class="mrc"><th class="mrc">Fax</th><td class="mrc">',v215,mpl,'</td></tr>' fi/
+	if p(v216) then '<tr class="mrc"><th class="mrc">E-mail</th><td class="mrc">'('<a href="mailto:'v216'" title="Enviar e-mail para 'v216'" target="blank">',v216'</a><br />'/)'</td></tr>' fi/
+fi,
+
+if s(v400,v401,v402,v403,v410,v411,v412,v413,v414,v415,v416)<>'' then '<tr><th class="mrc rotulo" colspan="2">Dados profissionais</th></tr>'
+	if p(v400) then '<tr class="mrc"><th class="mrc">Nome da instituição</th><td class="mrc">'v400+|<br />|,'</td></tr>' fi/
+	if p(v401) then '<tr class="mrc"><th class="mrc">Setor</th><td class="mrc">'v401+|<br />|,'</td></tr>' fi/
+	if p(v402) then '<tr class="mrc"><th class="mrc">Cargo</th><td class="mrc">'v402+|<br />|,'</td></tr>' fi/
+	if p(v403) then '<tr class="mrc"><th class="mrc">Profissão</th><td class="mrc">'v403+|<br />|,'</td></tr>' fi/
+	if p(v410) then '<tr class="mrc"><th class="mrc">Endereço</th><td class="mrc">'v410+|<br />|,'</td></tr>' fi/
+	if p(v411) then '<tr class="mrc"><th class="mrc">CEP</th><td class="mrc">'v411+|<br />|,'</td></tr>' fi/
+	if p(v417) then '<tr class="mrc"><th class="mrc">Bairro</th><td class="mrc">',v417,mpl,'</td></tr>' fi/
+	if p(v412) then '<tr class="mrc"><th class="mrc">Cidade</th><td class="mrc">'v412+|<br />|,'</td></tr>' fi/
+	if p(v413) then '<tr class="mrc"><th class="mrc">Estado</th><td class="mrc">'v413+|<br />|,'</td></tr>' fi/
+	if p(v414) then '<tr class="mrc"><th class="mrc">Telefone</th><td class="mrc">'v414+|<br />|,'</td></tr>' fi/
+	if p(v415) then '<tr class="mrc"><th class="mrc">Fax</th><td class="mrc">'v415+|<br />|,'</td></tr>' fi/
+	if p(v416) then '<tr class="mrc"><th class="mrc">E-mail</th><td class="mrc">'('<a href="mailto:'v416'" title="Enviar e-mail para 'v416'" target="blank">',v416'</a><br />'/)'</td></tr>' fi/
+fi,
+
+if s(v310,v311,v312,v313,v314,v315,v316)<>'' then '<tr><th class="mrc rotulo" colspan="2">Dados profissionais &ndash; Contato</th></tr>' 
+	if p(v310) then '<tr class="mrc"><th class="mrc">Endereço</th><td class="mrc">'v310+|<br />|,'</td></tr>' fi/
+	if p(v311) then '<tr class="mrc"><th class="mrc">CEP</th><td class="mrc">'v311+|<br />|,'</td></tr>' fi/
+	if p(v317) then '<tr class="mrc"><th class="mrc">Bairro</th><td class="mrc">',v317,mpl,'</td></tr>' fi/
+	if p(v312) then '<tr class="mrc"><th class="mrc">Cidade</th><td class="mrc">'v312+|<br />|,'</td></tr>' fi/
+	if p(v313) then '<tr class="mrc"><th class="mrc">Estado</th><td class="mrc">'v313+|<br />|,'</td></tr>' fi/
+	if p(v314) then '<tr class="mrc"><th class="mrc">Telefone</th><td class="mrc">'v314+|<br />|,'</td></tr>' fi/
+	if p(v315) then '<tr class="mrc"><th class="mrc">Fax</th><td class="mrc">'v315+|<br />|,'</td></tr>' fi/
+	if p(v316) then '<tr class="mrc"><th class="mrc">E-mail</th><td class="mrc">'('<a href="mailto:'v316'" title="Enviar e-mail para 'v316'" target="blank">',v316'</a><br />'/)'</td></tr>' fi/
+fi,
+
+if s(v503,v501,v502)<>'' then '<tr><th class="mrc rotulo" colspan="2">Dados de ensino</th></tr>'
+	if p(v503) then '<tr class="mrc"><th class="mrc">Instituição</th><td class="mrc">'V503+|<br />|,'</td></tr>' fi/
+	if p(v501) then '<tr class="mrc"><th class="mrc">Curso</th><td class="mrc">'v501+|<br />|,'</td></tr>' fi/
+	if p(v502) then '<tr class="mrc"><th class="mrc">Período</th><td class="mrc">'v502+|<br />|,'</td></tr>' fi/
+fi,
+'</table>'

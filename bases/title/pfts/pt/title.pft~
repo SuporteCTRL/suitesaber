@@ -1,0 +1,187 @@
+'<div style="float:left;width:60%;"><table width="100%" border="0" cellpadding="2" cellspacing="2">'/,
+if p(v20) then      
+'<tr><td align="left" width="90px" valign="top" ><strong>Código SIPS </td>'	  
+,'<td  valign="top" align="left"  >'v20(25,25)+|<br>|,'</td></tr>',   fi,   
+
+
+
+/* formato para empréstimo */
+/* 
+
+Título do periódico / Responsabilidade. - Vol. 1, n. 1 (mês. AAAA)-________ . - Cidade : Editora, AAAA-____.
+v100 / v140. - Vol. v302, n. v303 - Vol. v305, n. v306. - v490 : v480, v301-v304
+
+*/
+
+
+v100,
+	if s(v100,v140)<>'' then ' / ' fi,
+v140,
+
+'. '
+
+if p(v302) then
+	/* Coloca "Vol." apenas se é preenchido com número */
+	if v302*0.1='1' or 
+	   v302*0.1='2' or 
+	   v302*0.1='3' or 
+	   v302*0.1='4' or 
+	   v302*0.1='5' or 
+	   v302*0.1='6' or 
+	   v302*0.1='7' or 
+	   v302*0.1='8' or 
+	   v302*0.1='9' or 
+	   v302*0.1='0' then
+		'Vol. 'v302 else v302 
+	fi,
+fi,
+
+	if p(v302) and p(v303) then ', ' fi,
+
+if p(v303) then
+	/* Coloca "n." apenas se é preenchido com número */
+	if v303*0.1='1' or 
+	   v303*0.1='2' or 
+	   v303*0.1='3' or 
+	   v303*0.1='4' or 
+	   v303*0.1='5' or 
+	   v303*0.1='6' or 
+	   v303*0.1='7' or 
+	   v303*0.1='8' or 
+	   v303*0.1='9' or 
+	   v303*0.1='0' then
+		'n. 'v303 else v303 
+	fi,
+fi,
+
+	if s(v302,v303,v305,v306)<>'' then '-' fi,
+
+if p(v305) then
+	/* Coloca "Vol." apenas se é preenchido com número */
+	if v305*0.1='1' or 
+	   v305*0.1='2' or 
+	   v305*0.1='3' or 
+	   v305*0.1='4' or 
+	   v305*0.1='5' or 
+	   v305*0.1='6' or 
+	   v305*0.1='7' or 
+	   v305*0.1='8' or 
+	   v305*0.1='9' or 
+	   v305*0.1='0' then
+		'Vol. 'v305 else v305 
+	fi,
+fi,
+
+	if p(v305) and p(v306) then ', ' fi,
+
+if p(v306) then
+	/* Coloca "n." apenas se é preenchido com número */
+	if v306*0.1='1' or 
+	   v306*0.1='2' or 
+	   v306*0.1='3' or 
+	   v306*0.1='4' or 
+	   v306*0.1='5' or 
+	   v306*0.1='6' or 
+	   v306*0.1='7' or 
+	   v306*0.1='8' or 
+	   v306*0.1='9' or 
+	   v306*0.1='0' then
+		'n. 'v306 else v306 
+	fi,
+fi,
+
+/* Coloca espaços se não acabou e ponto se acabou */
+if a(v305) and a(v306) then 
+
+	'&nbsp;&nbsp;&nbsp;&nbsp;.'
+	else '.'
+
+fi,
+
+
+ ' &ndash; ' 
+
+if p(v490) then v490 fi,
+	if p(v490) and p(v480) then ' : ' fi,
+if p(v480) then v480 fi,
+
+if p(v301) then v301'-' fi,
+if p(v304) then v304,'.' 
+	else '&nbsp;&nbsp;&nbsp;&nbsp;.' fi,
+
+'<br /><br /><br /><br /><br />'
+/* FIM formato para empréstimo */
+
+ if p(v100) then,      
+ '<tr><td align="left"  valign="top" >
+ <strong>TÍTULO </td>',      
+ ,'<td  valign="top" align="left"  >
+ <strong>',v100 ' ( 'v1' )''</strong></td>',   ,fi,    
+ if p(v110) then       
+ '<tr><td align="left"  valign="top" ><strong>Subtítulo </td>'	  
+ ,'<td  valign="top" align="left"  >'v110(25,25)+|<br>|'</td></tr>',   
+ fi,   
+ if p(v120) then       
+ '<tr><td align="left"  valign="top" ><strong>Secção-parte </td>'	  
+ ,'<td  valign="top" align="left"  >'v120(25,25)+|<br>|'</td></tr>',   
+ fi, 
+
+if v30<>v20 then       '<tr><td align="left"  valign="top" ><strong>Código SeCS </td>'	  ,'<td  valign="top" align="left"  >'v30(25,25)+|<br>|'</td>
+<td></td></tr>',   fi,  
+ if p(v50) then       '<tr><td align="left"  valign="top" ><strong>Situação da publicação </td>'	  ,'<td  valign="top" align="left"  >'v50(25,25)+|<br>|'</td></tr>',   fi,   
+  
+ if p(v130) then       '<tr><td align="left"  valign="top" ><strong>Tít. seção-parte </td>'	  ,'<td  valign="top" align="left"  >'v130(25,25)+|<br>|'</td></tr>',   
+ fi,   
+ 
+if p(v140) then
+'<tr><td align="left"  valign="top" ><strong>Menção reponsabilidade </td>'	  
+,'<td  valign="top" align="left"  >'v140+|<br>|'</td></tr>',
+fi,   if p(v149) then
+'<tr><td align="left"  valign="top" ><strong>Título chave por extenso </td>'
+,'<td  valign="top" align="left"  >'v149+|<br>|'</td></tr>',
+fi,   
+
+
+
+
+ if p(v150) then       '<tr><td align="left"  valign="top" ><strong>Título abreviado </td>'	  ,'<td  valign="top" align="left"  >'v150(25,25)+|<br>|'</td></tr>',   fi,   if p(v230) then       '<tr><td align="left"  valign="top" ><strong>Título paralelo </td>'	  ,'<td  valign="top" align="left"  >'v230(25,25)+|<br>|'</td></tr>',   fi,  
+  if p(v240) then       '<tr><td align="left"  valign="top" ><strong>Outras variações </td>'	  ,'<td  valign="top" align="left"  >'v240(25,25)+|<br>|'</td></tr>',   fi,   
+ if p(v301) then       '<tr><td align="left"  valign="top" ><strong>Data de início </td>'	  ,'<td  valign="top" align="left"  >'v301(25,25)+|<br>|'</td></tr>',   fi,   if p(v302) then       '<tr><td align="left"  valign="top" ><strong>Volume de início </td>'	  ,'<td  valign="top" align="left"  >'v302(25,25)+|<br>|'</td></tr>',   fi,   
+ if p(v303) then       '<tr><td align="left"  valign="top" ><strong>Número de início </td>'	  ,'<td  valign="top" align="left"  >'v303(25,25)+|<br>|'</td></tr>',   fi,   
+ if p(v304) then       '<tr><td align="left"  valign="top" ><strong>Data final </td>'	  ,'<td  valign="top" align="left"  >'v304(25,25)+|<br>|'</td></tr>',   fi,   if p(v305) then       '<tr><td align="left"  valign="top" ><strong>Volume final </td>'	  ,'<td  valign="top" align="left"  >'v305(25,25)+|<br>|'</td></tr>',   fi,   
+ if p(v306) then       '<tr><td align="left"  valign="top" ><strong>Número final </td>'	  ,'<td  valign="top" align="left"  >'v306(25,25)+|<br>|'</td></tr>',   fi,   
+ if p(v310) then       '<tr><td align="left"  valign="top" ><strong>Código país de public. </td>'	  ,'<td  valign="top" align="left"  >'v310(25,25)+|<br>|'</td></tr>',   fi,  
+  if p(v320) then       '<tr><td align="left"  valign="top" ><strong>Estado/UF </td>'	  ,'<td  valign="top" align="left"  >'v320(25,25)+|<br>|'</td></tr>',   fi,   
+  if p(v330) then       '<tr><td align="left"  valign="top" ><strong>Nível de publicação </td>'	  ,'<td  valign="top" align="left"  >'v330(25,25)+|<br>|'</td></tr>',   fi,  
+   if p(v340) then       '<tr><td align="left"  valign="top" ><strong>Alfabeto do título </td>'	  ,'<td  valign="top" align="left"  >'(v340+|<br>|)'</td></tr>',   fi,   
+   if p(v350) then       '<tr><td align="left"  valign="top" ><strong>Idiomas do texto </td>'	  ,'<td  valign="top" align="left"  >'(v350+|; |)'</td></tr>',   fi,   if p(v360) then       '<tr><td align="left"  valign="top" ><strong>Idiomas do resumo </td>'	  ,'<td  valign="top" align="left"  >'(v360+|; |)'</td></tr>',   fi,   
+ if p(v380) then       '<tr><td align="left"  valign="top" ><strong>Freqüência atual </td>'	  ,'<td  valign="top" align="left"  >'v380(25,25)+|; |'</td></tr>',   fi,   if p(v400) then       '<tr><td align="left"  valign="top" ><strong>ISSN </td>'	  ,'<td  valign="top" align="left"  >'v400(25,25)+|<br>|'</td></tr>',   fi,   
+ if p(v410) then       '<tr><td align="left"  valign="top" ><strong>CODEN </td>'	  ,'<td  valign="top" align="left"  >'v410(25,25)+|<br>|'</td></tr>',   fi,   if p(v420) then       '<tr><td align="left"  valign="top" ><strong>Código Medline </td>'	  ,'<td  valign="top" align="left"  >'v420(25,25)+|<br>|'</td></tr>',   fi,   
+ if p(v421) then       '<tr><td align="left"  valign="top" ><strong>Classificação CDU </td>'	  ,'<td  valign="top" align="left"  >'v421(25,25)+|; |'</td></tr>',   fi,   if p(v422) then       '<tr><td align="left"  valign="top" ><strong>Classificação Dewey </td>'	  ,'<td  valign="top" align="left"  >'v422(25,25)+|; |'</td></tr>',   fi,   
+ if p(v430) then       '<tr><td align="left"  valign="top" ><strong>Classificação </td>'	  ,'<td  valign="top" align="left"  >'v430(25,25)+|; |'</td></tr>',   fi,   if p(v440) then       '<tr><td align="left"  valign="top" ><strong>Descritores DeCS </td>'	  ,'<td  valign="top" align="left"  >'(v440+|; |)'</td></tr>',   fi,   
+ if p(v441) then       '<tr><td align="left"  valign="top" ><strong>Descritores de outros tesauros </td>'	  ,'<td  valign="top" align="left"  >'v441(25,25)+|; |'</td></tr>',   fi,   
+ if p(v450) then       '<tr><td align="left"  valign="top" ><strong>Cobertura da indexação </td>'	  ,'<td  valign="top" align="left"  >'(v450+|; |)'</td></tr>',   fi,  
+  if p(v840) then       '<tr><td align="left"  valign="top" ><strong>Descritores SERLINE </td>'	  ,'<td  valign="top" align="left"  >'(v840+|; |)'</td></tr>',   fi,     
+ if p(v480) then       '<tr><td align="left"  valign="top" ><strong>Editor </td>'	  ,'<td  valign="top" align="left"  >'v480(25,25)+|<br>|'</td></tr>',   fi,   if p(v490) then       '<tr><td align="left"  valign="top" ><strong>Cidade </td>'	  ,'<td  valign="top" align="left"  >'v490(25,25)+|<br>|'</td></tr>',   fi,   if p(v510) then       '<tr><td align="left"  valign="top" ><strong>Tem ed. em outro idioma </td>'	  ,'<td  valign="top" align="left"  >'(v510^*,| <strong>ISSN:</strong> |v510^x+|<br>|)'</td></tr>',   fi,   if p(v520) then       '<tr><td align="left"  valign="top" ><strong>É ed. em outro idioma </td>'	  ,'<td  valign="top" align="left"  >'(v520^*,| <strong>ISSN:</strong> |v520^x+|<br>|)'</td></tr>',   fi,   
+ if p(v530) then       '<tr><td align="left"  valign="top" ><strong>Tem subsérie </td>'	  ,'<td  valign="top" align="left"  >'(v530^*,| <strong>ISSN:</strong> |v530^x+|<br>|)'</td></tr>',   fi,   
+ if p(v540) then       '<tr><td align="left"  valign="top" ><strong>É subsérie </td>'	  ,'<td  valign="top" align="left"  >'(v540^*,| <strong>ISSN:</strong> |v540^x+|<br>|)'</td></tr>',   fi,   
+ if p(v550) then       '<tr><td align="left"  valign="top" ><strong>Tem supl./inserção </td>'	  ,'<td  valign="top" align="left"  >'(v550^*,| <strong>ISSN:</strong> |v550^x+|<br>|)'</td></tr>',   fi,   
+ if p(v560) then       '<tr><td align="left"  valign="top" ><strong>É suplemento/inseção </td>'	  ,'<td  valign="top" align="left"  >'(v560^*,| <strong>ISSN:</strong> |v560^x+|<br>|)'</td></tr>',   fi,   
+ if p(v610) then       '<tr><td align="left"  valign="top" ><strong>Continuação de </td>'	  ,'<td  valign="top" align="left"  >'(v610^*,| <strong>ISSN:</strong> |v610^x+|<br>|)'</td></tr>',   fi,   
+ if p(v620) then       '<tr><td align="left"  valign="top" ><strong>Cont. parcial de </td>'	  ,'<td  valign="top" align="left"  >'(v620^*,| <strong>ISSN:</strong> |v620^x+|<br>|)'</td></tr>',   fi,   if p(v650) then       '<tr><td align="left"  valign="top" ><strong>Absorveu a </td>'	  ,'<td  valign="top" align="left"  >'(v650^*,| <strong>ISSN:</strong> |v650^x+|<br>|)'</td></tr>',   fi,   if p(v660) then       '<tr><td align="left"  valign="top" ><strong>Absorveu em parte a </td>'	  ,'<td  valign="top" align="left"  >'(v660^*,| <strong>ISSN:</strong> |v660^x+|<br>|)'</td></tr>',   fi,   
+ if p(v670) then       '<tr><td align="left"  valign="top" ><strong>Formado pela subdiv. de </td>'	  ,'<td  valign="top" align="left"  >'(v670^*,| <strong>ISSN:</strong> |v670^x+|<br>|)'</td></tr>',   fi,   
+ if p(v680) then       '<tr><td align="left"  valign="top" ><strong>Fusão de ... com ... </td>'	  ,'<td  valign="top" align="left"  >'(v680^*,| <strong>ISSN:</strong> |v680^x+|<br>|)'</td></tr>',   fi,   if p(v710) then       '<tr><td align="left"  valign="top" ><strong>Continuado por </td>'	  ,'<td  valign="top" align="left"  >'(v710^*,| <strong>ISSN:</strong> |v710^x+|<br>|)'</td></tr>',   fi,   
+ if p(v720) then       '<tr><td align="left"  valign="top" ><strong>Cont. em parte por </td>'	  ,'<td  valign="top" align="left"  >'(v720^*,| <strong>ISSN:</strong> |v720^x+|<br>|)'</td></tr>',   fi,   if p(v750) then       '<tr><td align="left"  valign="top" ><strong>Absorvido por </td>'	  ,'<td  valign="top" align="left"  >'(v750^*,| <strong>ISSN:</strong> |v750^x+|<br>|)'</td></tr>',   fi,   
+ if p(v760) then       '<tr><td align="left"  valign="top" ><strong>Absorvido em parte por </td>'	  ,'<td  valign="top" align="left"  >'(v760^*,| <strong>ISSN:</strong> |v760^x+|<br>|)'</td></tr>',   fi,   if p(v770) then       '<tr><td align="left"  valign="top" ><strong>Subdividido em </td>'	  ,'<td  valign="top" align="left"  >'(v770^*,| <strong>ISSN:</strong> |v770^x+|<br>|)'</td></tr>',   fi,   
+ if p(v780) then       '<tr><td align="left"  valign="top" ><strong>Fusão com  ... </td>'	  ,'<td  valign="top" align="left"  >'(v780^*,| <strong>ISSN:</strong> |v780^x+|<br>|)'</td></tr>',   fi,   
+ if p(v790) then       '<tr><td align="left"  valign="top" ><strong>Para formar ... </td>'	  ,'<td  valign="top" align="left"  >'(v790^*,| <strong>ISSN:</strong> |v790^x+|<br>|)'</td></tr>',   fi,   if p(v860) then       '<tr><td align="left"  valign="top" ><strong>Disponibilidade </td>'	  ,'<td  valign="top" align="left"  >'v860(25,25)+|<br>|'</td></tr>',   fi,   
+ if p(v890) then       '<tr><td align="left"  valign="top" ><strong>ISSN Online</td>'	  ,'<td  valign="top" align="left"  >'v890(25,25)+|<br>|'</td></tr>',   fi,   
+ if p(v999^b) then       '<tr><td align="left"  valign="top" ><strong>URL </td>'	  ,'<td  valign="top" align="left"  >'(|<a href="|v999^b|" target="_blank">|v999^b*0.54|... </a><br>|)'</a></td>',  
+  fi,
+    
+'</tr>'
+ '</table></div>
+ 
+ <div style="position:relative;width:40%; height:4000px; float:right">
+<iframe width="100%" height="100%" frameborder="0" src="/cgi-bin/wxis.exe/iah/scripts/?IsisScript=lista.xis&lang=pt&base=FACIC&nextAction=lnk&exprSearch='v1'&indexSearch=ID&format=standard.pft"></iframe>	
+</div>'

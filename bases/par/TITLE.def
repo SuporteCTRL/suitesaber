@@ -1,0 +1,61 @@
+[FILE_LOCATION]
+
+FILE DATABASE.*=%path_database%title/data/title.*
+FILE DATABASE.XML=%path_database%title/pfts/lilXML.pft
+FILE cabecalho.pft=%path_database%title/pfts/%lang%/cabecalho.pft
+FILE standard.pft=%path_database%title/pfts/%lang%/lista.pft
+FILE detailed.pft=%path_database%title/pfts/%lang%/title_iah.pft
+FILE title.pft=%path_database%title/pfts/%lang%/title_iah.pft
+FILE BOOKMARK.PFT=%path_database%title/pfts/%lang%/bookmark.pft
+FILE DBLIL_LINK.PFT=%path_database%title/pfts/%lang%/dblil_link.pft
+FILE availability.pft=%path_database%title/pfts/%lang%/availability.pft
+FILE CITE.PFT=%path_database%title/pfts/%lang%/cite.pft
+FILE CALL_CITE.PFT=%path_database%title/pfts/%lang%/call_cite.pft
+FILE call_export_BibTex.pft=%path_database%title/pfts/%lang%/call_export_BibTex.pft
+FILE call_export_EndNote.pft=%path_database%title/pfts/%lang%/call_export_EndNote.pft
+FILE call_export_ProCite.pft=%path_database%title/pfts/%lang%/call_export_ProCite.pft
+FILE call_export_ReferenceManager.pft=%path_database%title/pfts/%lang%/call_export_ReferenceManager.pft
+FILE call_export_Refworks.pft=%path_database%title/pfts/%lang%/call_export_Refworks.pft
+FILE SHORTCUT.IAH=%path_database%title/pfts/shortcut.pft
+FILE export_BibTex.pft=%path_database%title/pfts/export_BibTex.pft
+FILE export_EndNote.pft=%path_database%title/pfts/export_EndNote.pft
+FILE export_ProCite.pft=%path_database%title/pfts/export_ProCite.pft
+FILE export_ReferenceManager.pft=%path_database%title/pfts/export_ReferenceManager.pft
+FILE export_Refworks.pft=%path_database%title/pfts/export_Refworks.pft
+FILE call_statment.pft=%path_database%title/pfts/%lang%/call_statment.pft
+
+[INDEX_DEFINITION]
+
+INDEX Uu=^1Autor^2Autor^3Autor^4Autor^xUU ^uUU_^yDATABASE^mUU_
+INDEX Ti=^1Título^2Título^3Título^4Título^xTI ^uTI_^yDATABASE^mTI_
+INDEX Aa=^1Assunto^2Assunto^3Assunto^4Assunto^xAA ^uAA_^yDATABASE^mAA_
+INDEX Da=^1Data^2Data^3Data^4Data^xDA ^uDA_^yDATABASE^mDA_
+INDEX Ms=^1Série^2Série^3Série^4Série^xMS ^uMS_^yDATABASE^mMS_
+INDEX Ab=^1Resumo^Resumo^Resumo^Resumo^xAB ^uAB_^yDATABASE^mAB_
+INDEX Tw=^1Todos os campos^2Todos os campos^3Todos os campos^4Todos os campos^d*^xTW ^uTW_^yDATABASE^mTW_
+INDEX Id=^1ID^2ID^3ID^4ID^xID ^uID_^yDATABASE^mID_^thidden
+INDEX Mf=^1MFN^2MFN^3MFN^4MFN^xMFN ^uMFN_^yDATABASE^mMFN_^thidden
+INDEX Ed=^1ED^2ED^3ED^4ED^xED ^uED_^yDATABASE^mED_^thidden
+
+
+[APPLY_GIZMO]
+
+
+[FORMAT_NAME]
+
+FORMAT imprime.pft=^1Detalhado^2Detalhado^3Detalhado^4Detalhado
+FORMAT todos_iah.pft=^1Formato title^2Formato title^3Formato title^3Formato title
+FORMAT detailed.pft=^1Detalhado^2Detalhado^3Detalhado^4Detalhado
+FORMAT standard.pft=^1Lista^2Lista^3Lista^4Lista
+FORMAT DEFAULT=standard.pft
+
+[HELP_FORM]
+
+HELP FORM=help_form.htm
+
+[PREFERENCES]
+
+AVAILABLE FORMS=F,A
+SEND RESULT BY EMAIL=OFF
+NAVIGATION BAR=ON
+DOCUMENTS PER PAGE=20

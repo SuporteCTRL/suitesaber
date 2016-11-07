@@ -1,0 +1,6 @@
+
+	if p(v100) then v100, fi,
+'</td>
+<td onclick="none" class="lista alinhaEsq quarta"><a style="padding: 5px;" href="http://abcd.fee.tche.br/cgi-bin/wxis.exe/iah/scripts/?IsisScript=iah.xis&lang=pt&user=GUEST&base=TITLE&nextAction=lnk&exprSearch='v480'&indexSearch=ED&format=standard.pft" alt="Filtrar por editora" title="Filtrar por editora">',v480,'</a></td>
+<td class="lista alinhaCentro quinta">',v301'</td>
+<td class="lista alinhaCentro sexta">'v350'</td></tr>'

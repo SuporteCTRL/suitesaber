@@ -1,0 +1,5 @@
+(if p(v773^w) then 
+'<a href="/central/dataentry/fmt.php?Opcion=ver&base=marc&cipar=marc.par&Mfn='ref(l(['marc/data/marc']'SG'v999,v773^w,v260),mfn)'
+&ver=S&Formato=marc" class="pftLink" target="_blank" title="Veja o registro do documento principal (abre nova aba)">'ref(l(['marc']'SG'v999,v773^w,v260),' Documento principal [<span class="destaque">MFN: </span>'mfn)']</a>'
+fi,)' '
+

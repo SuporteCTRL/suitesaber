@@ -1,0 +1,17 @@
+F|10|Setor|0|0|||X||||||||Setor|0||
+F|20|Documento/Assunto|0|0|||X|||||||||0||
+F|30|Descrição|0|1|||X|||||||||0||
+F|40|Nome|0|1|||X|||||||||0||
+F|50|Data|0|0|||D|||||||||0||
+F|60|Data indexar|0|1|||D|||||||||0||
+F|70|Número|0|0|||X|||||||||0||
+F|80|Ano descarte|0|0|||X|||||||||0||
+F|100|Empréstimo|0|0|||X|||||||||1||
+F|110|Imagem|0|1|||U|||||||||0||
+F|120|Observações|0|1|||X|5|60|||||||0||
+DC|130|Criado em|0|0|||D|||||||||0||
+H||Localização|0|0||||||||||||0||
+F|91|Arquivo Central: estante|0|0|||X|||||||||0||
+F|92|Arquivo Central: prateleira|0|0|||X|||||||||0||
+F|93|Arquivo Setor|0|0|||X|||||||||0||
+F|94|Classificação|0|0|||X|||||||||0||

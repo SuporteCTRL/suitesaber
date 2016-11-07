@@ -1,0 +1,114 @@
+'<head>
+<link rel="stylesheet" type="text/css" href="/bases/marc/css/estilo.css" />
+</head>
+<body><div id="wrap">
+<textarea class="mrc" cols="80" rows="25">
+<?xml version="1.0"?>
+
+<metadata
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+'
+if p(v100^a) then ( '<dc:contributor>' mpl,v100^a, '</dc:contributor>' /) fi,
+if p(v600^a) then ( '<dc:contributor>' mpl,v600^a, '</dc:contributor>' /) fi,
+if p(v700^a) then ( '<dc:contributor>' mpl,v700^a, '</dc:contributor>' /) fi,
+if p(v110^a) then ( '<dc:contributor>' mpl,v110^a, '</dc:contributor>' /) fi,
+if p(v610^a) then ( '<dc:contributor>' mpl,v610^a, '</dc:contributor>' /) fi,
+if p(v710^a) then ( '<dc:contributor>' mpl,v710^a, '</dc:contributor>' /) fi,
+if p(v111^a) then ( '<dc:contributor>' mpl,v111^a, '</dc:contributor>' /) fi,
+if p(v611^a) then ( '<dc:contributor>' mpl,v611^a, '</dc:contributor>' /) fi,
+if p(v711^a) then ( '<dc:contributor>' mpl,v711^a, '</dc:contributor>' /) fi,
+if p(v711^a) then ( '<dc:contributor>' mpl,v720^a, '</dc:contributor>' /) fi,
+
+if p(v651^a) then ( '<dc:coverage>' mpl,v651^a '</dc:coverage>' /) fi,
+if s(v752^a,v752^b,v752^c,v752^d,v752^f,v752^g)<>''   then ( '<dc:coverage>' mpl,v752^a". ",v752^b". ",v752^c". ",v752^d". ",v752^f". ",v752^g, '</dc:coverage>' /) fi,
+
+if p(v8)     then (    '<dc:date>' mpl,v8*7.4 '</dc:date>' /) fi,
+if p(v260^c) then (    '<dc:date>' mpl,v260^c, if p(v260^c) and p(v260^g) then ". " fi, v260^g '</dc:date>' /) fi,
+
+if p(v500^a) then ( '<dc:description>' mpl,v500^a '</dc:description>' /) fi,
+if p(v501^a) then ( '<dc:description>' mpl,v501^a '</dc:description>' /) fi,
+if p(v502^a) then ( '<dc:description>' mpl,v502^a '</dc:description>' /) fi,
+if p(v504^a) then ( '<dc:description>' mpl,v504^a '</dc:description>' /) fi,
+if p(v505^a) then ( '<dc:description>' mpl,v505^a '</dc:description>' /) fi,
+if p(v510^a) then ( '<dc:description>' mpl,v510^a '</dc:description>' /) fi,
+if p(v513^a) then ( '<dc:description>' mpl,v513^a '</dc:description>' /) fi,
+if p(v515^a) then ( '<dc:description>' mpl,v515^a '</dc:description>' /) fi,
+if p(v516^a) then ( '<dc:description>' mpl,v516^a '</dc:description>' /) fi,
+if p(v518^a) then ( '<dc:description>' mpl,v518^a '</dc:description>' /) fi,
+if p(v520^a) then ( '<dc:description>' mpl,v520^a '</dc:description>' /) fi,
+if p(v521^a) then ( '<dc:description>' mpl,v521^a '</dc:description>' /) fi,
+if p(v525^a) then ( '<dc:description>' mpl,v525^a '</dc:description>' /) fi,
+if p(v533^a) then ( '<dc:description>' mpl,v533^a '</dc:description>' /) fi,
+if p(v534^a) then ( '<dc:description>' mpl,v534^a '</dc:description>' /) fi,
+if p(v536^a) then ( '<dc:description>' mpl,v536^a '</dc:description>' /) fi,
+if p(v538^a) then ( '<dc:description>' mpl,v538^a '</dc:description>' /) fi,
+if p(v545^a) then ( '<dc:description>' mpl,v545^a '</dc:description>' /) fi,
+if p(v550^a) then ( '<dc:description>' mpl,v550^a '</dc:description>' /) fi,
+if p(v555^a) then ( '<dc:description>' mpl,v555^a '</dc:description>' /) fi,
+if p(v561^a) then ( '<dc:description>' mpl,v561^a '</dc:description>' /) fi,
+if p(v562^a) then ( '<dc:description>' mpl,v562^a '</dc:description>' /) fi,
+if p(v580^a) then ( '<dc:description>' mpl,v580^a '</dc:description>' /) fi,
+
+if p(v856^q) then ( '<dc:format>' mpl,v856^q '</dc:format>' /) fi,
+
+if p(v20^a)  then ( '<dc:identifier>' mpl,v20^a '</dc:identifier>' /) fi,
+if p(v22^a)  then ( '<dc:identifier>' mpl,v22^a '</dc:identifier>' /) fi,
+if p(v24^a)  then ( '<dc:identifier>' mpl,v24^a '</dc:identifier>' /) fi,
+if p(v856^u) then ( '<dc:identifier>' mpl,v856^u '</dc:identifier>' /) fi,
+
+if p(v8)     then ( '<dc:language>' mpl,v8*35.3 '</dc:language>' /) fi,
+if p(v41)    then ( '<dc:language>' mpl,v41^a" "v41^b" "v41^d" "v41^e" "v41^f" "v41^g" "v41^h" "v41^j '</dc:language>' /) fi,
+if p(v546^a) then ( '<dc:language>' mpl,v546^a '</dc:language>' /) fi,
+
+if s(v260^a,v260^b)<>'' then ( '<dc:publisher>'mpl,v260^a" : "v260^b'</dc:publisher>' /) fi,
+   
+if p(v530^a) then ( '<dc:relation>' v530^a '</dc:relation>' /) fi,
+if s(v760^o,v760^t)<>'' then ( '<dc:relation>' mpl,v760^o, if p(v760^o) and p(v760^t) then " . " fi, v760^t, '</dc:relation>' /) fi,
+if s(v762^o,v762^t)<>'' then ( '<dc:relation>' mpl,v762^o, if p(v762^o) and p(v762^t) then " . " fi, v762^t, '</dc:relation>' /) fi,
+if s(v765^o,v765^t)<>'' then ( '<dc:relation>' mpl,v765^o, if p(v765^o) and p(v765^t) then " . " fi, v765^t, '</dc:relation>' /) fi,
+if s(v767^o,v767^t)<>'' then ( '<dc:relation>' mpl,v767^o, if p(v767^o) and p(v767^t) then " . " fi, v767^t, '</dc:relation>' /) fi,
+if s(v770^o,v770^t)<>'' then ( '<dc:relation>' mpl,v770^o, if p(v770^o) and p(v770^t) then " . " fi, v770^t, '</dc:relation>' /) fi,
+if s(v772^o,v772^t)<>'' then ( '<dc:relation>' mpl,v772^o, if p(v772^o) and p(v772^t) then " . " fi, v772^t, '</dc:relation>' /) fi,
+if s(v773^o,v773^t)<>'' then ( '<dc:relation>' mpl,v773^o, if p(v773^o) and p(v773^t) then " . " fi, v773^t, '</dc:relation>' /) fi,
+if s(v774^o,v774^t)<>'' then ( '<dc:relation>' mpl,v774^o, if p(v773^o) and p(v773^t) then " . " fi, v774^t, '</dc:relation>' /) fi,
+if s(v775^o,v775^t)<>'' then ( '<dc:relation>' mpl,v775^o, if p(v775^o) and p(v775^t) then " . " fi, v775^t, '</dc:relation>' /) fi,
+if s(v776^o,v776^t)<>'' then ( '<dc:relation>' mpl,v776^o, if p(v776^o) and p(v776^t) then " . " fi, v776^t, '</dc:relation>' /) fi,
+if s(v777^o,v777^t)<>'' then ( '<dc:relation>' mpl,v777^o, if p(v777^o) and p(v777^t) then " . " fi, v777^t, '</dc:relation>' /) fi,
+if s(v780^o,v780^t)<>'' then ( '<dc:relation>' mpl,v780^o, if p(v780^o) and p(v780^t) then " . " fi, v780^t, '</dc:relation>' /) fi,
+if s(v785^o,v785^t)<>'' then ( '<dc:relation>' mpl,v785^o, if p(v785^o) and p(v785^t) then " . " fi, v785^t, '</dc:relation>' /) fi,
+if s(v787^o,v787^t)<>'' then ( '<dc:relation>' mpl,v787^o, if p(v787^o) and p(v787^t) then " . " fi, v787^t, '</dc:relation>' /) fi,
+
+if p(v506) then ( '<dc:rights>' mpl, v506 '</dc:rights>' /) fi,
+
+if p(v534^t) then ( '<dc:source>' v534^t '</dc:source>' /) fi,
+if s(v786^o,v786^t)<>'' then ( '<dc:source>' v786^o, if p(v786^o) and p(v786^t) then " . " fi, v786^t '</dc:source>' /) fi,
+
+if p(v50)  then ( '<dc:subject>' mpl,v50*4 '</dc:subject>' /) fi,
+if p(v80)  then ( '<dc:subject>' mpl,v80*4 '</dc:subject>' /) fi,
+if p(v82)  then ( '<dc:subject>' mdl,v82*4 '</dc:subject>' /) fi,
+if p(v600) then ( '<dc:subject>' mdl,v600*4 '</dc:subject>' /) fi,
+if p(v610) then ( '<dc:subject>' mdl,v610*4 '</dc:subject>' /) fi,
+if p(v611) then ( '<dc:subject>' mdl,v611*4 '</dc:subject>' /) fi,
+if p(v630) then ( '<dc:subject>' mdl,v630*4 '</dc:subject>' /) fi,
+if p(v650) then ( '<dc:subject>' mdl,v650*4 '</dc:subject>' /) fi,
+if p(v653) then ( '<dc:subject>' mdl,v653*4 '</dc:subject>' /) fi,
+
+
+if p(v245) then ( '<dc:title>' mdl,v245*4'</dc:title>' /) fi,
+if p(v246) then ( '<dc:title>' mdl,v246*4'</dc:title>' /) fi,
+if p(v210) then ( '<dc:title>' mdl,v210*4'</dc:title>' /) fi,
+if p(v222) then ( '<dc:title>' mdl,v222*4'</dc:title>' /) fi,
+if p(v240) then ( '<dc:title>' mdl,v240*4'</dc:title>' /) fi,
+if p(v242) then ( '<dc:title>' mdl,v242*4'</dc:title>' /) fi,
+if p(v243) then ( '<dc:title>' mdl,v243*4'</dc:title>' /) fi,
+if p(v247) then ( '<dc:title>' mdl,v247*4'</dc:title>' /) fi,
+
+if p(v3006) then ( '<dc:type>' mpl,v3006 '</dc:type>' /) fi,
+if p(v3007) then ( '<dc:type>' mpl,v3007 '</dc:type>' /) fi,
+if p(v655) then ( '<dc:type>' mpl,v655*4 '</dc:type>' /) fi,
+
+'
+</metadata>
+</textarea></div></body>'

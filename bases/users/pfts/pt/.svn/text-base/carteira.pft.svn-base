@@ -1,0 +1,38 @@
+'<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="/bases/marc/css/carteira.css" media="all" />
+</head><body>'
+
+'<div class="tudo">'
+
+
+'<div class="carteirabox">'
+
+	'<div class="topo">'
+		'Nome da Instituição<br />'
+		'Biblioteca Tal<br /><br />'
+		'<span class="nome">'if p(v30) then v30 fi,'</span><br />'
+	'</div>'
+
+	'<div class="esquerda">'
+		if a(v109) then '<img src="/bases/users/noimage.jpg" />' fi
+		if p(v109) then '<img src="/bases/users/'v109'" />' fi
+	'</div>'
+
+	'<div class="direita">'
+
+		if p(v101) then 'RG: ' v101 fi,
+		if a(v101) and p(v104) then 'CPF: ' v104 fi,
+		if a(v101) and a(v104) then 'Cadastrar documento' fi, '<br />'
+		if p(v103) then 'Nascimento: ' v103, '<br />' fi,
+		'Cadastro em: 'v14*6.2,"/"v14*4.2,"/"v14*0.4,'<br />'
+		'Validade: 'if p(v15) then v15 else 'Sem validade' fi,'<br />'
+		'<img src="/bases/php-barcode/barcode.php?code='v20'&mode=png&size=1&scale=1.5" />'
+
+	'</div>'
+
+'</div>'
+
+'</div></body>'
+
+
