@@ -1,0 +1,34 @@
+<?php
+//archivos de estilo
+if (isset($def["CSS_NAME"])){	$css_name=$def["CSS_NAME"];
+}
+//Logo
+if (isset($def["LOGO"])) $logo=$def["LOGO"];
+//se lee el archivo dr_path.def para ver las configuraciones locales de la base de datos
+if (isset($arrHttp["base"])){
+	if (file_exists($db_path.$arrHttp["base"]."/dr_path.def")){		$def_db = parse_ini_file($db_path.$arrHttp["base"]."/dr_path.def");
+		if (isset($def_db["inventory_numeric"]))      	$inventory_numeric=$def_db["inventory_numeric"];
+		if (isset($def_db["max_inventory_length"]))   	$max_inventory_length=$def_db["max_inventory_length"];
+		if (isset($def_db["max_cn_length"]))     		$max_cn_length=$def_db["max_cn_length"];
+		if (isset($def_db["mx_path"]))                	$mx_path=$def_db["mx_path"];
+		if (isset($def_db["cisis_ver"]))				$cisis_ver=$def_db["cisis_ver"]."/";
+		if (isset($def_db["dirtree"]))                  $dirtree=1;
+		unset($_SESSION["BARCODE"]);
+		if (isset($def_db["barcode"]))                  $_SESSION["BARCODE"]="Y";
+		if (isset($def_db["db_path"]))                  $db_path=$def_db["db_path"];
+		//Path to the wwwisis executable (include the name of the program)
+		$Wxis="/ABCD/www/cgi-bin/$cisis_ver"."wxis.exe";
+
+		//Path to the wxis scripts
+		$xWxis="/ABCD/www/htdocs/$app_path/dataentry/wxis/";
+
+		//Url for the execution of WXis, when using GGI in place of exec
+		//$wxisUrl="http://localhost:9090/cgi-bin/$cisis_ver"."wxis.exe";
+		$wxisUrl="";   //SI NO SE VA A UTILIZAR EL METODO POST PARA VER LOS REGISTROS
+
+		//path to the mx  program (include the name of the program)
+		$mx_path="/ABCD/www/cgi-bin/$cisis_ver"."mx.exe";
+	}
+}
+//$show_acces="Y";
+?>

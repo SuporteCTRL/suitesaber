@@ -1,0 +1,2248 @@
+<IsisScript name=hi>
+<parm name=cipar><pft>'diglib.*=/ABCD/www/bases/diglib/data/diglib.*',/
+'htm.pft=diglib\data$bdp.pft'</pft></parm>
+<do task=update>
+<parm name=db>diglib</parm>
+<parm name=fst><pft>cat('diglib.fst')</pft></parm>
+<parm name=mfn>New</parm>
+<field action=define tag=1102>Isis_Status</field>
+<update>
+<field action=add tag=1>/ABCD/www/bases//wrk/IAH-ManualUsuario-en.pdf.html</field>
+<field action=add tag=2>
+
+
+IAH-ManualUsuario-en.doc
+
+
+
+
+
+
+BIREME / PAHO / WHO 
+Latin American and Caribbean Center on Health Sciences Information 
+  
+IAH User's Manual 
+Version 2.6 
+São Paulo - 2007 
+ 
+
+Copyright © 2007 - BIREME / PAHO / WHO 
+IAH User's Manual 
+Permission is granted to copy, distribute and/or modify this document under the terms of the 
+GNU Free Documentation License, Version 1.2 or any later version published by the Free 
+Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover 
+Texts. A copy of the license is included in the section entitled &quot;GNU Free Documentation 
+License&quot;. 
+Card catalog 
+BIREME / PAHO / WHO (Brazil) 
+IAH User's Manual. / BIREME (org.).  São Paulo : BIREME / 
+PAHO / WHO, 2007. 
+84 p. 
+1. User manual. 2. Information access. 3. Information 
+systems. 4. Information management. 5. Public health. 6. 
+Public Health services. I. BIREME II. Title 
+Warning - Any mention in this document to companies, institutions, persons or products are not 
+an endorsement or recommendation given by BIREME / PAHO / WHO, thus it does not mean a 
+preference to a similar one, cited or not. 
+BIREME / PAHO / WHO 
+Latin American and Caribbean Center on Health Sciences Information 
+Rua Botucatu, 862 - V. Clementino 
+This document was produced with the Documents Conformation Methodology (NorDoc) developed by 
+BIREME.  
+
+ 
+Table of contents 
+Abbreviations used ........................................................................................... III 
+How to use this manual ......................................................................................VI 
+1 
+Preface .....................................................................................................1 
+1.1 
+About BIREME ........................................................................................1 
+1.2 
+The Virtual Health Library (VHL) .................................................................2 
+2 
+Introduction ...............................................................................................5 
+3 
+Structure of IAH ..........................................................................................7 
+3.1 
+Documents area .....................................................................................7 
+3.2 
+Area of executable scripts .........................................................................7 
+3.3 
+Area of databases ...................................................................................8 
+4 
+Requirements for installation .........................................................................9 
+4.1 
+About the installation package ...................................................................9 
+4.2 
+Files and directories of the IAH package ...................................................... 11 
+4.2.1 
+BASES/IAH .................................................................................... 11 
+4.2.2 
+HTDOCS/IAH ................................................................................. 12 
+4.2.3 
+CGI-BIN........................................................................................ 12 
+4.2.4 
+CGI-BIN/IAH .................................................................................. 12 
+5 
+How to install IAH ...................................................................................... 13 
+6 
+How to configure IAH.................................................................................. 14 
+6.1 
+Contents of the file iah.def ..................................................................... 14 
+6.1.1 
+PATH section................................................................................. 14 
+6.1.2 
+APPEARANCE section ....................................................................... 15 
+6.1.3 
+HEADER section.............................................................................. 15 
+6.1.4 
+IAH section ................................................................................... 16 
+6.2 
+How to configure the file iah.def............................................................... 16 
+6.3 
+Initial testing of the interface .................................................................. 17 
+7 
+Your own databases ................................................................................... 18 
+7.1 
+How to install a new database .................................................................. 18 
+7.2 
+How to configure a new database .............................................................. 19 
+7.2.1 
+Section FILE_LOCATION .................................................................... 20 
+
+IAH User's Manual 
+Table of contents 
+7.2.2 
+Section INDEX_DEFINITION................................................................. 21 
+7.2.3 
+Section APPLY_GIZMO ...................................................................... 22 
+7.2.4 
+Section FORMAT_NAME..................................................................... 24 
+7.2.5 
+Section HELP_FORM......................................................................... 25 
+7.2.6 
+Section PREFERENCES ...................................................................... 26 
+7.3 
+Management of multiple databases with a different layout ............................... 27 
+8 
+How to use the IAH interface ........................................................................ 31 
+8.1 
+Free form ........................................................................................... 31 
+8.1.1 
+Important remarks.......................................................................... 31 
+8.2 
+Basic and Advanced Forms....................................................................... 32 
+8.2.1 
+How to search ............................................................................... 33 
+8.2.2 
+Display of the results....................................................................... 34 
+8.3 
+Logical operators in the search ................................................................. 37 
+8.4 
+Search fields ....................................................................................... 39 
+8.4.1 
+Words ......................................................................................... 39 
+8.4.2 
+Descriptor .................................................................................... 40 
+8.4.3 
+Author ........................................................................................ 42 
+8.4.4 
+Type of Literature .......................................................................... 43 
+8.4.5 
+Unique Identifier............................................................................ 45 
+9 
+Bibliographic references.............................................................................. 48 
+10 
+Glossary ............................................................................................... 50 
+Appendix A ­ Indexing Techniques ....................................................................... 54 
+Short example of an FST without prefixes for a database compatible with the LILACS format............................................................................................... 57 
+Short example of definitions (&lt;base&gt;.def file) compatible with the FST without prefixes............................................................................................ 57 
+Short example of an FST with prefixes for a database compatible with the LILACS format............................................................................................... 57 
+Short example of definitions (&lt;base&gt;.def file) compatible with the FST with prefixes ...................................................................................................... 58 
+Appendix B ­ Fields of the LILACS format ............................................................... 59 
+Appendix C ­ Fields of the SeCS format (Catalogue) .................................................. 62 
+Appendix D ­ Search fields of the LILACS database ................................................... 64 
+Appendix E ­ IAH Search Forms ........................................................................... 66 
+Free .......................................................................................................... 66 
+Advanced .................................................................................................... 67 
+Appendix F ­ How to construct IAH URLs with parameters.......................................... 71 
+Appendix G ­ Fields of the interface ..................................................................... 73 
+ 
+II 
+
+ 
+Abbreviations used 
+  ABNT. Associação Brasileira de Normas Técnicas [Brazilian 
+Association of Technical Standards]. 
+  ANSI. American National Standards Institute. 
+  ASCII. American Standard Code for Information Interchange. 
+  BIREME. Latin American and Caribbean Center on Health Sciences 
+Information. 
+  BVS. Biblioteca Virtual em Saúde (see VHL). 
+  CGI. Common Gateway Interface. 
+  DeCS. Health Sciences Descriptors. 
+  FST. Field Selection Table. 
+  HTML. HyperText Markup Language. 
+  HTTP. HyperText Transfer Protocol. 
+III 
+
+IAH User's Manual 
+Abbreviations used 
+  iAH. Interface for Access on Health Information. 
+  ISBN. International Standard Book Number. 
+  ISO. International Organization for Standardization. 
+  LILACS. Latin American and Caribbean Health Sciences Literature. 
+  LILDBI-WEB. LILACS Bibliographic Description and Indexing - Web 
+Version. 
+  MEDLINE. Medical Literature Analysis and Retrieval System Online. 
+  MeSH. Medical Subject Headings. 
+  NLM. National Library of Medicine. 
+  PAHO. Pan American Health Organization. 
+  PDF. Portable Document Format. 
+  SCAD. Serviço Cooperativo de Acesso ao Documento [Cooperative 
+Service for Accessing Documents]. 
+  SciELO. Scientific Electronic Library Online. 
+  SeCS. Serials in Health Sciences. 
+  SGML. Standard Generalized Markup Language. 
+  UMLS. Unified Medical Language System. 
+  UNESCO. United Nations Educational, Scientific and Cultural 
+Organization. 
+  URL. Universal Resource Locator. 
+  VHL. Virtual Health Library. 
+IV 
+
+IAH User's Manual 
+Abbreviations used 
+  WHO. World Health Organization. 
+  XHTML. eXtensible HyperText Markup Language. 
+  XML. eXtensible Markup Language. 
+  XSL. eXtensible Stylesheet Language. 
+  XSLT. eXtensible Stylesheet Language Transformations. 
+ 
+V 
+
+ 
+How to use 
+this manual 
+This manual is intended to provide technical information on the installation, setup 
+and maintenance of IAH interface with CDS/ISIS, WinISIS and LILDBI-Web 
+compatible databases. 
+A minimum knowledge of CDS/ISIS database standard; solid network, web server 
+and internet expertise as well as full domain of operating system used are the basic 
+requirements to the system and/or support analyst that will use this manual. 
+An abbreviations list, a glossary of associated terminology and a series of 
+appendices complete information in the manual. At the end, a list of bibliographic 
+references to the methodologies and technologies associated to IAH are available. 
+Beyond the technical information about installing and configuring the interface, 
+there is a chapter dedicated to the use of interface ranging from a simple query to 
+boolean expression queries for accurate results. 
+ 
+VI 
+
+ 
+1 
+Preface 
+1.1  About BIREME 
+Year after year, BIREME has been following its mission of being a center dedicated 
+to scientific and technical health information for the region of Latin America and 
+the Caribbean. Founded in Brazil in 1967, under the name of Regional Medicine 
+Library (which the acronym BIREME comes from), it has always met the growing 
+demand for up-to-date scientific literature from the Brazilian health systems and 
+the communities of healthcare researchers, professionals and students. Then, in 
+1982, its name changed to Latin-American and Caribbean Center on Health 
+Sciences Information so as to better express its dedication to the strengthening 
+and expansion of the flow of scientific and technical health information across the 
+region, but kept the acronym. 
+Networking, based on decentralization, on the development of local capacities, on 
+sharing information resources, on developing cooperative products and services, 
+on designing common methodologies, has always been the foundation of 
+BIREME's technical cooperation work. It has been like this that the center 
+established itself as an international model that fosters professional education 
+with managerial and technical information with the adoption of information and 
+communication paradigms that best meet local needs. 
+1 
+
+IAH User's Manual 
+Preface 
+The main foundations that gave origin and which support the existence of 
+BIREME are following: 
+  access to scientific and technical health information is essential for the 
+development of health; 
+  the need to develop the capacity of Latin American and Caribbean 
+countries to operate their sources of scientific-technical health 
+information in a cooperative and efficient manner; 
+  the need to foster the use and to respond to the demands for scientific-
+technical health information from governments, health systems, 
+educational and research institutions. 
+BIREME, as a specialized center of the Pan-American Health Organization 
+(PAHO)/ World Health Organization (WHO), coordinates and conducts technical 
+cooperation activities on the management of scientific information and knowledge 
+with the aim of strengthening and expanding the flow of scientific health 
+information in Brazil and in other Latin American and Caribbean countries as a 
+key condition for the development of health, including its planning, management, 
+promotion, research, education, and care. 
+The agreement that supports BIREME is renewed every five years by the members 
+of the National Advisory Committee of the institution (PAHO, Brazilian Ministry 
+of Health, Brazilian Ministry of Education and Culture, Secretary of Health of the 
+State of São Paulo, and Federal University of São Paulo ­ Unifesp). The latter 
+provides the physical infrastructure necessary for the establishment of the 
+institution. 
+In 2004 the institution took on the responsibility of becoming a knowledge-based 
+institution. 
+1.2  The Virtual Health Library (VHL) 
+With the rise and consolidation of the internet as the prevailing means of access to 
+information and communication, BIREME's technical cooperation model evolved, 
+2 
+
+IAH User's Manual 
+Preface 
+as of 1998, to build and develop the Virtual Health Library (VHL) as a common 
+space for the convergence of the cooperative work of producers, intermediaries, 
+and users of information. The VHL promotes the development of a network of 
+sources of scientific and technical information with universal access on the 
+internet. For the first time there has been a real possibility of equal access to health 
+information. 
+To BIREME, the Virtual Health Library is a model for the management of 
+information and knowledge, which includes the cooperation and convergence 
+between institutions, systems, networks, and initiatives of producers, 
+intermediaries, and users in the operation of networks of local, national, regional 
+and international information sources favoring open and universal access. 
+Today, every country in Latin America and the Caribbean (Region) participates 
+either directly or indirectly in the cooperative products and services offered by the 
+VHL, which includes over 1,000 institutions in more than 30 countries. 
+The VHL is simulated in a virtual space of the internet formed by a collection or 
+network of health information sources in the Region. Users of different levels and 
+locations can interact and navigate in the space of one or many information 
+sources, regardless of where they are. Information sources are generated, updated, 
+stored and operated on the internet by producers, integrators, and intermediaries, 
+in a decentralized manner, following common methodologies for their integration 
+in the VHL. 
+The VHL organizes information in a structure that integrates and interconnects 
+reference databases, specialist directories, events and institutions, a catalogue of 
+the information resources available on the internet, collections of full texts with a 
+highlight for the SciELO (Scientific Electronic Library Online) collection of 
+scientific journals, selective information dissemination services, information 
+sources to support education and decision-making, news, discussion lists, and 
+support to virtual communities. The space of the VHL is, therefore, a dynamic and 
+decentralized network of information sources based on which it is possible to 
+retrieve and extract information and knowledge to support health decision-making 
+processes. 
+3 
+
+IAH User's Manual 
+Preface 
+The Virtual Health Library can be visualized as a distributed base of scientific and 
+technical health knowledge that is saved, organized and stored in electronic format 
+in the countries of the Region, universally accessible on the internet and 
+compatible with international databases. 
+ 
+4 
+
+ 
+2  Introduction 
+The Interface for Access to Health Information (IAH)  was designed for 
+information retrieval from ISIS databases in an optimum manner over the 
+Internet. 
+Written in the IsisScript language (the native code of WWWISIS), it was developed 
+for BIREME from 1999, having evolved in conjunction with WWWISIS to support 
+new functions such as the reading of large records (1 Mb), generation of XML 
+content, etc. 
+IAH can be installed on any PC-compatible that has a web server installed and 
+configured. It has been tested on Internet Information Server (IIS) versions 4 and  
+5 and on Apache Web Server (Apache) 1.3.xx. The latter was tested exhaustively 
+under Windows and Linux. 
+WWWISIS is the active component of the interface which gives the IsisScript code 
+multiuser access to the ISIS databases across the Common Gateway Interface 
+(CGI). 
+IAH comes packaged with the standard version of WWWISIS, with a key size of 
+10/30. Meanwhile, if the user needs them, other versions can be used (16/60, Lind 
+and FFI). 
+5 
+
+Manual of the usuario 
+Introduction 
+The availability of the versions mentioned should be checked with Bireme because 
+this change can bring undesirable effects and other implications for the 
+application. 
+ 
+6 
+
+ 
+3  Structure of IAH 
+The IAH interface comprises three different parts, in accordance with the 
+following model: 
+3.1  Documents area 
+Primary location of the documents (HTML, javascript, CSS, images, configuration 
+files) of the application and the webserver. Normally called DOCUMENT_ROOT. 
+3.2  Area of executable scripts 
+Location of the executable files, programs or scripts of the application.  In this area 
+is located the code of the application, written in the language IsisScript (compiled 
+or not)  and the WWWISIS program. Normally called CGI-BIN, this area uses the 
+methods and protocols defined for the CGI interface.  Its name can vary according 
+to the web server. 
+7 
+
+Manual del usuario 
+Structure of IAH 
+3.3  Area of databases 
+Location of the databases which are used by the application. 
+Table 1 shows the the correlation between the above areas and the folder names in 
+various webservers: 
+Server 
+Area 
+Apache IIS OmniHTTPd
+Documents htdocs wwwroot  data CGI cgi-bin 
+scripts 
+cgi-bin 
+Databases bases bases bases 
+Table 1: areas for the webserver. 
+!  The database directory can be created below 
+whatever directory structure is configured in the file iah.def. 
+ 
+ 
+8 
+
+ 
+4  Requirements for 
+installation 
+The person who is going to install IAH needs to have knowledge of the operating 
+system used, such as the file system, local and remote access control, network 
+administration, communication protocols and installation and configuration of the 
+webserver. 
+The software prerequisite for installation of IAH is a webserver which has a CGI 
+interface, e.g. Apache, IIS  or OmniHTTPd. 
+4.1  About the installation package 
+The IAH distribution package contains all the files and directories necessary for  
+the interface, but with a small difference between the version for Windows and the 
+version for Linux. 
+The package for  Windows is constructed with  WinZip whereas the package for 
+Linux uses the uses the tools tar and gzip for combining and compacting files. 
+9 
+
+Manual del usuario 
+Requirements for installation 
+Below each of the primary directories (bases, cgi-bin and htdocs) there is a 
+subdirectory IAH that contains the files of the application proper. The executable 
+of WWWISIS (wxis.exe) for the chosen platform is located in the cgi-bin directory. 
+Figure 1: Organization of directories for the Windows and Linux distributions 
+10 
+
+Manual del usuario 
+Requirements for installation 
+4.2  Files and directories of the IAH package 
+4.2.1 
+BASES/IAH 
+Below this directory there are four subdirectories: fsts/, isos/, gizmos/, and 
+pfts/. Also there are some special files: 
+·  for Windows 
+1.  setupdb.bat ­ batch file for the generation of database and inverted file 
+with option for data in ASCII or ANSI codes 
+2.  inverte-dblil.bat ­ batch file for generating inverted file of the example 
+LILACS database in ANSI code 
+3.  inverte-dbsecs.bat ­ batch file for generating inverted file of the example  
+SECS database in ASCII code 
+4.  mx.exe ­ MX utility 
+·  for Linux 
+1.  setupdb.sh ­ shell file for the generation of database and inverted file with 
+option for data in ASCII or ANSI codes 
+2.  inverte-dblil.sh ­ shell file for generating inverted file of the example 
+LILACS database in ANSI code 
+3.  inverte-dbsecs.sh ­ shell file for generating inverted file of the example  
+SECS database in ASCII code 
+4.  mx ­ MX utility 
+In the subdirectories are located the files necessary for carrying out a "standard 
+installation", with two databases of reduced numbers of records, one using the 
+Secs format and the other, Lilacs. 
+In fsts/ are found the field selection tables for the databases. 
+In gizmos/ there are various ISIS databases (.mst, xrf and id files) which complement the interface, the conversion table for characters, gizmo and related 
+tasks. 
+Finally in pfts/ are the various display formats for the example databases. 
+11 
+
+Manual del usuario 
+Requirements for installation 
+4.2.2 
+HTDOCS/IAH 
+This directory contains four subdirectories (E/, I/, P/ and fulltext/), two database definition files (DBLIL.def and DBSECS.def), a configuration file for IAH 
+(iah.def) and some application files. 
+In the subdirectory fulltext/ there are files for providing access to full texts.  In each of the subdirectories E/, I/, and P/ there are two subdirectories: image/ and help/. In the first are the image files used by the interface such as icons, buttons,  banners, logos etc. In the second are the files containing the help texts of 
+the interface in the respective languages in HTML format. 
+The file iah.htm contains the initial page of the  IAH interface after its installation 
+and configuration and allows access to the databases. 
+4.2.3 
+CGI-BIN 
+In this directory is found the executable file of WWWISIS (wxis.exe) for 
+interpreting and executing the application IAH written in IsisScript. 
+4.2.4 
+CGI-BIN/IAH  
+There are six subdirectories (A/, E/, I/, modules/, P/, translate/) and the code of the application (iah.xic). 
+In the subdirectories of each language are the format files which form the pages of 
+the interface in that language. 
+The subdirectory modules/ contains optional modules and language extensions 
+that permit the additional use of new functions with more flexibility, as well as 
+customisations. 
+The subdirectory translate/ contains a translation tool aimed to help user in translating pages to other languages using batch files, the MX utility and some 
+gizmo files (master files). 
+12 
+
+ 
+5  How to install IAH 
+To install the IAH interface it is necessary to: 
+1.  create the root structure in which to expand the package, whether in Linux or 
+Windows; 
+2.  download the IAH package for the chosen plataform; 3.  expand the package into the appropriate directory; 4.  configure the definition files in accordance with the defined location; 
+In figures 1 and 2 the standard location of the databases can be seen in the 
+directory structure. The name of the database directories and their physical 
+location can be changed by users to adapt to the standard used in their institution. 
+However,  it should be noted that there are minimum requirements that must be 
+obeyed for the interface to function correctly.  
+The principal directory of the interface (or root directory of IAH) is the 
+subdirectory iah/, which should be located below the area designated as 
+DOCUMENT ROOT of the webserver so that it can be accessed from the static 
+pages of the interface, as well as configuration files, the help text, images etc., in 
+each of the available languages. 
+On the webserver it is necessary to have a directory of  CGI scripts which can run 
+WWWISIS (wxis.exe). 
+13 
+
+ 
+6  How to configure IAH  
+The first task after the expansion of the IAH package is the configuration of the 
+definition file for the interface (iah.def).  
+6.1  Contents of the file iah.def 
+IAH.DEF is a text file composed of four sections, whose functions are detailed in 
+table 2. 
+TITLE OF THE SECTION 
+DESCRIPTION 
+[PATH] 
+Indicates the location of the directories and files of the interface 
+[APPEARANCE] 
+Defines settings relating to the appearence of the interface 
+[HEADER] 
+Defines images and links for the head of the pages 
+[IAH] 
+Indicates the e-mail address of the person responsible and some configuration options of the interface 
+Table 2: Sections and functions of IAH.DEF. 
+6.1.1 
+PATH section 
+The definitions contained in this section are: 
+·  PATH_DATA= 
+14 
+
+Manual del usuario 
+How to configure IAH 
+Indicates the path relative to the a the root of the application in the webserver in which the static pages are located (IAH) 
+·  PATH_CGI-BIN= 
+Indicates  the absolute path of the directory for CGI scripts (e.g. /home/user/cgi-bin/iah) 
+·  PATH_DATABASE= 
+Indicates the absolute path of the directory for databases on the server (e.g. /home/user/bases/iah) 
+6.1.2 
+APPEARANCE section 
+The definitions which make up this section are the following: 
+·  BODY BACKGROUND COLOR=  
+Indicates the background colour of the HTML pages in hexadecimal values of  the RGB table 
+·  BODY BACKGROUND IMAGE= 
+Determines the background image of the HTML pages 
+·  BODY TEXT COLOR= 
+Indicates the text colour in the HTML pages in hexadecimal values of the  RGB table 
+·  BODY LINK COLOR= 
+Indicates the colour of the links in the HTML pages in hexadecimal values of the RGB table 
+·  BODY VLINK COLOR= 
+Indicates the colour of visited links in the HTML pages in hexadecimal values of the RGB table 
+·  BAR BACKGROUND COLOR= 
+Indicates the background colour of the title bars in the HTML pages in hexadecimal values of the RGB table 
+·  BAR TEXT COLOR= 
+Indicates the text colour of the title bars in the HTML pages in hexadecimal values of the RGB table 
+6.1.3 
+HEADER section 
+The definitions which make up this section are the following: 
+·  LOGO IMAGE= 
+Determines the image file of the logo which is used in the head of the HTML pages.  In general this type of file is located in the subdirectory images 
+·  LOGO URL= 
+15 
+
+Manual del usuario 
+How to configure IAH 
+Determines the  URLs of the websites which host the IAH interface in the three available languages 
+·  HEADER IMAGE= 
+Determines the image file which heads the HTML pages.  In general this type of file is located in the sudirectory images 
+·  HEADER URL= 
+Indicates the URLs of the initial pages of  IAH (the page giving the selection of databases) in the three available languages 
+6.1.4 
+IAH section 
+The definitions which make up this section are the following: 
+·  MANAGER E-MAIL= 
+Determines the e-mail address of the person responsible for the maintenance of IAH.  Users are informed of this address in case of errors in the system 
+·  REVERSE MODE= 
+Determines the order of presentation of the results of searches.  The possible values are: in ascending order (OFF), or descending order (ON) of MFNs 
+·  MULTI-LANGUAGE= 
+Indicates whether the user can or cannot change the language of the interface. The possible values are: OFF for change is prohibited, and ON for change is permitted, between the languages English, Spanish and Portuguese. 
+6.2  How to configure the file iah.def 
+1.  Open the file iah.def with the text editor you prefer 2.  Configure the section [PATH] 3.  Type immediately after the declaration PATH_DATA=, the relative path for the 
+root directory of IAH, in this case /iah/ 
+4.  Type immediately after the declaration PATH_CGI-BIN=, the absolute path for 
+the directory of IAH scripts, e.g.  /home/user/cgi-bin/iah/ 
+5.  Type immediately after the declaration PATH_DATABASE=, the absolute path 
+for the directory that contains the databases, e.g. /home/user/bases/iah/ 
+6.  Save the edited file. 
+!  In completing the declarations above, you must 
+type the initial and final slashes. 
+16 
+
+Manual del usuario 
+How to configure IAH 
+6.3  Initial testing of the interface 
+Using an Internet browser (Internet Explorer, Mozilla, Netscape etc.) type in the 
+the address box the URL in which IAH was installed, e.g. 
+http://my-server/iah/I/index.htm 
+where  my-server is the name of the domain where the package is installed. 
+It is possible to access an installation in local mode using localhost or 
+127.0.0.1 as the name of the domain. 
+From this page it is possible to select the example databases which accompany the 
+package (DBLIL and DBSECS). 
+It is suggested that you perform a search in the example databases (LILACS and 
+SeCS)  in order to confirm that the interface is functioning correctly before proceeding with the process of installation and configuring your own databases, 
+personalizing the layout, etc. 
+In case of error you can use the URL below: 
+http://my-server/cgi-bin/wxis.exe?hello 
+http://my-server/cgi-bin/wxis.exe?IsisScript=getenv.xis 
+ 
+17 
+
+ 
+7  Your own databases 
+IAH is normally distributed with two databases in the formats used in the LILACS 
+and SECS programmes. 
+To install and configure your own database, you need to follow the following steps: 
+7.1  How to install a new database 
+1.  Transfer to the directory ISOS (bases/iah/isos) the file(s) in ISO format of 
+the desired database(s) 
+2.  Transfer to the directory FSTS (bases/iah/fsts) the FST file(s) of the 
+database(s) 
+3.  Transfer to the directory PFTS (bases/iah/pfts/?/) the display format 
+files of the chosen database(s). The &quot;?&quot; corresponds to the language subdirectories of the interface (E/, I/ and P/). 
+Note: Commands for indenting and vertical and horizontal space (characteristics 
+of the CDS/ISIS format language) must be changed to their equivalents in HTML. 
+Fields which contain symbols for control of filing (e.g. &lt;A&gt;, &lt;The&gt;, &lt;La&gt;, etc.) 
+must have as their display mode heading (mhl). 
+4.  Execute the database configuration file in the command line of DOS or Linux: 
+a)  Change to the database directory (e.g. /home/user/bases/iah) 
+18 
+
+Manual del usuario 
+Your own databases 
+b)  Execute the command setupdb (shell or batch file ­ depending on the 
+operating system), giving the name of the ISO file (including the extension), name of the FST file FST (including the extension) and the name of the resultant database (e.g. setupdb.bat base.iso base.fst base). 
+!  If the database has been set up with the ANSI 
+(Windows) character table, use the fourth parameter, ANSI, in the instruction setupdb. 
+The default for inversion is ASCII. 
+Create a copy of the file DBLIL.def with the name of your database, e.g. video.def and edit it for the requirements of your database, in accordance with the section How to configure a new database. 
+5.  Add to the page for access to databases a link to this new database conforming 
+to the following model: &lt;p&gt;&lt;A HREF = &quot;/cgi-bin/wxis.exe/iah/?IsisScript=iah/iah.xic&amp;base= database&amp;lang=p&quot;&gt; Database&lt;/A&gt; - Text describing the database&lt;/p&gt; The terms in bold should be altered to reflect the details of your own database. 
+7.2  How to configure a new database 
+To configure a database in IAH it is necessary to alter some parameters in the 
+database definition file (base.def), whose name is defined by the user during the 
+installation (7.1, item 5) and which can be based on the definition of the LILACS 
+database (DBLIL.def). 
+Therefore, base.DEF is a text file composed of six sections, whose functions are 
+detailed in table 3. 
+TÍTLE of the SECTION 
+DESCRIPTION 
+[FILE_LOCATION] 
+Location of the database files, display formats and of export of data 
+[INDEX_DEFINITION] 
+List of definitions of indexes that can be accessed in searching 
+[APPLY_GIZMO] 
+List of files used for the global change of contents 
+[FORMAT_NAME] 
+List of definitions of display formats available 
+[HELP_FORM] 
+List of help files for the search forms 
+[DISPLAY_FORM] 
+List of search forms available 
+Table 3: Sections and functions of the file base.def. 
+19 
+
+Manual del usuario 
+Your own databases 
+7.2.1 
+Section FILE_LOCATION 
+In this section you should define the logical names of databases, inverted files, files 
+for display formats and conversion of data, all with their respective physical paths. 
+For each database, you need to define three files: the database, the inverted file(s), 
+and the display format files. For the definition of the database file the logical name  
+DATABASE must be used. 
+Each definition is preceded by the instruction FILE in the general form: 
+FILE LOGICAL_NAME.*=/directory-1/directory-n/file_name.* 
+Using the definition of a database of the type LILACS and name &quot;video&quot; as 
+example, the declaration results in: 
+FILE DATABASE.*=/home/user/bases/iah/vídeo.* 
+To ensure that the interface is portable to any directory structure, three variables 
+have been predefined: 
+6.  %path_database% 7.  %path_cgi-bin% 8.  %lang% 
+The variables %path_database% and %path_cgi-bin% get their values from  the settings of  PATH_DATABASE and PATH_CGI-BIN, respectively, of the file 
+iah.def, while the variable %lang% receives the identifying letter of the language (p, e, i) according to the selection made by the user through the interface. 
+Hence the definition of the database file can be written like this: 
+FILE DATABASE.*=%path_database%video.* 
+In the same way, the definition of a display format can be written: 
+FILE standard.pft=%path_database%pfts/%lang%/lildhtm.pft 
+Note that the standard structure of the package is used in all the examples. 
+20 
+
+Manual del usuario 
+Your own databases 
+7.2.2 
+Section INDEX_DEFINITION 
+In this section you should define the indexes availables for the search. It is possible 
+to mount an indexing FST or an FST with prefixes. The use of a fixed descriptive 
+element of index excludes or includes other variables, dependening on  the group 
+to which they pertain. The elements referring to the language are neuter and 
+optional. 
+Each definition is preceded by the term INDEX, followed by a prefix which can 
+have various descriptive elements identified in subfields following table 4. 
+Element Group  Description ^p 
+standard 
+Name of the index in the Portuguese language (1) 
+^e 
+standard 
+Name of the index in the Spanish language (1) 
+^i 
+standard 
+Name of the index in the English language (1) 
+^d 
+standard 
+Marks the default index (2) 
+^f 
+standard 
+Indicates availability of the field only in the advanced form (content: &quot;A&quot;) (3) 
+^t 
+standard 
+Type of the index (&quot;short&quot; for short index, &quot;hidden&quot; for hidden index) (3) 
+^g 
+standard 
+Defines the gizmo for executing in the keys of the inverted file (3) 
+^s 
+not 
+List of identificadores (tags) of field in donde se desea realizar the 
+prefixed 
+search 
+^x 
+prefixed 
+Identifies the prefix which will be used in search strategies 
+^y 
+prefixed 
+Identifies the logical name of the inverted file 
+^u 
+prefixed 
+Identifies the prefix to use 
+^m 
+prefixed 
+Identifies the prefix refering to the form or note associated with the search index. It works in conjunction with the definition of specific notes for the fields in the section HELP_FORM 
+Table 4: Components of the definition of indexes. 
+(1) Optional element in accordance with the selected language. (2) Mandatory element for the default index. (3) Optional element. 
+As a general form, we have: 
+INDEX XX=^p&lt;Nome&gt;^e&lt;Name&gt;^i&lt;Name&gt;^d*^s&lt;Tag&gt;^fA^t&lt;short|hidden&gt; 
+So, the definition of a word index to present as default could be: 
+INDEX TW=^pPalavras^ePalabras^iWords^d* 
+21 
+
+Manual del usuario 
+Your own databases 
+In the example above, the index shown as "Words" in English, would be the default  
+and would perform a search in all the fields defined in the FST. This definition also 
+implies an FST without field prefixes. 
+For an author index composed of the fields 10, 16 and 23 and shown only in the 
+advanced form, the declaration would be: 
+INDEX AU=^pAutor^eAutor^iAuthor^s10,16,23^fA 
+For an index of subject descriptors identified by the prefix &quot;MH&quot; in the FST and 
+available only in the English language, the declaration would be: 
+INDEX MH=^iSubject descriptor^xMH ^uMH_^yDATABASE^mMH_ 
+For an index of words from the abstract identified by the prefix &quot;AB&quot; in the FST 
+and with reference to an inverted file with the name &quot;RESUMEN&quot; we would have 
+in the files section of the definition: 
+FILE RESUMEN.*=/home/user/bases/iah/resumen.* 
+and in the definition of indexes: 
+INDEX AB=^pPalavras do resumo^ePalabras of the resumen^iAbstract words^xAB ^uAB_^yRESUMEN^mAB_ 
+7.2.3 
+Section APPLY_GIZMO 
+In this section you should indicate the files for the global changes of strings of 
+characters contained in the databases (GIZMO files), permitting conversion of 
+character tables, coding/decoding  of data, compression of information, etc. 
+The logical names must be defined in the section FILE_LOCATION 
+Each definition should be preceded by the term GIZMO, with the general form: 
+GIZMO LOGICAL_NAME 
+The standard IAH package contains some predefined GIZMO databases: 
+LOGICAL NAME 
+Description 
+GANS850 
+Performs the conversion of ANSI characters to their equivalences in ASCII 850.  
+22 
+
+Manual del usuario 
+Your own databases 
+LOGICAL NAME 
+Description 
+G850ANS 
+Performs the conversion of ASCII 850 characters to their equivalences in ANSI.  
+QLFANS 
+Performs the decoding of the codes used in DeCS descriptors in accordance with the ANSI (Windows) table. Available in three languages. 
+QLF850 
+Performs the decoding of the codes used in DeCS descriptors in accordance with the ASCII 850 (DOS) table. Available in three languages. 
+LANGS 
+Performs the decoding of the language codes in accordance with the ANSI (Windows) table. Available in three languages. 
+GIZMOTL 
+Performs the decoding of the type of literature codes in accordance with the ANSI (Windows) table. Available in three languages. 
+GIZMONB 
+Performs the decoding of the bibliographic level codes in accordance with the ANSI (Windows) table. Available in three languages. 
+QLF850 
+Performs the decoding of the codes used in DeCS descriptors in accordance with the ASCII 850 (DOS) table. Available in three languages. 
+LANGS 
+Performs the decoding of the language codes in accordance with the ANSI (Windows) table. Available in three languages. 
+GIZMOTL 
+Performs the decoding of the type of literature codes in accordance with the ANSI (Windows) table. Available in three languages. 
+GIZMONB 
+Performs the decoding of the bibliographic level codes in accordance with the ANSI (Windows) table. Available in three languages. 
+Table 5: Table of standard GIZMOS in the IAH package. 
+Note that each gizmo table matches the earlier definition in the file DBLIL.def of 
+the example included with the package: 
+FILE GIZMOTL.*=%path_database%gizmo/%lang%/gizmotl.* 
+FILE GIZMONB.*=%path_database%gizmo/%lang%/gizmonb.* 
+FILE LANGS.*=%path_database%gizmo/%lang%/lang.* 
+FILE G850ANS.*=%path_database%gizmo/g850ans.* 
+FILE GANS850.*=%path_database%gizmo/gans850.* 
+FILE QLFANS.*=%path_database%gizmo/%lang%/qlfans.* 
+23 
+
+Manual del usuario 
+Your own databases 
+FILE QLF850.*=%path_database%gizmo/%lang%/qlf850.* 
+You can specify the database GIZMO ASC2ANS for converting data recorded in the 
+database in ASCII format into ANSI as follows: 
+GIZMO=ASC2ANS 
+7.2.4 
+Section FORMAT_NAME 
+In this section you define the logical names of the available display formats and 
+their descriptions in the three languages. 
+Each definition is preceded by the term FORMAT, followed by the real name and 
+of the descriptions for each language (^p for Portuguese, ^e for Spanish, and ^i 
+for English) like this: 
+FORMAT xxxxx=^pnononon^enononon^inononon 
+The installation package comes accompanied by six display format files for the 
+language of the interface: four for the LILACS model and two for the SECS model. 
+The four formats for LILACS are: long, detailed, citation and title. The default 
+format is citation.  The files (with the extension .pft) defined for each of the 
+formats must be declared in the section [FILE_LOCATION]. 
+The definition of the detailed format is declared  like this: 
+FORMAT detailed.pft=^pDetalhado^eDetallado^iDetailed 
+The declaration FORMAT DEFAULT specifies which is the default for the interface 
+and should preferably be the last declaration of this section.  Note that the format 
+must have been declared previously:  
+FORMAT DEFAULT=detailed.pft 
+24 
+
+Manual del usuario 
+Your own databases 
+7.2.5 
+Section HELP_FORM 
+In this section you define the HTML files for help and the explanatory notes for 
+each type of form (free, basic and advanced) and/or the indexes availables in the 
+interface.  It is assumed that these files are located under the root of IAH in the 
+subdirectory help below each language (P, E, I). 
+The content of these files can be generic, serving all the elements of a particular 
+category  (form or index), or specific, for determining one element within the 
+category. For example, you can define a help file which serves all the available 
+indexes and additionally a help file that gives more detail of one of them.  
+To define a generic help text, the declaration should be preceded by the term 
+HELP FORM or HELP INDEX and followed by the physical name of the file. 
+For example: 
+HELP FORM=help_forms.html 
+HELP INDEX=help_indexes.html 
+To define a specific help text, the declaration should include the type of search 
+form (F: free, B: basic and A: advanced) and/or index (in accordance with the 
+section INDEX_DEFINITION). 
+For example: 
+HELP FORM F=help_form_free.html 
+HELP INDEX TW=help_index_words.html 
+To define a test for  explanatory notes, the declaration should be preceded by the 
+term NOTE FORM or NOTE INDEX in place of HELP FORM and HELP 
+INDEX. The rest of the procedure is identical. 
+25 
+
+Manual del usuario 
+Your own databases 
+7.2.6 
+Section PREFERENCES 
+In this section you define some options of the interface for the particular database.  
+The declarations contained in this section are the following:  
+·  AVAILABLE FORMS 
+Determines the set of forms availables, the first one listed being the default in the initialization.  The forms are identified by letters as shown in  Table 6. 
+Identifier Form F 
+Free 
+B 
+Basic 
+A 
+Advanced 
+Table 6: Identifiers of Forms. 
+The definition is preceded by the term AVAILABLE FORMS, followed by the list of identifiers of forms separated by commas, as: 
+AVAILABLE FORMS=F,A 
+This declaration informs IAH that there are two search forms available  (Free and Advanced), with the free form being the default in the initialization. 
+·  SEND RESULT BY EMAIL 
+Determines whether or not the sending of search results by email is enabled.  The possible values are  ON and OFF.  For this option to function correctly the user should install and configure an SMTP program and create a routine for receiving the parameters sent by the interface. The command which is executed when this option is activated should be given  in the file sendmail.conf of the directory root of the IAH (/home/user/htdocs/iah/). Under Windows the content of the file sendmail.conf could be: 
+EXECUTE=blat &lt;file&gt; -subject Results -to &lt;mailto&gt; -q -html 
+Under Linux the content would be: 
+EXECUTE=/home/user/iah/cgi-bin/email.sh &lt;mailto&gt; &lt;file&gt; 
+!  The program responsible for sending e-mail does 
+not form part of the IAH package. Under Linux, the shell shown in the example is  responsible for passing the two required parameters to the chosen mail program. 
+SEND RESULT BY EMAIL=OFF 
+·  NAVIGATION BAR 
+Determines whether the navigation bar between the retrieved documents should be shown or not.  The possible values are ON and OFF. 
+26 
+
+Manual del usuario 
+Your own databases 
+NAVIGATION BAR=ON 
+·  DOCUMENTS PER PAGE 
+Determines the maximum number of documents shown in the results page of a search. 
+DOCUMENTS PER PAGE=20 
+·  FEATURES 
+Indicates additional characteristics of IAH availables for use.  Currently, the package only supports the XML standard in the export of records. 
+For example: 
+FEATURES=XML 
+7.3  Management of multiple databases with a 
+different layout 
+A single instance of IAH can hold a large quantity of databases and yet permit the 
+layout, the colours and the output format of data be changed. 
+When you want to add new databases in IAH (e.g. rare books and institutional ­ 
+referred to here as &quot;rare&quot; and &quot;videos&quot;) with clearly distinct visual identities, you 
+should start with the preparation of the environment in which you replicate the 
+parameters of the installation model. 
+In the following steps it is assumed that the databases are compatible with the 
+LILACS model. 
+1.  Create a subdirectory for each database in the root of the IAH documents and 
+in the area of display formats, e.g. 
+htdocs\iah\rare 
+htdocs\iah\videos 
+bases\iah\pfts\rare 
+bases\iah\pfts\videos 
+2.  Copy the files \htdocs\iah\iah.def and \htdocs\iah\dblil.def for each 
+subdirectory of the area of documents (htdocs\iah\rare and htdocs\iah\videos) 
+27 
+
+Manual del usuario 
+Your own databases 
+3.  Copy the subdirectories E, I and P below \htdocs\iah for each subdirectory of 
+the area of documents (htdocs\iah\rare and htdocs\iah\videos) 
+4.  Copy the subdirectories E, I and P abajo of \bases\iah\pfts for each 
+subdirectory of the area of databases (bases\iah\pfts\rare and bases\iah\pfts\videos) 
+With the structure prepared, you can commence the customization of each new 
+virtual instance of IAH, as follows: 
+!  In the steps below it is shown how to configure 
+the instance &quot;rare&quot; which was prepared previously. 
+1.  Edit the file htdocs\iah\rare\iah.def, changing the line below from: 
+PATH_DATA=/iah/ 
+to: 
+PATH_DATA=/iah/rare/ 
+2.  Rename the file htdocs\iah\rare\dblil.def to htdocs\iah\rare\rare.def 
+!  Although this step is not required, it takes the 
+operation clearer. 
+3.  Edit the file htdocs\iah\rare\rare.def, changing the lines below, described in 
+the section FILE_LOCATION: 
+from: 
+FILE DATABASE.*=%path_database%dblil.* 
+FILE standard.pft=%path_database%pfts/%lang%/lillhtm.pft 
+FILE detailed.pft=%path_database%pfts/%lang%/lildhtm.pft 
+FILE citation.pft=%path_database%pfts/%lang%/lilchtm.pft 
+FILE citation.xml=%path_database%pfts/lilCitationXML.pft 
+FILE title.pft=%path_database%pfts/%lang%/lilthtm.pft 
+FILE SHORTCUT.IAH=%path_database%pfts/%lang%/shortcut.pft 
+28 
+
+Manual del usuario 
+Your own databases 
+FILE descritores.pft=%path_database%pfts/%lang%/descritores.pft 
+to: 
+FILE DATABASE.*=%path_database%rare.* 
+FILE standard.pft=%path_database%pfts/rare/%lang%/lillhtm.pft 
+FILE detailed.pft=%path_database%pfts/rare/%lang%/lildhtm.pft 
+FILE citation.pft=%path_database%pfts/rare/%lang%/lilchtm.pft 
+FILE mes.pft=%path_database%pfts/rare/%lang%/mes.pft 
+FILE title.pft=%path_database%pfts/rare/%lang%/lilthtm.pft 
+FILE SHORTCUT.IAH=%path_database%pfts/rare/%lang%/shortcut.pft 
+FILE descritores.pft=%path_database%pfts/rare/%lang%/descritores.pft 
+4.  Copy the database &quot;rare&quot; (rare.mst and rare.xrf) to the directory defined in the 
+option FILE DATABASE of the file rare.def (bases\iah) 
+5.  Copy the FST dblil.fst to rare.fst (bases\iah\fsts) 6.  Open a DOS session and change to the directory bases\iah\ 7.  Generate the inverted file for the database with rare.fst using the line below as 
+a model: a)  for Windows: 
+mx rare fst=@fsts\rare.fst fullinv/ansi=rare now -all 
+b)  for Linux 
+./mx rare fst=@fsts/rare.fst fullinv/ansi=rare now -all 
+Now, you need only to construct the URL for the database with the parameters 
+changed to access the new virtual instance RARE. 
+Let us consider, therefore, the basic URL of IAH for the example database DBLIL 
+in the English language that comes with the IAH package: 
+http://domain/cgi-bin/wxis.exe/iah/?IsisScript=iah/iah.xic&amp;lang=I&amp;base=dblil 
+We can separate the terms of the URL into blocks like this: 
+Term Code protocol http: domain //domain/ program cgi-bin/wxis.exe 
+29 
+
+Manual del usuario 
+Your own databases 
+root of the application 
+/iah/ 
+parameter 1: application IsisScript=iah/iah.xic parameter 2: language lang=I parameter 3: database base=dblil 
+To construct the appropriate URL for the database &quot;RARE&quot;, you should follow 
+these steps: 
+1.  Add the name of the directory to the end of  the term &quot;root of the application&quot;: 
+/iah/rare/ 
+2.  Change the name of the database in parameter 3: 
+base=rare 
+The table with the new parameters will be: 
+Term Code protocol http: domain //domain/ program cgi-bin/wxis.exe root of the application 
+/iah/rare/ 
+parameter 1: application IsisScript=iah/iah.xic parameter 2: language lang=I parameter 3: database base=rare 
+Reconstructing the URL, this becomes: 
+http://domain/cgi-bin/wxis.exe/iah/rare?IsisScript=iah/iah.xic&amp;lang=I&amp;base=rare 
+Now that there is a separate area configured for the new database (RARE), the 
+image files (htdocs\iah\rare\?\image) and the support and help texts 
+(htdocs\iah\rare\?\help) can be changed without affecting changes to the original 
+files or other virtual instances. 
+It is also possible to change the definitions of colour and the names of logos 
+defined for the interface, in the case the user wants to differentiate each instance, 
+through the parameters defined in the sections APPEARANCE and HEADER. 
+ 
+ 
+30 
+
+ 
+8  How to use the IAH 
+interface 
+Any search in the databases is performed through a form in which the user enters 
+his/her "search expression", made up of words, terms and boolean (or logical) 
+operators. 
+After the required database has been selected, the IAH interface presents the "free" 
+form (adopted as the default of the instalation), with other forms available: basic 
+and advanced. 
+The examples and figures are based on IAH configured for the databases LILACS 
+and MEDLINE. 
+8.1  Free form 
+This searches words in all the fields that are inverted word by word. 
+8.1.1 
+Important remarks 
+·  When there is more than one word you should separate them by a single space, 
+selecting one of the available operators: AND (to relate) or OR (to sum) 
+31 
+
+Manual del usuario 
+How to use the IAH interface 
+·  If you want to trunacte terms or words partially, use the symbol ($)  at the end 
+of the root, for example: infect$ retrieves infection, infections, infectious etc. 
+·  It is important to consider the synonyms and variations of the search words 
+(e.g. cerebral, brain). 
+Example 1: Search in the LILACS database on the diminution of risk of infection by 
+the human immunodeficiency virus (HIV) in haemodialysis patients. 
+Consider only  the most significant words for your search and type them into the 
+available space.  In this example you should leave the operator AND selected so 
+that IAH searches for articles that contain all the words entered. 
+ 
+Figure 3: Example of completing the field for a free form. 
+8.2  Basic and Advanced Forms 
+The Basic Form permits searching in the principal search fields of the databases, 
+amongst them: words, descriptors, limiting by subject, author, journal and 
+language, so offering access to the indexes of those fields which help to assemble 
+the search expression. 
+The Advanced Form permits searching in all the fields of the datadatabase and 
+has the same resources as the basic form.  
+To go to the basic or advanced forms, you have to click the name of the form in 
+the upper right part of the free form. 
+32 
+
+Manual del usuario 
+How to use the IAH interface 
+ 
+Figure 4: Location of the options for of type of search form. 
+8.2.1 
+How to search 
+3.  Do not type anything in the white boxes. 4.  Select one of the search fields, click the button which matches in the box 
+showing the fields, and click the index button on the same line. 
+ 
+Figure 5: Selection of search field. 
+!  When you have more than one word or term in 
+the same line, you must use one of the boolean operators (AND, OR, AND NOT) between each term. The operator AND is defined previously as default between one line and another, but can be altered by the user according to the requirements of the search. 
+33 
+
+Manual del usuario 
+How to use the IAH interface 
+ 
+Figure 6: Example of a search expression entered in the basic form. 
+In this example using the AND operator, the system relates the two subjects and 
+retrieves only articles in English.  
+8.2.2 
+Display of the results 
+Once the search has been executed, the first part of the page shows information 
+about the database searched, the search expression, and some of the references 
+retrieved in the search in groups of 20 records, in the display format indicated in 
+the CONFIG.  (In the example below the display is in the long format). 
+ 
+Figure 7: Example of a search result. 
+34 
+
+Manual del usuario 
+How to use the IAH interface 
+!  The number of records per page can be altered 
+through the declaration DOCUMENTS PER PAGE in the definition file of  the database. 
+The principal commands and resources available in this page are the following:  
+[refine] ­ changes the search form to the previous search expression. 
+1. 
+ - changes the search form to a new search. 
+2. 
+ - lists the references (or records) previously  selected. 
+3.  The selection is achieved by clicking in the area [selection] available in the 
+left corner of each reference displayed, as shown in the picture below where the  reference number 1 is selected.  To cancel the selection, it is sufficient to click again within the area. 
+4. 
+ -permits printing or capturing the references or records 
+retrieved in the search, selected or not, for sending the references by electronic mail (e-mail). This option can include:  c)  all the references retrieved in the search d)  a sequential range of references retrieved, e.g. 1 to 50 e)  The references selected previously in the results page of the search 
+5.  In the option to send for printing, the system generates a list with the option 
+defined by the user.  From this list you should use the print or capture command of your web browser. °  To print ­ use the option Print of your web browser °  To capture in text format ­ use the option File, Save As of your web 
+browser 
+6. 
+ - command that permits changing the format of display/listing of the 
+references retrieved in the search; changing the language of the interface; and the option to include or not the navigation bar. 
+35 
+
+Manual del usuario 
+How to use the IAH interface 
+ 
+Figure 8: Window for configuring the interface. 
+The formats available are the following:  °  long: includes bibliographic data of the reference and abstract °  detailed: includes bibliographic data of the reference, summary and 
+descriptors (or keywords) 
+°  title: includes only the title of the aricle/document °  citation: is the format of bibliographic reference, without abstract 
+(default format).  
+7.  Select the desired format and confirme with the button 
+. 
+8.  To navigate between the pages, use the pagination bar of the results. 
+ 
+ 
+Figure 9: Pagination bar of the results. 
+Each page of results includes a maximum of 20 references:  it is possible to configure this value during and after the installation.  To navigate amongst the reference, or within the same page, use the array of arrows  available in the 
+navigation bar of the records  (
+ ). 
+36 
+
+Manual del usuario 
+How to use the IAH interface 
+8.3  Logical operators in the search 
+The logical operators or boolean operators are used to relate terms or words in a 
+search expression.  They combine two or more terms in one or more search fields. 
+The boolean operators are: 
+1.  AND - Intersection ­ used to relate terms. 
+In a search of two or more terms related with AND,  you retrieve documents which have the terms occurring together.  
+Example: Hepatitis B AND Hepatic cirrhosis. 
+2.  OR - Union - used to add terms. 
+In a search of two or more terms related with OR,  you retrieve documents which have any one (or more) of the search terms.  
+Example: Hepatitis B OR Hepatic cirrhosis. 
+3.  AND NOT ­ Exclusion ­ used to exclude. 
+In a search excluding a particular term you retrieve documents which have no relation with this term.  
+Example: hepatitis B AND NOT Hepatic cirrhosis. 
+In this example you retrieve documents about hepatitis B excluding documents about hepatic cirrhosis. 
+The operator that is pre-selected in the search forms is AND.  In the basic and 
+advanced search forms, the boolean operators are in the first column, starting 
+from line 2 of the form. 
+The relation between the term typed in line 1 and the one typed in line 2 is 
+controlled by the boolean operator selected in the first column of the form. 
+Select the appropriate operator for correctly relating the search terms.  Only in the 
+basic and advanced forms is it possible to employ a search expression using more 
+than one boolean operator. 
+Example 1: search for the descriptor hepatitis B  related with the descriptor 
+Hepatic cirrhosis ­ AND. 
+37 
+
+Manual del usuario 
+How to use the IAH interface 
+ 
+Figure 10: Example of a search with the operator AND. 
+In this example the system retrieves records which contain the two descriptors at 
+the same time. 
+Example 2: search for hepatitis B or hepatitis C related  with hepatic 
+cirrhosis  - OR and AND. 
+ 
+Figure 11: Example of a search with the operators OR and AND. 
+In this example it is necessary to use two boolean operators: OR and AND. 
+In searches using different boolean operators, the order of the terms in the form 
+can cause a difference.  To clarify, we follow the logic of the mathematical 
+expresions. 
+Supposing that the set of documents about hepatitis B is A, the set of documents 
+about  hepatitis C is B and the set of documents about hepatic cirrhosis is C; 
+the search expression which corresponds to the example is the union of the sets 
+A and B, which result is then related with the set C.  As a mathematical expression 
+this search can be represented by: 
+38 
+
+Manual del usuario 
+How to use the IAH interface 
+ (A  B)  C 
+i.e. 
+ (hepatitis B OR hepatitis C) AND hepatic cirrhosis 
+Example 3: search for hepatitis B or hepatitis C and not related with hepatic 
+cirrhosis - OR and AND NOT 
+ 
+Figure 12: Example of a search with the operators OR and AND NOT. 
+In this example, the system retrieves the records which contain one of the two 
+descriptors and excludes all the records which contain the descriptor "hepatic 
+cirrhosis". 
+Example: hepatitis B OR hepatitis C AND NOT hepatic cirrhosis 
+8.4  Search fields 
+8.4.1 
+Words 
+The words  search field is considered a free-text field, formed of single words.  
+Therefore, you should not include in your search articles, prepositions, compound 
+terms and phrases. 
+The search is processed against the words in titles (original and translated) in the   
+abstract and in the descriptors assigned to the document. 
+As a search in the free search form: 
+39 
+
+Manual del usuario 
+How to use the IAH interface 
+Example ­ search for "complications of  hepatic cirrhosis" in the MEDLINE 
+database 
+If the search is in the MEDLINE database, we should preferably use the words in 
+English: complications, hepatic, cirrhosis. 
+ 
+Figure 13: Example of a free search with the operator AND (MEDLINE database). 
+1.  Type one or more words, separated by a single space and select the operator 
+AND (to relate) or OR (to add). 
+2.  You should truncate the words to include their variations. For example: 
+complicat$ - to retrieve complication, complications, etc. 
+3.  For the same search in the LILACS database, you should consider words in 
+Portuguese and Spanish. 
+ 
+Figure 14: Example of a free search with operator AND (LILACS database). 
+8.4.2 
+Descriptor 
+The descriptor field is the preferred route for an efficient search  with the best 
+results. 
+40 
+
+Manual del usuario 
+How to use the IAH interface 
+This field contains terms which represent the subject of the article or document, 
+known as descriptors, keywords, uniterms, subject headings,  MeSH terms 
+(Medical Subject Headings), or DeCS terms.   ["Keyword" is somewhat ambiguous 
+in English as it is also sometimes used to mean significant  words in the title, 
+abstract, etc.] 
+The descriptors are in Portuguese, which permits the search to be carried out in 
+Portuguese, although searching an international database like MEDLINE. 
+When searching the descriptor field it is very important to know what is the 
+correct descriptor, authorised for searching.  The best option is to consult the 
+index of the field. 
+Example: search for the subject &quot;foetal alcoholic syndrome&quot;  
+Step 1- in the basic or advanced forms, do not type in the white boxes.  
+1.  Select in line 1 of the descriptor search field, having clicked the button which 
+matches in the box reserved for the fields 
+2.   Click the image 
+ to open the page for access to the index of the field 
+selected in the form. 
+ 
+ 
+Figure 15: Selection of the descriptor in the box reserved for the search fields and 
+the button for access to the index 
+Step 2 ­ in the page for access to the index type in the appropriate space the first 
+word or element of your search  (in the example syndrome), and click on 
+ . 
+41 
+
+Manual del usuario 
+How to use the IAH interface 
+ 
+Figure 16: Example of how to complete the page for access to the index. 
+Step 3 ­ from the index display, click to mark the descriptor of interest 
+ 
+Figure 17: Example of the list  of index terms. 
+1.  To execute the search, click the button 
+. 
+The system retrieves all the records which contain the descriptor &quot;alcoholic foetal syndrome&quot;. 
+2.  To relate this descriptor with another descriptor or with another search field 
+(language, author, etc.) click the button 
+. 
+The system transfers the descriptor selected to the search form. 
+8.4.3 
+Author 
+The search field Author contains the fornames and surnames of the authors of the 
+articles or documents recorded in the databases. 
+In the MEDLINE database, the authors are indexed in the format of surname 
+and initials, without a comma between the surname and the initials and without a 
+full stop after the initials. 
+42 
+
+Manual del usuario 
+How to use the IAH interface 
+Example: WILLIAMS AF 
+In the LILACS database and other databases, the authors are indexed in the format 
+of surname and forenames, separated by a comma, as they appear in the article. 
+Example: SILVA, Antonio Carlos Pereira  
+The names of the authors do not always apear  in a standarized manner. See the 
+example where the name of the autor Adib Domingos Jatene appears in the author 
+index of the MEDLINE and LILACS databases. 
+MEDLINE LILACS 
+ 
+ 
+Figure 18: Comparison of the author indexes of the MEDLINE and LILACS 
+databases. 
+ADVICE: Always where possible enlist the help of the indexes for entering your 
+search expression in the form.  If you choose not to use the author index, use the 
+symbol $ to truncate part of the forename, e.g. JATENE$.  (This format  retrieves 
+all the authors who have the surname Jatene.) 
+8.4.4 
+Type of Literature 
+The search field type of literature only is available in the Advanced search 
+form and only in the databases which follow the LILACS system (LILACS, 
+43 
+
+Manual del usuario 
+How to use the IAH interface 
+ADOLEC, BBO, ADSAUDE, etc.) It contains types of literature such as: 
+monographs, thesis, project documents, etc. 
+Example: to retrieve theses about indocyanine green 
+Step 1- in the advanced form type nothing in the first line; select in the 3rd column 
+of the first line the field of search descriptor and click  
+ ;  to access the 
+index, type &quot;indoc&quot; ; select the descriptor and click in 
+. 
+ 
+Figure 19: Example of the list of descriptors. 
+Step 2- go to the  second line, select in the 3rd column of this line the search field  
+&quot;type of literature&quot;; click the button  
+(the index of the second line); 
+from the index select the type thesis and click the button 
+ to transfer the 
+term to the form. 
+44 
+
+Manual del usuario 
+How to use the IAH interface 
+ 
+Figure 20: Example of list of type of literature. 
+See the form with the search expression which applies to the example: 
+ 
+Figure 21: Example of completed form with descriptor and type of literature. 
+8.4.5 
+Unique Identifier 
+The search field unique identifier contains the identification number of the 
+article or document in the database. 
+A search in this field allows you to retrieve a particular record from the database 
+based on the indentification number of the article or document. 
+45 
+
+Manual del usuario 
+How to use the IAH interface 
+The unique identifier is the first item of data that appears in the database record, 
+corresponding to the abreviation Id (in LILACS) or PMID (in Medline). See 
+the example: 
+ 
+Figure 22: Example of a reference with the unique identifier in bold. 
+Very often, the user prints the results of a search and afterwards, to analyse the 
+articles retrieved, decides to request photocopies of the articles.  To do this it is  
+possible to use the option of automatic completion of a photocopy request, the user 
+has only to retrieve again the article(s) from the list of requests retrieved. 
+Example: to retrieve the articles whose ID numbers are 176790 and 266022 
+and 374112 in the LILACS database.  
+46 
+
+Manual del usuario 
+How to use the IAH interface 
+Type the IDs in the first line, separated with the boolean operator OR and select 
+the search field "unique identifier". 
+ 
+Figure 30: Example of completion of a search in the unique identifier field. 
+In the MEDLINE database, the search follows a similar form, but there also exists 
+exists the concern of the division by group of years. 
+ 
+ 
+47 
+
+ 
+9  Bibliographic 
+references 
+1. 
+Centro Latinoamericano y del Caribe de Información en Ciencias de la Salud. 
+Descritores em Ciências da Saúde. 2.ed. rev. São Paulo, 1992. 1111 p. 
+2. 
+Centro Latinoamericano y del Caribe de Información en Ciencias de la Salud. 
+Manual do Sistema SeCS. São Paulo, 1992. 88p. 
+3. 
+Centro Latinoamericano y del Caribe de Información en Ciencias de la Salud. 
+Manual de Indexação. São Paulo, 1988. 209p. 
+4. 
+Centro Latinoamericano y del Caribe de Información en Ciencias de la Salud. 
+LILDBI: LILACS ­ Descripción bibliográfica e indización. Chile: Centro 
+Coordinador Nacional de Chile, 1998. (Metodología LILACS) 
+5. 
+Packer, A. L., Castro, E. de. Biblioteca Virtual en Salud. [monografia na 
+internet]. São Paulo SP : BIREME - OPS - OMS, 1998 [citado 2005 Set 21]. 
+Disponível em: http://www.bireme.br/bvs/por/entresp.htm. 
+6. 
+Packer, A. L. et al. SciELO: uma metodologia para publicação eletrônica. 
+Ciência da Informação [online]. 1998, v. 27, n. 2 [citado 2005 Set 21]. 
+Disponível em: 
+48 
+
+Manual del usuario 
+Bibliographic references 
+http://www.scielo.br/scielo.php?script=sci_arttext&amp;pid=S0100-
+19651998000200002&amp;tlng=pt&amp;lng=pt&amp;nrm=iso. ISSN 0100-1965. 
+ 
+ 
+ 
+49 
+
+ 
+10  Glossary 
+  Application. Program used to execute tasks in connection with an 
+application, such as the creation or edition of texts, drawings, animations, layout, etc. E.g.: text processor, database manager, 
+Internet browser, etc. 
+  Backup. Procedure used to duplicate one or more files and/or 
+directories in another storing device (tape or disc), thus producing 
+a backup copy that may be restored in the event of accidental deletion or physical damage to the original data. 
+  Bibliographic Database. Electronic version of a catalog or 
+bibliographic index. 
+  Bibliographic Description. Description of a bibliographic item by 
+using attributes such as author, title, edition, size, etc.  
+  Browser. Internet page navigator, such as Internet Explorer and 
+Netscape Navigator. 
+50 
+
+Manual del usuario 
+Glossary 
+  CDS/ISIS ­ MicroISIS. Software program developed and maintained by 
+UNESCO to manage bibliographic data.  
+  CGI. The Common Gateway Interface is a standard for interfacing 
+external applications with information servers, such as HTTP or 
+Web servers. 
+  Database. Collection of data that are structured to be easily 
+accessed and handled. It is formed by units called records whose attributes are represented by fields. For example, in a file called &quot;customer base&quot;, each customer is a record, with several fields 
+such as &quot;NAME&quot;, &quot;CUSTOMER CODE&quot;, &quot;TELEPHONE&quot; etc. 
+  DeCS Server. Application developed by Bireme using the IsisScript 
+language to manage the database of health descriptors (DeCS). 
+  Descriptor. Embodies a concept accepted in a controlled vocabulary 
+(like a thesaurus.) 
+  Electronic Format. Any form of storage, retrieval or presentation of 
+information that may be transmitted on-line or recorded in magnetic or optical media. 
+  Field. See Database. 
+  File. In computing, a set of data that may be saved into some type 
+of storing device. The data files are created by applications, such 
+as a text processor for example. 
+  ISO Format (of files). Standard established by the ISO to allow the 
+exchange of data between institutions, networks and users. 
+  LILACS Format. A bibliographic description format established by 
+BIREME, based on the UNISIST Reference Manual for Machine-
+readable Bibliographic Descriptions. 
+51 
+
+Manual del usuario 
+Glossary 
+  LILDBI-Web. Web version of the "LILACS Bibliographic Description 
+and Indexing" system. 
+  Methodology. Set of rules and conventions used to standardize a 
+process or the production of a source of information. 
+  PDF. File format developed by Adobe whose objective is to 
+maintain the presentation format of a document designed for 
+printing when this document is stored in digital media. 
+  PubMed. Service of the National Library of Medicine that includes 
+over 15 million citations from MEDLINE and other life science 
+journals for biomedical articles back to the 1950s. PubMed includes 
+links to full text articles and other related resources. 
+  SGML. Metalanguage standard of the ISO (International Organization 
+for Standardization) used for the definition of languages of marking 
+of electronic texts, making possible the interchange and the 
+distribution of documents in the most varied formats, from one 
+same source of data. 
+  TCP/IP Protocol. Standard that defines the method of 
+communication between digital equipment. It employs a single 
+number of identification. 
+  Thematic area. Specific set of information on the subject matter of 
+a VHL which allows user topic-based navigation. 
+  URL. Standard defined for the addressing of data contents via the 
+TCP/IP protocol. Internet browsers use the URL to access Web 
+pages.  
+  XML. Language created to allow the arrangement of data in a 
+structured and hierarchical manner, thus facilitating data 
+communication between different systems and platforms. 
+52 
+
+Manual del usuario 
+Glossary 
+  XSL. Language created to allow the navigation, selection and 
+capture of data of an XML file. 
+ 
+ 
+53 
+
+ 
+Appendix A ­ Indexing 
+Techniques  
+For IAH to carry out a search in an ISIS database, it is necessary to perform an 
+inversion of the data using an FST file (Field Select Table).  FST files consist of one 
+or more lines divided into three segments: 
+1.  a field identifier (tag) 2.  an indexing technique 3.  a format for extraction of data, in the CDS/ISIS formatting language 
+The indexing techniques define the processes which are performed on the data 
+generated by the format. 
+CDS/ISIS offers nine indexing techniques, identified by a single-digit code, as 
+explained below: 
+·  Technique 0 (zero) 
+Constructs a term from each line extracted by the format.  This technique is generally used for indexing internal fields or subfields.  However, note that CDS/ISIS constructs terms from lines and not fields.  So you should realise that CDS/ISIS considers the output of the format as a string of characters in which the fields are no longer identifiable.  Therefore, it is the responsibility of the user to produce the correct data through the format, especially when indexing repeatable fields and/or more than one field.  In other words, when using this technique, verify that the extraction format for data produces as output a line for each term that should be indexed. 
+54 
+
+Manual del usuario 
+Appendix A ­ Indexing Techniques 
+·  Technique 1 
+Constructs a term from each subfield or line extracted by the format considering delimiters.  Since CDS/ISIS looks for subfield delimiters in the output of the format for the technique to function correctly, the format should specifiy proof mode (or no mode, since proof is the default) which retains the subfield delimiters in the output.   Recall that the modes "head" and "data" substitute the subfield delimiters with  punctuation marks.  Observe also that technique 1 is an extension of technique 0. 
+·  Technique 2 
+Constructs a term form each term or phrase included between &lt; and &gt; (less than and greater than). It does not index any text except between the characteres &lt; and &gt;. Note that this  technique requires the proof mode because the other modes remove the characters &lt; and &gt;. E.g. "Report describing a &lt;university course&gt; on &lt;training in documentation&gt; in an African &lt;library school&gt;" produces the following index terms with this technique: °  university course °  training in documentation °  library school 
+·  Technique 3 
+Executes the same processing as technique 2, except that the terms are included between slashes (/ ... /). E.g. "Report describing a /university course/ on /training in documentation/ in an African /library school/" produces the following index terms with this technique: °  university course °  training in documentation °  library school 
+·  Technique 4 
+Constructs a term from each word of the text extracted by the format.  By "a word" is meant a continuous sequence of alphabetic characters. Observe that when you use this technique to index a database with subfield delimiters, you should specify the "head" or &quot;data&quot; mode (mhl or mdl) in the  corresponding format for substituting the subfield delimiter according to the rules of that mode.  Otherwise, the alphabetic codes of the subfield are considered as part of a word.  Also it is advisable to use the "head" or "data" mode if the field that will be indexed  may contain file information, in case the form of presentation of the field is ignored. 
+ 
+55 
+
+Manual del usuario 
+Appendix A ­ Indexing Techniques 
+!  The definition of "alphabetic characters" can be 
+adapted to the needs of each user by means of the System Table ISISAC.TAB. 
+·  Techniques 5, 6, 7 and 8 
+Indexing techniques 5, 6, 7 and 8 operate in a similar way to techniques  1, 2, 3 and 4, respectively, but differ in the application of prefixes to the extracted terms. The specification of a prefix is an unconditional literal using the general form: 
+'dprefixd',&lt;CDS/ISIS format&gt; 
+in which: 
+d is a delimiter character not used as part of the 
+prefix 
+prefix is the string of characters 
+&lt;CDS/ISIS format&gt; is the extraction format for data in CDS/ISIS 
+For example: To prefix the words of the field 24 with &quot;TI_&quot;, you should load an FST containing the following declaration: 
+24   8   '#TI_#',v24 
+in which: 
+Format Description '#TI_#' 
+unconditional literal 
+# 
+delimiter of the prefix 
+TI_ 
+prefix to be used 
+v24 
+CDS/ISIS extraction format 
+Table 8: Example of extraction format from fields in the FST For the sake of comparison, we may observe an FST containing extraction rules with and without the use of prefixes: 
+Without prefix 
+With prefix 
+70 0 mhu,(v70/) 
+70 0 mhu,('AU_',v70/) 
+24 4 mhu, v24 
+24 8 mhu,'/TI_/',v24 
+69 2 v69 
+69 6 '/KW_/',v69 
+Table 9: Comparison of indexing techniques It is important to note that the technique 0 (zero) is unique in that the use of a prefix is an option.  Table 4 shows the relation between the different indexing techniques and the use of prefixes.  
+56 
+
+Manual del usuario 
+Appendix A ­ Indexing Techniques 
+Without 
+With 
+Effect of the technique 
+prefix 
+prefix 
+0 
+0 
+Whole field 
+1 
+5 
+Subfield 
+2 
+6 
+Terms delimited by &lt; and &gt; 
+3 
+7 
+Terms delimited by /and / 
+4 
+8 
+Word by word 
+Short example of an FST without prefixes for a database compatible with the LILACS format 
+06 0 (v06/) 
+12 4 (v12|%|/) 
+13 4 (v13|%|/) 
+18 4 (v18|%|/) 
+19 4 (v19|%|/) 
+25 4 (v25|%|/) 
+40 1 (v40/) 
+Short example of definitions (&lt;base&gt;.def file) compatible with the FST without prefixes 
+INDEX Tw=^pPalavras^ePalabras^iWords^d* 
+INDEX Ti=^pPalavras do título^ePalabras of the título^iTitle words^s12,13,18,19,25 
+INDEX La=^pLanguage^eLanguage^iLanguage^s40^tshort 
+INDEX Nb=^iBibliographic level^eNivel bibliographic^pNível bibliographic^s6^tshort^fA^gGIZMONB 
+Short example of an FST with prefixes for a 
+database compatible with the LILACS format 
+06 0 (|TW_|v06/) 
+12 8 (&quot;|TW_|&quot;d12,v12|%|/) 
+13 8 (&quot;|TW_|&quot;d13,v13|%|/) 
+18 8 (&quot;|TW_|&quot;d18,v18|%|/) 
+19 8 (&quot;|TW_|&quot;d19,v19|%|/) 
+25 8 (&quot;|TW_|&quot;d25,v25|%|/) 
+12 8 (&quot;|TI_|&quot;d12,v12|%|/) 
+13 8 (&quot;|TI_|&quot;d13,v13|%|/) 
+18 8 (&quot;|TI_|&quot;d18,v18|%|/) 
+19 8 (&quot;|TI_|&quot;d19,,v19|%|/) 
+25 8 (&quot;|TI_|&quot;d25,v25|%|/) 
+40 5 (&quot;|LA_|&quot;d40,v40|%|/) 
+57 
+
+Manual del usuario 
+Appendix A ­ Indexing Techniques 
+06 0 (|NB_|v06/) 
+Short example of definitions (&lt;base&gt;.def file) compatible with the FST with prefixes 
+INDEX Tw=^pPalavras^ePalabras^iWords^d*^xTW ^uTW_^yDATABASE^mTW_ 
+INDEX Ti=^pPalavras do título^ePalabras of the título^iTitle words^xTI 
+^uTI_^yDATABASE^mTI_ 
+INDEX La=^pLanguage^eLanguage^iLanguage^xLA ^uLA_^yDATABASE^mLA_^tshort 
+INDEX Nb=^iBibliographic level^eNivel bibliographic^pNível bibliographic^xNB ^uNB_^yDATABASE^mNB_^tshort^fA^gGIZMONB 
+ 
+ 
+ 
+58 
+
+ 
+Appendix B ­ Fields of 
+the LILACS format 
+[01] ­ Code of the Centre [02] ­ Identification Number [03] ­ Location of the Document [04] - Database [05] - Type of Literature [06] - Level of Processing [07] ­ Call Number [08] ­ Electronic Medium [10] ­ Personal Author (Analytic level) [11] ­ Corporate Author (Analytic level)  [12] - Title (Analytic level) [13] - Title Translated into English (Analytic level) [14] - Pages (Analytic level) [16] ­ Personal Author (Monograph level) [17] ­ Corporate Author Institutional (Monograph level) [18] - Title (Monograph level) [19] - Title Translated into English (Monograph level) [20] - Pages (Monograph level) [21] - Volume (Monograph level) [23] ­ Personal Author (Collection level) [24] ­ Corporate Author (Collection level) [25] - Title (Collection level) 
+59 
+
+Manual del usuario 
+Appendix B ­ Fields of the LILACS format 
+[27] ­ Total Number Total of Volumes (Collection level) [30] - Title (Series level) [31] - Volume (Series level) [32] - Number of Part (Series level) [35] - ISSN [38] ­ Descriptive Information [40] - Language of the Text [41] - Language of the Abstract [50] - Thesis and Dissertation ­ Institution to which it is presented [51] ­ Thesis and Disertation - Title of Degree [52] - Event ­ Sponsoring Institution [53] - Event - Name [54] - Event - Date [55] - Event ­ Normalized Date [56] - Event - Town [57] - Event - Country [58] - Project ­ Sponsoring Institution  [59] - Proyect - Name [60] - Project - Number [61] - Noted [62] - Editor [63] - Edition [64] - Date of Publication [65] ­ Normalized Date [66] ­ Town of Publication [67] - Country of Publication [68] - Symbol [69] - ISBN [71] - Type of Publication [72] - Number Total of References [74] ­ Date Range (from) [75] - Date Range (to) [76] ­ Pre-codified Descriptor [78] ­ Person as Subject [82] ­ DeCS Region Number [83] - Abstract [84] - Date of Entry on the Database [87] ­ Primary Descriptor [88] ­ Secondary Descriptor  [91] - Date of processing [92] - Documentalist 
+60 
+
+Manual del usuario 
+Appendix B ­ Fields of the LILACS format 
+[98] ­ Related Record (Monograph, Grey literature, Collection, Series or Thesis) [101] ­ Related Record (Event) [102] ­ Related Record (Project) [899] ­ Version of Software 
+ 
+ 
+61 
+
+ 
+Appendix C ­ Fields of 
+the SeCS format 
+(Catalogue) 
+[001] - database name [005] - type of literature [006] - level of processing [010] - code of the centre [020] - national code [030] - number of record [040] - related system [050] - state of publication [100] - title of the publication [110] - subtitle [120] - desig. Section/part [130] - title section/part [140] - statement of responsibility [150] - abbreviated title [230] - variant title - parallel [240] - variant title - other [301] - starting year [302] - starting volume [303] - starting part [304] - ending year 
+62 
+
+Manual del usuario 
+Appendix C ­ Fields of the SeCS format (Catalogue) 
+[305] - ending volume [306] - ending part [310] - country of publication [320] - state (UF) [330] - level of the publication [340] - alphabet of the title [350] - languages of the text [360] - languages of the abstract [380] - current frequency [400] - current ISSN [410] - coden [420] - journal code (Medline) [430] - classification [440] - descriptors [450] - range of indexing [480] - name of the commercial editor [490] - town of publication [500] - date [510] - title ­ has edition in another language [520] - title ­ is edition in another language [530] - title ­ has subseries [540] - title ­ is subseries [550] - title ­ has supplement/insertion [560] - title ­ is suplement/insertion [610] - previous title - continuation [620] - previous title ­ partial continuation [650] ­previous  title - absorbs [660] - previous title ­ absorbs partly [670] - previous title ­ subdivision of [680] - previous title ­ fusion of [710] - later title ­ continued by [720] - later title ­ continued in part [750] - later title ­ absorbed by [760] - later title ­ absorbed in part [770] - later title ­ is subdivided [780] - later title ­ is merged with [790] - later title ­ is formed from [900] - general notes [940] - Date of entry [950] - documentalist [098] - collection 
+63 
+
+ 
+Appendix D ­ Search 
+fields of the LILACS 
+database 
+Field  Description 
+TW  
+Words 
+TI 
+Words from the title 
+AB 
+Words from the abstract 
+AU Author 
+AI Corporate 
+author 
+MH Descriptor 
+CT Limits 
+LA  
+Language 
+PD  
+Country, year of publication 
+TA Journal 
+TL 
+Type of literature 
+64 
+
+Manual del usuario 
+Appendix D ­ Search fields of the LILACS database 
+Field  Description 
+NB  
+Bibliographic level 
+MS 
+Monograph in series 
+PT 
+Type of publication 
+CF Conference 
+ID  
+Unique identifier 
+LO Localization 
+FE Electronic 
+medium 
+DT 
+Date of entry 
+ 
+65 
+
+ 
+Appendix E ­ IAH 
+Search Forms 
+Free 
+The following example includes a free search form for a LILACS database: &lt;!-- IAH --&gt; 
+&lt;form action=&quot;http://meu-servidor/cgi-bin/wxis.exe/iah/&quot; method=&quot;POST&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;IsisScript&quot; value=&quot;iah/iah.xic&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;lang&quot; value=&quot;p&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;base&quot; value=&quot;LILACS&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;nextAction&quot; value=&quot;extsearch&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;form&quot; value=&quot;F&quot;&gt; 
+ 
+&lt;table border=&quot;0&quot; width=&quot;600&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt; 
+  
+&lt;tr&gt;&lt;td colspan=&quot;5&quot;&gt;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt; 
+ &lt;tr&gt; 
+  &lt;td 
+width=&quot;50&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+ 
+ 
+&lt;td width=&quot;550&quot;&gt;&lt;em&gt;&lt;font face=&quot;verdana&quot; size=&quot;2&quot;&gt;Entre uma ou mais 
+palavras&lt;/font&gt;&lt;/em&gt;&lt;/td&gt; 
+ &lt;/tr&gt; 
+ &lt;tr&gt; 
+  &lt;td 
+width=&quot;50&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+  
+ 
+&lt;td width=&quot;500&quot;&gt;&lt;input type=&quot;text&quot; size=&quot;50&quot; maxlength=&quot;150&quot; 
+name=&quot;exprSearch&quot; value=&quot;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/td&gt; 
+ &lt;/tr&gt; 
+  
+&lt;tr&gt; 
+  &lt;td 
+width=&quot;50&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+  
+ 
+&lt;td width=&quot;500&quot;&gt;&lt;font face=&quot;Verdana&quot; size=&quot;1&quot;&gt; 
+  
+ 
+    &lt;input type=&quot;radio&quot; name=&quot;conectSearch&quot; value=&quot;and&quot; 
+checked&gt;Todas as palavras &lt;b&gt;(AND)&lt;/b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+   
+ 
+    &lt;input type=&quot;radio&quot; name=&quot;conectSearch&quot; value=&quot;or&quot;  &gt;Qualquer 
+palavra &lt;b&gt;(OR)&lt;/b&gt; 
+66 
+
+Manual del usuario 
+Appendix E ­ IAH Search Forms 
+ 
+ 
+    &lt;/font&gt; 
+  
+    &lt;/td&gt; 
+ &lt;/tr&gt; 
+ &lt;tr&gt;&lt;td 
+colspan=&quot;2&quot;&gt;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt; 
+ &lt;tr&gt; 
+ 
+    &lt;td colspan=&quot;2&quot; align=&quot;center&quot;&gt;&lt;input type=&quot;submit&quot; 
+value=&quot;Pesquisa&quot;&gt;&lt;/td&gt; 
+ &lt;/tr&gt; 
+ &lt;/table&gt; 
+ &lt;/center&gt; 
+&lt;/form&gt; 
+&lt;!-- IAH --&gt; 
+Advanced 
+The example below includes an advanced search form for a LILACS database. &lt;!-- IAH --&gt; 
+&lt;form action=&quot;http://meu-servidor/cgi-bin/wxis.exe/iah/&quot; method=&quot;POST&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;IsisScript&quot; value=&quot;iah/iah.xic&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;lang&quot; value=&quot;p&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;base&quot; value=&quot;LILACS&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;nextAction&quot; value=&quot;extsearch&quot;&gt; 
+ 
+&lt;input type=&quot;hidden&quot; name=&quot;form&quot; value=&quot;B&quot;&gt; 
+&lt;center&gt; 
+&lt;table border=&quot;0&quot; width=&quot;550&quot; align=&quot;center&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt; 
+&lt;tr&gt; 
+        &lt;td width=&quot;30&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+        &lt;td width=&quot;80&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+        &lt;td width=&quot;270&quot;&gt;&lt;i&gt;&lt;font face=&quot;verdana&quot; size=&quot;2&quot;&gt;Pesquisar&lt;/font&gt;&lt;/i&gt;&lt;/td&gt; 
+        &lt;td width=&quot;235&quot;&gt;&lt;font face=&quot;verdana&quot; size=&quot;2&quot;&gt;&lt;i&gt;no campo&lt;/i&gt;&lt;/font&gt;&lt;/td&gt; 
+        &lt;td width=&quot;62&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+         &lt;td width=&quot;30&quot;&gt;&lt;font face=&quot;Verdana&quot; size=&quot;2&quot;&gt;&lt;b&gt;1&lt;/b&gt;&lt;/font&gt;&lt;/td&gt; 
+                 &lt;td width=&quot;80&quot;&gt; 
+                         &lt;input type=hidden name=&quot;conectSearch&quot; value=&quot;init&quot;&gt;&amp;nbsp; 
+         &lt;/td&gt; 
+         &lt;td width=&quot;270&quot; align=&quot;left&quot;&gt; 
+                         &lt;input type=&quot;text&quot; size=&quot;32&quot; maxlength=&quot;256&quot; name=&quot;exprSearch&quot; value=&quot;&quot;&gt; 
+         &lt;/td&gt; 
+         &lt;td width=&quot;235&quot;&gt; 
+            &lt;select name=&quot;indexSearch&quot; size=&quot;1&quot;&gt; 
+                &lt;option value=&quot;^nTw^pPalavras^ePalabras^iWords^xALL ^yDATABASE&quot; &gt;Palavras&lt;/option&gt; 
+                &lt;option value=&quot;^nTi^pPalavras do título^ePalabras del título^iTitle words^x/12,13,18,19,25^yDATABASE&quot; &gt;Palavras do título&lt;/option&gt; 
+                &lt;option value=&quot;^nDe^pDescritor de assunto^eDescriptor de asunto^iSubject descriptor^x/76,78,87,88,871,881^yDATABASE&quot; &gt;Descritor de assunto&lt;/option&gt; 
+67 
+
+Manual del usuario 
+Appendix E ­ IAH Search Forms 
+                &lt;option value=&quot;^nAu^pAutor^eAutor^iAuthor^x/10,16,23^yDATABASE&quot; 
+&gt;Autor&lt;/option&gt; 
+                &lt;option 
+value=&quot;^nLa^pIdioma^eIdioma^iLanguage^x/40^tshort^yDATABASE&quot; &gt;Idioma&lt;/option&gt; 
+                &lt;option value=&quot;^nId^iUnique identifier^eIdentificador único^pIdentificador único^x/2^yDATABASE&quot; &gt;Identificador único&lt;/option&gt; 
+                &lt;option value=&quot;^nAi^iInstitutional author^eAutor 
+institucional^pAutor institucional^x/11,17,24^yDATABASE&quot; &gt;Autor institucional&lt;/option&gt; 
+                &lt;option value=&quot;^nPd^iCountry, year publication^ePaís, año de 
+publicación^pPaís, ano de publicação^x/8^tshort^fA^yDATABASE&quot; &gt;País, ano de 
+publicação&lt;/option&gt; 
+                &lt;option value=&quot;^nCf^iConference^eConferencia^pConferência^x/9^fA^yDATABASE&quot; &gt;Conferência&lt;/option&gt; 
+                &lt;option value=&quot;^nTl^iType of literature^eTipo de 
+literatura^pTipo de literatura^x/5^tshort^fA^yDATABASE&quot; &gt;Tipo de literatura&lt;/option&gt; 
+                &lt;option value=&quot;^nNb^iBibliographic level^eNivel bibliográfico^pNível bibliográfico^x/6^tshort^fA^yDATABASE&quot; &gt;Nível 
+bibliográfico&lt;/option&gt; 
+             &lt;/select&gt; 
+         &lt;/td&gt; 
+         &lt;td width=&quot;62&quot; align=&quot;left&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+       &lt;td width=&quot;30&quot;&gt;&lt;font face=&quot;Verdana&quot; size=&quot;2&quot;&gt;&lt;b&gt;2&lt;/b&gt;&lt;/font&gt;&lt;/td&gt; 
+         &lt;td width=&quot;80&quot;&gt; 
+               &lt;select name=&quot;conectSearch&quot; size=1&gt; 
+                        &lt;option value=&quot;and&quot; &gt;and 
+                        &lt;option value=&quot;or&quot;  &gt;or 
+                        &lt;option value=&quot;and not&quot; &gt;and not 
+                &lt;/select&gt; 
+ 
+   &lt;/td&gt; 
+ 
+   &lt;td width=&quot;270&quot; align=&quot;left&quot;&gt; 
+                  &lt;input type=&quot;text&quot; size=&quot;32&quot; maxlength=&quot;256&quot; name=&quot;exprSearch&quot; value=&quot;&quot;&gt; 
+         &lt;/td&gt; 
+         &lt;td width=&quot;235&quot;&gt; 
+            &lt;select name=&quot;indexSearch&quot; size=&quot;1&quot;&gt; 
+                &lt;option value=&quot;^nTw^pPalavras^ePalabras^iWords^xALL ^yDATABASE&quot; &gt;Palavras&lt;/option&gt; 
+                &lt;option value=&quot;^nTi^pPalavras do título^ePalabras del título^iTitle words^x/12,13,18,19,25^yDATABASE&quot; &gt;Palavras do título&lt;/option&gt; 
+                &lt;option value=&quot;^nDe^pDescritor de assunto^eDescriptor de 
+asunto^iSubject descriptor^x/76,78,87,88,871,881^yDATABASE&quot; &gt;Descritor de assunto&lt;/option&gt; 
+                &lt;option value=&quot;^nAu^pAutor^eAutor^iAuthor^x/10,16,23^yDATABASE&quot; &gt;Autor&lt;/option&gt; 
+                &lt;option value=&quot;^nLa^pIdioma^eIdioma^iLanguage^x/40^tshort^yDATABASE&quot; &gt;Idioma&lt;/option&gt; 
+                &lt;option value=&quot;^nId^iUnique identifier^eIdentificador 
+único^pIdentificador único^x/2^yDATABASE&quot; &gt;Identificador único&lt;/option&gt; 
+                &lt;option value=&quot;^nAi^iInstitutional author^eAutor institucional^pAutor institucional^x/11,17,24^yDATABASE&quot; &gt;Autor institucional&lt;/option&gt; 
+68 
+
+Manual del usuario 
+Appendix E ­ IAH Search Forms 
+                &lt;option value=&quot;^nPd^iCountry, year publication^ePaís, año de 
+publicación^pPaís, ano de publicação^x/8^tshort^fA^yDATABASE&quot; &gt;País, ano de publicação&lt;/option&gt; 
+                &lt;option value=&quot;^nCf^iConference^eConferencia^pConferência^x/9^fA^yDATABASE&quot; &gt;Conferência&lt;/option&gt; 
+                &lt;option value=&quot;^nTl^iType of literature^eTipo de 
+literatura^pTipo de literatura^x/5^tshort^fA^yDATABASE&quot; &gt;Tipo de literatura&lt;/option&gt; 
+                &lt;option value=&quot;^nNb^iBibliographic level^eNivel 
+bibliográfico^pNível bibliográfico^x/6^tshort^fA^yDATABASE&quot; &gt;Nível 
+bibliográfico&lt;/option&gt; 
+             &lt;/select&gt; 
+         &lt;/td&gt; 
+ 
+ 
+  &lt;td width=&quot;62&quot; align=&quot;left&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+         &lt;td width=&quot;30&quot;&gt;&lt;font face=&quot;Verdana&quot; size=&quot;2&quot;&gt;&lt;b&gt;3&lt;/b&gt;&lt;/font&gt;&lt;/td&gt; 
+         &lt;td width=&quot;80&quot;&gt; 
+ 
+ 
+         &lt;select name=&quot;conectSearch&quot; size=1&gt; 
+                            &lt;option value=&quot;and&quot; &gt;and 
+                            &lt;option value=&quot;or&quot;  &gt;or 
+                            &lt;option value=&quot;and not&quot; &gt;and not 
+                  &lt;/select&gt; 
+ 
+  &lt;/td&gt; 
+        &lt;td width=&quot;270&quot; align=&quot;left&quot;&gt; 
+                    &lt;input type=&quot;text&quot; size=&quot;32&quot; maxlength=&quot;256&quot; 
+name=&quot;exprSearch&quot; value=&quot;&quot;&gt; 
+        &lt;/td&gt; 
+         &lt;td width=&quot;235&quot;&gt; 
+            &lt;select name=&quot;indexSearch&quot; size=&quot;1&quot;&gt; 
+                &lt;option value=&quot;^nTw^pPalavras^ePalabras^iWords^xALL ^yDATABASE&quot; 
+&gt;Palavras&lt;/option&gt; 
+                &lt;option value=&quot;^nTi^pPalavras do título^ePalabras del título^iTitle words^x/12,13,18,19,25^yDATABASE&quot; &gt;Palavras do título&lt;/option&gt; 
+                &lt;option value=&quot;^nDe^pDescritor de assunto^eDescriptor de asunto^iSubject descriptor^x/76,78,87,88,871,881^yDATABASE&quot; &gt;Descritor de 
+assunto&lt;/option&gt; 
+                &lt;option value=&quot;^nAu^pAutor^eAutor^iAuthor^x/10,16,23^yDATABASE&quot; &gt;Autor&lt;/option&gt; 
+                &lt;option value=&quot;^nLa^pIdioma^eIdioma^iLanguage^x/40^tshort^yDATABASE&quot; &gt;Idioma&lt;/option&gt; 
+                &lt;option value=&quot;^nId^iUnique identifier^eIdentificador único^pIdentificador único^x/2^yDATABASE&quot; &gt;Identificador único&lt;/option&gt; 
+                &lt;option value=&quot;^nAi^iInstitutional author^eAutor 
+institucional^pAutor institucional^x/11,17,24^yDATABASE&quot; &gt;Autor institucional&lt;/option&gt; 
+                &lt;option value=&quot;^nPd^iCountry, year publication^ePaís, año de publicación^pPaís, ano de publicação^x/8^tshort^fA^yDATABASE&quot; &gt;País, ano de publicação&lt;/option&gt; 
+                &lt;option value=&quot;^nCf^iConference^eConferencia^pConferência^x/9^fA^yDATABASE&quot; 
+&gt;Conferência&lt;/option&gt; 
+                &lt;option value=&quot;^nTl^iType of literature^eTipo de literatura^pTipo de literatura^x/5^tshort^fA^yDATABASE&quot; &gt;Tipo de literatura&lt;/option&gt; 
+69 
+
+Manual del usuario 
+Appendix E ­ IAH Search Forms 
+                &lt;option value=&quot;^nNb^iBibliographic level^eNivel 
+bibliográfico^pNível bibliográfico^x/6^tshort^fA^yDATABASE&quot; &gt;Nível bibliográfico&lt;/option&gt; 
+             &lt;/select&gt; 
+         &lt;/td&gt; 
+        &lt;td width=&quot;62&quot; align=&quot;left&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+        &lt;td colspan=&quot;6&quot;&gt;&amp;nbsp;&lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;tr&gt; 
+        &lt;td colspan=&quot;6&quot; align=&quot;center&quot;&gt; 
+                 &lt;input type=&quot;reset&quot; value = &quot; Limpa &quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 
+                &lt;input type=&quot;submit&quot; value = &quot;Pesquisa&quot;&gt; 
+        &lt;/td&gt; 
+&lt;/tr&gt; 
+&lt;/table&gt; 
+&lt;/center&gt; 
+&lt;/form&gt; 
+&lt;!-- IAH --&gt; 
+ 
+ 
+70 
+
+ 
+Appendix F ­ How to 
+construct IAH URLs 
+with parameters 
+It is possible to construct a URL which accesses directly the search function of 
+IAH.  Below is the description of how to construct manually a typical URL. 
+1.  Start the URL with the name of your domain in which IAH is installed and the 
+search command : 
+http://meu-server/cgi-bin/wxis.exe/iah/?IsisScript=iah/iah.xic&amp;nextAction=lnk&amp; ... 
+2.  Add to the URL the paameters for the database to be searched and the 
+language of search :  
+...&amp;base=BASE&amp;lang=LANGUAGE&amp;...  
+where BASE should be the name of the database configured during the installation, for example: LILACS and LANGUAGE should be: p (for Portuguese), e (for Spanish) or i (for English). 
+3.  Specify the search expression: 
+...&amp;exprSearch=SEARCH&amp;indexSearch=[INDEX]&amp;conectSearch=[OPERATOR]&amp;.... 
+where SEARCH should be a boolean expression and  INDEX can contain the specification of the field (for example DE). 
+71 
+
+Manual del usuario 
+Appendix F ­ How to construct IAH URLs with parameters 
+You can create a boolean search expression with a maximum of three different fields,  for which you should use the parameter  concectsearch and state in OPERATOR one of the boolean operators available (AND, OR or AND NOT). E.g.  
+4.  To search for the terms &quot;health&quot; and &quot;public&quot; in the LILACS database: 
+nextAction=lnk&amp;base=LILACS&amp;lang=p&amp;exprSearch=health+AND+public 
+5.  To search the term &quot;hepatic cirrhosis&quot; in the field of the subject headings in the  
+MEDLINE database: 
+nextAction=lnk&amp;base=MEDLINE&amp;lang=p&amp;exprSearch=cirrhosis+hepatic&amp;indexSearch=MH  
+6.  To search for &quot;hepatitis&quot; in the field of words and "English" in the language 
+field in the  MEDLINE database: 
+nextAction=lnk&amp;base=MEDLINE&amp;lang=p&amp;exprSearch=hepatitis&amp;indexSearch=TW&amp;conectSearch=AND&amp;exprSearch=englsih&amp;indexSearch=LA  
+ 
+ 
+72 
+
+ 
+Appendix G ­ Fields of 
+the interface 
+Tag 
+Subfield 
+Description 
+5000   environment 
+variables 
+^a current 
+action 
+^b path_database ^c path_cgi-bin ^d path_data ^s 
+name of the script 
+^p alternative 
+PATH_TRANSLATED 
+^f 
+definition file for the alternative application 
+^l 
+information about the local server 
+^t temporary 
+directory 
+5001   nextAction 
+^s status 
+5002   
+path for the directory of images 
+5003   
+name of the database 
+^* definition 
+file 
+^d 
+drive for &quot;cipchange&quot; 
+^n 
+New ­ current altered database for executing function LoadBaseDef 
+5004  
+function 
+baseResubmit 
+5005   formats 
+available 
+^n Logical 
+name 
+^p 
+description in Portuguese 
+^e 
+description in Spanish 
+^i 
+description in English 
+73 
+
+Manual del usuario 
+Appendix G ­ Fields of the interface 
+Tag 
+Subfield 
+Description 
+5006   appearance 
+^c 
+colour of background of the body 
+^i 
+colour of background of the image 
+^t 
+colour of text of the body 
+^l 
+colour of links in the text 
+^b 
+colour of the navigation bar 
+^e 
+e-mail address of the administrador of the interface 
+^m 
+selector of multi-language (ON/OFF) 
+^r 
+selector of sample of results in reverse mode (ON/OFF) 
+^v 
+colour of visited links in the text 
+5007   
+function  navBar (navigation bar) 
+5008   
+number of records noted in the search 
+5009   
+name of the display format 
+5010   help 
+information 
+^n 
+identification of the type of information (help/explanatory note) 
+^v 
+name of the HTML file 
+5011 
+ 
+identifier of sensitive help 
+^h 
+help for current status of the system 
+^n 
+note for current status of the system 
+5012   
+gizmo database for conversion/decoding 
+^g conversion 
+(gizmo) 
+^d decoding 
+5013   
+name of the user 
+^* 
+code of the user 
+^m 
+mfn in the user database 
+5014   
+forms available (F,B,A) 
+5015   
+direct access to a specified index 
+5018  
+databaseFeatures 
+5020   
+database of execution log 
+5021  
+language 
+5030  
+logo 
+(image) 
+5031  
+logo 
+(URL) 
+5040  
+head 
+(image) 
+5041  
+head 
+(URL) 
+6000  
+form 
+6001  
+variable 
+conectSearch 
+6002  
+variable 
+exprSearch 
+6003   variable 
+indexSearch 
+^l 
+line of the form 
+^n 
+name of the index 
+^x prefix ^y inverted 
+file 
+^u 
+prefix not inverted 
+^t type 
+(kwic,short) 
+^g 
+gizmo (applied gizmo in the index terms) 
+^s 
+list of tags for search 
+6099   
+list of indexes 
+74 
+
+Manual del usuario 
+Appendix G ­ Fields of the interface 
+Tag 
+Subfield 
+Description 
+6100   Index 
+selected 
+^l 
+line of the form 
+^n 
+name of the index 
+^x 
+prefix of the index 
+^y inverted 
+file 
+^u 
+prefix not inverted 
+^t type 
+(kwic,short) 
+^g 
+gizmo (applies to gizmo not index terms) 
+^s 
+list of tags for search 
+6111  
+gizmoIndex 
+tag 
+1 
+6112 
+ 
+gizmoIndex tag 2 
+6102  
+termsFromIndex 
+6121  
+variable 
+kwicMode 
+6122  
+variable 
+indexRoot 
+6205  
+variable 
+pagesRange 
+6209   
+list of options 
+6210   
+Selected item from list 
+^m mfn 
+6211 
+ 
+list of results Hit-list 
+6300   
+options of XML 
+6301  
+table 
+XML 
+6302  
+formato 
+xmlPFT 
+6400   related 
+data 
+^m 
+mfn     
+7000   
+limit of the search (restriction of the expression) 
+ 
+75 
+
+Document Outline
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+þÿ
+
+
+
+</field>
+<field action=add tag=1001>45</field>
+<field action=add tag=1092>0</field>
+<field action=add tag=1091>0</field>
+<field action=add tag=1002>45</field>
+<field action=add tag=3030>all</field>
+<field action=add tag=5001>diglib</field>
+<field action=replace tag=100 split=occ><pft>(v100/)</pft></field>
+<write>Unlock</write>
+<display>
+<pft>if val(v1102) = 0 then '<b>Created!</b><hr>' fi </pft>
+</display>
+</update>
+</do>
+</IsisScript>
