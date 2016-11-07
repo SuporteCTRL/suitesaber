@@ -1,0 +1,35 @@
+/**** 
+* Pimaco 6280
+* Carta
+* 30 etiquetas por folha (3x10)
+* 25,4 mm x 66,7 mm 
+****/
+
+@font-face {
+    font-family: CodigoDeBarras;
+    src: url(Code39Azalea.woff);
+}
+
+/* Div em volta de tudo */
+.tudo {
+    margin:6mm 0 0 4mm;
+    width:216mm; }
+
+/* Caixa para cada ocorrência */
+.barcodebox {
+    position:relative;
+    float:left;
+    width:65mm; /* 66.7mm */
+    height:25.4mm; /* 25.4mm */
+    margin:0;
+    background-color:#FFFFFF;
+    font-family: "Courier new", monospace;
+    font-size:9pt;
+    line-height:9pt;
+    text-align:left;}
+
+dt { font-weight:bold;}
+
+dd { margin-left:0px;}
+
+dd .barcode {margin-top: 3mm; font-size: 50px; font-family: CodigoDeBarras;}

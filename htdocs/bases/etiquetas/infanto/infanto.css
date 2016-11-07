@@ -1,0 +1,88 @@
+/**** 
+* Pimaco 6280
+* Carta
+* 30 etiquetas por folha (3x10)
+* 25,4 mm x 66,7 mm 
+****/
+
+/* Div em volta de tudo */
+.tudo {
+    margin:0mm;
+    width:280mm; }
+
+/* Caixa para cada ocorrência */
+.barcodebox {
+	float: left;
+	border: 10px solid #fff;
+	position:relative;
+	width:30mm; /* 66.7mm */
+	height:60mm; /* 25.4mm */
+	margin:0;
+	font-family: Arial;
+	font-size:12pt;
+	line-height:15pt;
+	text-align:center;}
+
+dt { font-weight:bold;}
+
+dd { margin-left:0px;}
+
+small{font-size: 8pt;}
+
+/* CLASSIFICAÇÃO 82-93 - Publicações para jovens */
+
+.poesia{	border-top: #ff0000 solid 10mm;}
+.conto, .cronica{border-top: #ffff00 solid 10mm;}
+.ficcao{border-top: #00ffff solid 10mm;}
+.teatro{border-top: #008000 solid 10mm;}
+.romance{border-top: #ff00ff solid 10mm;}
+.contoclassico, .fabula {border-top: #000080 solid 10mm;}
+.paredidatico{border-top: #aecf00 solid 10mm;}
+.novela{border-top: #ff950e solid 10mm;}
+.folclores, .mitologia, .lenda {border-top: #000000 solid 10mm;}
+.religiao{border-top: #ff8080 solid 10mm;}
+.memorias, .biografia{border-top: #996633 solid 10mm;}
+.litafro{border-top: #ffccff solid 10mm;}
+.colecao{border-top: #9999ff solid 10mm;}
+.nada{border-top: #fff solid 10mm;}
+
+
+
+/* CLASSIFICAÇÃO 087.5 - Publicações para crianças - Literatura juvenil */
+
+.icone{
+	margin-top: 3mm;
+}
+
+
+/* CUTTER */
+
+.abc {
+	border-bottom: #ff0000 solid 10mm;
+}
+
+.def{
+		border-bottom: #ffff00 solid 10mm;
+}
+
+.ghi{
+		border-bottom: #00ffff solid 10mm;
+}
+.jkl{
+		border-bottom: #008000 solid 10mm;
+}
+.mno{
+		border-bottom: #ff00ff solid 10mm;
+}
+.pqr{
+		border-bottom: #000080 solid 10mm;
+}
+.stu{
+		border-bottom: #aecf00 solid 10mm;
+}
+.vwx{
+		border-bottom: #ff950e solid 10mm;
+}
+.yz{
+		border-bottom: #000000 solid 10mm;
+}

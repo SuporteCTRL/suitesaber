@@ -1,0 +1,194 @@
+/***** Geral *****/
+
+body {
+	font-family:"Arial", sans-serif;
+	font-size:13px;
+	color:#000000; }
+
+/* Erros de preenchimento e alertas */
+.erro {
+	color:#EE0000;
+	font-weight:bold;}
+.erro:before {
+	content:"!";
+	padding:1px 6px;
+	background-color:#EE0000;
+	color:#FFFFFF;
+	font-weight:bold;
+	font-size:15px; }
+
+/* Div com tudo */
+#wrap {
+	width:100%;
+	margin:0 auto;}
+
+/* Div antes table */
+#supDir { 
+	text-align:right; }
+
+/* Tabela */
+table.mrc { 
+	width:100%; }
+
+table.mrc,
+th.mrc,
+td.mrc {
+	vertical-align:top;
+	border-collapse:collapse;
+	padding:5px; 
+	font-size:13px;}
+
+th.mrc {
+	width:15%;
+	color:#0E5188;
+	vertical-align:top;
+	text-align:right; 
+	background-color:#D9EDFF;
+	padding-right:10px; }
+td.mrc { 
+	width:80%; }
+
+/* Limpa a borda do programa */
+tr:hover { 
+	border:0; }
+
+tr.mrc:hover { 
+	border:0; 
+	background-color:#D9EDFF; }
+
+/* Capa */
+td.capa {
+	width:120px; }
+tr.capa:hover {
+	background-color:#FFFFFF;}
+
+/* Destaque para títulos que não são <th> */
+.destaque {
+	font-weight:bold;
+	color:#0E5188; }
+
+/* Links */
+a.pftLink:link, 
+a.pftLink:visited, 
+a.pftLink:hover, 
+a.pftLink:active { 
+	text-decoration:underline;
+	display:block;
+	color:#0E5188; }
+
+/***** Ficha *****/
+
+#ficha {
+	font-family: "Courier New", "Lucida console", monospace; }
+#ficha p {
+	text-indent:20px;
+	line-height:12px; }
+
+
+/****** Analíticas *****/
+
+/* Ajeita alinhamento da lista de registros filho */
+ul { padding: 0px; margin: 0px; }
+th.listaAn,
+td.listaAn { width:auto; padding-right:15px;}
+
+/***** Dados de controle *****/
+
+dl.ctrl dt, 
+dl.ctrl dd { 
+	display:inline; }
+
+dl.ctrl dd {
+	margin:0px; 
+	padding:0 10px 0 10px; }
+
+/****** Autoridades *****/
+
+p.cabecalho {
+	font-size:16px;
+	font-weight:bold;
+	font-variant:small-caps;
+	color:#0E5188;
+	border-bottom:1px solid #0E5188; }
+p.infoAdicional {
+	margin-left:10%;
+	padding-left:5px;
+	border-left:1px solid #0E5188;
+	font-size:13px;
+	color:#000000; }
+
+ul.atr li {
+	list-style-type:none;
+	padding-left:10px;
+    vertical-align:top;
+	font-size:13px;
+	border:none; }
+
+ul.atr li a.pftLink {
+	display:inline; }
+
+ul.atr li.positivo:before {
+	content:url("positivo.png");
+	vertical-align:middle; }
+/*	content:"\2714 \00A0 \00A0 ";  ✓ \2713    ✔ \2714 
+	font-size:17px;
+	color:#00A300; */
+
+ul.atr li.negativo:before {
+	content:url("negativo.png");
+	vertical-align:middle; }
+/*	content:"\2716 \00A0  \00A0 ";  × \00D7    ✖  \2716  
+	font-size:16px;
+	color:#B00000; */
+
+ul.atr li.verTambem:before {
+	content:url("vertambem.png");
+	vertical-align:middle; }
+/*	content:"\2192 \00A0 \00A0 ";  ⇥ \21E5    ⇢  \21E2    → \2192 
+	font-size:16px;
+	color:#0000A3; */
+
+ul.atr li.nota:before {
+	content:url("notas.png");
+	vertical-align:middle; }
+/*	content:"\2263 \00A0 \00A0 ";  ✚ \271A    ≡ \2261    ≣ \2263 
+	font-size:16px;
+	color:#0000A3; */
+
+ul.atr li.positivo:hover {
+	background-color:#E6FAE6; }
+ul.atr li.negativo:hover {
+	background-color:#FAE6E6; }
+ul.atr li.verTambem:hover,
+ul.atr li.nota:hover {
+	background-color:#E6E6FA; }
+
+
+/***** Dublin Core *****/
+
+textarea.mrc {
+	width:600px;
+	height:400px; 
+	font-family: "Courier New", "Lucida console", monospace; 
+	font-size:13px;
+	padding:5px;
+	border:1px solid #CCCCCC; }
+
+/***** Leitores *****/
+
+td.direita {
+	width:100px;
+	vertical-align:top; }
+
+td.esquerda,
+td.centro {
+	width:45%;
+	vertical-align:top; }
+
+dt.rotulo {
+	font-weight:bold;
+	color:#0E5188;}
+
+dt.alerta {
+	color:#BB0000;}
+

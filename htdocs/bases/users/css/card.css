@@ -1,0 +1,82 @@
+/* Div em volta de tudo */
+
+
+
+.tudo {
+    width:210mm;
+    /*height:280mm;*/
+    margin-top:-2mm;}
+
+/* Caixa para cada ocorrência */
+.carteirabox {
+    position:relative;
+    float:left;
+    width:82mm; /* 85.60 */
+    height:49mm; /* 53.98mm */
+    margin:0mm;
+    border:1px dotted #CCCCCC;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color:#FFFFFF;
+    font-family: "Courier new", monospace;
+    font-size:9pt;
+    line-height:11pt;}
+
+/* Topo: dados da instituição e nome do leitor */
+.topo {
+	border-radius: 10px 10px 0 0;
+	overflow: hidden;
+	padding: 2mm 0; 
+   text-align:center;
+   font-size:9pt;
+   line-height:9pt; 
+	background: #ddd;    
+    }
+    
+.nome {
+    font-size:12pt;
+    font-weight:bold;}
+
+/* Esquerda: foto */
+.esquerda {
+    position:relative;
+    float:left;
+    
+    padding-top:3mm; 
+    padding-left: 3mm;}
+
+.esquerda img {
+    width:25mm;
+    height:25mm;}
+
+/* Direita: dados do leitor e código de barras */
+
+.direita {
+	padding-top: 3mm;
+	padding-left: 3mm;
+	position:relative;
+	float:left;
+	text-align:left; 
+	width: 50mm;}
+
+.direita span {
+	position:relative;
+	margin: 10mm 0;
+	
+}
+.barcode {
+	text-align: center;
+	margin-top: 5mm;
+	padding:0; 	
+ 	position:relative;
+ 	font-family: Code39AzaleaFont;
+   font-size:40pt;  
+        
+}
+.barcodenumber {
+	margin-top: -12mm;
+	position:relative;
+	font-size:10px;
+	text-align: center;
+}

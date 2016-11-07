@@ -1,0 +1,44 @@
+'Content-type: text/html'/#
+'
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	
+    <title>Base de dados ',v5003^*,
+        select s(mpu,v5001^s,mpl)
+            case 'SEARCH'   : ' - Resultado página ',v6205^c[1],
+            case 'INDEX'    : ' - Índice 'v6100^p,
+            case 'CONFIG'   : ' - configurar',
+            case 'LIST'     : ' - Lista',
+            case 'SCAD'     : ' - Pedido de fotocópia',
+        endsel
+'   </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	
+<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="',v5000^d,'assets/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+	<link rel="stylesheet" href="',v5000^d,'assets/css/suitesaber.css">
+
+<!-- Latest compiled and minified JavaScript -->
+	<script src="',v5000^d,'assets/js/bootstrap.min.js"></script>   
+	<script type="text/javascript" src="/bases/marc/js/marc.js"></script>
+	
+	<link rel="stylesheet" href="',v5000^d,'assets/css/font-awesome.min.css">	 
+	
+	<link rel="stylesheet" href="',v5000^d,'assets/css/bootstrap-theme.css">
+    
+<!--<link rel="stylesheet" href="',v5000^d,'css/stylesheet.css" type="text/css" media="screen" />-->
+</head>
+
+<body>
+',
+if v5001^s : 'CONFIG' then,
+'<div id="contentN" class="container">' else, '<div class="container">' fi,
+if a(v8001) or v8001 <> 'false' then,
+    ,@HEADER.IAH,
+fi

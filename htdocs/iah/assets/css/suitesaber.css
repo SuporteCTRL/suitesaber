@@ -1,0 +1,167 @@
+/**GERAL**/
+
+@font-face {
+	font-family: 'Yanone Kaffeesatz';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url(http://fonts.gstatic.com/s/yanonekaffeesatz/v7/YDAoLskQQ5MOAgvHUQCcLfGwxTS8d1Q9KiDNCMKLFUM.woff2) format('woff2');
+}
+
+@import url(https://fonts.googleapis.com/css?family=Oxygen);
+
+body {
+	margin: 0px;
+	color: #666;
+	font-family: 'Oxygen', sans-serif;
+	background-color: #ecf0f1;
+	font-size: 13px;
+
+}
+
+.container {
+	background-color: #fff;
+	padding-top: 0px;
+	padding-bottom: 60px;
+}
+
+p {
+	font-size: 16px;
+}
+
+.btn.btn-default input[type="image"] {
+	border: 0;
+}
+.navbar-right {
+	margin-right: 5px;
+}
+.navbar.iah {
+	margin:  20px 0;
+	min-height: 150px;
+}  
+.container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+
+
+.btn, .input-lg {
+	border: 1px solid #d4d4d4;
+	border-radius: 0px;
+
+ }
+.btn.btn-warning {
+	border: 1px solid #FFF;
+	background: #edc163;
+	color: #fff;
+	text-shadow: none;
+
+}
+
+.btn.btn-default {
+	border: 1px solid #FFF;
+	background: #bdc3c7;
+	color: #847761;
+	text-shadow: none;
+	font-size: 14px;
+	text-transform: uppercase;
+
+
+}
+.btn.btn-default:hover {
+	border: 1px solid #FFF;
+	background: #ecf0f1;
+	color: #847761;
+	text-shadow: none;
+
+}
+
+.btn.btn-primary {
+	background: #2980b9;
+	border: 1px solid #FFF
+}
+.btn.btn-primary:hover {
+	color: #C9AB79;
+	background: #fff; 
+}
+
+.navbar-text {
+    margin-top: 0;
+}
+.navbar-brand {
+ padding: 0;
+}
+
+.btn.btn-default.page {
+	border: 0;
+	box-shadow: none;
+	width: 30px;
+
+}
+
+
+ .pagination-sm > li > a, .pagination-sm > li > span {
+    height: 35px;
+}
+.form-inline .form-group, .form-group .form-control {
+	width: 100%;
+}
+
+h1.material {
+	font-size: 100px;
+}
+
+/**FOOTER**/
+
+.utility {
+    background-color: #bdc3c7;
+	color: #42150F;
+	font-size: 18px;
+	padding-bottom: 55px;    
+}
+h2.utility {
+    color: #42150F;
+    font-size: inherit;
+    font-weight: normal;
+    text-transform: uppercase;
+    border-bottom: 1px solid;
+    padding: 0px;
+}    
+footer {
+	background: #2980b9 none repeat scroll 0% 0%;
+	width: 960px;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0;
+}
+
+.copyright{
+    margin: 0px;
+    line-height: 60px;
+    color: #FFF;
+    text-align: left;
+}
+
+
+/**RESPONSIVO MAIOR QUE 1000PX**/
+
+@media (min-width: 1000px) {
+
+.container {
+	width: 960px;
+	padding-left: 50px;
+	padding-right: 50px;
+	}
+}
+
+@media (max-width: 800px) { 
+img.gramado {
+	display: none;
+}
+
+.nav.navbar-nav.navbar-right > li > input {
+	width: 15px;
+}
+}

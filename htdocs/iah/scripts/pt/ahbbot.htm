@@ -1,0 +1,24 @@
+[pft]if val(v1002) > 0 then[/pft]
+    <br />
+    <hr class="hr" />
+
+    <!-- monta navegacao entre as paginas do resultado -->
+    [pft]@NAVPAGE.PFT[/pft]
+    <a name="bottom"></a>
+
+        <div class="barNavTop">
+                [pft]if val(v1002) > 0 then[/pft]
+                    <button type="button" class="btn btn-default" value="Sua seleção" name="yselect" onclick="javascript:void(AnySelected())" /><i class="fa fa-share-alt"></i> Sua seleção</button> 
+
+                [pft]fi[/pft]
+                    <button type="button" class="btn btn-default" onclick=window.location="#top" value="Ínicio da página" /><i class="fa fa-arrow-up"></i> Ínicio da página </button>
+
+        </div>
+[pft]fi[/pft]
+<br />
+    <div class="contain">
+        <div class="rowHigh">
+            <span class="colPg"><a name="refine">Refinar a pesquisa</a></span>
+        </div>
+    </div>
+

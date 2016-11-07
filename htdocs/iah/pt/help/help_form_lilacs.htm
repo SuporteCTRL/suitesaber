@@ -1,0 +1,61 @@
+<html><head><title> Ajuda - Biblioteca Pública Cyro Martins</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="/favicon.png" />
+	
+<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+  <h1>Como Pesquisar</h1><ul>
+    <li><a href="#help_form">Preenchendo o formulário</a>
+    <li><a href="#help_bool">Operadores booleanos</a>
+</ul>
+
+<table class="table table-striped">
+
+  <tr>
+    <td><a name="help_form"><em>Preenchendo<br>
+    o formulário </em></a></td>
+    <td>
+    	<p>Entre com uma ou mais palavras nos campos do formulário. Se preferir, selecione a pesquisa através de um índice específico, onde as palavras devem ser procuradas.</p>    <p>Se desejar ver ou selecionar a partir de um índice específico, selecione o campo e clique no botão &quot;índice&quot;.</p>
+    <p>Para digitar mais de uma palavra em uma mesma linha é necessário usar um operador booleano para relacionar uma com a outra (<a href="#help_ex1">exemplo 1</a>). Utilize as linhas 1, 2 e 3 para pesquisar mais de uma palavra e/ou em campos diferentes (<a href="#help_ex2">exemplo 2</a>)Clique no botão &quot;Pesquisa&quot; para executar a busca.</p></td>
+  </tr>
+    <tr>
+  	<td></td>  
+  <td>
+
+    <table class="table table-hover">      <tr>        <td><a name="help_ex1">Exemplo 1</a></td>        <td>Pesquisar</td>        <td>pesquisar em</td>		</tr>
+      <tr>        <td>1</td>
+        <td>tempo E vento</td>        <td>Palavras do título</td>      </tr>    </table>
+<hr>    
+    <table  class="table table-hover">      <tr>        <td><a name="help_ex2">Exemplo 2</a></td>
+        <td></td>        <td>Pesquisar</td>        <td>pesquisar em</td>      </tr>
+      <tr>        <td>1</td>
+        <td></td>        <td>literatura</td>        <td>Assunto</td>      </tr>
+      <tr>        <td>2</td>        <td><strong>E</strong></td>        <td>romance</td>        <td>Assunto</td>      </tr>
+      <tr>        <td>3</td>        <td><strong>OU</strong></td>        <td>veríssimo</td>        <td>Autor</td>      </tr>
+    </table>
+
+    </td>
+  </tr>
+  <tr>
+    <td><a name="help_bool"><em>Operadores booleanos </em></a></td>
+    <td><p>Para combinar a pesquisa em mais de uma palavra no mesmo campo do formulário, é necessário usar os operadores booleanos entre elas. Abaixo se encontra a tabela do operadores booleanos e exemplos de seu uso:</p></td>
+  </tr>
+  <tr>    <td></td>    <td>
+    
+    <table  class="table table-hover">
+      <tr>        <th>Operador</th>        <th>Exemplo</th>        <th>Ação</th>      </tr>
+      <tr>        <td><strong>E</strong></td>        <td>Turismo E Gramado</td>        <td>recupera os documentos que contenham as duas palavras : Turismo e Gramado.</td>      </tr>
+      <tr>        <td><strong>OU</strong></td>        <td>Turismo OU Gramado</td>        <td>recupera os documentos que contenham a palavra paciente ou a palavra cuidados ou documentos que contenham as duas palavras: Turismo e/ou Gramado ou ambas.</td>
+      </tr>
+      <tr>
+        <td><strong>MENOS</strong></td>        <td>Turismo MENOS Gramado</td>        <td>recupera os documentos que contenham apenas a palavra turismo e não contenham a palavra gramado: <strong>turismo </strong>e não <strong>gramado</strong></td>
+      </tr>
+    </table>
+    </td>  </tr></table>
+
+</body></html>

@@ -1,0 +1,11 @@
+/*  Code39Azalea Copyright 2012 Jerry Whiting (CC BY-ND 3.0) azalea.com/web-fonts/  */
+@font-face
+{
+font-family: Code39AzaleaFont;
+src: url('Code39Azalea.eot') format('embedded-opentype'), /* IE9 Compat Modes */
+   url('Code39Azalea.woff') format('woff'), /* Modern Browsers */
+   url('Code39Azalea.ttf') format('truetype'), /* Safari, Android, iOS */
+   url('Code39Azalea.svg#Code39Azalea') format('svg'); /* Legacy iOS */
+font-weight: normal;
+font-style: normal;
+}

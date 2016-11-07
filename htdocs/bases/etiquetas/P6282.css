@@ -1,0 +1,28 @@
+/**** 
+* Pimaco 6282
+* Carta
+* 14 etiquetas por folha (2x7)
+* 33,9 mm x 101,6 mm 
+****/
+
+/* Div em volta de tudo */
+.tudo {
+    margin:15mm 0 0 -3mm;
+    width:216mm; }
+
+/* Caixa para cada ocorrência */
+.barcodebox {
+    position:relative;
+    float:left;
+    width:100mm; /* 101.6mm */
+    height:33.9mm; /* 33.9mm */
+    margin:0;
+    background-color:#FFFFFF;
+    font-family: "Courier new", monospace;
+    font-size:9pt;
+    line-height:9pt;
+    text-align:center;}
+
+dt { font-weight:bold; }
+
+dd { margin-left:0px; }

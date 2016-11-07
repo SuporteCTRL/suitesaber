@@ -1,0 +1,11 @@
+.navbar.iah {
+    min-height: 100px;
+}  
+
+.btn, .input-lg {
+    border: 1px solid #d4d4d4;
+    border-radius: 0px;
+ }
+.form-inline .form-group, .form-group .form-control {
+	width: 100%;
+}
