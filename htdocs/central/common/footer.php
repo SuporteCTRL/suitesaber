@@ -21,8 +21,7 @@
 			if (!isset($def["LEGEND2"])) $def["LEGEND2"]=$def["LEGEND1"];
 			if (isset($def["URL2"]) and isset($def["LEGEND2"])){
 				echo "<div class=\"distributorLogo\">";
-				echo "<a href=".$def["URL2"]." target=_blank><span>". $def["LEGEND2"]."</span></a>
-			</div> ";
+				echo "<a href=".$def["URL2"]." target=_blank><span>". $def["LEGEND2"]."</span></a> ";
 			}
 			?>
 			<div class="spacer">&#160;</div>
