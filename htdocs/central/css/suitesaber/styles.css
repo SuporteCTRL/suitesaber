@@ -70,7 +70,7 @@ LABEL {
 	/* #menuButton classes */
 	A.menuButton {
 		text-decoration: none;
-		color: #fff;
+/*		color: #fff;*/
 	}
 
 	A.menuButton:hover IMG {
@@ -313,14 +313,14 @@ LABEL {
 		color: #4c4c4c;
 	}
 
-	.homepage .mainBox .titleSection .sectionIcon {
+/*	.homepage .mainBox .titleSection .sectionIcon {
 		background: url('../../images/database.png') no-repeat center;
 	}
 
 	.homepage .mainBox .dbSection .sectionIcon {
 		background: url('../../images/database.png') no-repeat center;
 	}
-
+*/
 	.homepage .mainBox .searchSection .sectionIcon {
 		background: url('../../images/search.png') no-repeat center;
 	}
@@ -377,7 +377,7 @@ LABEL {
 	/*#END #homepage classes */
 
 	/* #buttons background classes */
-	A.listButton IMG {
+/*	A.listButton IMG {
 		background: url('../../images/icon/defaultButton_list.png') no-repeat center;
 	}
 
@@ -445,9 +445,7 @@ LABEL {
 		background: url('../../images/icon/singleButton_e.png') no-repeat center;
 	}
 
-	A.statButton IMG {
-		background: url('../../images/icon/kchart.png') no-repeat center;
-	}
+
 	A.suggestButton IMG {
 		background: url('../../images/icon/suggestions.jpg') no-repeat center;
 	}
@@ -567,7 +565,7 @@ LABEL {
 	}
 	A.homeButton IMG{
 	 	background: url('../../../images/icon/home.png') no-repeat center;
-	}
+	}*/
 	/*#END #buttons background classes */
 
 	/*#list classes */
