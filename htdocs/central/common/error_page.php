@@ -57,7 +57,7 @@ function Enviar(){
 <body>
 <div class="middle form">
 	<div class="formContent">
-	<center>
+
 <?php
 echo "<br><br><h1>".$msgstr['sessionexpired']."</h1>";
 ?>
@@ -146,7 +146,7 @@ if (isset($open_new_window) and $open_new_window=="Y")
 	echo "Y checked";
 else
 	echo "N";
-?> />
+?> 
 			<label for="setCookie" class="inline"><?php echo $msgstr["openwindow"]?></label>
 		</div>
 		<div class="submitRow">
