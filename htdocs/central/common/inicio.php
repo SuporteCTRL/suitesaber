@@ -59,7 +59,7 @@ global $llamada, $valortag,$maxmfn,$arrHttp,$OS,$Bases,$xWxis,$Wxis,$Mfn,$db_pat
 }
 
 function VerificarUsuario(){
-Global $arrHttp,$valortag,$Path,$xWxis,$session_id,$Permiso,$msgstr,$db_path,$nombre,$Per,$adm_login,$adm_password;
+global $arrHttp,$valortag,$Path,$xWxis,$session_id,$Permiso,$msgstr,$db_path,$nombre,$Per,$adm_login,$adm_password;
  	$llave=LeerRegistro();
  	if ($llave!=""){
   		$res=explode('|',$llave);
@@ -73,12 +73,13 @@ Global $arrHttp,$valortag,$Path,$xWxis,$session_id,$Permiso,$msgstr,$db_path,$no
   		$value=$valortag[40];
   		if (isset($valortag[60]))
   			$fecha=$valortag[60];
-  		else
+  		else{
   			$fecha="";
   		$today=date("Ymd");
   		if (trim($fecha)!=""){  			if ($today>$fecha){
   				header("Location: ../../index.php?login=N");
   				die;  			}  		}
+  	}
   		$value=substr($value,2);
   		$ix=strpos($value,'^');
   		$Perfil=substr($value,0,$ix);
@@ -117,11 +118,12 @@ Global $arrHttp,$valortag,$Path,$xWxis,$session_id,$Permiso,$msgstr,$db_path,$no
     	}else{ 			echo "<script>\n";
  			if (isset($_SESSION["HOME"]))
  				echo "self.location.href=\"".$_SESSION["HOME"]."?login=N\"\n";
- 			else
+ 			else{
  				echo "self.location.href=\"../../index.php?login=N\";\n";
 
  			echo "</script>\n";
   			die;
+  		}
   		}
  	}
 }
@@ -139,12 +141,17 @@ $query="";
 
 if (isset($arrHttp["newindow"]))
 	$_SESSION["newindow"]="Y";
-else
+
+else 
+
 	if (!isset($arrHttp["reinicio"])) unset($_SESSION["newindow"]);
+
 if (isset($arrHttp["lang"])){
 	$_SESSION["lang"]=$arrHttp["lang"];
 	$lang=$arrHttp["lang"];
-}else{
+	}
+
+else {
 	if (!isset($_SESSION["lang"])) $_SESSION["lang"]=$lang;
 }
 include("../lang/dbadmin.php");
