@@ -8,29 +8,6 @@
 		<meta http-equiv="pragma" content="no-cache" />
 		<link rel="icon" type="image/png" href="favicon.png" />
 
-<?php
-	if ((isset($cisis_ver) and $cisis_ver=="unicode/") or (isset($UNICODE) and $UNICODE=="Y")){
-	echo $UNICODE;
-		echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />";
-	}else{
-		echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />";
-	}
-	if (!isset($css_name))
-		$css_name= "";
-	else
-		$css_name.="";
-?>
-		<meta name="robots" CONTENT="NONE" />
-		<meta http-equiv="keywords" content="" />
-		<meta http-equiv="description" content="" />
-		<!-- Stylesheets -->
-		<link rel="stylesheet" rev="stylesheet" href="../css/<?php echo $css_name?>/template.css?<?php echo time(); ?>" type="text/css" media="screen"/>
-		<!--[if IE]>
-			<link rel="stylesheet" rev="stylesheet" href="../css/bugfixes_ie.css" type="text/css" media="screen"/>
-		<![endif]-->
-		<!--[if IE 6]>
-			<link rel="stylesheet" rev="stylesheet" href="../css/bugfixes_ie6.css" type="text/css" media="screen"/>
-		<![endif]-->
 		<style>
 			#loading {
 			   width: 100%;
@@ -53,4 +30,32 @@
 			  z-index: 100;
 			}
 		</style>
+<?php
+	if ((isset($cisis_ver) and $cisis_ver=="unicode/") or (isset($UNICODE) and $UNICODE=="Y")){
+	echo $UNICODE;
+		echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />";
+	}else{
+		echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />";
+	}
+	if (!isset($css_name))
+		$css_name= "";
+	else
+		$css_name.="";
+?>
+		<meta name="robots" CONTENT="NONE" />
+		<meta http-equiv="keywords" content="" />
+		<meta http-equiv="description" content="" />
+	
+		<!--Font Awesome-->
+    <script src="https://use.fontawesome.com/4c37ce0a9e.js"></script>
+
+		<!-- Stylesheets -->
+		<link rel="stylesheet" rev="stylesheet" href="../css/<?php echo $css_name?>/template.css?<?php echo time(); ?>" type="text/css" media="screen"/>
+		<!--[if IE]>
+			<link rel="stylesheet" rev="stylesheet" href="../css/bugfixes_ie.css" type="text/css" media="screen"/>
+		<![endif]-->
+		<!--[if IE 6]>
+			<link rel="stylesheet" rev="stylesheet" href="../css/bugfixes_ie6.css" type="text/css" media="screen"/>
+		<![endif]-->
+
 </head>
