@@ -393,16 +393,6 @@ global $msgstr,$db_path,$arrHttp,$lista_bases,$Permiso,$dirtree,$def;
 	$_SESSION["MODULO"]="catalog";
 ?>
 
-	<div class="mainBox" onmouseover="this.className = 'mainBox mainBoxHighlighted';" onmouseout="this.className = 'mainBox';">
-		<div class="boxTop">
-			<div class="btLeft">&#160;</div>
-			<div class="btRight">&#160;</div>
-		</div>
-		<div class="boxContent toolSection ">
-			<div class="sectionIcon">
-				&#160;
-			</div>
-			<div class="sectionTitle">
 				<h4><strong><?php echo $msgstr["database"]?></strong></h4>
 			</div>
 			<div class="sectionButtons">
@@ -432,9 +422,9 @@ foreach ($lista_bases as $key => $value) {
 ?>
 						</select>
 					</div>
-					<a href="javascript:CambiarBaseAdministrador('toolbar')" class="menuButton nextButton">
-						<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-						<span><strong><?php echo $msgstr["dataentry"]?></strong></span>
+					<li><a href="javascript:CambiarBaseAdministrador('toolbar')" class="menuButton nextButton">
+						
+						<?php echo $msgstr["dataentry"]?>
 					</a>
 					</form>
 				</div>
@@ -447,44 +437,39 @@ if (isset($def["MODULOS"])){
 		$base_sel="";
 	}
 ?>
-	<a href="javascript:ActivarModulo('<?php echo $def["MODULOS"]["SCRIPT"]."','$base_sel";?>')" class="menuButton <?php echo $def["MODULOS"]["BUTTON"]?>">
-		<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-		<span><strong><?php echo $def["MODULOS"]["TITLE"]?></strong></span>
+	<li><a href="javascript:ActivarModulo('<?php echo $def["MODULOS"]["SCRIPT"]."','$base_sel";?>')" class="menuButton <?php echo $def["MODULOS"]["BUTTON"]?>">
+		
+		<?php echo $def["MODULOS"]["TITLE"]?>
 	</a>
 <?php
 }
 ?>
-				<a href="javascript:CambiarBaseAdministrador('stats')" class="menuButton statButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["statistics"]?></strong></span>
-				</a>
+				<li><a href="javascript:CambiarBaseAdministrador('stats')" class="menuButton">
+					<?php echo $msgstr["statistics"]?>
+				</a></li>
 
-				<a href="javascript:CambiarBaseAdministrador('reportes')" class="menuButton reportButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["reports"]?></strong></span>
-				</a>
+				<li><a href="javascript:CambiarBaseAdministrador('reportes')" class="menuButton reportButton">
+					
+					<?php echo $msgstr["reports"]?>
+				</a></li>
 
-				<a href="javascript:CambiarBaseAdministrador('estructuras')" class="menuButton update_databaseButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["updbdef"]?></strong></span>
-				</a>
+				<li><a href="javascript:CambiarBaseAdministrador('estructuras')" class="menuButton update_databaseButton">
+					
+					<?php echo $msgstr["updbdef"]?>
+				</a></li>
 
-				<a href="javascript:CambiarBaseAdministrador('utilitarios')" class="menuButton utilsButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["maintenance"]?></strong></span>
-				</a>
+				<li><a href="javascript:CambiarBaseAdministrador('utilitarios')" class="menuButton utilsButton">
+					
+					<?php echo $msgstr["maintenance"]?>
+				</a></li>
 
-				<a href="javascript:CambiarBaseAdministrador('z3950')"  class="menuButton z3950Button">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["z3950"]?></strong></span>
-				</a>
+				<li><a href="javascript:CambiarBaseAdministrador('z3950')"  class="menuButton z3950Button">
+					
+					<?php echo $msgstr["z3950"]?>
+				</a></li>
 			</div>
 			<div class="spacer">&#160;</div>
 			</div>
-			<div class="boxBottom">
-			<div class="bbLeft">&#160;</div>
-			<div class="bbRight">&#160;</div>
-		</div>
 	</div>
 <?php
 
@@ -492,57 +477,48 @@ if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_CRDB"])  or isset
   or isset($Permiso["CENTRAL_RESETLIN"])  or isset($Permiso["CENTRAL_TRANSLATE"])  or isset($Permiso["CENTRAL_EXDBDIR"]))
 {
 ?>
-			<div class="mainBox" onmouseover="this.className = 'mainBox mainBoxHighlighted';" onmouseout="this.className = 'mainBox';">
-				<div class="boxTop">
-					<div class="btLeft">&#160;</div>
-					<div class="btRight">&#160;</div>
-				</div>
-				<div class="boxContent toolSection ">
-					<div class="sectionIcon">
-						&#160;
-					</div>
-					<div class="sectionTitle">
+
 						<h4><strong><?php echo $msgstr["admtit"]?></strong></h4>
 					</div>
 					<div class="sectionButtons">
-<?Php
+<?php
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_CRDB"]) or isset($Permiso["ADM_CRDB"])){
 ?>
                     <a href="../dbadmin/menu_creardb.php?encabezado=S" class="menuButton databaseButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["createdb"]?></strong></span></a>
-<?Php
+					
+					<?php echo $msgstr["createdb"]?></a></li>
+<?php
 }
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_USRADM"]) or isset($Permiso["ADM_USRADM"])){
 ?>
 				<a href="../dbadmin/users_adm.php?encabezado=s&base=acces&cipar=acces.par" class="menuButton userButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["usuarios"]?></strong></span>
-				</a>
-<?Php
+					
+					<?php echo $msgstr["usuarios"]?>
+				</a></li>
+<?php
 }
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_RESETLIN"])){
 ?>
 				<a href="../dbadmin/reset_inventory_number.php?encabezado=s" class="menuButton resetButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["resetinv"]?></strong></span>
-				</a>
-<?Php
+					
+					<?php echo $msgstr["resetinv"]?>
+				</a></li>
+<?php
 }
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_TRANSLATE"])){
 ?>
-				<a href="javascript:CambiarBaseAdministrador('traducir')" class="menuButton exportButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["translate"]?></strong></span>
-				</a>
-<?Php
+				<li><a href="javascript:CambiarBaseAdministrador('traducir')" class="menuButton exportButton">
+					
+					<?php echo $msgstr["translate"]?>
+				</a></li>
+<?php
 }
 if ($_SESSION["profile"]=="adm"){
 ?>
 				<a href="../dbadmin/conf_abcd.php?Opcion=abcd_def" class="menuButton utilsButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["configure"]. " ABCD"?></strong></span>
-				</a>
+					
+					<?php echo $msgstr["configure"]. " ABCD"?>
+				</a></li>
 <?php
 }
 
@@ -550,10 +526,10 @@ if ($dirtree==1 or $dirtree=="Y"){
 	if ($_SESSION["profile"]=="adm"){
 ?>
 				<a href="../dbadmin/dirtree.php?encabezado=s&retorno=inicio" class="menuButton exploreButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["expbases"]?></strong></span>
-				</a>
-<?Php }
+					
+					<?php echo $msgstr["expbases"]?>
+				</a></li>
+<?php }
 }?>
 					</div>
 					<div class="spacer">&#160;</div>
