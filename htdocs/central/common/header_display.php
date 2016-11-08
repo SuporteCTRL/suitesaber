@@ -15,8 +15,8 @@
 	}
 	if (!isset($css_name))
 		$css_name="";
-	else
-		$css_name.="/";
+	else{
+		$css_name.="/";}
 ?>
 		<meta name="robots" CONTENT="NONE" />
 		<meta http-equiv="keywords" content="" />
@@ -31,8 +31,7 @@
 		<![endif]-->
 <?php if (isset($context_menu) and $context_menu=="N"){?>
 <script>
-
- var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+  var isNS = (navigator.appName == "Netscape") ? 1 : 0;
   if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
   function mischandler(){
    return false;
