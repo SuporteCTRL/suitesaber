@@ -21,7 +21,7 @@ if (isset($_SESSION["permiso"]["ACQ_ACQALL"]) or isset($_SESSION["permiso"]["ACQ
 <?php }?>
 
 
-		<a href="../common/inicio.php?reinicio=s&modulo=acquisitions"><strong>
+		<a href="../common/inicio.php?reinicio=s"><strong>
 			<?php echo "Menu"?></strong></a> &nbsp; &nbsp; &nbsp;
 
 		<p>
