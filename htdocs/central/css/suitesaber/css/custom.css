@@ -341,9 +341,9 @@ body .container.body .right_col {
 .top_nav .nav > li > a:focus, .top_nav .nav > li > a:hover, .top_nav .nav .open > a, .top_nav .nav .open > a:focus, .top_nav .nav .open > a:hover {
   background: #D9DEE4; }
 
-body {
+body.todo {
   color: #73879C;
- /* background: #2A3F54;*/
+  background: #2A3F54;
   font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
   font-size: 13px;
   font-weight: 400;
@@ -1360,7 +1360,8 @@ span.right {
   padding: 5px 0 0 0;
   position: fixed;
   width: 230px;
-  background: #2A3F54; }
+  background: #2A3F54; 
+  z-index: 9999999;}
 
 .sidebar-footer a {
   padding: 7px 0 3px;

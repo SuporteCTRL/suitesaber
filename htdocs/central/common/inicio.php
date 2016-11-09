@@ -221,15 +221,17 @@ include("../lang/acquisitions.php");
 			$retorno="../../index.php";
 		header("Location: $retorno?login=P");
 	}else{
+
+    include("header.php");
 ?>
 
-    <body class="nav-md">
+    <body class="nav-md todo">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-gitlab"></i> <span>Suíte Saber 17</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-gitlab"></i> <span><?php echo $institution_name?></span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -237,11 +239,11 @@ include("../lang/acquisitions.php");
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="images/user.png" alt="..." class="img-circle profile_img">
+                <img src="/bases/acces/user.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Olá,</span>
-                <h2>João</h2>
+                <h2><?php echo $_SESSION["nombre"]?>, </h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -252,7 +254,7 @@ include("../lang/acquisitions.php");
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>Administração</h3>
-
+                  <ul class="nav side-menu">
 
 
 <?php
@@ -269,17 +271,7 @@ include("../lang/acquisitions.php");
              </div>
             </div>
             <!-- /sidebar menu -->
-    
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-             <label>Base de dados ativa</label>
-                  <select>
-                    <option>Base Bibliografica</option>
-                    <option>Base Arquivo</option>
-                    <option>Base Autoridades</option>
-                  </select>
-            </div>
-            <!-- /menu footer buttons -->
+
           </div>
         </div>
 
@@ -296,7 +288,7 @@ include("../lang/acquisitions.php");
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/user.png" alt="">João
+                    <img src="images/user.png" alt=""><?php echo $_SESSION["nombre"]?>, <?php echo $_SESSION["profile"]?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -305,7 +297,7 @@ include("../lang/acquisitions.php");
 
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="../dataentry/logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
               </ul>
@@ -319,7 +311,7 @@ include("../lang/acquisitions.php");
         <div class="right_col" role="main" id="content">
           <div class="">
 			
-			<iframe name="content" frameborder="no" scrolling="auto" width="100%" height="100%" src="/site"></iframe>
+			<iframe name="content" frameborder="no" scrolling="auto" width="100%" height="3000px" src="/site"></iframe>
 
           </div>
         </div>

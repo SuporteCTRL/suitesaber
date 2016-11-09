@@ -3,7 +3,10 @@
 
 <html>
 	<head>
-		<title>ABCD<?php if (isset($subtitle))  echo $subtitle?></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Suíte Saber<?php if (isset($subtitle))  echo $subtitle?></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
 		<meta http-equiv="Expires" content="-1" />
 		<meta http-equiv="pragma" content="no-cache" />
 		<link rel="icon" type="image/png" href="favicon.png" />
@@ -48,7 +51,7 @@
 	
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/<?php echo $css_name?>/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
    <script src="https://use.fontawesome.com/4c37ce0a9e.js"></script>
     <link href="../css/<?php echo $css_name?>/css/font-awesome.min.css" rel="stylesheet">

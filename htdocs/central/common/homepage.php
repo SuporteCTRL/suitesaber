@@ -90,7 +90,7 @@ if (file_exists($db_path."logtrans/data/logtrans.mst")){
 		}
 	}
 }
-	include("header.php");
+	
 ?>
 
 <script>
@@ -256,14 +256,14 @@ function Modulo(){
 ?>
 
 
-<?php echo $msgstr["lang"]?>:
+<?php //echo $msgstr["lang"]?>
 
-<form name="cambiolang">
+<!--<form name="cambiolang">
 	<select name="lenguaje" onchange="CambiarLenguaje()"">
 		<option value=""></option>
 		 <?php
 
- 	if (file_exists($a)){
+ /*	if (file_exists($a)){
 		$fp=file($a);
 		$selected="";
 		foreach ($fp as $value){
@@ -311,34 +311,33 @@ if ($circulation=="Y" or $acquisitions=="Y" or $central=="Y"){
   		if ($_SESSION["MODULO"]=="acquisitions") echo " selected";
   		echo ">".$msgstr["acquisitions"];
   	}
-}
+}*/
 ?>
 	</select>
-    </form>
+    </form> -->
 
 
-		<span><?php echo $_SESSION["nombre"]?></span>
-		(<?php echo $_SESSION["profile"]?>)|
+	<!--	<?php echo $_SESSION["nombre"]?>(<?php echo $_SESSION["profile"]?>)|
 		<?php  $dd=explode("/",$db_path);
                if (isset($dd[count($dd)-2])){
 			   		$da=$dd[count($dd)-2];
 			   		echo " (".$da.") ";
 				}
 		?> |
-		<a href="../dataentry/logout.php" xclass="button_logout"><span>[ sair ]</span></a>
+		<a href="../dataentry/logout.php" xclass="button_logout"><span>[ sair ]</span></a>-->
 
 
 
 
 
 
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]."/$ayuda"?> target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+<!--	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]."/$ayuda"?> target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
  <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])){
  	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/$ayuda target=_blank>".$msgstr["edhlp"];
 	echo "</a>Script: homepage.php";
 }
-?>
+?> -->
 
 <?php
 $Permiso=$_SESSION["permiso"];
@@ -362,18 +361,23 @@ global $msgstr,$db_path,$arrHttp,$lista_bases,$Permiso,$dirtree,$def;
 	$_SESSION["MODULO"]="catalog";
 ?>
 
+ <div class="sidebar-footer hidden-small">
+		    <div class="input-group">
 
-					<form name="admin" action="dataentry/inicio_main.php" method="post">
-					<input type=hidden name=encabezado value=s>
-					<input type=hidden name=retorno value="../common/inicio.php">
-					<input type=hidden name=modulo value=catalog>
-					<input type=hidden name=screen_width>
-					<?php if (isset($arrHttp["newindow"]))
+		<form name="admin" action="dataentry/inicio_main.php" method="post">
+		<input type=hidden name=encabezado value=s>
+		<input type=hidden name=retorno value="../common/inicio.php">
+		<input type=hidden name=modulo value=catalog>
+		<input type=hidden name=screen_width>
+		<?php if (isset($arrHttp["newindow"]))
 					echo "<input type=hidden name=newindow value=Y>\n";?>
-			
-						<label for="searchExpr"><?php echo $msgstr["seleccionar"]?>:</label>
-						<select name=base  class="textEntry singleTextEntry" >
-							<option value=""></option>
+    
+            <!-- /menu footer buttons -->
+       
+                  <select name=base  class="textEntry singleTextEntry" >
+                    <option value=""><?php echo $msgstr["seleccionar"]?></option>
+		
+							
 <?php
 $i=-1;
 foreach ($lista_bases as $key => $value) {
@@ -386,12 +390,15 @@ foreach ($lista_bases as $key => $value) {
 	}
 }
 ?>
-						</select>
-				
-					<a href="javascript:CambiarBaseAdministrador('toolbar')" class="btn btn-default"><?php echo $msgstr["dataentry"]?></a>
+                  </select>
+            
+				<div class="input-group-btn">
+					<a href="javascript:CambiarBaseAdministrador('toolbar')" alt="<?php echo $msgstr["dataentry"]?>" class="btn btn-default"><i class="fa fa-database" aria-hidden="true"></i>
+</a></div>
+</div>
 					</form>
-				
-					&nbsp;
+</div>				
+					
 <?php
 if (isset($def["MODULOS"])){
 	if (isset($def["MODULOS"]["SELBASE"])){
@@ -408,7 +415,7 @@ if (isset($def["MODULOS"])){
 ?>
 	
 
-<ul class="nav side-menu">
+
 
 <li>
     <a><i class="fa fa-database"></i><?php echo $msgstr["database"]?><span class="fa fa-chevron-down"></span></a>	
@@ -471,7 +478,7 @@ if ($dirtree==1 or $dirtree=="Y"){
 }?>
  </ul>
       </li>
-	 </ul>			
+		
 
 <?php
 	}
