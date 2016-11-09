@@ -159,6 +159,7 @@ function Modulo(){
 	    	case "resetautoinc":
 	    		if (db+"_CENTRAL_RESETLCN" in perms || "CENTRAL_RESETLCN" in perms || "CENTRAL_ALL" in perms || db+"_CENTRAL_ALL" in perms){
 	    	   		document.admin.action="../dbadmin/resetautoinc.php";
+	    	   		document.admin.target="content";
 	    		}else{
 	    			alert("<?php echo $msgstr["invalidright"];?>")
 	    			return;
@@ -166,11 +167,13 @@ function Modulo(){
 	    		break;
 	    	case "toolbar":
 	    		document.admin.action="../dataentry/inicio_main.php";
+	    		document.admin.target="_blank";
 	    		break;
 			case "utilitarios":
 
 				if (db+"_CENTRAL_DBUTILS" in perms || "CENTRAL_DBUTILS" in perms || "CENTRAL_ALL" in perms || db+"_CENTRAL_ALL" in perms ){
 					document.admin.action="../dbadmin/menu_mantenimiento.php";
+					document.admin.target="content";
 				}else{
 	    			alert("<?php echo $msgstr["invalidright"];?>")
 	    			return;
@@ -179,6 +182,7 @@ function Modulo(){
    			case "estructuras":
    				if (db+"_CENTRAL_MODIFYDEF" in perms || "CENTRAL_MODIFYDEF" in perms || "CENTRAL_ALL" in perms || db+"_CENTRAL_ALL" in perms){
 					document.admin.action="../dbadmin/menu_modificardb.php";
+					document.admin.target="content";
 				}else{
 	    			alert("<?php echo $msgstr["invalidright"];?>")
 	    			return;
@@ -187,6 +191,7 @@ function Modulo(){
     		case "reportes":
     			if (db+"_CENTRAL_PREC" in perms || "CENTRAL_PREC" in perms || "CENTRAL_ALL" in perms || db+"_CENTRAL_ALL" in perms){
 					document.admin.action="../dbadmin/pft.php";
+					document.admin.target="content";
 				}else{
 	    			alert("<?php echo $msgstr["invalidright"];?>")
 	    			return;
@@ -195,6 +200,7 @@ function Modulo(){
     		case "traducir":
     			if (db+"_CENTRAL_TRANSLATE" in perms || "CENTRAL_TRANSLATE" in perms || "CENTRAL_ALL" in perms || db+"_CENTRAL_ALL" in perms){
 					document.admin.action="../dbadmin/menu_traducir.php";
+					document.admin.target="content";
 				}else{
 	    			alert("<?php echo $msgstr["invalidright"];?>")
 	    			return;
@@ -203,6 +209,7 @@ function Modulo(){
     		case "stats":
     			if (db+"_CENTRAL_STATGEN" in perms || "CENTRAL_STATGEN" in perms || "CENTRAL_STATGEN" in perms || "CENTRAL_ALL" in perms || db+"_CENTRAL_ALL" in perms){
 					document.admin.action="../statistics/tables_generate.php";
+					document.admin.target="content";
 				}else{
 	    			alert("<?php echo $msgstr["invalidright"];?>")
 	    			return;
@@ -211,6 +218,7 @@ function Modulo(){
     		case "z3950":
     			if (db+"_CENTRAL_Z3950CONF" in perms || "CENTRAL_Z3950CONF" in perms || "CENTRAL_ALL" in perms || db+"CENTRAL_ALL" in perms){
 					document.admin.action="../dbadmin/z3950_conf.php";
+					document.admin.target="content";
 				}else{
 	    			alert("<?php echo $msgstr["invalidright"];?>")
 	    			return;
@@ -222,18 +230,7 @@ function Modulo(){
 
 	</script>
 
-<body>
-<div class=heading>
-	<div class="institutionalInfo" >
-		<h1><img src=<?php if (isset($logo))
-								echo $logo;
-							else
-								echo "../images/logoabcd.png";
-					  ?>><?php echo $institution_name?> </h1>
-    </div>
 
-
-	<div class="userInfo">
 
 <?php
 	if (isset($msg_path))
@@ -257,10 +254,10 @@ function Modulo(){
 		die;
 	}
 ?>
-<table border="0">
-<tr>
-<td><?php echo $msgstr["lang"]?>:</td>
-<td>
+
+
+<?php echo $msgstr["lang"]?>:
+
 <form name="cambiolang">
 	<select name="lenguaje" onchange="CambiarLenguaje()"">
 		<option value=""></option>
@@ -283,7 +280,7 @@ function Modulo(){
 		echo $msgstr["flang"].$db_path."lang/".$_SESSION["lang"]."/lang.tab";
 		die;
 	}
-	echo "</td><td>";
+
 	$central="";
 $circulation="";
 $acquisitions="";
@@ -318,8 +315,7 @@ if ($circulation=="Y" or $acquisitions=="Y" or $central=="Y"){
 ?>
 	</select>
     </form>
-	</td>
-	<td>
+
 
 		<span><?php echo $_SESSION["nombre"]?></span>
 		(<?php echo $_SESSION["profile"]?>)|
@@ -331,42 +327,19 @@ if ($circulation=="Y" or $acquisitions=="Y" or $central=="Y"){
 		?> |
 		<a href="../dataentry/logout.php" xclass="button_logout"><span>[ sair ]</span></a>
 
-	</td>
-	</tr>
-	</table>
-
-<div class="language">
 
 
 
-    </div>
-	</div>
-	<div class="spacer">&#160;</div>
-</div>
 
 
-
-<div class="sectionInfo">
-	<div class="breadcrumb">
-		<strong><?php echo $msgstr["inicio"]." - $module_name"?></strong>
-	</div>
-	<div class="actions">
-      &nbsp;
-	</div>
-	<div class="spacer">&#160;</div>
-</div>
-
-<div class="helper">
 	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]."/$ayuda"?> target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
  <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])){
  	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/$ayuda target=_blank>".$msgstr["edhlp"];
-	echo "</a>
-		<font color=white>&nbsp; &nbsp; Script: homepage.php </font>";
+	echo "</a>Script: homepage.php";
 }
 ?>
-</div>
-<div class="middle homepage">
+
 <?php
 $Permiso=$_SESSION["permiso"];
 switch ($_SESSION["MODULO"]){
@@ -380,11 +353,7 @@ switch ($_SESSION["MODULO"]){
 		MenuAcquisitionsAdministrator();
 		break;
 }
-echo "		</div>
-	</div>";
-include("footer.php");
-echo "	</body>
-</html>";
+
 
 ///---------------------------------------------------------------
 
@@ -393,10 +362,7 @@ global $msgstr,$db_path,$arrHttp,$lista_bases,$Permiso,$dirtree,$def;
 	$_SESSION["MODULO"]="catalog";
 ?>
 
-				<h4><strong><?php echo $msgstr["database"]?></strong></h4>
-			</div>
-			<div class="sectionButtons">
-            	<div class="searchTitles">
+
 					<form name="admin" action="dataentry/inicio_main.php" method="post">
 					<input type=hidden name=encabezado value=s>
 					<input type=hidden name=retorno value="../common/inicio.php">
@@ -404,7 +370,7 @@ global $msgstr,$db_path,$arrHttp,$lista_bases,$Permiso,$dirtree,$def;
 					<input type=hidden name=screen_width>
 					<?php if (isset($arrHttp["newindow"]))
 					echo "<input type=hidden name=newindow value=Y>\n";?>
-					<div class="stInput">
+			
 						<label for="searchExpr"><?php echo $msgstr["seleccionar"]?>:</label>
 						<select name=base  class="textEntry singleTextEntry" >
 							<option value=""></option>
@@ -421,13 +387,10 @@ foreach ($lista_bases as $key => $value) {
 }
 ?>
 						</select>
-					</div>
-					<li><a href="javascript:CambiarBaseAdministrador('toolbar')" class="menuButton nextButton">
-						
-						<?php echo $msgstr["dataentry"]?>
-					</a>
+				
+					<a href="javascript:CambiarBaseAdministrador('toolbar')" class="btn btn-default"><?php echo $msgstr["dataentry"]?></a>
 					</form>
-				</div>
+				
 					&nbsp;
 <?php
 if (isset($def["MODULOS"])){
@@ -437,40 +400,28 @@ if (isset($def["MODULOS"])){
 		$base_sel="";
 	}
 ?>
-	<li><a href="javascript:ActivarModulo('<?php echo $def["MODULOS"]["SCRIPT"]."','$base_sel";?>')" class="menuButton <?php echo $def["MODULOS"]["BUTTON"]?>">
-		
+	<a href="javascript:ActivarModulo('<?php echo $def["MODULOS"]["SCRIPT"]."','$base_sel";?>')" class="menuButton <?php echo $def["MODULOS"]["BUTTON"]?>">
 		<?php echo $def["MODULOS"]["TITLE"]?>
 	</a>
 <?php
 }
 ?>
-				<li><a href="javascript:CambiarBaseAdministrador('stats')" class="menuButton">
-					<?php echo $msgstr["statistics"]?>
-				</a></li>
+	
 
-				<li><a href="javascript:CambiarBaseAdministrador('reportes')" class="menuButton reportButton">
-					
-					<?php echo $msgstr["reports"]?>
-				</a></li>
+<ul class="nav side-menu">
 
-				<li><a href="javascript:CambiarBaseAdministrador('estructuras')" class="menuButton update_databaseButton">
-					
-					<?php echo $msgstr["updbdef"]?>
-				</a></li>
+<li>
+    <a><i class="fa fa-database"></i><?php echo $msgstr["database"]?><span class="fa fa-chevron-down"></span></a>	
+ 	<ul class="nav child_menu">
+		<li><a href="javascript:CambiarBaseAdministrador('stats')" class="menuButton"><?php echo $msgstr["statistics"]?></a></li>
+		<li><a href="javascript:CambiarBaseAdministrador('reportes')" class="menuButton reportButton"><?php echo $msgstr["reports"]?></a></li>
+		<li><a href="javascript:CambiarBaseAdministrador('estructuras')" class="menuButton update_databaseButton"><?php echo $msgstr["updbdef"]?></a></li>
+		<li><a href="javascript:CambiarBaseAdministrador('utilitarios')" class="menuButton utilsButton"><?php echo $msgstr["maintenance"]?></a></li>
+		<li><a href="javascript:CambiarBaseAdministrador('z3950')"  class="menuButton z3950Button"><?php echo $msgstr["z3950"]?></a></li>
+	</ul>
+</li>	
+			
 
-				<li><a href="javascript:CambiarBaseAdministrador('utilitarios')" class="menuButton utilsButton">
-					
-					<?php echo $msgstr["maintenance"]?>
-				</a></li>
-
-				<li><a href="javascript:CambiarBaseAdministrador('z3950')"  class="menuButton z3950Button">
-					
-					<?php echo $msgstr["z3950"]?>
-				</a></li>
-			</div>
-			<div class="spacer">&#160;</div>
-			</div>
-	</div>
 <?php
 
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_CRDB"])  or isset($Permiso["CENTRAL_USRADM"])
@@ -478,68 +429,49 @@ if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_CRDB"])  or isset
 {
 ?>
 
-						<h4><strong><?php echo $msgstr["admtit"]?></strong></h4>
-					</div>
-					<div class="sectionButtons">
+ 	<li>
+ 		<a><i class="fa fa-cog"></i><?php echo $msgstr["admtit"]?><span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
 <?php
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_CRDB"]) or isset($Permiso["ADM_CRDB"])){
 ?>
-                    <a href="../dbadmin/menu_creardb.php?encabezado=S" class="menuButton databaseButton">
-					
-					<?php echo $msgstr["createdb"]?></a></li>
+    			<li><a href="../dbadmin/menu_creardb.php?encabezado=S" target="content" class="menuButton databaseButton"><?php echo $msgstr["createdb"]?></a></li>
+
 <?php
 }
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_USRADM"]) or isset($Permiso["ADM_USRADM"])){
 ?>
-				<a href="../dbadmin/users_adm.php?encabezado=s&base=acces&cipar=acces.par" class="menuButton userButton">
-					
-					<?php echo $msgstr["usuarios"]?>
-				</a></li>
+    			<li><a href="../dbadmin/users_adm.php?encabezado=s&base=acces&cipar=acces.par" target="content" class="menuButton userButton"><?php echo $msgstr["usuarios"]?></a></li>
 <?php
 }
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_RESETLIN"])){
 ?>
-				<a href="../dbadmin/reset_inventory_number.php?encabezado=s" class="menuButton resetButton">
-					
-					<?php echo $msgstr["resetinv"]?>
-				</a></li>
+   				<li><a href="../dbadmin/reset_inventory_number.php?encabezado=s" target="content" class="menuButton resetButton"><?php echo $msgstr["resetinv"]?></a></li>
 <?php
 }
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_TRANSLATE"])){
 ?>
-				<li><a href="javascript:CambiarBaseAdministrador('traducir')" class="menuButton exportButton">
-					
-					<?php echo $msgstr["translate"]?>
-				</a></li>
+				<li><a href="javascript:CambiarBaseAdministrador('traducir')"  class="menuButton exportButton"><?php echo $msgstr["translate"]?></a></li>
+
 <?php
 }
 if ($_SESSION["profile"]=="adm"){
 ?>
-				<a href="../dbadmin/conf_abcd.php?Opcion=abcd_def" class="menuButton utilsButton">
-					
-					<?php echo $msgstr["configure"]. " ABCD"?>
-				</a></li>
+	<li><a href="../dbadmin/conf_abcd.php?Opcion=abcd_def" target="content" class="menuButton utilsButton">
+		<?php echo $msgstr["configure"]. " ABCD"?></a></li>
 <?php
 }
 
 if ($dirtree==1 or $dirtree=="Y"){
 	if ($_SESSION["profile"]=="adm"){
 ?>
-				<a href="../dbadmin/dirtree.php?encabezado=s&retorno=inicio" class="menuButton exploreButton">
-					
-					<?php echo $msgstr["expbases"]?>
-				</a></li>
+   <li><a href="../dbadmin/dirtree.php?encabezado=s&retorno=inicio" target="content" class="menuButton exploreButton">
+       <?php echo $msgstr["expbases"]?></a></li>
 <?php }
 }?>
-					</div>
-					<div class="spacer">&#160;</div>
-				</div>
-				<div class="boxBottom">
-					<div class="bbLeft">&#160;</div>
-					<div class="bbRight">&#160;</div>
-				</div>
-			</div>
-
+ </ul>
+      </li>
+	 </ul>			
 
 <?php
 	}
@@ -549,12 +481,13 @@ if ($dirtree==1 or $dirtree=="Y"){
 
 
 function MenuAcquisitionsAdministrator(){
-	include("menuacquisitions.php");
+//	include("menuacquisitions.php");
 }
 
 function MenuLoanAdministrator(){
-   include("menucirculation.php");
+  // include("menucirculation.php");
 }
+
 echo "\n<script>\n";
 echo "var perms= new Array()\n";
 foreach ($_SESSION["permiso"] as $key=>$value){
