@@ -46,11 +46,30 @@
 		<meta http-equiv="keywords" content="" />
 		<meta http-equiv="description" content="" />
 	
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+   <script src="https://use.fontawesome.com/4c37ce0a9e.js"></script>
+    <link href="../css/<?php echo $css_name?>/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../css/<?php echo $css_name?>/css/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../css/<?php echo $css_name?>/css/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="../css/<?php echo $css_name?>/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../css/<?php echo $css_name?>/css/jqvmap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Theme Style -->
+    <link href="../css/<?php echo $css_name?>/css/custom.css" rel="stylesheet">
+
+
 		<!--Font Awesome-->
     <script src="https://use.fontawesome.com/4c37ce0a9e.js"></script>
 
 		<!-- Stylesheets -->
-		<link rel="stylesheet" rev="stylesheet" href="../css/<?php echo $css_name?>/template.css?<?php echo time(); ?>" type="text/css" media="screen"/>
+	<!--	<link rel="stylesheet" rev="stylesheet" href="../css/<?php echo $css_name?>/template.css?<?php echo time(); ?>" type="text/css" media="screen"/> -->
 		<!--[if IE]>
 			<link rel="stylesheet" rev="stylesheet" href="../css/bugfixes_ie.css" type="text/css" media="screen"/>
 		<![endif]-->
