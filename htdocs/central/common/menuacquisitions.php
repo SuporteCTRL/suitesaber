@@ -5,11 +5,11 @@ global $arrHttp,$msgstr,$db_path,$valortag,$lista_bases;
 	include ("../lang/acquisitions.php");
 ?>
 			
-					
-					<h4>
-						<?php echo $msgstr["suggestions"]?>
-					</h4>
 
+
+<li>
+    <a><i class="fa fa-database"></i><?php echo $msgstr["suggestions"]?><span class="fa fa-chevron-down"></span></a>	
+ 	<ul class="nav child_menu">
 					<li>
 						<a href="../acquisitions/overview.php?encabezado=s" target="content" class="defaultButton">
 						<?php echo $msgstr["overview"]?></a>
@@ -100,3 +100,6 @@ if (isset($_SESSION["permiso"]["ACQ_ACQALL"]) or isset($_SESSION["permiso"]["ACQ
 <?php
  }
  ?>
+
+ 	</ul>
+</li>	

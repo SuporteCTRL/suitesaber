@@ -8,7 +8,10 @@
 $_SESSION["MODULO"]="catalog";
 global $arrHttp,$msgstr,$db_path,$valortag,$lista_bases;
 ?>
-			<li><?php echo $msgstr["trans"]?></li>
+
+<li>
+    <a><i class="fa fa-database"></i><?php echo $msgstr["trans"]?><span class="fa fa-chevron-down"></span></a>	
+ 	<ul class="nav child_menu">
 					
 <?php
 
@@ -73,12 +76,18 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CI
 						<a href="../output_circulation/menu.php" target="content" class="menuButton">
 							<?php echo $msgstr["reports"]?>
 						</a></li>
-					
+
+
+	</ul>
+</li>	
+
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CIRC_CIRCALL"]) or isset($_SESSION["permiso"]["CIRC_CIRCDATABASES"])){
 ?>
-			
-						<?php echo $msgstr["basedatos"]?>
+	
+<li>
+    <a><i class="fa fa-database"></i><?php echo $msgstr["basedatos"]?><span class="fa fa-chevron-down"></span></a>	
+ 	<ul class="nav child_menu">			
 					
 					    <li>
 						<a href="../dataentry/browse.php?base=users&modulo=loan" target="content" class="menuButton">
@@ -141,6 +150,9 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CI
 			<a href="../statistics/tables_generate.php?base=suspml&encabezado=s" target="content" class="menuButton statisticsanctionsButton">
 				<?php echo $msgstr["stat_suspml"]?>
 			</a></li>
+	</ul>
+</li>
+			
 <?php
 
 }
