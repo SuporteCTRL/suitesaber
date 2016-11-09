@@ -14,5 +14,7 @@ function SendTo(SendTo){
 	msgwin=window.open("sendto_ex.php?base="+base+"&sort="+sort+"&Opcion="+SendTo+"&index="+index+"&tit="+tit+"&Expresion="+Expresion,"sendto")
 	msgwin.focus()}
 </script>
-<?}?>
+<?php
+}
+?>
 
