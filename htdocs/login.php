@@ -95,7 +95,7 @@ function Enviar(){
 		<div class="actions"></div>
 		<div class="spacer">&#160;</div>
 	</div>
-<form name=administra onsubmit="javascript:return false" method=post action=<?php echo $app_path?>/common/inicio.php>
+<form name=administra onsubmit="javascript:return false" method=post action=<?php echo $app_path?>/common/inicio.php?reinicio=s&base=<?php echo $basedefault; ?>>
 <input type=hidden name=Opcion value=admin>
 <input type=hidden name=cipar value=acces.par>
 <input type=hidden name=lang value=<?php echo $arrHttp["lang"]?>>
