@@ -43,7 +43,7 @@ include ("$app_path/lang/lang.php");
 			<link rel="stylesheet" rev="stylesheet" href="<?php echo $app_path?>/css/bugfixes_ie6.css" type="text/css" media="screen"/>
 		<![endif]-->
 <script src=<?php echo $app_path?>/dataentry/js/lr_trim.js></script>
-<script languaje=javascript>
+<script language="javascript">
 
 document.onkeypress =
 	function (evt) {
