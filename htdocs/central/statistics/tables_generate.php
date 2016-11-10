@@ -48,8 +48,10 @@ include("../common/header.php");
 <script language="javascript1.2" src="../dataentry/js/lr_trim.js"></script>
 <style type=text/css>
 
-td{	font-size:12px;
-	font-family:Arial;}
+td{
+	font-size:12px;
+	font-family:Arial;
+}
 
 div#useextable{
 
@@ -60,7 +62,8 @@ div#useextable{
 	color: #000000;
 }
 
-div#createtable{<?php if ($arrHttp["Opcion"]!="new") echo "display: none;\n"?>
+div#createtable{
+<?php if ($arrHttp["Opcion"]!="new") echo "display: none;\n"?>
 
 	margin: 0px 20px 0px 20px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -105,7 +108,8 @@ function AbrirVentana(Archivo){
 	msgwin.focus()
 }
 
-function EsconderVentana( whichLayer ){var elem, vis;
+function EsconderVentana( whichLayer ){
+var elem, vis;
 	if( document.getElementById ) // this is the way the standards work
 		elem = document.getElementById( whichLayer );
 	else if( document.all ) // this is the way old msie versions work
@@ -122,8 +126,10 @@ function EsconderVentana( whichLayer ){var elem, vis;
 function toggleLayer( whichLayer ){
 	var elem, vis;
 
-	switch (whichLayer){		case "createtable":
-<?php		echo '
+	switch (whichLayer){
+		case "createtable":
+<?php
+		echo '
 			EsconderVentana("useextable")
 			break
 			';
@@ -195,8 +201,11 @@ function EnviarForma(){
 		alert("<?php echo $msgstr["selreg"]?>")
 		return
 	}
-	if (document.forma1.tables.selectedIndex>0 ){		if (document.forma1.rows.selectedIndex>0 || document.forma1.cols.selectedIndex>0){			alert("<?php echo $msgstr["seltab"]?>")
-			return		}
+	if (document.forma1.tables.selectedIndex>0 ){
+		if (document.forma1.rows.selectedIndex>0 || document.forma1.cols.selectedIndex>0){
+			alert("<?php echo $msgstr["seltab"]?>")
+			return
+		}
 	}
 	if (document.forma1.tables.selectedIndex || document.forma1.rows.selectedIndex>0 || document.forma1.cols.selectedIndex>0){
 	  	document.forma1.submit()
@@ -231,55 +240,48 @@ function Configure(Option){
 </script>
 <body>
 <?php
-if (isset($arrHttp["encabezado"])){	include("../common/institutional_info.php");
+if (isset($arrHttp["encabezado"])){
+	include("../common/institutional_info.php");
 	$encabezado="&encabezado=s";
 }
 ?>
-<div class="sectionInfo">
-	<div class="breadcrumb">
-<?php echo $msgstr["stats"].": ".$arrHttp["base"]?>
-	</div>
 
-	<div class="actions">
-<?php
-if (isset($arrHttp["encabezado"]))
-	echo "<a href=\"../common/inicio.php?reinicio=S&base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">
-	<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-<span><strong>".$msgstr["back"]."</strong></span></a>
-	";
-?>
+            <div class="page-title">
+              <div class="title_left">
+                <h3><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $msgstr["stats"].": ".$arrHttp["base"]?></h3>
+              </div>
 
-</div>
+              <div class="title_right">
+					<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_tables_generate.html target=_blank><?php echo $msgstr["help"]?></a> Script: tables_generate.php
+              </div>
+            </div>
 
-<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_tables_generate.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/stats/stats_tables_generate.html target=_blank>".$msgstr["edhlp"]."</a>";
-?>
-<font color=white>&nbsp; &nbsp; Script: tables_generate.php</font>
-</div>
-<form name=forma1 method=post action=tables_generate_ex.php onsubmit="Javascript:return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["base"]?>.par>
-<input type=hidden name=Opcion>
+            <div class="clearfix"></div>
 
-<?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>\n";
-?>
-<div class="middle form">
-	<div class="formContent">
+ <div class="container conteudo">
 
-<?php
-//USAR UNA TABLA YA EXISTENTE
-	echo "<table width=600 border=0  class=listTable>
-			<tr>
-			<td align=left   valign=center bgcolor=#ffffff>
-    		&nbsp; <A HREF=\"javascript:toggleLayer('useextable')\"> <u><strong>". $msgstr["exist_tb"]."</strong></u></a>
-    		<div id=useextable>
-    		<br>".$msgstr["tab_list"].": <select name=tables  style=\"width:300\">
-    		<option value=''>";
+<form name="forma1" method="post" action="tables_generate_ex.php" onsubmit="Javascript:return false">
+ <input type="hidden" name="base" value="<?php echo $arrHttp['base']; ?>">
+ <input type="hidden" name="cipar" value="<?php echo $arrHttp['base']; ?>.par">
+ <input type="hidden" name="Opcion">
+
+<?php if (isset($arrHttp["encabezado"])) ?>
+ <input type="hidden" name="encabezado" value="s">
+
+
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo $msgstr["exist_tb"]; ?> <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body"><?php echo $msgstr["tab_list"]; ?> <i class="fa fa-caret-down" aria-hidden="true"></i> 
+          	 
+		<select name="tables" >
+    		<option value="">
+  <?php 
     unset($fp);
 	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/tabs.cfg";
 	if (!file_exists($file)) $file=$db_path.$arrHttp["base"]."/def/".$lang_db."/tabs.cfg";
@@ -298,27 +300,22 @@ if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 	}
 ?>
 			</select>
-			<p>
-		</div>
-	</td>
-</table>
-<br>
 
-<!-- CONSTRUIR UNA TABLA SELECCIONANDO FILAS Y COLUMNAS  -->
-<table border=0 width=600 class=listTable>
-	<tr>
-		<td valign=top width=600 align=left bgcolor=#ffffff>
-		&nbsp; <A HREF="javascript:toggleLayer('createtable')"><u><strong><?php echo $msgstr["create_tb"]?></strong></u></a>
-    	<div id=createtable>
-    	<table width=600>
-    		<td>
-    		<P><strong><?php echo $msgstr["rows"]?></strong><br>
-			<table width=300 border=0 >
-				<td align=right width=250>
-				<Select name=rows style="width:250px">
-				<option value=""></option>
-
- <?php
+         </div>
+      </div>
+    </div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+     <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?php echo $msgstr["create_tb"]?> <i class="fa fa-plus" aria-hidden="true"></i></a>
+   </h4>
+  </div>
+<div id="collapse2" class="panel-collapse collapse">
+ <div class="panel-body">
+   <div class="col-md-6">
+    <select class="form-control" name="rows" >
+    <option value=""><?php echo $msgstr["rows"]; ?></option>
+<?php
  	unset($fp);
 	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
 	if (!file_exists($file)) $file=$db_path.$arrHttp["base"]."/def/".$lang_db."/stat.cfg";
@@ -330,21 +327,19 @@ if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 			$value=trim($value);
 			if ($value!=""){
 				$t=explode('|',$value);
-				echo "<option value=".urlencode($value).">".trim($t[0])."</option>";
+
+				echo "<option value=\"".urlencode($value)."\">".trim($t[0])."</option>";
 			}
 		}
 	}
 ?>
-				</select></td>
-			</table>
-			</td>
-			<td bgcolor=#ffffff>
-			<P><strong><?php echo $msgstr["cols"]?></strong><br>
-			<table width=300 border=0 >
-				<td align=right width=250>
-				<Select name=cols style="width:250px">
-				<option value=""></option>
+   </select>
+   </div>
 
+<div class="col-md-6">
+ <select class="form-control" name="cols">
+  <option value=""><?php echo $msgstr["cols"]; ?></option>
+ 
  <?php
 		foreach ($fp as $value) {
 			$value=trim($value);
@@ -354,68 +349,79 @@ if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 			}
 		}
 ?>
-				</select>
-				</td>
-			</table>
-		</td>
-	</table>
+ </select>
+</div>
+
+</div><!--panel body-->
+</div><!--colapse2-->
+</div> <!--panel default-->
+<!--GERAR SAIDA-->
+<div class="panel panel-default">
+ <div class="panel-heading">
+  <h4 class="panel-title">
+   <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><?php echo $msgstr["gen_output"]?> <i class="fa fa-print" aria-hidden="true"></i></a>
+  </h4>
  </div>
-</td>
-</table>
-<p>
+<div id="collapse3" class="panel-collapse collapse">
+<div class="panel-body">
 
-<!-- SELECCION DE LOS REGISTROS  -->
-<table width=600 class=listTable>
-	<tr>
-		<td bgcolor=white>
-			&nbsp; <A HREF="javascript:toggleLayer('generate')"><u><strong><?php echo $msgstr["gen_output"]?></strong></u></a>
-    		<div id=generate><p>
-    		<table>
-    <tr>
-		<td  align=center colspan=2 bgcolor=#eeeeee><strong><?php echo $msgstr["bymfn"]?></strong></td>
-	<tr>
-		<td width=50% align=right><?php echo $msgstr["from"]?>: <input type=text name=Mfn size=10 value=1>&nbsp; &nbsp; </td>
-		<td width=50%><?php echo $msgstr["to"]?>: <input type=text name=to size=10 value=<?php echo $tag["MAXMFN"]?>>
-		 <a href=javascript:BorrarRango() class=boton><?php echo $msgstr["clear"]?></a> (
-		<?php echo $msgstr["maxmfn"].": ".$tag["MAXMFN"]?>)</td>
-	<tr>
-		<td  align=center colspan=2 bgcolor=#eeeeee><strong><?php echo $msgstr["bysearch"]?></strong></td>
-	<tr>
+<div class="container conteudo">
 
-		<td colspan=2 >
-			<table>
-				<td><a href=javascript:Buscar()><img src=../dataentry/img/toolbarSearch.png height=24 align=middle border=0 alt=""></a></td>
-				<td><textarea rows=2 cols=100 name=Expresion><?php if (isset($Expresion )) echo $Expresion?></textarea>
 
-					<a href=javascript:BorrarExpresion() class=boton><?php echo $msgstr["clear"]?></a></td>
-				<td colspan=2 width=100% align=center>
-			<input type=submit value="<?php echo $msgstr["send"]?>" onclick=EnviarForma()>
-		</td>
-			</table>
-		</td>
-	<tr>
+ <h5><?php echo $msgstr["bymfn"]; ?></h5>
+  <div class="control-group">
+   <label class="control-label" for="textinput"><?php echo $msgstr["from"]; ?></label>
+    <input id="textinput" name="Mfn" type="text" class="input-medium" value="1" required="">
 
-</table>
+   <label class="control-label" for="textinput"><?php echo $msgstr["to"]; ?></label>
+    <input name="to" placeholder="<?php echo $tag["MAXMFN"]; ?>" value="<?php echo $tag["MAXMFN"];?>" type="text" class="input-medium" required="">
+    
+    <a href="javascript:BorrarRango()" class="btn btn-default campo" ><i class="fa fa-trash" aria-hidden="true" alt="<?php echo $msgstr["clear"]; ?>"></i>
+    </a> 
+
+   </div>
 </div>
-</td>
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_STATCONF"]) or isset($_SESSION["permiso"]["CENTRAL_ALL"])){?>
-<tr>
-	<td align=left   valign=center bgcolor=#ffffff><p>
-    	&nbsp; <A HREF="javascript:toggleLayer('configure')"> <u><strong><?php echo $msgstr["stats_conf"]?></strong></u></a>
-    	<div id=configure>
-    	<ul>
-    		<li><a href=javascript:Configure("stats_var")><?php echo $msgstr["var_list"]?></a></li>
-            <li><a href=javascript:Configure("stats_tab")><?php echo $msgstr["tab_list"]?></a></li>
-    	</ul>
-    	</div>
-    </td>
-<?php } ?>
-</table>
+  <h5><?php echo $msgstr["bysearch"]?></h5>
+  <a href="javascript:Buscar()" class="btn btn-default campo">
+  	<i class="fa fa-search" aria-hidden="true" alt="<?php echo $msgstr["bysearch"]; ?>"></i>
+  </a>    
+
+
+    <div class="form-group"> 
+		<textarea class="form-control input-lg" rows="2" name="Expresion"><?php if (isset($Expresion )) echo $Expresion?></textarea>
+ 	
+    </div>
+
+    <button class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true"></i></button> 
+
+     <button type="submit" class="btn btn-default campo" onclick="EnviarForma()"><i class="fa fa-check" aria-hidden="true"></i> <?php echo $msgstr["send"]?></button>
+     
+
+</div> <!--div container-->
+</div><!--panel d-->
+</div><!--acordion-->
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><?php echo $msgstr["stats_conf"]?> <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">
+
+    		<a href="javascript:Configure('stats_var')" class="btn btn-default"><?php echo $msgstr["var_list"]?></a>
+            <a href="javascript:Configure('stats_tab')" class="btn btn-default"><?php echo $msgstr["tab_list"]?></a>
+
+        </div>
+      </div>
+    </div>
+
 
 </div>
 </div>
-</center>
+</div>
+
 </form>
 <form name=configure onSubmit="return false">
 	<input type=hidden name=Opcion value=update>
@@ -423,8 +429,10 @@ if (isset($_SESSION["permiso"]["CENTRAL_STATCONF"]) or isset($_SESSION["permiso"
 	<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
 	<?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";?>
 </form>
+
 <?php
 include("../common/footer.php");
 ?>
+
 </body>
 </html>

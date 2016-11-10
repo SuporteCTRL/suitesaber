@@ -71,6 +71,8 @@
 		<!--Font Awesome-->
     <script src="https://use.fontawesome.com/4c37ce0a9e.js"></script>
 
+          <script src='//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js'></script>
+
 		<!-- Stylesheets -->
 	<!--	<link rel="stylesheet" rev="stylesheet" href="../css/<?php echo $css_name?>/template.css?<?php echo time(); ?>" type="text/css" media="screen"/> -->
 		<!--[if IE]>
@@ -80,4 +82,8 @@
 			<link rel="stylesheet" rev="stylesheet" href="../css/bugfixes_ie6.css" type="text/css" media="screen"/>
 		<![endif]-->
 
+
+<script type="text/javascript">
+  $("#area").load("something.html #area > *");
+</script>
 </head>
