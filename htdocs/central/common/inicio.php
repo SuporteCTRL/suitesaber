@@ -86,7 +86,7 @@ global $arrHttp,$valortag,$Path,$xWxis,$session_id,$Permiso,$msgstr,$db_path,$no
   		$today=date("Ymd");
   		if (trim($fecha)!=""){
   			if ($today>$fecha){
-  				header("Location: ../../index.php?login=N");
+  				header("Location: ../../login.php?login=N");
   				die;
   			}
   		}
@@ -139,7 +139,7 @@ global $arrHttp,$valortag,$Path,$xWxis,$session_id,$Permiso,$msgstr,$db_path,$no
  			if (isset($_SESSION["HOME"]))
  				echo "self.location.href=\"".$_SESSION["HOME"]."?login=N\"\n";
  			else{
- 				echo "self.location.href=\"../../index.php?login=N\";\n";
+ 				echo "self.location.href=\"../../login.php?login=N\";\n";
 
  			echo "</script>\n";
   			die;
