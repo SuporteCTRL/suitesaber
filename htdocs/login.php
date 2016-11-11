@@ -56,6 +56,7 @@ document.onkeypress =
 
 function UsuarioNoAutorizado(){
 	alert("<?php echo $msgstr["menu_noau"]?>")
+
 }
 
 function Enviar(){
@@ -144,7 +145,7 @@ if (isset($arrHttp["login"]) and $arrHttp["login"]=="N"){
 				$l=explode('=',$value);
 				if ($l[0]!="lang"){
 					if ($l[0]==$_SESSION["lang"]) $selected=" selected";
-					echo "<option value=$l[0] $selected>".$msgstr[$l[0]]."</option>";
+					echo "<option value=$l[0] $selected>".$msgstr[$l[0]]." </option>";
 					$selected="";
 				}
 			}
@@ -155,7 +156,7 @@ if (isset($arrHttp["login"]) and $arrHttp["login"]=="N"){
 	}
 ?>
 			</select>
-		</div>
+	/*	</div>
 		<div class="formRow"><br>
 <?php
 if (file_exists("dbpath.dat")){
@@ -189,14 +190,11 @@ else
 					<span><strong><?php echo $msgstr["entrar"]?></strong></span>
 				</a>
 			</div>
-			<div class="spacer">&#160;</div>
+		
 		</div>
-		<div class="spacer">&#160;</div>
+	
 	</div>
-	<div class="boxBottom">
-		<div class="bbLeft">&#160;</div>
-			<div class="bbRight">&#160;</div>
-	</div>
+
 </div>
 </div>
 </form>

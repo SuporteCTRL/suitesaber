@@ -218,7 +218,7 @@ include("../lang/acquisitions.php");
 		if (isset($_SESSION["HOME"]))
 			$retorno=$_SESSION["HOME"];
 		else
-			$retorno="../../index.php";
+			$retorno="../../login.php";
 		header("Location: $retorno?login=P");
 	}else{
 
