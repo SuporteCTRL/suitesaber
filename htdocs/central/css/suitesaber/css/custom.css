@@ -5,6 +5,9 @@
 
 }
 
+
+
+
 .left_col {
   background: #2A3F54; }
 
@@ -630,6 +633,8 @@ a:hover, a:focus {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   color: #93A2B2;
   margin-bottom: 0 !important; }
+
+
 
 .toggle {
   float: left;
@@ -4071,4 +4076,10 @@ ul.notifications {
 
 /** /Dropzone.js **/
 
+
+input, select {
+  background: #fff;
+  color: #000;
+  border: 1px #ccc solid;
+}
 

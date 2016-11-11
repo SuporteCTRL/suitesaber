@@ -5,6 +5,8 @@ $open_new_window="N";
 $context_menu="Y";
 $css_name="suitesaber";
 
+$basedefault = "marc";
+
 //USED FOR ALL THE DATE FUNCTIONS. DD=DAYS, MM=MONTH, AA=YEAR. USE / AS SEPARATOR
 $config_date_format="DD/MM/YY";
 
