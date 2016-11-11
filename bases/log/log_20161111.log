@@ -1,0 +1,32 @@
+**Friday 11th of November 2016 09:52:57 AM Operador: abcd
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/login.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&login=abcd&password=adm&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 09:53:26 AM Operador: abcd
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/login.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&login=abcd&password=adm&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 10:42:24 AM Operador: abcd
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/login.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&login=abcd&password=adm&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 10:52:47 AM Operador: balcao
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/actualizar.xis &Mfn=New&Opcion=crear&base=logtrans&cipar=/var/www/suitesaber.git/bases/par/logtrans.par&login=balcao&ValorCapturado=<1 0>P</1><20 0>2016/11/11</20><30 0>10:52:47</30><40 0>balcao</40>&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 11:46:49 AM Operador: balcao
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/actualizar.xis &Mfn=New&Opcion=crear&base=logtrans&cipar=/var/www/suitesaber.git/bases/par/logtrans.par&login=balcao&ValorCapturado=<1 0>P</1><20 0>2016/11/11</20><30 0>11:46:49</30><40 0>balcao</40>&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:06:21 PM Operador: balcao
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/actualizar.xis &Mfn=New&Opcion=crear&base=logtrans&cipar=/var/www/suitesaber.git/bases/par/logtrans.par&login=balcao&ValorCapturado=<1 0>P</1><20 0>2016/11/11</20><30 0>01:06:21</30><40 0>balcao</40>&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:07:13 PM Operador: balcao
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/actualizar.xis &Mfn=New&Opcion=crear&base=logtrans&cipar=/var/www/suitesaber.git/bases/par/logtrans.par&login=balcao&ValorCapturado=<1 0>P</1><20 0>2016/11/11</20><30 0>01:07:13</30><40 0>balcao</40>&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:08:27 PM Operador: balcao
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/actualizar.xis &Mfn=New&Opcion=crear&base=logtrans&cipar=/var/www/suitesaber.git/bases/par/logtrans.par&login=balcao&ValorCapturado=<1 0>P</1><20 0>2016/11/11</20><30 0>01:08:27</30><40 0>balcao</40>&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:09:09 PM Operador: balcao
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/actualizar.xis &Mfn=New&Opcion=crear&base=logtrans&cipar=/var/www/suitesaber.git/bases/par/logtrans.par&login=balcao&ValorCapturado=<1 0>P</1><20 0>2016/11/11</20><30 0>01:09:09</30><40 0>balcao</40>&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:15:12 PM Operador: balcao
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/actualizar.xis &Mfn=New&Opcion=crear&base=logtrans&cipar=/var/www/suitesaber.git/bases/par/logtrans.par&login=balcao&ValorCapturado=<1 0>P</1><20 0>2016/11/11</20><30 0>01:15:12</30><40 0>balcao</40>&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:20:11 PM Operador: balcao
+/central/acquisitions/overview.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=suggestions&cipar=/var/www/suitesaber.git/bases/par/suggestions.par&prefijo=STA_&Opcion=diccionario&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:20:36 PM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=marc&cipar=/var/www/suitesaber.git/bases/par/marc.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:21:12 PM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=marc&cipar=/var/www/suitesaber.git/bases/par/marc.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:21:20 PM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=marc&cipar=/var/www/suitesaber.git/bases/par/marc.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:23:07 PM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=marc&cipar=/var/www/suitesaber.git/bases/par/marc.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 11th of November 2016 01:24:15 PM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=marc&cipar=/var/www/suitesaber.git/bases/par/marc.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
