@@ -6,3 +6,11 @@
 /central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=marc&cipar=/var/www/suitesaber.git/bases/par/marc.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
 **Wednesday 16th of November 2016 01:38:28 PM Operador: abcd
 /central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=marc&cipar=/var/www/suitesaber.git/bases/par/marc.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 16th of November 2016 03:31:04 PM Operador: abcd
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/login.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&login=abcd&password=adm&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 16th of November 2016 03:37:56 PM Operador: abcd
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/login.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&login=abcd&password=adm&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 16th of November 2016 03:38:18 PM Operador: abcd
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/login.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&login=abcd&password=adm&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 16th of November 2016 03:38:50 PM Operador: abcd
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/login.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&login=abcd&password=adm&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par

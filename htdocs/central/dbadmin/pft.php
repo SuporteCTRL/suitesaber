@@ -82,9 +82,12 @@ if ($arrHttp["Opcion"]!="new"){
 		}
 	}
 }else{
-	$arrHttp["Dir"]="";	$fpTm=explode("\n",$_SESSION["FDT"]);}
+	$arrHttp["Dir"]="";
+	$fpTm=explode("\n",$_SESSION["FDT"]);
+}
 foreach ($fpTm as $linea){
-	if (trim($linea)!="") {		$t=explode('|',$linea);
+	if (trim($linea)!="") {
+		$t=explode('|',$linea);
 		if ($t[0]!="S")
    		$Fdt[]=rtrim($linea);
 	}
@@ -96,8 +99,10 @@ include("../common/header.php");
 <script language=Javascript src=../dataentry/js/selectbox.js></script>
 <style type=text/css>
 
-td{	font-size:12px;
-	font-family:Arial;}
+td{
+	font-size:12px;
+	font-family:Arial;
+}
 
 div#useexformat{
 
@@ -108,7 +113,8 @@ div#useexformat{
 	color: #000000;
 }
 
-div#createformat{<?php if ($arrHttp["Opcion"]!="new") echo "display: none;\n"?>
+div#createformat{
+<?php if ($arrHttp["Opcion"]!="new") echo "display: none;\n"?>
 
 	margin: 0px 20px 0px 20px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -154,9 +160,13 @@ TipoFormato=""
 C_Tag=Array()
 
 //IF THE TYPE OF OUTPUT IS NOT IN COLUMN, HEADINGS ARE NOT ALLOWED
-function CheckType(){	if (document.forma1.tipof[0].checked || document.forma1.tipof[1].checked){		alert("<?php echo $msgstr["r_noheading"]?>")
-		document.forma1.pft.focus()	}
-}
+function CheckType(){
+	if (document.forma1.tipof[0].checked || document.forma1.tipof[1].checked){
+		alert("<?php echo $msgstr["r_noheading"]?>")
+		document.forma1.pft.focus()
+	}
+
+}
 
 function CopiarExpresion(){
 	Expr=document.forma1.Expr.options[document.forma1.Expr.selectedIndex].value
@@ -170,8 +180,10 @@ function CopySortKey(){
 }
 
 function CreateSortKey(){
-	msgwin=window.open("","sortkey","resizable,scrollbars, width=700,height=600")	document.sortkey.submit()
-	msgwin.focus()}
+	msgwin=window.open("","sortkey","resizable,scrollbars, width=700,height=600")
+	document.sortkey.submit()
+	msgwin.focus()
+}
 
 function AbrirVentana(Archivo){
 	xDir=""
@@ -179,7 +191,8 @@ function AbrirVentana(Archivo){
 	msgwin.focus()
 }
 
-function EsconderVentana( whichLayer ){var elem, vis;
+function EsconderVentana( whichLayer ){
+var elem, vis;
 
 	if( document.getElementById ) // this is the way the standards work
 		elem = document.getElementById( whichLayer );
@@ -198,8 +211,10 @@ function EsconderVentana( whichLayer ){var elem, vis;
 function toggleLayer( whichLayer ){
 	var elem, vis;
 
-	switch (whichLayer){		case "createformat":
-<?php if ($arrHttp["Opcion"]!="new"){		echo '
+	switch (whichLayer){
+		case "createformat":
+<?php if ($arrHttp["Opcion"]!="new"){
+		echo '
 			document.forma1.fgen.selectedIndex=-1
 			EsconderVentana("useexformat")
             if (save=="Y"){
@@ -213,7 +228,8 @@ function toggleLayer( whichLayer ){
 		case "useexformat":
 			EsconderVentana("createformat")
 			break
-	}
+
+	}
 	if( document.getElementById ) // this is the way the standards work
 		elem = document.getElementById( whichLayer );
 	else if( document.all ) // this is the way old msie versions work
@@ -261,8 +277,10 @@ function SubCampos(Tag,delim,ed){
 }
 
 function GenerarFormato(Tipo){
-    if (document.forma1.list21.options.length==0){    	alert("<?php echo $msgstr["selfieldsfmt"]?>")
-    	return    }
+    if (document.forma1.list21.options.length==0){
+    	alert("<?php echo $msgstr["selfieldsfmt"]?>")
+    	return
+    }
     <?php if ($arrHttp["Opcion"]!="new")
 		echo "document.forma1.fgen.selectedIndex=-1
 		";
@@ -270,7 +288,8 @@ function GenerarFormato(Tipo){
 
 	formato=""
 	head=""    //COLUMNS HEADING
-    switch (Tipo){    	case "T":             //TABLE
+    switch (Tipo){
+    	case "T":             //TABLE
     		formato="'<table border=0 width=90%>'\n"
     		for (i=0;i<document.forma1.list21.options.length;i++){
 			    campo=document.forma1.list21.options[i].value
@@ -305,7 +324,9 @@ function GenerarFormato(Tipo){
 		    			label_f=  "<font face=arial size=2><b>"+t[2]+"</b>: "
 		 			else
 		 				label_f=""
-					if(Trim(t[5])!=""){						tag=SubCampos(xTag,t[5],t[6])					}else{
+					if(Trim(t[5])!=""){
+						tag=SubCampos(xTag,t[5],t[6])
+					}else{
 						tag="v"+xTag+"+|; |"
 					}
 
@@ -322,7 +343,8 @@ function GenerarFormato(Tipo){
 			    t=campo.split('|')
 				xTag=t[1]
 				xTipoE=t[0]
-		  		if (xTag!=""){		  			res=""
+		  		if (xTag!=""){
+		  			res=""
 					if(Trim(t[5])!=""){
 						tag=SubCampos(xTag,t[5],t[6])
 					}else{
@@ -405,11 +427,16 @@ function SubirFormato(){
 	msgupload.document.writeln("<p>")
 	msgupload.document.writeln("</form>")
 	msgupload.focus()
-	msgupload.document.close()}
-function BorrarFormato(area){	if (area=="todos"){		document.forma1.headings.value=""
+	msgupload.document.close()
+}
+function BorrarFormato(area){
+	if (area=="todos"){
+		document.forma1.headings.value=""
 		document.forma1.pft.value=""
-    }else{    	Ctrl=eval ("document.forma1."+area)
-    	Ctrl.value=""    }
+    }else{
+    	Ctrl=eval ("document.forma1."+area)
+    	Ctrl.value=""
+    }
 
 	moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false)
 	for (i=0;i<document.forma1.tipof.length;i++){
@@ -524,17 +551,22 @@ function EliminarFormato(){
 		return
 	}
 	ix=document.forma1.fgen.selectedIndex
-	if (confirm("delete "+document.forma1.fgen.options[ix].text+"?")){		file=document.forma1.fgen.options[ix].value +'|'
+	if (confirm("delete "+document.forma1.fgen.options[ix].text+"?")){
+		file=document.forma1.fgen.options[ix].value +'|'
 		f=file.split('|')
     	document.frmdelete.pft.value=f[0]
     	document.frmdelete.submit()
     }
 }
 
-function ValidarFormato(){	if (Trim(document.forma1.pft.value)==""){		alert("<?php echo $msgstr["genformat"]?>")
-		return	}
+function ValidarFormato(){
+	if (Trim(document.forma1.pft.value)==""){
+		alert("<?php echo $msgstr["genformat"]?>")
+		return
+	}
 	document.forma1.action="crearbd_new_create.php"
-	document.forma1.submit()}
+	document.forma1.submit()
+}
 
 function GuardarBusqueda(){
 	document.savesearch.Expresion.value=Trim(document.forma1.Expresion.value)
@@ -555,19 +587,24 @@ function GuardarBusqueda(){
 	document.savesearch.submit()
 }
 
-function Listados(){	ix=document.forma1.listados.selectedIndex
+function Listados(){
+	ix=document.forma1.listados.selectedIndex
 	if (ix>0){
 		exe=document.forma1.listados.options[ix].value
 		document.listadosfrm.action=exe
 		document.listadosfrm.submit()
-	}}
+	}
+}
 
 </script>
 <body>
 <?php
-if (isset($arrHttp["encabezado"])){	include("../common/institutional_info.php");
+if (isset($arrHttp["encabezado"])){
+	include("../common/institutional_info.php");
 	$encabezado="&encabezado=s";
-}else{	$encabezado="";}
+}else{
+	$encabezado="";
+}
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
@@ -587,7 +624,8 @@ if ($arrHttp["Opcion"]=="new"){
 	";
 }else{
 	$ayuda="pft.html";
-	if (isset($arrHttp["encabezado"])){		if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_MODIFYDB"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_MODIFYDB"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"])){
+	if (isset($arrHttp["encabezado"])){
+		if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_MODIFYDB"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_MODIFYDB"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"])){
 			if (isset($arrHttp["retorno"]))
 				$retorno=$arrHttp["retorno"];
 			else
@@ -596,10 +634,12 @@ if ($arrHttp["Opcion"]=="new"){
 			<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
 		<span><strong>".$msgstr["cancel"]."</strong></span></a>
 			";
-		}else{			echo "<a href=\"../common/inicio.php?reinicio=s&base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">
+		}else{
+			echo "<a href=\"../common/inicio.php?reinicio=s&base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">
 			<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
 		<span><strong>".$msgstr["cancel"]."</strong></span></a>
-			";		}
+			";
+		}
 	}
 }
 ?>
@@ -703,15 +743,17 @@ if ($arrHttp["Opcion"]!="new"){
 </td>
 
 </table>
-<?php }else{		echo "<div id=useexformat></div>";
-}
+<?php }else{
+		echo "<div id=useexformat></div>";
+
+}
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDPFT"])  or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_EDPFT"]) or isset($_SESSION["permiso"]["CENTRAL_MODIFYDB"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_MODIFYDB"])){
 ?>
 <!-- CREATE A FORMAT -->
-<table bgcolor=#FFFFFF width=600 class=listTable border=0>
+
 	<tr>
 		<td valign=top width=600>
-		&nbsp; <A HREF="javascript:EsconderVentana('pftedit');toggleLayer('createformat');toggleLayer('pftedit')"><u><strong><?php echo $msgstr["r_creaf"]?></strong></u></a>
+		 <a href="javascript:EsconderVentana('pftedit');toggleLayer('createformat');toggleLayer('pftedit')"><u><strong><?php echo $msgstr["r_creaf"]?></strong></u></a>
     	<div id=createformat>
     	<P><?php echo $msgstr["r_incluirc"]?><br>
 			<table width=600 border=0>
@@ -719,16 +761,17 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 
  <?php
  	$t=array();
- 	foreach ($Fdt as $linea){ 		$t=explode('|',$linea);
+ 	foreach ($Fdt as $linea){
+ 		$t=explode('|',$linea);
    		echo "<option value='".$linea."'>".$t[2]." (".$t[1].")\n";
   	}
 ?>
 				</select></td>
-				<TD ALIGN=CENTER width=50><center>
-					<A HREF="#" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"><img src=../dataentry/img/barArrowRight.png border=0></A><BR><BR>
-					<A HREF="#" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><img src=../dataentry/img/barArrowRight.png border=0><img src=../dataentry/img/barArrowRight.png border=0></A><BR><BR>
-					<A HREF="#" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><img src=../dataentry/img/barArrowLeft.png border=0><img src=../dataentry/img/barArrowLeft.png border=0></A><BR><BR>
-					<A HREF="#" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><img src=../dataentry/img/barArrowLeft.png border=0></A>
+				<td align="center" width=50><center>
+					<a href="" ="#" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"><img src=../dataentry/img/barArrowRight.png border=0></A><BR><BR>
+					<a href="" ="#" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><img src=../dataentry/img/barArrowRight.png border=0><img src=../dataentry/img/barArrowRight.png border=0></A><BR><BR>
+					<a href="" ="#" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><img src=../dataentry/img/barArrowLeft.png border=0><img src=../dataentry/img/barArrowLeft.png border=0></A><BR><BR>
+					<a href="" ="#" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><img src=../dataentry/img/barArrowLeft.png border=0></A>
 
 				</TD>
 				<TD width=250>
@@ -753,10 +796,10 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 				<tr>
 				<td valign=top colspan=4  align=center><?php echo $msgstr["r_fgent"]?> &nbsp;&nbsp;
 					       <input type=radio name=tipof value=T onclick=GenerarFormato('T') ><?php echo $msgstr["r_tabla"]?>
-					&nbsp; <input type=radio name=tipof value=P onclick=GenerarFormato('P')><?php echo $msgstr["r_parrafo"]?>
-					&nbsp; <input type=radio name=tipof value=PL onclick=GenerarFormato('PL')><?php echo $msgstr["r_parrafo"]?>(with Labels)
-					&nbsp; <input type=radio name=tipof value=CT onclick=GenerarFormato('CT')><?php echo $msgstr["r_colstab"]?>
-					&nbsp; <input type=radio name=tipof value=CD onclick=GenerarFormato('CD')><?php echo $msgstr["r_colsdelim"]?>
+					 <input type=radio name=tipof value=P onclick=GenerarFormato('P')><?php echo $msgstr["r_parrafo"]?>
+					 <input type=radio name=tipof value=PL onclick=GenerarFormato('PL')><?php echo $msgstr["r_parrafo"]?>(with Labels)
+					 <input type=radio name=tipof value=CT onclick=GenerarFormato('CT')><?php echo $msgstr["r_colstab"]?>
+					 <input type=radio name=tipof value=CD onclick=GenerarFormato('CD')><?php echo $msgstr["r_colsdelim"]?>
 
 				</td>
 				<tr>
@@ -778,12 +821,14 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 
 <!-- GENERATE OUTPUT -->
 <?php
-}else{	echo "<div id=createformat></div>";}
+}else{
+	echo "<div id=createformat></div>";
+}
 if ($arrHttp["Opcion"]!="new"){?>
 <table width=600 cellpadding=5 class=listTable>
 	<tr>
 		<td>
-			&nbsp; <A HREF="javascript:toggleLayer('testformat')"><u><strong><?php echo $msgstr["generateoutput"]?></strong></u></a>
+			 <a href="javascript:toggleLayer('testformat')"><u><strong><?php echo $msgstr["generateoutput"]?></strong></u></a>
     		<div id=testformat><p>
     		<table>
 		<td colspan=2 align=center height=1 bgcolor=#eeeeee><?php echo $msgstr["r_recsel"]?></td>
@@ -833,17 +878,18 @@ if (isset($fp)){
 			<textarea rows=2 cols=100 name=Expresion><?php if ($Expresion!="") echo $Expresion?></textarea>
 			<a href=javascript:BorrarExpresion() class=boton><?php echo $msgstr["borrar"]?></a>
 <?php
-if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_SAVEXPR"])  or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_SAVEXPR"])){	echo "&nbsp; <A HREF=\"javascript:toggleLayer('savesearch')\"> <u><strong>". $msgstr["savesearch"]."</strong></u></a>";
+if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_SAVEXPR"])  or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_SAVEXPR"])){
+	echo "&nbsp; <A HREF=\"javascript:toggleLayer('savesearch')\"> <u><strong>". $msgstr["savesearch"]."</strong></u></a>";
 	echo "<div id=savesearch>".$msgstr["r_desc"].": <input type=text name=Descripcion size=40>
      	&nbsp &nbsp <input type=button value=\"". $msgstr["savesearch"]."\" onclick=GuardarBusqueda()>
-		</div>\n";}
+		</div>\n";
+}
 ?>
 		</td>
 	<tr>
 		<td colspan=2><strong><?php echo $msgstr["sortkey"]?></strong>: &nbsp;
-		<input type=text name=sortkey size=70> &nbsp; &nbsp; &nbsp; <?php echo $msgstr["sortkeycopy"]?>
-		&nbsp; &nbsp;
-    		<select name=sort  onChange=CopySortKey()>
+		<input type=text name=sortkey size=70> <?php echo $msgstr["sortkeycopy"]?>
+           <select name=sort  onChange=CopySortKey()>
     		<option value=''>
 <?php
 unset($fp);
@@ -887,18 +933,19 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CE
 
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDPFT"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"])){
-$save="Y";?>
+$save="Y";
+?>
 <table width=600 cellpadding=5 class=listTable>
 	<tr>
 		<td>
-			&nbsp; <A HREF="javascript:toggleLayer('saveformat')"><u><strong><?php echo $msgstr["r_guardar"]?></strong></u></a>
+		   <a href="javascript:toggleLayer('saveformat')"><u><strong><?php echo $msgstr["r_guardar"];?></strong></u></a>
     		<div id=saveformat><p>
 			<table width=600 border=0 cellpadding=0>
 				<td  align=right bgcolor=#dddddd>
-				<font face=arial size=1><?php echo $msgstr["r_guardar"]." ".$db_path.$arrHttp["base"]."/". $arrHttp["Dir"]?>/ </td>
+				<font face=arial size=1><?php echo $msgstr["r_guardar"]." ".$db_path.$arrHttp["base"]."/". $arrHttp["Dir"];?>/ </td>
 				<td><input type=text name=nombre size=20 maxlength=30></td>
 				<tr><td align=right valign=top><font face=arial size=1>
-					<?php echo $msgstr["r_desc"]?></td><td valign=top><input type=text name=descripcion maxlength=50 size=50>
+					<?php echo $msgstr["r_desc"];?></td><td valign=top><input type=text name=descripcion maxlength=50 size=50>
 
 					<a href=javascript:GuardarFormato()><img src=../dataentry/img/toolbarSave.png border=0></a>
 				</td>
@@ -906,7 +953,9 @@ $save="Y";?>
 			</div>
 	</td>
 </table>
-<?php }else{	$save="N";}
+<?php }else{
+	$save="N";
+}
 echo "\n<script>save='$save'</script>\n";
 if (!isset($arrHttp["Modulo"]))
 	if (!isset($arrHttp["encabezado"]))
@@ -936,16 +985,16 @@ if (!isset($arrHttp["Modulo"]))
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>"; ?>
 </form>
 <form name=savesearch action=../dataentry/busqueda_guardar.php method=post target=savesearch>
-	<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+	<input type=hidden name=base value=<?php echo $arrHttp["base"];?>>
 	<input type=hidden name=Expresion value="">
 	<input type=hidden name=Descripcion value="">
 </form>	<p>
 <form name=sortkey method=post action=sortkey_edit.php target=sortkey>
-	<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+	<input type=hidden name=base value=<?php echo $arrHttp["base"];?>>
 	<input type=hidden name=encabezado value=s>
 </form>
 <form name=listadosfrm method=post>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<input type=hidden name=base value=<?php echo $arrHttp["base"];?>>
 </form>
 </center>
 </div>
