@@ -105,7 +105,7 @@ function Enviar(){
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form name="administra" onsubmit="javascript:return false" method="post" action="<?php echo $app_path?>/common/inicio.php?reinicio=s&base=<?php echo $basedefault; ?>">
+            <form target="top" name="administra" onsubmit="javascript:return false" method="post" action="<?php echo $app_path?>/common/inicio.php?reinicio=s&base=<?php echo $basedefault; ?>">
 				<input type=hidden name=Opcion value=admin>
 				<input type=hidden name=cipar value=acces.par>
 				<value=<?php echo $arrHttp["lang"]?>>
@@ -113,6 +113,7 @@ function Enviar(){
 
               <div>
                 <input type="text" name="login" id="user" class="form-control" placeholder="Username" required="" />
+                <value="<?php echo $msgstr["userid"]?>"
               </div>
 
               <div>

@@ -646,15 +646,15 @@ if ($arrHttp["Opcion"]=="new"){
 
 </div>
 
-<div class="spacer">&#160;</div>
+<div class="spacer"></div>
 </div>
 <div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/<?php echo $ayuda?> target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"];?>/<?php echo $ayuda?> target=_blank><?php echo $msgstr["help"];?></a>
 <?php if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/".$ayuda." target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/pft.php";
-?></font>
+echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/pft.php";?></font>
 	</div>
+
 <form name=forma1 method=post action=../dataentry/imprimir_g.php onsubmit="Javascript:return false">
 <input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
 <input type=hidden name=cipar value=<?php echo $arrHttp["base"]?>.par>
@@ -663,6 +663,8 @@ echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/pft.php";
 <input type=hidden name=tagsel>
 <input type=hidden name=Opcion>
 <input type=hidden name=vp>
+
+
 
 
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>\n";
@@ -698,6 +700,10 @@ if ($arrHttp["Opcion"]!="new"){
 	}
 }
 ?>
+
+
+
+
 <table border=0 width=600 class=listTable>
 	<td  align=center>
 		<?php echo "<strong>".$msgstr["r_fgent"]."</strong>";?>
@@ -711,7 +717,7 @@ if ($arrHttp["Opcion"]!="new"){
 	echo "<table width=800  class=listTable>
 			<tr>
 			<td align=left   valign=center>
-    		&nbsp; <A HREF=\"javascript:toggleLayer('useexformat');\"> <u><strong>". $msgstr["useexformat"]."</strong></u></a>
+    		&nbsp; <a href=\"javascript:toggleLayer('useexformat');\"> <u><strong>". $msgstr["useexformat"]."</strong></u></a>
     		<div id=useexformat>
     		<table><td>
     		<br>".$msgstr["r_formatos"].": <select name=fgen onclick=javascript:BorrarFormato(\"todos\")>
@@ -748,8 +754,205 @@ if ($arrHttp["Opcion"]!="new"){
 
 }
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDPFT"])  or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_EDPFT"]) or isset($_SESSION["permiso"]["CENTRAL_MODIFYDB"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_MODIFYDB"])){
+
+
 ?>
+
+
+ <div class="page-title">
+              <div class="title_left">
+                <h3><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $msgstr["listados"].": ".$arrHttp["base"]?></h3>
+              </div>
+
+              <div class="title_right">
+					<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_tables_generate.html target=_blank><?php echo $msgstr["help"]?></a> Script: tables_generate.php
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+ <div class="container conteudo">
+
 <!-- CREATE A FORMAT -->
+<div class="container">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo $msgstr["useexformat"];?> <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
+        </h4>
+      </div>
+
+
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body"><?php echo $msgstr["r_formatos"];?> 
+        <select name="tables" >
+    		<option value="">
+
+<?php        
+    unset($fp);
+    $archivo=$db_path.$base."/pfts/".$_SESSION["lang"]."/formatos.dat";
+	if (!file_exists($archivo)) $archivo=$db_path.$base."/pfts/".$lang_db."/formatos.dat";
+	if (file_exists($archivo)) $fp = file($archivo);
+	if (isset($fp)){
+		foreach ($fp as $value){
+			if (trim($value)!=""){
+				$pp=explode('|',$value);
+				if (!isset($pp[2])) $pp[2]="";
+				if (!isset($pp[3])) $pp[3]="";
+				if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_pft_ALL"])
+				   or isset($_SESSION["permiso"][$arrHttp["base"]."_pft_".$pp[0]])){
+					echo "<option value=\"".$pp[0]."|".$pp[2]."|".$pp[3]."\">".$pp[1]." (".$pp[0].")</option>\n";
+				}
+			}
+		}
+
+	}
+?>
+
+</i></div>
+</select>
+
+         
+         <button class="btn btn-default campo"> <a href=javascript:LeerArchivo(\"\")></a> <?php echo $msgstr["edit"];?></button>
+ 
+
+
+         <button class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+      </div>
+    </div>
+
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+   <h4 class="panel-title">
+     <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Criar um formato <i class="fa fa-plus" aria-hidden="true"></i></a>
+   </h4>
+  </div>
+<div id="collapse2" class="panel-collapse collapse">
+ <div class="panel-body">
+   <div class="col-md-5">
+    <select class="form-control" multiple="10" size="10" >
+ 	  	<option>blablablablablabla</option>
+ 		<option>blablablablabla</option>
+ 	 	<option>bla</option>
+ 		<option>bla</option>
+		<option>bla</option>
+		<option>bla</option>
+		<option>bla</option>
+	 </select>
+   </div>
+<div class="col-md-1">
+  <button class="btn btn-default campo"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
+  	<br>
+  <button class="btn btn-default campo"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+  	<br>
+  <button class="btn btn-default campo"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+   <br>
+  <button class="btn btn-default campo"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+   <br>
+</div>
+<div class="col-md-5">
+ <select class="form-control" multiple="10" size="10" >
+  <option>-</option>
+  <option>-</option>
+  <option>-</option>
+  <option>-</option>
+  <option>-</option>
+  <option>-</option>
+  <option>-</option>
+ </select>
+</div>
+<div class="col-md-1"></div>
+<button class="btn btn-default campo"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+	<br>
+<button class="btn btn-default campo"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+	<br>
+</div><!--panel body-->
+</div><!--colapse2-->
+</div> <!--panel default-->
+
+<div class="panel panel-default">
+ <div class="panel-heading">
+  <h4 class="panel-title">
+   <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Gerar saida <i class="fa fa-print" aria-hidden="true"></i></a>
+  </h4>
+ </div>
+<div id="collapse3" class="panel-collapse collapse">
+<div class="panel-body">
+
+<div class="container">
+
+
+ <h5>Seleção de registro</h5>
+  <div class="control-group">
+   <label class="control-label" for="textinput">De:</label>
+    <input id="textinput" name="textinput" type="text"class="input-medium" required="">
+   <label class="control-label" for="textinput">Ate:</label>
+    <input id="textinput" name="textinput" type="text"class="input-medium" required=""> <button class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true"></i></button>                          
+   </div>
+</div>
+  <h5>Pesquisa <i class="fa fa-search" aria-hidden="true"></i>    
+  <button class="btn btn-default campo"><i class="fa fa-plus" aria-hidden="true"></i></button> </h5>
+   <div class="form-group"> <input class="form-control input-lg" id="inputlg" type="text"> </div>
+    <button class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true"></i></button> 
+     <button class="btn btn-default campo"><i class="fa fa-check" aria-hidden="true"></i></button> 
+       
+<h5>Chave de ordenação: 
+<input id="textinput" name="textinput" type="text"class="input-medium" required=""></h5>
+  <button class="btn btn-default campo"><i class="fa fa-clone" aria-hidden="true"></i></button>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+  <button class="btn btn-default campo"><i class="fa fa-plus" aria-hidden="true"></i></button> 
+
+<h5>Enviar para:</h5>
+	<button class="btn btn-default campo"><i class="fa fa-eye" aria-hidden="true"></i></button> 
+	<button class="btn btn-default campo"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> 
+	<button class="btn btn-default campo"><i class="fa fa-file-excel-o" aria-hidden="true"></i></button> 
+	<button class="btn btn-default campo"><i class="fa fa-file-text-o" aria-hidden="true"></i></button>  
+<br><br>
+
+<div class="container">		
+<h5>Gerar saida</h5>
+<div class="input-group">
+  <div class="btn-group radio-group">
+   <label class="btn btn-primary not-active">Tabela <input type="radio" value="male" name="gender"></label>
+   <label class="btn btn-primary not-active">Parágrafo <input type="radio" value="female" name="gender"></label>
+   <label class="btn btn-primary not-active">Parágrafo(with labels) <input type="radio" value="male" name="gender"></label>
+   <label class="btn btn-primary not-active">Colunas(tabela)<input type="radio" value="female" name="gender"></label>
+   <label class="btn btn-primary not-active">Colunas(delimitadas)<input type="radio" value="male" name="gender"></label>
+  </div>
+ </div>
+ 
+<!--input text-->            
+<div class="col-md-6">
+	<div class="form-group">
+ 		<label for="inputlg"></label>
+  		<input class="form-control input-lg" id="inputlg" type="text">
+	</div>
+	<button class="btn btn-default campo"><i class="fa fa-eraser" aria-hidden="true"></i></button>
+</div>
+<div class="col-md-1"></div>
+	<div class="col-md-4">
+		<div class="form-group">
+		<label for="inputlg">Cabeçalho de colunas (1xlinha)</label>
+ 			<input class="form-control input-lg" id="inputlg" type="text">
+		</div>
+	</div>
+</div> <!--div container-->
+<div class="col-md-1">
+</div>
+</div>
+</div><!--panel d-->
+</div><!--acordion-->
+</div><!--container-->
+
+
+
+
+
+
 
 	<tr>
 		<td valign=top width=600>
@@ -820,6 +1023,7 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 
 
 <!-- GENERATE OUTPUT -->
+
 <?php
 }else{
 	echo "<div id=createformat></div>";
@@ -831,7 +1035,7 @@ if ($arrHttp["Opcion"]!="new"){?>
 			 <a href="javascript:toggleLayer('testformat')"><u><strong><?php echo $msgstr["generateoutput"]?></strong></u></a>
     		<div id=testformat><p>
     		<table>
-		<td colspan=2 align=center height=1 bgcolor=#eeeeee><?php echo $msgstr["r_recsel"]?></td>
+		<td colspan=2 align=center height=1 ><?php echo $msgstr["r_recsel"]?></td>
 	<tr>
 		<td  align=center colspan=2><strong><?php echo $msgstr["r_mfnr"]?></strong>: &nbsp; &nbsp; &nbsp;
 		<?php echo $msgstr["r_desde"]?>: <input type=text name=Mfn size=10>&nbsp; &nbsp; &nbsp; &nbsp;<?php echo $msgstr["r_hasta"]?>:<input type=text name=to size=10>
@@ -919,11 +1123,11 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CE
 		<td colspan=2 width=100%>
 			<strong><?php echo $msgstr["sendto"]?></strong>:
 			<a href=javascript:EnviarForma('WP')><?php echo $msgstr["word"]?></a>
-			&nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+			
 			<a href=javascript:EnviarForma('TB')><?php echo $msgstr["wsproc"]?></a>
-			&nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+			
 			<a href=javascript:EnviarForma('P')><?php echo $msgstr["vistap"]?></a>
-			&nbsp; &nbsp; &nbsp; | &nbsp; &nbsp; &nbsp;
+			
 			<a href=javascript:EnviarForma('TXT') value=T>TXT</a>
 		</td>
 </table>
@@ -935,13 +1139,13 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CE
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDPFT"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"])){
 $save="Y";
 ?>
-<table width=600 cellpadding=5 class=listTable>
+
 	<tr>
 		<td>
 		   <a href="javascript:toggleLayer('saveformat')"><u><strong><?php echo $msgstr["r_guardar"];?></strong></u></a>
     		<div id=saveformat><p>
 			<table width=600 border=0 cellpadding=0>
-				<td  align=right bgcolor=#dddddd>
+				
 				<font face=arial size=1><?php echo $msgstr["r_guardar"]." ".$db_path.$arrHttp["base"]."/". $arrHttp["Dir"];?>/ </td>
 				<td><input type=text name=nombre size=20 maxlength=30></td>
 				<tr><td align=right valign=top><font face=arial size=1>
