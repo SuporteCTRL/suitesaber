@@ -154,6 +154,7 @@ div#savesearch{
 	color: #000000;
 }
 </style>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css"> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
 <script languaje=javascript>
 
 TipoFormato=""
@@ -297,14 +298,14 @@ function GenerarFormato(Tipo){
 				xTag=t[1]
 				xTipoE=t[0]
 				if (xTag=="" || xTipoE=="L"){
-					campo="'<tr><td colspan=2 valign=top><font face=arial size=2><b>"+t[2]+"</b></td>'/\n"
+					campo="'<tr><td colspan=2 valign=top><strong>"+t[2]+"</strong></td>'/\n"
 		    	}else {
 		    		if(Trim(t[5])!=""){
 						tag=SubCampos(xTag,t[5],t[6])
 					}else{
 						tag="v"+xTag+"+|<br>|"
 					}
-			    	campo="if p(v"+xTag+ ") then '<tr><td width=20% valign=top><font face=arial size=2><b>"+t[2]+"</b></td><td valign=top><font face=arial size=2>'"+tag+",'</td>' fi/\n"
+			    	campo="if p(v"+xTag+ ") then '<tr><td width=20% valign=top><strong>"+t[2]+"</strong></td><td valign=top><strong>'"+tag+",'</td>' fi/\n"
 				}
 				formato+=campo
 			}
@@ -350,7 +351,7 @@ function GenerarFormato(Tipo){
 					}else{
 						tag="v"+xTag+"+|; |"
 					}
-			    	campo="'<td valign=top><font face=arial size=2>'"+tag+" if a(v"+xTag+") then '&nbsp;' fi,'</td>'/\n"
+			    	campo="'<td valign=top><strong>'"+tag+" if a(v"+xTag+") then '&nbsp;' fi,'</strong></td>'/\n"
 			    	formato+=campo
 			    	head+=t[2]+"\n"
 				}
@@ -597,6 +598,20 @@ function Listados(){
 }
 
 </script>
+
+<script type="text/javascript">
+	addEventListener('load', function() 
+		{ 
+		var code = document.querySelector('#code'); 
+		var worker = new Worker('worker.js'); 
+		worker.onmessage = function(event) 
+		{ 
+			code.innerHTML = event.data; 
+		} 
+		worker.postMessage(code.textContent); 
+	})
+</script>
+
 <body>
 <?php
 if (isset($arrHttp["encabezado"])){
@@ -741,7 +756,7 @@ if ($arrHttp["Opcion"]!="new"){
 
 	}
 	echo "</select>";
-	echo "<a href=javascript:LeerArchivo(\"\")>".$msgstr["edit"]."</a> | <a href=javascript:EliminarFormato()>".$msgstr["delete"]."</a>";
+	//echo "<a href=javascript:LeerArchivo(\"\")>".$msgstr["edit"]."</a> | <a href=javascript:EliminarFormato()>".$msgstr["delete"]."</a>";
 
 ?>
 </table>
@@ -812,15 +827,24 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 
 </i></div>
 </select>
+      
+    <!--editar campo-->
 
-         
-         <button class="btn btn-default campo"> <a href=javascript:LeerArchivo(\"\")></a> <?php echo $msgstr["edit"];?></button>
+     <a href=javascript:LeerArchivo(\"\") class="btn btn-default campo"><i class="fa fa-pencil-square-o" aria-hidden="true" alt="<?php echo $msgstr["edit"];?>"</a></i>
  
+      <!--excluir-->
+
+     <a href=javascript:EliminarFormato() ) class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true" 
+      alt="<?php echo $msgstr["delete"];?>"></i></a>
 
 
-         <button class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true"></i></button></div>
+
+
+         </div>
       </div>
     </div>
+
+
 
 
 
@@ -828,48 +852,89 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 <div class="panel panel-default">
   <div class="panel-heading">
    <h4 class="panel-title">
-     <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Criar um formato <i class="fa fa-plus" aria-hidden="true"></i></a>
+     <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><?php echo $msgstr["r_creaf"]?>  <i class="fa fa-plus" aria-hidden="true"></i></a>
    </h4>
   </div>
 <div id="collapse2" class="panel-collapse collapse">
  <div class="panel-body">
+
+   	<label class="col-md-12"><?php echo $msgstr[r_incluirc];?></label>
    <div class="col-md-5">
-    <select class="form-control" multiple="10" size="10" >
- 	  	<option>blablablablablabla</option>
- 		<option>blablablablabla</option>
- 	 	<option>bla</option>
- 		<option>bla</option>
-		<option>bla</option>
-		<option>bla</option>
-		<option>bla</option>
+    <select name="list11" class="form-control" multiple="10" size="10" onDblClick="moveSelectedOptions(this.form['list11'],this.form['list21'],false)">
+ 	  	<?php
+			$t=array();
+ 			foreach ($Fdt as $linea){
+ 			$t=explode('|',$linea);
+ 		?>
+   		<option value="<?php echo $linea; ?>" ><?php echo $t[2]."(".$t[1].")"; ?>
+  	<?php
+  	}
+?>
+ 		</option>
 	 </select>
    </div>
+
 <div class="col-md-1">
-  <button class="btn btn-default campo"><i class="fa fa-angle-double-left" aria-hidden="true"></i></button>
-  	<br>
-  <button class="btn btn-default campo"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-  	<br>
-  <button class="btn btn-default campo"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-   <br>
-  <button class="btn btn-default campo"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-   <br>
+ 	<a href="" ="#" class="btn btn-default campo" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"> <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+ 
+	<a href="" ="#"  class="btn btn-default campo" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+
+ 	<a href="" ="#" class="btn btn-default campo" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+
+	<a href="" ="#" class="btn btn-default campo" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
 </div>
+
 <div class="col-md-5">
- <select class="form-control" multiple="10" size="10" >
-  <option>-</option>
-  <option>-</option>
-  <option>-</option>
-  <option>-</option>
-  <option>-</option>
-  <option>-</option>
-  <option>-</option>
- </select>
+	<select class="form-control" multiple="10" size="10" name="list21" onDblClick="moveSelectedOptions(this.form['list21'],this.form['list11'],false)">
+	</select>
 </div>
-<div class="col-md-1"></div>
-<button class="btn btn-default campo"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
-	<br>
-<button class="btn btn-default campo"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
-	<br>
+
+<div class="col-md-1">
+
+<a href=# class="btn btn-default campo" onClick="moveOptionUp(document.forms[0]['list21'])" title="<?php echo $msgstr["r_subir"]?>" ><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+					
+<a href=# onClick=" moveOptionDown(document.forms[0]['list21'])" class="btn btn-default campo" title="<?php echo $msgstr["r_bajar"]?>">
+<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+	
+</div>
+
+<div class="clearfix"></div>
+<div class="container">		
+<h5>Gerar saida</h5>
+<div class="input-group">
+  <div class="btn-group radio-group">
+   <label class="btn btn-primary not-active">  <input type="radio" name=tipof value=T onclick=GenerarFormato('T') ><?php echo $msgstr["r_tabla"];?></label>
+   <label class="btn btn-primary not-active"> <input type="radio" name=tipof value=P onclick=GenerarFormato('P')><?php echo $msgstr["r_parrafo"];?></label>
+   <label class="btn btn-primary not-active"> <input type="radio" name=tipof value=PL onclick=GenerarFormato('PL')><?php echo $msgstr["r_parrafo"];?>(with Labels)
+   </label>
+   <label class="btn btn-primary not-active"> <input type="radio" value=CT onclick=GenerarFormato('CT')><?php echo $msgstr["r_colstab"];?></label>
+   <label class="btn btn-primary not-active"> <input type="radio" name=tipof value=CD onclick=GenerarFormato('CD')><?php echo $msgstr["r_colsdelim"];?></label>
+  </div>
+ </div>
+<!--input text-->            
+<div class="col-md-9">
+	<div class="form-group">
+ 		<label for="inputlg"></label>
+  		<textarea id="code"  class="form-control input-lg html" name="pft"  cols="80" rows="10" style="font-family:courier new;"></textarea>
+	</div>
+
+	
+
+<a href=# onClick='javascript:BorrarFormato("pft")' class="btn btn-default campo" title="<?php echo $msgstr["borrar"]?>">
+<i class="fa fa-eraser" aria-hidden="true"></i></a>
+
+</div>
+
+
+	<div class="col-md-3">
+		<div class="form-group">
+		<label for="inputlg"><?php echo $msgstr["r_heading"]?></label>
+ 			<textarea class="form-control input-lg" name="headings" cols="30" rows="9" style="font-family:courier new;" onfocus="CheckType()"></textarea>
+		</div>
+	</div>
+</div> <!--div container-->
+
+</div>
 </div><!--panel body-->
 </div><!--colapse2-->
 </div> <!--panel default-->
@@ -877,7 +942,7 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 <div class="panel panel-default">
  <div class="panel-heading">
   <h4 class="panel-title">
-   <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Gerar saida <i class="fa fa-print" aria-hidden="true"></i></a>
+   <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><?php echo $msgstr["r_fgent"]?> <i class="fa fa-print" aria-hidden="true"></i></a>
   </h4>
  </div>
 <div id="collapse3" class="panel-collapse collapse">
@@ -913,17 +978,7 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 	<button class="btn btn-default campo"><i class="fa fa-file-text-o" aria-hidden="true"></i></button>  
 <br><br>
 
-<div class="container">		
-<h5>Gerar saida</h5>
-<div class="input-group">
-  <div class="btn-group radio-group">
-   <label class="btn btn-primary not-active">Tabela <input type="radio" value="male" name="gender"></label>
-   <label class="btn btn-primary not-active">Parágrafo <input type="radio" value="female" name="gender"></label>
-   <label class="btn btn-primary not-active">Parágrafo(with labels) <input type="radio" value="male" name="gender"></label>
-   <label class="btn btn-primary not-active">Colunas(tabela)<input type="radio" value="female" name="gender"></label>
-   <label class="btn btn-primary not-active">Colunas(delimitadas)<input type="radio" value="male" name="gender"></label>
-  </div>
- </div>
+
  
 <!--input text-->            
 <div class="col-md-6">
@@ -949,77 +1004,6 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 </div><!--container-->
 
 
-
-
-
-
-
-	<tr>
-		<td valign=top width=600>
-		 <a href="javascript:EsconderVentana('pftedit');toggleLayer('createformat');toggleLayer('pftedit')"><u><strong><?php echo $msgstr["r_creaf"]?></strong></u></a>
-    	<div id=createformat>
-    	<P><?php echo $msgstr["r_incluirc"]?><br>
-			<table width=600 border=0>
-				<td align=right width=250><Select name=list11 style="width:250px" multiple size=10 onDblClick="moveSelectedOptions(this.form['list11'],this.form['list21'],false)">
-
- <?php
- 	$t=array();
- 	foreach ($Fdt as $linea){
- 		$t=explode('|',$linea);
-   		echo "<option value='".$linea."'>".$t[2]." (".$t[1].")\n";
-  	}
-?>
-				</select></td>
-				<td align="center" width=50><center>
-					<a href="" ="#" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"><img src=../dataentry/img/barArrowRight.png border=0></A><BR><BR>
-					<a href="" ="#" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><img src=../dataentry/img/barArrowRight.png border=0><img src=../dataentry/img/barArrowRight.png border=0></A><BR><BR>
-					<a href="" ="#" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><img src=../dataentry/img/barArrowLeft.png border=0><img src=../dataentry/img/barArrowLeft.png border=0></A><BR><BR>
-					<a href="" ="#" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><img src=../dataentry/img/barArrowLeft.png border=0></A>
-
-				</TD>
-				<TD width=250>
-					<SELECT NAME="list21" MULTIPLE SIZE=10 style="width:250px" onDblClick="moveSelectedOptions(this.form['list21'],this.form['list11'],false)">
-
-					</SELECT>
-				</TD>
-				<TD ALIGN="left" VALIGN="MIDDLE" width=50>
-					<a href=# onClick="moveOptionUp(document.forms[0]['list21'])" class=boton><?php echo $msgstr["r_subir"]?></a>
-					<BR><BR>
-					<a href="javascript:moveOptionDown(document.forms[0]['list21'])" class=boton><?php echo $msgstr["r_bajar"]?></a>
-				</TD>
-
-
-			</table>
-		</div>
-		</td>
-		<tr>
-		<td>
-		<div id=pftedit>
-			<table>
-				<tr>
-				<td valign=top colspan=4  align=center><?php echo $msgstr["r_fgent"]?> &nbsp;&nbsp;
-					       <input type=radio name=tipof value=T onclick=GenerarFormato('T') ><?php echo $msgstr["r_tabla"]?>
-					 <input type=radio name=tipof value=P onclick=GenerarFormato('P')><?php echo $msgstr["r_parrafo"]?>
-					 <input type=radio name=tipof value=PL onclick=GenerarFormato('PL')><?php echo $msgstr["r_parrafo"]?>(with Labels)
-					 <input type=radio name=tipof value=CT onclick=GenerarFormato('CT')><?php echo $msgstr["r_colstab"]?>
-					 <input type=radio name=tipof value=CD onclick=GenerarFormato('CD')><?php echo $msgstr["r_colsdelim"]?>
-
-				</td>
-				<tr>
-				<td align=center colspan=4>
-					<table>
-					<td>
-						<textarea name=pft cols=80 rows=10 style="font-family:courier new;"></textarea>
-						<br><input type=button name=borrar value=<?php echo $msgstr["borrar"]?> onClick='javascript:BorrarFormato("pft")'>
-	    			</td>
-    				<td><?php echo $msgstr["r_heading"]?><br>
-    					<textarea name=headings cols=30 rows=9 style="font-family:courier new;" onfocus=CheckType()></textarea><td>
-			</table>
-          </div>
-		</td>
-		</td>
-	</table>
-</table>
 
 
 <!-- GENERATE OUTPUT -->
