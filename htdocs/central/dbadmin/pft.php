@@ -923,7 +923,7 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 <a href=# onClick='javascript:BorrarFormato("pft")' class="btn btn-default campo" title="<?php echo $msgstr["borrar"]?>">
 <i class="fa fa-eraser" aria-hidden="true"></i></a>
 
-</div>
+
 
 
 	<div class="col-md-3">
@@ -932,17 +932,16 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
  			<textarea class="form-control input-lg" name="headings" cols="30" rows="9" style="font-family:courier new;" onfocus="CheckType()"></textarea>
 		</div>
 	</div>
-</div> <!--div container-->
-
 </div>
-</div><!--panel body-->
-</div><!--colapse2-->
+</div>
+</div>
+</div>
 </div> <!--panel default-->
 
 <div class="panel panel-default">
  <div class="panel-heading">
   <h4 class="panel-title">
-   <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><?php echo $msgstr["r_fgent"]?> <i class="fa fa-print" aria-hidden="true"></i></a>
+   <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><?php echo $msgstr["generateoutput"];?> <i class="fa fa-print" aria-hidden="true"></i></a>
   </h4>
  </div>
 <div id="collapse3" class="panel-collapse collapse">
@@ -951,81 +950,18 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 <div class="container">
 
 
- <h5>Seleção de registro</h5>
+ <h5><?php echo $msgstr["r_mfnr"]?></h5>
   <div class="control-group">
-   <label class="control-label" for="textinput">De:</label>
+   <label class="control-label" for="textinput"><?php echo $msgstr["r_desde"]?></label>
     <input id="textinput" name="textinput" type="text"class="input-medium" required="">
-   <label class="control-label" for="textinput">Ate:</label>
-    <input id="textinput" name="textinput" type="text"class="input-medium" required=""> <button class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true"></i></button>                          
-   </div>
-</div>
-  <h5>Pesquisa <i class="fa fa-search" aria-hidden="true"></i>    
-  <button class="btn btn-default campo"><i class="fa fa-plus" aria-hidden="true"></i></button> </h5>
-   <div class="form-group"> <input class="form-control input-lg" id="inputlg" type="text"> </div>
-    <button class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true"></i></button> 
-     <button class="btn btn-default campo"><i class="fa fa-check" aria-hidden="true"></i></button> 
-       
-<h5>Chave de ordenação: 
-<input id="textinput" name="textinput" type="text"class="input-medium" required=""></h5>
-  <button class="btn btn-default campo"><i class="fa fa-clone" aria-hidden="true"></i></button>
-    <i class="fa fa-caret-down" aria-hidden="true"></i>
-  <button class="btn btn-default campo"><i class="fa fa-plus" aria-hidden="true"></i></button> 
+   <label class="control-label" for="textinput"><?php echo $msgstr["r_hasta"]?></label>
+    <input id="textinput" name="textinput" type="text"class="input-medium" required="">
 
-<h5>Enviar para:</h5>
-	<button class="btn btn-default campo"><i class="fa fa-eye" aria-hidden="true"></i></button> 
-	<button class="btn btn-default campo"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button> 
-	<button class="btn btn-default campo"><i class="fa fa-file-excel-o" aria-hidden="true"></i></button> 
-	<button class="btn btn-default campo"><i class="fa fa-file-text-o" aria-hidden="true"></i></button>  
-<br><br>
-
-
- 
-<!--input text-->            
-<div class="col-md-6">
-	<div class="form-group">
- 		<label for="inputlg"></label>
-  		<input class="form-control input-lg" id="inputlg" type="text">
-	</div>
-	<button class="btn btn-default campo"><i class="fa fa-eraser" aria-hidden="true"></i></button>
-</div>
-<div class="col-md-1"></div>
-	<div class="col-md-4">
-		<div class="form-group">
-		<label for="inputlg">Cabeçalho de colunas (1xlinha)</label>
- 			<input class="form-control input-lg" id="inputlg" type="text">
-		</div>
-	</div>
-</div> <!--div container-->
-<div class="col-md-1">
-</div>
-</div>
-</div><!--panel d-->
-</div><!--acordion-->
-</div><!--container-->
-
-
-
-
-<!-- GENERATE OUTPUT -->
-
-<?php
-}else{
-	echo "<div id=createformat></div>";
-}
-if ($arrHttp["Opcion"]!="new"){?>
-<table width=600 cellpadding=5 class=listTable>
-	<tr>
-		<td>
-			 <a href="javascript:toggleLayer('testformat')"><u><strong><?php echo $msgstr["generateoutput"]?></strong></u></a>
-    		<div id=testformat><p>
-    		<table>
-		<td colspan=2 align=center height=1 ><?php echo $msgstr["r_recsel"]?></td>
-	<tr>
-		<td  align=center colspan=2><strong><?php echo $msgstr["r_mfnr"]?></strong>: &nbsp; &nbsp; &nbsp;
-		<?php echo $msgstr["r_desde"]?>: <input type=text name=Mfn size=10>&nbsp; &nbsp; &nbsp; &nbsp;<?php echo $msgstr["r_hasta"]?>:<input type=text name=to size=10>
-		 &nbsp; &nbsp; &nbsp; <a href=javascript:BorrarRango() class=boton><?php echo $msgstr["borrar"]?></a>
-		<script> if (top.window.frames.length>0)
-			document.writeln(" &nbsp; &nbsp; &nbsp; (<?php echo $msgstr["maxmfn"]?>: "+top.maxmfn+")")</script></td>
+     <a href='javascript:BorrarRango()' class="btn btn-default campo" title="<?php echo $msgstr["borrar"]?>"><i class="fa fa-trash" aria-hidden="true"></i></a> 
+     <script>
+      if (top.window.frames.length>0)
+			document.writeln(<?php echo $msgstr["maxmfn"]?>: "+top.maxmfn+")")
+</script>
 	<?php
 	if (isset($arrHttp["seleccionados"])){
 		echo "<tr>
@@ -1036,9 +972,16 @@ if ($arrHttp["Opcion"]!="new"){?>
 		echo "</td></tr>";
 	}
 	?>
-	<tr>
-		<td  align=center colspan=2><strong><?php echo $msgstr["r_busqueda"]?></strong>: &nbsp;
-<?php
+
+
+
+
+   </div>
+</div>
+  <label><?php echo $msgstr["r_busqueda"];?></label>
+    <a href=javascript:Buscar() title="<?php echo $msgstr["new"];?>" class="btn btn-default campo"><i class="fa fa-search" aria-hidden="true"></i></a>
+
+  <?php
 unset($fp);
 if (file_exists($db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/search_expr.tab"))
 	$fp = file($db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/search_expr.tab");
@@ -1059,26 +1002,39 @@ if (isset($fp)){
 	}
 
 }
-?>
-			</select>&nbsp; &nbsp;
-			<a href=javascript:Buscar()><?php echo $msgstr["new"]?></a>
-			<br>
-			<textarea rows=2 cols=100 name=Expresion><?php if ($Expresion!="") echo $Expresion?></textarea>
-			<a href=javascript:BorrarExpresion() class=boton><?php echo $msgstr["borrar"]?></a>
+?> 
+
+
+<br>
+
+<div class="form-group">
+   <textarea class="input-control col-md-11" rows="3" cols="80" name="Expresion"><?php if ($Expresion!="") echo $Expresion?></textarea>
+    <a href=javascript:BorrarExpresion() class= "btn btn-danger campo col-md-1" title="<?php echo $msgstr["borrar"]?>"><i class="fa fa-trash" aria-hidden="true"></i></a> 
+
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_SAVEXPR"])  or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_SAVEXPR"])){
-	echo "&nbsp; <A HREF=\"javascript:toggleLayer('savesearch')\"> <u><strong>". $msgstr["savesearch"]."</strong></u></a>";
-	echo "<div id=savesearch>".$msgstr["r_desc"].": <input type=text name=Descripcion size=40>
-     	&nbsp &nbsp <input type=button value=\"". $msgstr["savesearch"]."\" onclick=GuardarBusqueda()>
-		</div>\n";
+?>
+
+	<a href="javascript:toggleLayer('savesearch')" class="btn btn-success campo col-md-1" title="<?php echo $msgstr["savesearch"];?>"><i class="fa fa-check" aria-hidden="true"></i></strong></a>
+</div>
+
+
+	<div id="savesearch">
+		<label><?php echo $msgstr["r_desc"];?>:</label>
+		 <input type="text" class="form-control input-medium"  name="Descripcion">
+     	 <input type="button"  class="btn btn-default campo" value="<?php echo $msgstr["savesearch"];?>" onclick="GuardarBusqueda()">
+	</div>
+
+<?php
 }
 ?>
-		</td>
-	<tr>
-		<td colspan=2><strong><?php echo $msgstr["sortkey"]?></strong>: &nbsp;
-		<input type=text name=sortkey size=70> <?php echo $msgstr["sortkeycopy"]?>
-           <select name=sort  onChange=CopySortKey()>
-    		<option value=''>
+
+
+       
+<h5>Chave de ordenação: 
+<input id="textinput" name="textinput" type="text"class="input-medium" required=""></h5>
+ <select name=sort  onChange=CopySortKey()>
+    		<option value=""></option>
 <?php
 unset($fp);
 if (file_exists($db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/sort.tab"))
@@ -1097,50 +1053,66 @@ if (isset($fp)){
 }
 
 echo "			</select>";
+?>
+
+<a href=javascript:CreateSortKey() title="<?php echo $msgstr["sortkeycreate"];?>" class="btn btn-default campo"><i class="fa fa-plus" aria-hidden="true"></i></a>
+<?php
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDSORT"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_EDSORT"])){
- echo "&nbsp; &nbsp;<a href=javascript:CreateSortKey()>".$msgstr["sortkeycreate"]."</a>";
  }
 ?>
-		</td>
+  
+  
+ <br><br>
 
-	<tr>
-		<td colspan=2 width=100%>
-			<strong><?php echo $msgstr["sendto"]?></strong>:
-			<a href=javascript:EnviarForma('WP')><?php echo $msgstr["word"]?></a>
-			
-			<a href=javascript:EnviarForma('TB')><?php echo $msgstr["wsproc"]?></a>
-			
-			<a href=javascript:EnviarForma('P')><?php echo $msgstr["vistap"]?></a>
-			
-			<a href=javascript:EnviarForma('TXT') value=T>TXT</a>
-		</td>
-</table>
-</div>
-</td>
-</table>
+<label><?php echo $msgstr["sendto"];?></label>
+<br><br>
+	<a href=javascript:EnviarForma('WP') title="<?php echo $msgstr["vistap"];?>" class="btn btn-default campo"><i class="fa fa-eye" aria-hidden="true"></i></a> 
+	
+	<a href=javascript:EnviarForma('TB') title="<?php echo $msgstr["wsproc"];?>" class="btn btn-default campo"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
 
+	<a href=javascript:EnviarForma('P') title="<?php echo $msgstr["word"];?>" class="btn btn-default campo"><i class="fa fa-file-excel-o" aria-hidden="true"></i></a>
+
+	<a href=javascript:EnviarForma('TXT') value="T>TXT" class="btn btn-default campo"><i class="fa fa-file-text-o" aria-hidden="true"></i></a>  
+<br><br>
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDPFT"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"])){
 $save="Y";
 ?>
 
-	<tr>
-		<td>
-		   <a href="javascript:toggleLayer('saveformat')"><u><strong><?php echo $msgstr["r_guardar"];?></strong></u></a>
-    		<div id=saveformat><p>
-			<table width=600 border=0 cellpadding=0>
-				
-				<font face=arial size=1><?php echo $msgstr["r_guardar"]." ".$db_path.$arrHttp["base"]."/". $arrHttp["Dir"];?>/ </td>
-				<td><input type=text name=nombre size=20 maxlength=30></td>
-				<tr><td align=right valign=top><font face=arial size=1>
-					<?php echo $msgstr["r_desc"];?></td><td valign=top><input type=text name=descripcion maxlength=50 size=50>
 
-					<a href=javascript:GuardarFormato()><img src=../dataentry/img/toolbarSave.png border=0></a>
-				</td>
-			</table>
-			</div>
-	</td>
-</table>
+
+
+ 
+<!--input text-->            
+
+
+		   <h3><?php echo $msgstr["r_guardar"];?></h3>
+    		<label><?php echo $msgstr["r_guardar"]." <small> ".$db_path.$arrHttp["base"]."/". $arrHttp["Dir"];?></small></label>
+				<input class="form-control" type="text" name="nombre" size="20" maxlength="30">
+				<label><?php echo $msgstr["r_desc"];?></label>
+				<input class="form-control" type="text" name="descripcion" maxlength="50" size="50">
+                <a href="javascript:GuardarFormato()" class="btn btn-default"><i class="fa fa-save"></a></i>
+			
+	
+
+
+
+
+</div> <!--div container-->
+
+</div>
+</div><!--panel d-->
+<!--container-->
+
+
+
+
+<!-- GENERATE OUTPUT -->
+
+
+
+
+
 <?php }else{
 	$save="N";
 }
