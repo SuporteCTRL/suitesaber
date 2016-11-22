@@ -1229,10 +1229,10 @@ ul.msg_list li a .message {
   -webkit-box-shadow: none;
   right: 0;
   left: auto;
-  width: 220px; }
+  }
 
 .navbar-nav .open .dropdown-menu.msg_list {
-  width: 300px; }
+ }
 
 .info-number .badge {
   font-size: 10px;
