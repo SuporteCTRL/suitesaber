@@ -39,7 +39,8 @@ foreach ($fp as $value){
 	$value=trim($value);
 	$x=explode("|",$value);
 	if ($x[0]==$arrHttp["base"]){
-		if (isset($x[2]) and $x[2]=="Y"){			$copies="Y";
+		if (isset($x[2]) and $x[2]=="Y"){
+			$copies="Y";
 		}
 		break;
 	}
@@ -63,7 +64,8 @@ function EnviarForma(Opcion,Mensaje){
 		}
 
 	}
-	switch (Opcion){		case "dbcp":
+	switch (Opcion){
+		case "dbcp":
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/copy_db.php"
@@ -267,7 +269,8 @@ echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/menu_mantenimiento.php";
 			<li><a href='Javascript:EnviarForma("readiso","<?php echo "ReadISO  MX"?>")'><?php echo $msgstr["readiso_mx"]?></a></li>
 			<li><a href='javascript:EnviarForma("cn","<?php echo $msgstr["assigncn"]?>")'><?php echo $msgstr["assigncn"]?></a></li>
 			<li><a href='javascript:EnviarForma("linkcopies","<?php echo $msgstr["linkcopies"]?>")'><?php echo $msgstr["linkcopies"]?></a></li>
-			<?php if (($arrHttp["base"]!="copies") and ($arrHttp["base"]!="providers") and ($arrHttp["base"]!="suggestions") and ($arrHttp["base"]!="purchaseorder") and ($arrHttp["base"]!="users") and ($arrHttp["base"]!="loanobjects") and ($arrHttp["base"]!="trans") and ($arrHttp["base"]!="suspml") ) {				if ($copies=="Y"){
+			<?php if (($arrHttp["base"]!="copies") and ($arrHttp["base"]!="providers") and ($arrHttp["base"]!="suggestions") and ($arrHttp["base"]!="purchaseorder") and ($arrHttp["base"]!="users") and ($arrHttp["base"]!="loanobjects") and ($arrHttp["base"]!="trans") and ($arrHttp["base"]!="suspml") ) {
+				if ($copies=="Y"){
 			?>
 
 			<?php }}
@@ -289,7 +292,8 @@ echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/menu_mantenimiento.php";
 	<?php
 	if ($_SESSION["profile"]=="adm"
         and isset($dirtree) and $dirtree=="Y"
-    ){    ?>
+    ){
+    ?>
     <li><a href='Javascript:EnviarForma("dirtree","<?php echo $msgstr["expbases"]?>")'><?php echo $msgstr["expbases"]?></a></li>
     <?php
     }

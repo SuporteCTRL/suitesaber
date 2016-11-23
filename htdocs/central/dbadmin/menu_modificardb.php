@@ -56,25 +56,32 @@ function Update(Option){
 			document.update_base.action="fdt.php"
 			document.update_base.type.value="bd"
 			<?php if (isset($arrHttp["encabezado"])) echo "document.update_base.encabezado.value=\"s\"\n"?>
+			document.update_base.target="configura"
 			break;
 		case "leader":
 			document.update_base.action="fdt.php"
 			document.update_base.type.value="leader.fdt"
 			<?php if (isset($arrHttp["encabezado"])) echo "document.update_base.encabezado.value=\"s\"\n"?>
+			document.update_base.target="configura"
+
 			break;
 		case "fdt_new":
 			document.update_base.action="fdt_short_a.php"
 			document.update_base.type.value="bd"
 			<?php if (isset($arrHttp["encabezado"])) echo "document.update_base.encabezado.value=\"s\"\n"?>
+			document.update_base.target="configura"
 			break;
 		case "fst":
 			document.update_base.action="fst.php"
+			document.update_base.target="configura"
 			break;
 		case "fmt":
 			document.update_base.action="fmt.php"
+			document.update_base.target="configura"
 			break;
 		case "pft":
 			document.update_base.action="pft.php"
+			document.update_base.target="configura"
 			break;
 		case "typeofrecs":
 			document.getElementById('loading').style.display='block';
@@ -87,49 +94,63 @@ function Update(Option){
 				$script="typeofrecs_edit.php";
 			echo "\ndocument.update_base.action=\"$script\"\n";
 			?>
+			document.update_base.target="configura"
 			break;
 		case "fixedfield":
 			document.update_base.action="typeofrecs_marc_edit.php"
+			document.update_base.target="configura"
 			break;
 		case "fixedmarc":
 			document.update_base.action="fixed_marc.php"
+			document.update_base.target="configura"
 			break;
 		case "recval":
 			document.update_base.action="typeofrecs.php"
+			document.update_base.target="configura"
 			break;
 		case "bases":
 			document.update_base.action="databases_list.php"
+			document.update_base.target="configura"
 			break;
 		case "par":
 			document.update_base.action="editpar.php"
+			document.update_base.target="configura"
 			break;
 					break;
 		case "dr_path":
 			document.update_base.Opcion.value="dr_path"
 			document.update_base.action="editar_abcd_def.php"
+			document.update_base.target="configura"
 			break;
 		case "search_catalog":
 			document.update_base.action="advancedsearch.php"
 			document.update_base.modulo.value="catalogacion"
+			document.update_base.target="configura"
 			break;
 		case "search_circula":
 			document.update_base.action="advancedsearch.php"
 			document.update_base.modulo.value="prestamo"
+			document.update_base.target="configura"
 			break;
 		case "IAH":
 			document.update_base.action="iah_edit_db.php"
+			document.update_base.target="configura"
 			break
 		case "stats_var":
 			document.update_base.action="../statistics/config_vars.php"
+			document.update_base.target="configura"
 			break
 		case "stats_tab":
 			document.update_base.action="../statistics/tables_cfg.php"
+			document.update_base.target="configura"
 			break
 		case "tooltips":
 			document.update_base.action="database_tooltips.php"
+			document.update_base.target="configura"
 			break
         case "help":
         	document.update_base.action="help_ed.php"
+        	document.update_base.target="configura"
 	}
 	document.update_base.submit()
 }
@@ -175,7 +196,7 @@ foreach ($fp as $value){
 			<input type="hidden" name="type" value="">
 			<input type="hidden" name="modulo">
 			<input type="hidden" name="base" value="<?php echo $arrHttp['base']?>">
-			<?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";?>
+			<?php if (isset($arrHttp["encabezado"])) echo "<input type=\"hidden\" name=\"encabezado\" value=\"s\">";?>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -246,16 +267,13 @@ foreach ($fp as $value){
 			<li><a href=javascript:Update("par")><?php echo $msgstr["dbnpar"]?></a></li>
           </ul>
         </li>
-
-
-
       </ul>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-
+<iframe src="" name="configura" width="100%" height="3000px" frameborder="0"></iframe>
 
            
 

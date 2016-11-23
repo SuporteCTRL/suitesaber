@@ -201,7 +201,7 @@ echo"NO database selected";
 </form>
 </div>
 </div>
-<?
+<?php
 include("../common/footer.php");
 echo "</body></html>";
 ?>
