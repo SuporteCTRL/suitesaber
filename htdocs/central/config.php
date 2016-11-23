@@ -67,7 +67,7 @@ $xWxis="/var/www/suitesaber.git/htdocs/$app_path/dataentry/wxis/";
 $wxisUrl="";   //SI NO SE VA A UTILIZAR EL METODO POST PARA VER LOS REGISTROS
 
 //path to the mx  program (include the name of the program)
-$mx_path="/var/www/suitesaber.git/cgi-bin/$cisis_ver"."mx.exe";
+$mx_path="/var/www/suitesaber.git/cgi-bin/$cisis_ver"."mx";
 
 //default language
 $lang="pt";
