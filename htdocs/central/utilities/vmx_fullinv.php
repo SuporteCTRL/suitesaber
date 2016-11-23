@@ -28,8 +28,10 @@ global $msgstr;
 
 ?>
 <script>
-function OpenWindow(){	msgwin=window.open("","test","width=800,height=200");
-	msgwin.focus()}
+function OpenWindow(){
+	msgwin=window.open("","test","width=800,height=200");
+	msgwin.focus()
+}
 
 function Confirmar(){
 	document.maintenance.confirmar.value="OK";
@@ -37,7 +39,8 @@ function Confirmar(){
 	document.maintenance.submit()
 }
 
-function Regresar(){<?php
+function Regresar(){
+<?php
 if (isset($arrHttp["encabezado"]))
 	echo "document.maintenance.action=\"../dbadmin/menu_mantenimiento.php\"\n";
 else
@@ -70,13 +73,20 @@ else
 	else
 		$ciapar="";
 
-if (!file_exists($mx_path)){	echo $mx_path.": ".$msgstr["misfile"];
-	die;}
+if (!file_exists($mx_path)){
+	echo $mx_path.": ".$msgstr["misfile"];
+	die;
+}
 
 if (file_exists($db_path."cipar.par")){
 
-}else{	if (file_exists($db_path.$arrHttp["base"]."/data/isisuc.tab")){		$uctab=$db_path.$arrHttp["base"]."/data/isisuc.tab";	}else{		if (file_exists($db_path."isisuc.tab"))
-			$uctab=$db_path."isisuc.tab";	}
+}else{
+	if (file_exists($db_path.$arrHttp["base"]."/data/isisuc.tab")){
+		$uctab=$db_path.$arrHttp["base"]."/data/isisuc.tab";
+	}else{
+		if (file_exists($db_path."isisuc.tab"))
+			$uctab=$db_path."isisuc.tab";
+	}
 	if ($uctab=="")  $uctab="ansi";
 
 
@@ -103,6 +113,7 @@ if ($cipar!="") $parameters.= "cipar: $cipar<br>";
 
 echo "
 	<div class=\"sectionInfo\">
+	----------
 			<div class=\"breadcrumb\">".
 				$msgstr["mnt_gli"]. ": " . $arrHttp["base"]."
 			</div>
