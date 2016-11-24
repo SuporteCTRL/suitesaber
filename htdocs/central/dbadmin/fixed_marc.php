@@ -29,19 +29,18 @@ if (isset($arrHttp["encabezado"]))
 	$encabezado="&encabezado=s";
 else
 	$encabezado="";
-echo "<a href=menu_modificardb.php?base=". $arrHttp["base"].$encabezado." class=\"defaultButton cancelButton\">
-	<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-	<span><strong>". $msgstr["cancel"]."</strong></span>
-	</a>
-	</div>
-	<div class=\"spacer\">&#160;</div>
-	</div>";
+
+	
+	
+	
+	
+	
+
 ?>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/typeofrecs_marc.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/typeofrecs_marc.html target=_blank>".$msgstr["edhlp"]."</a>";
+	
 echo "<font color=white>&nbsp; &nbsp; Script: fixed_marc.php";
 ?>
 </font>

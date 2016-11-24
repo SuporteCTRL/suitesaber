@@ -108,16 +108,17 @@ function Enviar(){
             <form target="top" name="administra" onsubmit="javascript:return false" method="post" action="<?php echo $app_path?>/common/inicio.php?reinicio=s&base=<?php echo $basedefault; ?>">
 				<input type=hidden name=Opcion value=admin>
 				<input type=hidden name=cipar value=acces.par>
-				<value=<?php echo $arrHttp["lang"]?>>
+				<input type="hidden" name="lang" value="<?php echo $arrHttp['lang']?>" >
+	
               <h1>Entrar</h1>
 
               <div>
-                <input type="text" name="login" id="user" class="form-control" placeholder="Username" required="" />
+                <input type="text" name="login" id="user" class="form-control" placeholder="<?php echo $msgstr["userid"]?>" required="" />
                 <value="<?php echo $msgstr["userid"]?>"
               </div>
 
               <div>
-                <input type="password" id="pwd"  name="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" id="pwd"  name="password" class="form-control" placeholder="<?php echo $msgstr["password"]?>" required="" />
               </div>
 
               <div>
@@ -154,16 +155,19 @@ else
                
               </div>
 
-             
-
+ 
                 <div class="clearfix"></div>
                 <br />
+
+
 
                 <div>
                   <h1><img src=central/images/logoabcd.png> <?php echo $institution_name; ?></h1>
                   <?php include ("$app_path/common/footer.php");?>
                 </div>
               </div>
+
+
             </form>
           </section>
         </div>
@@ -251,9 +255,9 @@ else
 			
 			<a href="javascript:Enviar()" class="btn btn-default"><?php echo $msgstr["entrar"]?></a>
 	
+<!--
 
-
-<!--		
+		
 			<label><?php echo $msgstr["lang"]?></label> <select name=lang class="textEntry singleTextEntry">
 <?php
 
@@ -278,7 +282,7 @@ else
 	}
 ?>
 			</select>
--->
+
 
 
 </form>

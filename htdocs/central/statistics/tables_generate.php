@@ -1,6 +1,6 @@
 <?php
 // ==================================================================================================
-// GENERA LOS CUADROS ESTADÍSTICOS
+// GENERA LOS CUADROS ESTADÃSTICOS
 // ==================================================================================================
 //
 
@@ -26,7 +26,7 @@ if (isset($arrHttp["encabezado"]))
 else
 	$encabezado="";
 
-// SE LEE EL MÁXIMO MFN DE LA BASE DE DATOS
+// SE LEE EL MÃXIMO MFN DE LA BASE DE DATOS
 $IsisScript=$xWxis."administrar.xis";
 $query = "&base=".$arrHttp["base"] . "&cipar=$db_path"."par/".$arrHttp["base"].".par&Opcion=status";
 include("../common/wxis_llamar.php");
@@ -42,7 +42,7 @@ foreach($contenido as $linea) {
 }
 
 
-//HEADER DEL LA PÁGINA HTML Y ARCHIVOS DE ESTIVO
+//HEADER DEL LA PÃGINA HTML Y ARCHIVOS DE ESTIVO
 include("../common/header.php");
 ?>
 <script language="javascript1.2" src="../dataentry/js/lr_trim.js"></script>
@@ -312,9 +312,10 @@ if (isset($arrHttp["encabezado"])){
   </div>
 <div id="collapse2" class="panel-collapse collapse">
  <div class="panel-body">
+
    <div class="col-md-6">
     <select class="form-control" name="rows" >
-    <option value=""><?php echo $msgstr["rows"]; ?></option>
+    <option value= <?php echo $msgstr["rows"]; ?></option>
 <?php
  	unset($fp);
 	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";

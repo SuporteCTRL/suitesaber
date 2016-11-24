@@ -886,9 +886,9 @@ if (isset($fp)){
 ?>
 
 	</table>
-	<a class="btn btn-default" href=javascript:Test()><?php echo $msgstr["test"]?></a>&nbsp; &nbsp; &nbsp; &nbsp;
-	<a class="btn btn-default" href=javascript:List()><?php echo $msgstr["list"]?></a>&nbsp; &nbsp; &nbsp; &nbsp;
-	<a class="btn btn-default" href=javascript:Validate()><?php echo $msgstr["validate"]?></a>&nbsp; &nbsp; &nbsp; &nbsp;
+	<a class="btn btn-default" href=javascript:Test()><?php echo $msgstr["test"]?></a>&nbsp; 
+	<a class="btn btn-default" href=javascript:List()><?php echo $msgstr["list"]?></a>&nbsp;
+	<a class="btn btn-default" href=javascript:Validate()><?php echo $msgstr["validate"]?></a>&nbsp;
 	<?php
 	if (!isset($arrHttp["moodle"]))
 		echo "<a class=\"btn btn-default\" href=javascript:Enviar()>". $msgstr["update"]."</a>";?>&nbsp; &nbsp; &nbsp; &nbsp;

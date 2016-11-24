@@ -16,32 +16,27 @@ if (isset($arrHttp["encabezado"])){
 }
 ?>
 <script>
-	function SendForm(wks){		check=""		for (i=0;i<document.validation.format.length;i++){			if (document.validation.format[i].checked)  check=document.validation.format[i].value		}
-		if (check==""){			alert("select one type of format")
-			return		}
+	function SendForm(wks){
+		check=""
+		for (i=0;i<document.validation.format.length;i++){
+			if (document.validation.format[i].checked)  check=document.validation.format[i].value
+		}
+		if (check==""){
+			alert("select one type of format")
+			return
+		}
 		document.forma1.format.value=check
 		document.forma1.wks.value=wks
 		document.forma1.submit()
-	}
+
+	}
 </script>
 <body>
 <div class="sectionInfo">
 	<div class="breadcrumb">
 <?php echo $msgstr["recval"].": ".$arrHttp["base"]?>
 	</div>
-	<div class="actions">
-<?php echo "<a href=\"menu_modificardb.php?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">";
-?>
-		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-		<span><strong><?php echo $msgstr["cancel"]?></strong></span></a>
-	</div>
-	<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/recval.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
- 	<a href=../documentacion/edit.php?archivo=<?php echo $_SESSION["lang"]?>/recval.html target=_blank><?php echo $msgstr["edhlp"]?></a>
-<?php echo "<font color=white>&nbsp; &nbsp; Script: typeofrecs.php" ?></font>
-	</div>
+	
 <div class="middle form">
 	<div class="formContent">
 <?php
@@ -53,13 +48,13 @@ if (file_exists($tr)) $fp=file($tr);
 ?>
 <div class="middle form">
 			<div class="formContent">
-<center>
+
 <form name=validation>
-<h3>
 <input type=radio name=format value=recval><?php echo $msgstr["recval"]?>&nbsp;
 <input type=radio name=format value=beginf><?php echo $msgstr["beginf"]?>&nbsp;
-<input type=radio name=format value=endf><?php echo $msgstr["endf"]?></h3>
-<h3>Record type</h3>
+<input type=radio name=format value=endf><?php echo $msgstr["endf"]?>
+
+<h4>Record type</h4>
 <table>
 <?php
 $ix=0;
@@ -68,9 +63,13 @@ $nr="";
 if (isset($fp)){
 	foreach($fp as $value){
 		$value=trim($value);
-		if ($value!=""){			if ($ix==0){				$ttm=explode(" ",$value);				$tl=trim($ttm[0]);
+		if ($value!=""){
+			if ($ix==0){
+				$ttm=explode(" ",$value);
+				$tl=trim($ttm[0]);
 				if (isset($ttm[1])) $nr=trim($ttm[1]);
-				$ix=1;			}else{
+				$ix=1;
+			}else{
 				$ttm=explode('|',$value);
 				echo "<tr><td><a href='javascript:SendForm(\"".urlencode($value)."\")'>".$ttm[3]."</a></td>\n";
 			}

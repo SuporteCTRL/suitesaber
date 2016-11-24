@@ -186,10 +186,7 @@ function EliminarFormato(){
 }
 
 </script>
-<body>
-<div id="loading">
-  <img id="loading-image" src="../dataentry/img/preloader.gif" alt="Loading..." />
-</div>
+
 <?php
 if (isset($arrHttp["encabezado"])){
 	include("../common/institutional_info.php");
@@ -203,13 +200,12 @@ if (isset($arrHttp["encabezado"])){
 
 			<div class="actions">
 <?php if ($arrHttp["Opcion"]=="new"){
-				echo "<a href=\"../common/inicio.php?reinicio=s\" class=\"defaultButton cancelButton\">";
+				
 	}else{
-		       echo "<a href=\"menu_modificardb.php?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">";
+		       
 	}
 ?>
-					<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["cancel"]?></strong></span>
+				
 				</a>
 			</div>
 			<div class="spacer">&#160;</div>
@@ -230,25 +226,16 @@ if (isset($arrHttp["encabezado"])){
 
 </script>
 
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/fmt.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/fmt.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: fmt.php";
-unset($fp);
-$archivo=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/"."formatos.wks";
-?></font>
-	</div>
+
 <div class="middle form">
 			<div class="formContent">
-<center>
+
 
 <table border=0 >
     <td valign=top>
     <?php echo $msgstr["selfmt"]?></td>
-    <td><select name=fmt>
-    <option value=""></option>
+    <td><select class="btn btn-default" name=fmt>
+    <option value=""> </option>
 <?php
 
 if (!file_exists($archivo)) $archivo = $db_path.$arrHttp["base"]."/def/".$lang_db."/"."formatos.wks";
@@ -256,7 +243,7 @@ if (file_exists($archivo)){
 	$fp=file($archivo);
 	if (isset($fp)) {
 		foreach($fp as $linea){
-			//echo "***$linea<br>";
+			//echo $linea<br>";
 			if (trim($linea)!="") {
 				$linea=trim($linea);
 				$l=explode('|',$linea);
@@ -271,7 +258,7 @@ if (file_exists($archivo)){
 	}
 }
 ?>
-    </select> <a href=javascript:EditarFormato()><?php echo $msgstr["edit"]?></a> | <a href=javascript:EliminarFormato()><?php echo $msgstr["delete"]?></a> | <a href=javascript:CopiarFormato()><?php echo $msgstr["saveas"]?></a>
+    </select> <a class="btn btn-default" href=javascript:EditarFormato()><?php echo $msgstr["edit"]?></a>  <a class="btn btn-default" href=javascript:EliminarFormato()><?php echo $msgstr["delete"]?></a>  <a class="btn btn-default" href=javascript:CopiarFormato()><?php echo $msgstr["saveas"]?></a>
     </td>
 
 </table>
@@ -309,16 +296,19 @@ if (file_exists($archivo)){
 ?>
 				</select>
 			</td>
-			<TD VALIGN=MIDDLE ALIGN=CENTER>
-				<A HREF="#" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"><img src=../dataentry/img/barArrowRight.png border=0></A><BR><BR>
-				<A HREF="#" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><img src=../dataentry/img/barArrowRight.png border=0><img src=../dataentry/img/barArrowRight.png border=0></A><BR><BR>
-				<A HREF="#" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><img src=../dataentry/img/barArrowLeft.png border=0><img src=../dataentry/img/barArrowLeft.png border=0></A><BR><BR>
-				<A HREF="#" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><img src=../dataentry/img/barArrowLeft.png border=0></A>
+			<td valign="MIDDLE" align="center">
+				<a class="btn btn-default" href="#" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+				<br><br>
+				<a class="btn btn-default" href="#" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+				<br><br>
+				<a  class="btn btn-default" href="#" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+				<br><br>
+				<a  class="btn btn-default" href="#" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+ 
 
-
-			</TD>
-			<TD>
-				<SELECT NAME="list21" MULTIPLE SIZE=20 style="width:350px" onDblClick="moveSelectedOptions(this.form['list21'],this.form['list11'],false)">
+			</td>
+			<td>
+				<select name="list21" multiple size="20" style="width:350px" onDblClick="moveSelectedOptions(this.form['list21'],this.form['list11'],false)">
 <?php  $t=array();
  	foreach ($tag_s as $linea){
 
@@ -333,22 +323,29 @@ if (file_exists($archivo)){
 		}
   	}
 ?>
-				</SELECT>
-			</TD>
-			<TD ALIGN="CENTER" VALIGN="MIDDLE">
-				<INPUT TYPE="button" VALUE="<?php echo $msgstr["up"]?>" onClick="moveOptionUp(this.form['list21'])">
-				<BR><BR>
-				<INPUT TYPE="button" VALUE="<?php echo $msgstr["down"]?>" onClick="moveOptionDown(this.form['list21'])">
-				<br><br><a href=javascript:Preview()><img src=../dataentry/img/preview.gif border=0 alt="preview"></a>
+				</select>
+			</td>
+			<td align="center" valign="middle">
+				<button value="<?php echo $msgstr['up']?>" onClick="moveOptionUp(this.form['list21'])"><i class="fa fa-chevron-up" aria-hidden="true"></i>
+                </button>
+                <button value="<?php echo $msgstr['down']?>" onClick="moveOptionDown(this.form['list21'])"><i class="fa fa-chevron-down" aria-hidden="true"></i>
+                </button>
+				
+				<br><br><a class="btn btn-default" href=javascript:Preview()><i class="fa fa-eye" aria-hidden="true"></i></a>
 				<br><br>
-			</TD>
+			</td>
 		</table>
 	</td>
-	<tr><td colspan=4><input type=checkbox name=link_fdt><?php echo $msgstr["link_fdt_msg"]?></td></tr>
+	<tr><td colspan=4><input type="checkbox" name="link_fdt"><?php echo $msgstr["link_fdt_msg"]?></td></tr>
 	<tr><td colspan=4><?php echo $msgstr["whendone"]?></td></tr>
 	<tr><td valign=top colspan=4 >
-		<?php echo $msgstr["name"]?>: <input type=text name=nombre size=8 maxlength=12> <?php echo $msgstr["description"]?>: <input type=text size=50 maxlength=50 name=descripcion> &nbsp;
-		<a href=javascript:GenerarFormato()><img src=../dataentry/img/barSave.png alt="save" border=0 align=absmiddle></a>
+		<label><?php echo $msgstr["name"];?></label>
+		 <input type="text" name="nombre"  size="8" maxlength="12"> 
+		 <br>
+		<label><?php echo $msgstr["description"];?></label>
+		 <input type="text " size="50" maxlength="50" name="descripcion"> 
+		<br>
+		<a class="btn btn-default" href=javascript:GenerarFormato()><i class="fa fa-check" aria-hidden="true"></i></a>
 		</td>
 </div>
 </table>
@@ -362,24 +359,24 @@ if (file_exists($archivo)){
 </table>
 </form>
 <form name=preview action=../dataentry/fmt_test.php target=test_fmt method=post>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=fmt>
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="fmt">
 </form>
 
-<form name=frmdelete action=fmt_delete.php method=post>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=path>
-<input type=hidden name=fmt>
+<form name="frmdelete" action="fmt_delete.php method=post">
+<input type="hidden" name="base value=<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="path">
+<input type="hidden" name="fmt">
 <?php if (isset($arrHttp["encabezado"]))
 	echo "<input type=hidden name=encabezado value=s>\n"?>
 </form>
 <form name=assignto action=fmt_update.php>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=path>
-<input type=hidden name=sel_oper>
-<input type=hidden name=fmt>
+<input type="hidden" name="base" value=<?php echo $arrHttp["base"]?>>
+<input type="hidden" name="path>"
+<input type="hidden" name="sel_oper>"
+<input type="hidden" name="fmt>"
 <?php if (isset($arrHttp["encabezado"]))
-	echo "<input type=hidden name=encabezado value=s>\n"?>
+	echo "<input type=hidden name=encabezado value=s>";?>
 </form>
 </center>
 </div>
