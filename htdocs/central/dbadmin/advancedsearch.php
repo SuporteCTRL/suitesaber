@@ -11,13 +11,16 @@ include("../lang/dbadmin.php");;
 
 //foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";
 
-if (isset($arrHttp["modulo"])){	switch ($arrHttp["modulo"]){		case "catalogacion":
+if (isset($arrHttp["modulo"])){
+	switch ($arrHttp["modulo"]){
+		case "catalogacion":
 			$file="camposbusqueda.tab";
 			break;
 		case "prestamo":
 			$file="busquedaprestamo.tab";
 			break;
-	}}
+	}
+}
 $archivo=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/".$file;
 if (!file_exists($archivo)) $archivo= $db_path.$arrHttp["base"]."/pfts/".$lang_db."/camposbusqueda.tab";
 if (file_exists($archivo)){
@@ -113,28 +116,19 @@ include("../common/header.php");
 if (isset($arrHttp["encabezado"])){
 	include("../common/institutional_info.php");
 	$encabezado="&encabezado=s";
-}else{	$encabezado="";}
+}else{
+	$encabezado="";
+}
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
 <?php echo $msgstr["advsearch"]." - ".$arrHttp["modulo"].": ".$arrHttp["base"]?>
 	</div>
 	<div class="actions">
-<?php echo "<a href=\"menu_modificardb.php?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">";
-?>
-<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-<span><strong><?php echo $msgstr["cancel"]?></strong></span>
-</a>
+
 </div>
-<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/asearch_schema.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/asearch_schema.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: advancedsearch.php";
-?>
+
+
 </font>
 	</div>
 <div class="middle form">
@@ -147,21 +141,21 @@ echo "<font color=white>&nbsp; &nbsp; Script: advancedsearch.php";
    		<table width=100%>
 	        <tr>
 			<td>
-				<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
-			&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
-				&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()">Remove Selected Row</a>
+				<a href="javascript:void(0)" class="btn btn-default" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
+			<a href="javascript:void(0)" class="btn btn-default" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
+				<a href="javascript:void(0)" class="btn btn-default" onclick="mygrid.deleteSelectedItem()">Remover linha selecionada</a>
 			<!--	&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick=Organize()>Organize FST</a><br> -->
 			</td>
 			<td></td>
 			<tr>
 				<td valign=top>
-					<div id="gridbox" width="300" height="400px" style="left:0;top:0;background-color:white;overflow:hidden"></div>
+					<div id="gridbox" width="300" height="400px" ></div>
 				</td>
 
 			</tr>
 			<tr>
 				<td>
-					&nbsp; &nbsp; <a href=javascript:Enviar()>Update</a>  &nbsp; &nbsp;
+					 <a class="btn btn-default" href=javascript:Enviar()>Atualizar <i class="fa fa-check" aria hidden="true"></i></a> 
 					<?php if (!isset($arrHttp["encabezado"]))
 						echo "<a href=menu_modificardb.php?base=".$arrHttp["base"].$msgstr["cancel"]."</a>\n";
 						?>
@@ -189,13 +183,15 @@ echo "<font color=white>&nbsp; &nbsp; Script: advancedsearch.php";
 	mygrid.enableMultiselect(true);
 
 	mygrid.init();
-	if (Opcion=="new")  {		for (i=0;i<30;i++){
+	if (Opcion=="new")  {
+		for (i=0;i<30;i++){
 			id=(new Date()).valueOf()
 			mygrid.addRow(id,['','',''],i)
         }
 
 	}else{
-<?php
+
+<?php
 	if ($arrHttp["Opcion"]=="update"){
 		$fp=file($archivo);
 		$i=-1;
@@ -208,7 +204,8 @@ echo "<font color=white>&nbsp; &nbsp; Script: advancedsearch.php";
 				id=(new Date()).valueOf()
 				mygrid.addRow(id,['".trim($t[0])."','".trim($t[1])."','".trim($t[2])."'],i)\n
 				mygrid.setRowTextStyle( id,\"font-family:courier new;font-size:12px;\")\n ";
-			}		}
+			}
+		}
    }
 ?> }
 /*

@@ -419,16 +419,18 @@ echo "</table></div>";
 echo "\n<table>\n";
 echo "<tr><td bgcolor=white>";
 echo $msgstr["testmfn"];
-echo "&nbsp; <input type=text size=5 name=Mfn> <a href=javascript:Test()>".$msgstr["test"]."</a>  &nbsp; &nbsp;";
-echo "</td><td colspan=3  bgcolor=white><img src=../dataentry/img/toolbarSave.png> &nbsp;";
+echo "<input type=text size=5 name=Mfn> 
+<a class=\"btn btn-default\" href=javascript:Test() value=".$msgstr["test"]."</a>";
+echo "</td><td colspan=3  bgcolor=white>";
 
-echo "<a href=javascript:Enviar()>".$msgstr["save"]."&nbsp;</a> ($pref".$arrHttp["base"]."$ext)  &nbsp; &nbsp ";
+echo "<a href=javascript:Enviar() class=\"btn btn-default\" value=".$msgstr["save"]."<i class=\"fa fa-check\" aria-hidden=\"true\"></a></i>";
+
 echo "<input type=hidden name=fn value=$pref".$arrHttp["base"]."$ext>";
 
 $tr=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/typeofrecord.tab";
 if (!file_exists($tr))  $tr=$db_path.$arrHttp["base"]."/def/".$lang_db."/typeofrecord.tab";
 if (file_exists($tr)){
-	echo "| &nbsp; &nbsp <img src=../dataentry/img/toolbarSave.png> &nbsp;";
+	echo "| &nbsp; &nbsp <i class=\"fa fa-check\" aria-hidden=\"true\"> &nbsp;";
 	echo $msgstr["saveas"].": ";
 
 	$fp=file($tr);
@@ -455,9 +457,9 @@ if (file_exists($tr)){
 		}
 	}
 	echo "</select>\n";
-	echo "<a href=javascript:SaveAs()>".$msgstr["save"]."</a>  &nbsp; &nbsp";
+	echo "<a class=\"btn btn-default\" href=javascript:SaveAs()>" .$msgstr["save"]."<i class=\"fa fa-check\" aria-hidden=\"true\"></i></a>  &nbsp; &nbsp";
 }
-if (isset($arrHttp["encabezado"])) echo "&nbsp; &nbsp; | &nbsp; &nbsp; <a href=typeofrecs.php?Opcion=update&base=".$arrHttp["base"]."$encabezado>".$msgstr["cancelar"]."</a>";
+if (isset($arrHttp["encabezado"])) echo "&nbsp; &nbsp; | &nbsp; &nbsp; <a  class=\"btn btn-default\" href=typeofrecs.php?Opcion=update&base=".$arrHttp["base"]."$encabezado>".$msgstr["cancelar"]."<i class=\"fa fa-times\" aria-hidden=\"true\"></i></a>";
 echo "</td></table>";
 echo "<input type=hidden name=ValorCapturado>";
 echo "</form>"

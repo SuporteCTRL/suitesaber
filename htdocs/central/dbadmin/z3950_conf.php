@@ -45,12 +45,14 @@ include("../common/header.php");
 function Edit(){
 	if  (document.forma1.cnv.selectedIndex<1){
 		alert('<?php echo $msgstr["selcnvtb"]?>')
-		return	}
+		return
+	}
 	document.enviar.action="z3950_conversion.php";
 	document.enviar.Table.value=document.forma1.cnv.options[document.forma1.cnv.selectedIndex].value
 	document.enviar.descr.value=document.forma1.cnv.options[document.forma1.cnv.selectedIndex].text
 	document.enviar.Opcion.value="edit"
-	document.enviar.submit()}
+	document.enviar.submit()
+}
 function Delete(){
 	if  (document.forma1.cnv.selectedIndex<1){
 		alert('<?php echo $msgstr["selcnvtb"]?>')
@@ -73,50 +75,33 @@ if (isset($arrHttp["encabezado"])){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-<?php echo $msgstr["z3950"]." (".$db.")" ?>
+<label><?php echo $msgstr["z3950"]." (".$db.")" ?></label>
 	</div>
-
-	<div class="actions">
-<?php
-	if ($encabezado!="") echo "<a href=../common/inicio.php?reinicio=s&base=$db class=\"defaultButton backButton\">";
-?>
-<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-<span><strong><?php echo $msgstr["back"]?></strong></span>
-</a>
-			</div>
-			<div class="spacer">&#160;</div>
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/z3950_conf.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/z3950_conf.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: z3950_conf.php </font>";
-?>
-	</div>
-<div class="middle form">
-	<div class="formContent">
-	<form name=forma1>
-	<table class=listTable><td>
-	<ul>
+
+
 	<li><a href=../dataentry/browse.php?base=servers&return=../dbadmin/z3950_conf.php|base=^a<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_servers"]?></a><br><br></li>
 	<li><?php echo $msgstr["z3950_cnv"]?>
 	<dd><a href=z3950_conversion.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["new"]?></a>
 <?php
-if (file_exists($db_path.$db."/def/z3950.cnv")){	echo  "&nbsp; | <a href=javascript:Edit()>".$msgstr["edit"]."</a> &nbsp; | <a href=javascript:Delete()>".$msgstr["delete"]."</a> &nbsp; ";
+if (file_exists($db_path.$db."/def/z3950.cnv")){
+	echo  "&nbsp; | <a href=javascript:Edit()>".$msgstr["edit"]."</a> &nbsp; | <a href=javascript:Delete()>".$msgstr["delete"]."</a> &nbsp; ";
 	$fp=file($db_path.$db."/def/z3950.cnv");
 	echo "<select name=cnv>
 	<option value=''>\n";
 	foreach ($fp as $var=>$value){
-		$o=explode('|',$value);		echo "<option value='".$o[0]."'>".$o[1]."\n";	}
-	echo "</select><br><br>";}
+		$o=explode('|',$value);
+		echo "<option value='".$o[0]."'>".$o[1]."\n";
+	}
+	echo "</select><br><br>";
+}
 ?>
 
 	<li><a href=z3950_diacritics_edit.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_diacritics"]?></a><br><br></li>
 	<li><a href=../dataentry/z3950.php?base=<?php echo $db.$encabezado?>&test=Y target=_blank><?php echo $msgstr["test"]?></a></li>
 	</ul>
 	</td>
-	</table>
+	
 	</form>
  	</div>
 </div>
