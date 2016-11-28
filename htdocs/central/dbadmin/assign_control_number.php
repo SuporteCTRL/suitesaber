@@ -77,8 +77,10 @@ if (!file_exists($archivo)){
 	$fp=fopen($archivo,"w");
 	$res=fwrite($fp,"");
 	fclose($fp);
-}else{	$fp=file($archivo);
-	$last_cn=implode("",$fp);}
+}else{
+	$fp=file($archivo);
+	$last_cn=implode("",$fp);
+}
 
 include("../common/header.php");
 ?>
@@ -128,7 +130,8 @@ function EnviarForma(vp){
 </script>
 <body>
 <?php
-if (isset($arrHttp["encabezado"])){	include("../common/institutional_info.php");
+if (isset($arrHttp["encabezado"])){
+	include("../common/institutional_info.php");
 	$encabezado="&encabezado=s";
 }
 ?>
@@ -138,32 +141,12 @@ if (isset($arrHttp["encabezado"])){	include("../common/institutional_info.php")
 	</div>
 
 	<div class="actions">
-<?php
-	$ayuda="control_number.html";
-	$arrHttp["encabezado"]="s";
-	if (isset($arrHttp["encabezado"])){		if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_MODIFYDEF"])  or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_MODIFYDEF"])   or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"])){
-			echo "<a href=\"menu_mantenimiento.php?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">
-			<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-		<span><strong>".$msgstr["cancel"]."</strong></span></a>
-			";
-		}else{			echo "<a href=\"../common/inicio.php?reinicio=s&base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">
-			<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-		<span><strong>".$msgstr["cancel"]."</strong></span></a>
-			";		}
-	}
-?>
 
 </div>
 
-<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/<?php echo $ayuda?> target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/".$ayuda." target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: assign_control_number.php";
-?>
+
+
+
 </font>
 	</div>
 <form name=forma1 method=post action=assign_control_number_ex.php onsubmit="Javascript:return false">
@@ -179,14 +162,18 @@ echo "<font color=white>&nbsp; &nbsp; Script: assign_control_number.php";
 	<tr>
 		<td colspan=2 align=center height=1 bgcolor=#eeeeee><?php echo $msgstr["r_recsel"]?></td>
 	<tr>
-		<td  align=center colspan=2><strong><?php echo $msgstr["r_mfnr"]?></strong>: &nbsp; &nbsp; &nbsp;
+		<td  align=center colspan=2><label><?php echo $msgstr["r_mfnr"]?></label>: 
 		<?php echo $msgstr["r_desde"].": <input type=text name=Mfn size=10 value=";
 		if (isset($arrHttp["to"]))
 			echo $arrHttp["to"];
 		else
 			echo "1";
-		echo ">&nbsp; &nbsp; &nbsp; &nbsp;";
-		echo $msgstr["r_hasta"].": <input type=text name=to size=10 value=";
+		echo ">";
+		?>
+		<label><?php echo $msgstr["r_hasta"]?></label>
+
+		<input value="
+		<?php 
 		if (isset($arrHttp["to"])){
 			$count=$arrHttp["to"]-$arrHttp["from"]-1;
 			$count= $arrHttp["to"]+$count-1;
@@ -195,15 +182,16 @@ echo "<font color=white>&nbsp; &nbsp; Script: assign_control_number.php";
 			else
 				echo $count;
 		}
-		echo ">";
-		echo $msgstr["maxmfn"].": ".$tag["MAXMFN"]
-		?>
-		&nbsp; &nbsp; &nbsp; <a href=javascript:BorrarRango() class=boton><?php echo $msgstr["borrar"]?></a>
+	
+		?>" type="text" name="to" class="form-control">
+		<hl><?php echo  $msgstr["maxmfn"]. " " .$tag["MAXMFN"];?></hl>
+
+		 <a href="javascript:BorrarRango()" class="btn btn-default"><?php echo $msgstr["borrar"]?></a>
 	</td>
 	<tr>
 		<td colspan=2 align=center>
 		<?php
-		echo "Last control number: ".$last_cn." <a href=Javascript:Reset()>".$msgstr["resetcn"]."</a>";?><p><input type=submit name=enviar value="<?php echo $msgstr["send"]?>" onClick=javascript:EnviarForma()></td>
+		echo "Last control number: ".$last_cn." <a href=Javascript:Reset ()>".$msgstr["resetcn"]."</a>";?><p><input class="btn btn-default" type=submit name=enviar value="<?php echo $msgstr["send"]?>" onClick=javascript:EnviarForma()></td>
 </table>
 </form>
 </center>
@@ -214,7 +202,8 @@ echo "<font color=white>&nbsp; &nbsp; Script: assign_control_number.php";
 <input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
 <input type=hidden name=encabezado value=s>
 </form>
-<script>function Reset(){	document.reset_nc.submit()
+<script>function Reset(){
+	document.reset_nc.submit()
 }
 </script>
 <?php

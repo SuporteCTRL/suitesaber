@@ -641,25 +641,25 @@ structure from the server to the client computer , can be opened or saved.
     if ($ERROR_FUNCTION == true) {
         PAGE_HEADER("FILE MANAGER - DIRTREEVIEW", "DOWNLOAD FILE", "ORANGE", "BLACK");
         ?>
-        <Table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 class=td>
-            <Tr>
-                <Td VALIGN=top ALIGN=left>
+        <table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 class=td>
+            <tr>
+                <td VALIGN=top ALIGN=left>
                     <Center>
                     <Font face=tahoma>
                     <h3>FileName:
         <?php
-        Echo $CURRENT_FILE . "</h3>";
+        echo $CURRENT_FILE . "</h3>";
         ?>
-                </Td>
-            </Tr>
-            <Tr>
-                <Td>
+                </td>
+            </tr>
+            <tr>
+                <td>
                 <form NAME="downloadfile1" METHOD="post" ENCTYPE="multipart/form-data" ACTION="<?= $_SERVER['PHP_SELF'];?>">
-                    <Table ALIGN=center border=0 class=td>
-                        <Tr>
-                            <input TYPE="hidden" NAME="FILE_EXTENSION" VALUE="<?= $_SESSION['File_Extension'];?>">
-                            <input TYPE="hidden" NAME="NODE" VALUE="<?= $NODE;?>">
-                            <input TYPE="hidden" NAME="ACTION" VALUE="">
+                    <table ALIGN=center border=0 class=td>
+                        <tr>
+                            <input type="hidden" name="FILE_EXTENSION" value="<?= $_SESSION['File_Extension'];?>">
+                            <input type="hidden" name="NODE" value="<?= $NODE;?>">
+                            <input type="hidden" name="ACTION" value="">
         <?php if ($ERROR_FUNCTION) {
             ECHO $ERROR_TEXT;
         ?>

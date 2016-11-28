@@ -1227,7 +1227,7 @@ ul.msg_list li a .message {
   margin-top: 0;
   border: 1px solid #D9DEE4;
   -webkit-box-shadow: none;
-  right: 0;
+ /* right: 0;*/
   left: auto;
   }
 

@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 if (!isset($_SESSION["permiso"])){
 	header("Location: ../common/error_page.php") ;
@@ -48,7 +48,8 @@ global $db_path;
         return  false;
     while($file  =  readdir($dir_handle))  {
 
-        if  ($file  !=  "."  &&  $file  !=  "..")  {
+        if  ($file  !=  "."  &&  $file  !=  "..")  {
+
         	echo "file: ".$file."<br>";
             if  (!is_dir($dirname."/".$file))
                 unlink($dirname ."/".$file);
@@ -95,20 +96,7 @@ if (isset($arrHttp["encabezado"])){
 				<?php echo "<h5>".$msgstr["mnt_ebd"]." " .$msgstr["database"].": ".$arrHttp["base"]."</h5>"?>
 			</div>
 
-			<div class="actions">
-<?php
-	if (!isset($arrHttp["eliminar"]))
-    	echo "<a href=\"menu_mantenimiento.php?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
-	else
-		echo "<a href=\"../common/inicio.php?reinicio=s\" class=\"defaultButton backButton\">";
-
-?>
-					<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["back"]?></strong></span>
-				</a>
-			</div>
-			<div class="spacer">&#160;</div>
-</div>
+		
 <?php }?>
 <div class="helper">
 	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/menu_mantenimiento.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
@@ -127,11 +115,13 @@ echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/eliminarbd.php";
 <?php
 if  (!is_dir($db_path.$arrHttp["base"])) {
     	echo "<p><h5>".$arrHttp["base"]."<br>Database does not exist</h5>";
-    	if (!isset($arrHttp["encabezado"])){    		if (!isset($arrHttp["eliminar"]))
+    	if (!isset($arrHttp["encabezado"])){
+    		if (!isset($arrHttp["eliminar"]))
     			echo " <p><center><a href=menu_mantenimiento.php?base=".$arrHttp["base"]."$encabezado>". $msgstr["back"]."</a>";
     		else
     			echo " <p><center><a href=.php?base=".$arrHttp["base"]."$encabezado>". $msgstr["back"]."</a>";
-    	}
+
+    	}
         echo "
 		</div>
 		</div>
@@ -179,8 +169,12 @@ if (isset($arrHttp["eliminar"])){
 			if (!isset($arrHttp["encabezado"])) echo "<script>EliminarListaBases('".$arrHttp["base"]. "')</script>";
 		}
 	}
-}else{	if (isset($arrHttp["encabezado"])) {		$url="../common/inicio.php?reiniciar=s";
-	}else{		$url="index.php";	}
+}else{
+	if (isset($arrHttp["encabezado"])) {
+		$url="../common/inicio.php?reiniciar=s";
+	}else{
+		$url="index.php";
+	}
 	if ($protected=="N"){
 		echo "<script>
 				if (confirm(\"".$msgstr["mnt_ebd"]." ".$arrHttp["base"]." ??\")==true){

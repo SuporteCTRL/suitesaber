@@ -13,7 +13,8 @@ $lang=$_SESSION["lang"];
 
 function Ejecutar($db,$action,$db_path){
 	$filename=$db_path.$db."/protect_status.def";
-	switch($action){		case "protect_db":
+	switch($action){
+		case "protect_db":
 			if (!$handle = fopen($filename, 'w')) {
 	         	echo "Cannot open file ($filename)";
 	         	return -1;
@@ -35,7 +36,8 @@ function Ejecutar($db,$action,$db_path){
    				$res=unlink($filename);
    			}
    			return 0 ;
-            break;	}
+            break;
+	}
 
 
 
@@ -52,11 +54,17 @@ function Ejecutar($db,$action,$db_path){
 include("../common/header.php");
 ?>
 <script>
-function EnviarForma(){	seleccion=""	for(ix=0;ix<document.protect.action.length;ix++){		if (document.protect.action[ix].checked)
+function EnviarForma(){
+	seleccion=""
+	for(ix=0;ix<document.protect.action.length;ix++){
+		if (document.protect.action[ix].checked)
 			seleccion="Y"
 	}
-	if (seleccion==""){		return	}
-	document.protect.submit()}
+	if (seleccion==""){
+		return
+	}
+	document.protect.submit()
+}
 </script>
 <?php
 echo "<body>\n";
@@ -65,22 +73,10 @@ include("../common/institutional_info.php");
 <div class="sectionInfo">
 
 			<div class="breadcrumb">
-				<?php echo "<h5>".$msgstr["protect_db"]." " .$msgstr["database"].": ".$arrHttp["base"]."</h5>"?>
+				<?php echo "<h4>".$msgstr["protect_db"]." " .$msgstr["database"].": ".$arrHttp["base"]."</h4>"?>
 			</div>
 
-			<div class="actions">
-<?php
-	if (!isset($arrHttp["eliminar"]))
-    	echo "<a href=\"menu_mantenimiento.php?base=".$arrHttp["base"]."&encabezado=S\" class=\"defaultButton backButton\">";
-	else
-		echo "<a href=\"../common/inicio.php?reinicio=s\" class=\"defaultButton backButton\">";
-
-?>
-					<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["back"]?></strong></span>
-				</a>
-			</div>
-			<div class="spacer">&#160;</div>
+			
 </div>
 <?php
 echo "<div class=helper>
@@ -90,22 +86,29 @@ echo "<div class=helper>
 			<div class=\"formContent\">
 
 ";
-if (!isset($_SESSION["permiso"]["CENTRAL_ALL"])){	echo "<h4>".$msgstr["invalidright"]."</h4>";}else{
-	if (!isset($arrHttp["action"])){		echo "<form name=protect onsubmit='return false'><table align=center class=listTable>";
+if (!isset($_SESSION["permiso"]["CENTRAL_ALL"])){
+	echo "<h4>".$msgstr["invalidright"]."</h4>";
+}else{
+	if (!isset($arrHttp["action"])){
+		echo "<form name=protect onsubmit='return false'><table align=center class=listTable>";
 		echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";
-		echo "<tr><td><input type=radio name=action value=protect_db>".$msgstr["protect_db"]."</td></tr>\n";
-		echo "<tr><td><input type=radio name=action value=unprotect_db>".$msgstr["unprotect_db"]."</td></tr>\n";
-		echo "<tr><td><input type=submit name=send value=".$msgstr["send"]." onclick=EnviarForma()></td></tr>\n";
-		echo "</table></form>";
-	}else{		$res=Ejecutar($arrHttp["base"],$arrHttp["action"],$db_path);
+		echo "<ul><input type=radio name=action value=protect_db>".$msgstr["protect_db"]."</ul>\n";
+		echo "<ul><input type=radio name=action value=unprotect_db>".$msgstr["unprotect_db"]."</ul>\n";
+		echo "<ul><input class=\"btn btn-default\" type=submit name=send value=".$msgstr["send"]." onclick=EnviarForma()></ul>\n";
+		
+	}else{
+		$res=Ejecutar($arrHttp["base"],$arrHttp["action"],$db_path);
 		echo "<h4>".$arrHttp["base"].": ".$msgstr[$arrHttp["action"]];
-		switch ($res){			case 0:
+		switch ($res){
+			case 0:
 				echo " OK";
 				break;
-			case -1:		       echo " FAILED!!!";
+			case -1:
+		       echo " FAILED!!!";
 		       break;
 		}
-	    echo "</h4>";	}
+	    echo "</h4>";
+	}
 }
 echo "</div>
 </div>

@@ -26,23 +26,9 @@ echo "<div class=\"sectionInfo\">
 			<div class=\"breadcrumb\">Create duplicate copies report: " . $base_ant."
 			</div>
 			<div class=\"actions\">";
-if (isset($arrHttp["encabezado"])){
-echo "<a href=\"menu_mantenimiento.php?base=".$base_ant."&encabezado=s\" class=\"defaultButton backButton\">";
-echo "<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-	<span><strong>". $msgstr["back"]."</strong></span></a>";
-}
-echo "</div>
-	<div class=\"spacer\">&#160;</div>
-	</div>";
+
 ?>
-<div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/menu_mantenimiento_copiesdupreport.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
- 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/menu_mantenimiento_copiesdupreport.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: copiesdupreport.php</font>";
-?>
-</div>	
+
 <script type="text/JavaScript" language="javascript">
 function Save(file)
 {
@@ -58,7 +44,7 @@ window.open('download.php?file='+file,'_self');
 echo "<p>".$msgstr["CPdupreport_mx_text"]."</p>";   
 echo " <input type=\"hidden\" value=\"$base_ant\" name=\"base\"/>";
 if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";
-echo "<h3>Report<p>";
+echo "<h4>Report<p>";
 $mx=$converter_path." ".$db_path."copies/data/copies \"pft=if npost(['".$db_path."copies/data/copies'],'IN_'v30)>1 then v1,'+-+',v10,'+-+',v30,'+~+',/ fi\" now";
 exec($mx,$outmx,$banderamx);
 $textoutmx="";
