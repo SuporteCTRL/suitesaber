@@ -39,7 +39,7 @@
  $_SESSION arrays, the perfomance slow down when the number of nodes in the
  directory treeview grows up - is acceptable up to 3.000 nodes (files)
  The purpose is to manage a SUBDIR of a user, a project, a sharing zone, etc,
-                  !!!!!! NOT THE FULL HARD DISK  ¡¡¡¡¡¡¡¡
+                  !!!!!! NOT THE FULL HARD DISK  Â¡Â¡Â¡Â¡Â¡Â¡Â¡Â¡
  The LOGIN function is not professional, you must change it to accomodate to
  your data base of users
  =============================================================================
@@ -410,7 +410,7 @@ the second phase.
 
             </td>
         </tr>
-            <tr><td><h3>Maximo tamaño de fichero=<?= $_SESSION['Size_Bytes'];?></h3></td></tr>
+            <tr><td><h3>Maximo tamaÃ±o de fichero=<?= $_SESSION['Size_Bytes'];?></h3></td></tr>
         <tr>
             <td>
             
@@ -663,17 +663,17 @@ structure from the server to the client computer , can be opened or saved.
         <?php if ($ERROR_FUNCTION) {
             ECHO $ERROR_TEXT;
         ?>
-                        </Tr>
-                        <TR>
-                            <Td><Center><input TYPE="Submit" NAME="downloadfileform3b" VALUE="   Accept   "></Td>
+                        </tr>
+                        <tr>
+                            <td><center><input type="Submit" name="downloadfileform3b" value="   Accept   "></Td>
         <?php }
         ?>
-                        </Tr>
-                    </Table>
+                        </tr>
+                    </table>
                 </form>
-                </Td>
-            </Tr>
-        </Table>
+                </td>
+            </tr>
+        </table>
         <?php
         PAGE_FOOTER("ORANGE", "BLACK");
     }
@@ -765,7 +765,7 @@ Set nothing is like no filter as "*.*".
             <Td VALIGN=top ALIGN=left>
                 <Center>
                 <Font face=tahoma>
-                <H2> ! IMPORTANT ¡</H2>
+                <H2> ! IMPORTANT Â¡</H2>
                 <h3> Every Extension must be separated by an asterisc(*) and dot(.) at the begining and a comma(,) at the end. </h3>
                 <h3> The special characters (*) and (?) are not evaluated.</h3>
                 <h3> Set Sample for image filter: *.gif,*.jpg,*.jpeg,*.tiff,</h3>
@@ -1217,7 +1217,7 @@ to refresh the tree when the process is finished.
             <td VALIGN=top ALIGN=left>
                 <Center>
                 <Font face=tahoma>
-                <H2> ! IMPORTANT ¡</H2>
+                <H2> ! IMPORTANT Â¡</H2>
                 <h3> Dir function REMOVE DIRECTORY has been executed </h3>
                 <h3> Click on the CONTINUE button to REFRESH the DIRECTORY TREEVIEW.</h3>
                 </Font>
@@ -1949,7 +1949,7 @@ smtp server something like "smtp.your_ip_server.com"
                 $headers .= "X-Priority: ";
                 $headers .= $prioridad;
                 $headers .= "\n";
-                $headers .=  return-Path: <";
+                $headers .= " return-Path: <";
                 $headers .= $_POST['target_email'];
                 $headers .= ">\n";
                 $headers .= "This is a multi-part message in MIME format.\n";
@@ -2854,21 +2854,21 @@ This function write the data in the column filedate of the dirtreeview table.
         $FGC = "RED";
     }
     ?>
-        <Td BGCOLOR="<?=$BGC;?>">&nbsp</Td>
-        <Td BGCOLOR="<?=$BGC;?>" ALIGN="right" VALIGN="top"><Font COLOR="<?=$FGC;?>">
+        <td bgcolor="<?=$BGC;?>">&nbsp</Td>
+        <td bgcolor="<?=$BGC;?>" align="right" valign="top"><font color="<?=$FGC;?>">
    <?php
     if ($NODE != 0 ) {
         //file date
        if (is_long($_SESSION['File_Date'][$NODE]))
 	   	echo (DATE("d/m/y H:i", $_SESSION['File_Date'][$NODE])) ;
     } else {
-        Echo "&nbsp";
+        echo "&nbsp";
     }
     ?>
-        </Td>
-        <Td BGCOLOR="<?=$BGC;
+        </td>
+        <td bgcolor="<?=$BGC;
     ?>">&nbsp</Td>
-   </Tr>
+   </tr>
    <?php
 } //end function
 
@@ -2883,11 +2883,11 @@ This function write the data in the footer of the dirtreeview table.
         $FGC = "WHITE";
     }
     ?>
-        <Tr BGCOLOR="<?=$BGC;?>" ALIGN="center" VALIGN="top">
-            <Td COLSPAN="14"><B><I><Font COLOR="<?=$FGC;?>">This page has been created in <?= NUMBER_FORMAT($_SESSION['Total_Time'], 2, ',', '.');?> seconds</Td>
-        </Tr>
-    </Table>
-    <Br>
+        <tr bgcolor="<?=$BGC;?>" align="center" valign="top">
+            <td colspan="14"><b><i><font color="<?=$FGC;?>">This page has been created in <?= NUMBER_FORMAT($_SESSION['Total_Time'], 2, ',', '.');?> seconds</td>
+        </tr>
+    </table>
+    <br>
     <?php
 } //end function
 
@@ -2909,8 +2909,8 @@ This function write the data in the footer of any web html page.
 	echo "</div></div>\n";
 	if (isset($arrHttp["encabezado"])) include("../common/footer.php");
 	echo "
-    </Body>
-</Html>";
+    </body>
+</html>";
 } //end function
 
 Function LOGIN($TEXTO) {
@@ -2919,32 +2919,32 @@ This function build the form to capture the data for the user access.
 */
     PAGE_HEADER("DIRTREEVIEW", "LOGIN ACCESS PROCESS", "#006699", "WHITE");
     ?>
-   <Table widht="100%" border="0" CELLPADDING="0" CELLSPACING="0" bgcolor="olive" class=td>
-        <Tr>
-            <Td VALIGN="top" ALIGN="left">
-                <Center>
-                <Font face="tahoma">
+   <table widht="100%" border="0" cellpading="0" cellspacing="0" bgcolor="olive" class=td>
+        <tr>
+            <td valign="top" align="left">
+                <center>
+                <font face="tahoma">
                 <h3><?= $TEXTO ?></h3>
-                <Form METHOD="post" ACTION="<?= $_SERVER['PHP_SELF'];?>">
-                    <Table ALIGN="center" border="0" class=td>
-                        <Tr>
-                            <Td align="left" VALIGN="baseline"><h3>Username :</h3></Td>
-                            <Td align="left" VALIGN="top"><input TYPE="text" NAME="username" SIZE="50" VALUE=""></Td>
-                        </Tr>
-                         <Tr>
-                            <Td align="left" VALIGN="baseline"><h3>Password :</h3></Td>
-                            <Td align="left" VALIGN="top"><input TYPE="password" NAME="password" SIZE="50" VALUE=""></Td>
-                        </Tr>
-                        <Tr>
-                            <td></td><Td><Center><input TYPE="Submit" NAME="login" VALUE="   LOGIN  "></center></Td>
-                        </Tr>
-                    </Table>
-                </Form>
-                </FONT>
-                </CENTER>
-            </Td>
-        </Tr>
-   </Table>
+                <form method="post" action="<?= $_SERVER['PHP_SELF'];?>">
+                    <table align="center" border="0" class=td>
+                        <tr>
+                            <td align="left" valign="baseline"><h3>Username :</h3></Td>
+                            <td align="left" valign="top"><input type="text" name="username" size="50" value=""></Td>
+                        </tr>
+                         <tr>
+                            <td align="left" valign="baseline"><h3>Password :</h3></Td>
+                            <td align="left" valign="top"><input type="password" name="password" size="50" value=""></Td>
+                        </tr>
+                        <tr>
+                            <td></td><td><Center><input type="Submit" name="login" value="   LOGIN  "></center></td>
+                        </tr>
+                    </table>
+                </form>
+                </font>
+                </center>
+            </td>
+        </tr>
+   </table>
    <?php
     PAGE_FOOTER("#006699", "WHITE");
     exit;
@@ -2956,25 +2956,25 @@ This function build the form to logout of the session "autentified".
 
     PAGE_HEADER("LOGOUT - DIRTREEVIEW", "START A NEW SESSION", "", "");
     ?>
-   <Table widht="100%" border="0" CELLPADDING="0" CELLSPACING="0" class=td>
-        <Tr>
-            <Td VALIGN="top" ALIGN="left">
-                <Center>
-                <Font face="tahoma">
-                <H2> ! IMPORTANT ¡</H2>
+   <table widht="100%" border="0" cellpadign="0" cellspacing="0" class=td>
+        <tr>
+            <td valign="top" align="left">
+                
+                <font face="tahoma">
+                <h2> ! IMPORTANT Â¡</h2>
                 <h3> The current session has been Cancelled </h3>
                 <h3> Click on the LOGOUT button to CONTINUE and start a new session.</h3>
-                <Form NAME="LOGOUT" METHOD="post" ENCTYPE="multipart/form-data" ACTION="<?= $_SERVER['PHP_SELF'];?>">
+                <form name="LOGOUT" method="post" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'];?>">
                 <?php //SESSION_DESTROY();?>
-                    <Table ALIGN="center" border="0" class=td>
-                         <Tr></Tr>
-                        <Tr>
-                             <Td><input TYPE="Submit" NAME="LOGOUT" VALUE="    LOGOUT   "></Td>
-                        </Tr>
-                    </Table>
-                </Form>
-                </Font>
-                </CENTER>
+                    <table align="center" border="0" class=td>
+                         <tr></tr>
+                        <tr>
+                             <td><input type="Submit" name="LOGOUT" value="    LOGOUT   "></td>
+                        </tr>
+                    </table>
+                </form>
+                </font>
+                
             </Td>
         </Tr>
    </Table>
@@ -3340,4 +3340,4 @@ $ENDTIME = $MTIME;
 $_SESSION['Total_Time'] = ($ENDTIME - $STARTTIME);
 TABLEDIR_FOOTER("black", "yellow"); //table below the treeview
 PAGE_FOOTER("", ""); //finish the web page
-?>
+};?>

@@ -267,7 +267,7 @@ echo '<div id="volume" style="display:none"></div>';
 <td width="202" align="right"><label>Use the system types
       <input name="radiobutton" type="radio" value="systype" <?php if ($_POST["radiobutton"]=="systype") echo 'checked="checked"'; else if (!$_POST["submit"]) echo 'checked="checked"'; ?> onchange="ChangeOption(1)"/>
       </label></td>
-<td width="22" align="center">&nbsp;</td>
+
 <td width="187"align="left"><div id="systype" style="display:<?php if ($_POST["radiobutton"]=="systype") echo "block"; else if (!$_POST["submit"]) echo "block"; else echo "none"; ?>">
 	    <label>Type of object
 <select name="type" id="type">

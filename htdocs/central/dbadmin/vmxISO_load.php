@@ -14,27 +14,11 @@ include("../common/header.php");
 
 $base=$arrHttp["base"];
 
-include("../common/institutional_info.php");
-	$encabezado="&encabezado=s";
-echo "<div style='float:right;'> <a href=\"menu_mantenimiento.php?base=".$base."&encabezado=s\" class=\"defaultButton backButton\">";
-echo "<img 'src=\"../dataentry/images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong> back </strong></span>
-				</a></div>";
-echo "<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">Import ISO: " . $base."
-			</div>
-			<div class=\"actions\">";
-echo "</div>
-	<div class=\"spacer\">&#160;</div>
-	</div>";
+
+
+
 ?>
-<div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/menu_mantenimiento_vmxISO_load.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
- 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/menu_mantenimiento_vmxISO_load.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: vmxISO_load.php</font>";
-?>
+
 </div>
 <div class="middle form">
 <form action="" method="post" enctype="multipart/form-data">
@@ -54,7 +38,7 @@ echo "<font color=white>&nbsp; &nbsp; Script: vmxISO_load.php</font>";
 
   echo " <input type=\"hidden\" value=\"$base\" name=\"base\"/>";
   ?>
-  <input type="submit" value="Send"/>
+  <input class="btn btn-default" type="submit" value="Send"/>
   </form>
 
 <?php
@@ -96,7 +80,8 @@ else
         echo '<br/>The file: ' . $nombre. " already exists";
       }
 	  else
-	  {	  if (isset($arrHttp["tolinux"]) and $arrHttp["tolinux"]=="Y"){
+	  {
+	  if (isset($arrHttp["tolinux"]) and $arrHttp["tolinux"]=="Y"){
 	  	exec("tr -d \"\\015\" < ".$nombre_tmp." > ". $db_path."wrk/" . $nombre);
 	  }else{
    		move_uploaded_file($nombre_tmp,$db_path."wrk/" . $nombre);

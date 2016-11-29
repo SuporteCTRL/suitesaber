@@ -31,10 +31,14 @@ function Explorar(){
     msgwin.focus()
 }
 function EnviarForma(){
-	if (Trim(document.upload.storein.value)==""){		alert("<?php echo $msgstr["falta"]." ".$msgstr["folder_name"]?>")
-		return	}
-	if (Trim(document.upload.copyname.value)==""){		alert("<?php echo $msgstr["falta"]." ".$msgstr["cp_name"]?>")
-		return	}
+	if (Trim(document.upload.storein.value)==""){
+		alert("<?php echo $msgstr["falta"]." ".$msgstr["folder_name"]?>")
+		return
+	}
+	if (Trim(document.upload.copyname.value)==""){
+		alert("<?php echo $msgstr["falta"]." ".$msgstr["cp_name"]?>")
+		return
+	}
 	dbn=Trim(document.upload.copyname.value)
 	var alphaExp = /^[a-zA-Z_0123456789-]+$/;
     if(dbn.match(alphaExp)){
@@ -47,9 +51,12 @@ function EnviarForma(){
    	document.upload.submit()
 }
 
-function Limpiar(){	fld=Trim(document.upload.storein.value)
-	if (fld.substr(0,1)=="/"){		fld=fld.substring(1)
-		document.upload.storein.value=fld	}
+function Limpiar(){
+	fld=Trim(document.upload.storein.value)
+	if (fld.substr(0,1)=="/"){
+		fld=fld.substring(1)
+		document.upload.storein.value=fld
+	}
 }
 </script>
 </head>
@@ -58,40 +65,26 @@ function Limpiar(){	fld=Trim(document.upload.storein.value)
 	<div class="breadcrumb">
 <?php echo $msgstr["exportiso_mx"].": ".$arrHttp["base"]?>
 	</div>
-	<div class="actions">
-<?php echo "<a href=\"../dbadmin/menu_mantenimiento.php?base=".$arrHttp["base"]."\"  class=\"defaultButton backButton\">";
-?>
-		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-		<span><strong><?php echo $msgstr["regresar"]?></strong></span></a>
-	</div>
-	<div class="spacer">&#160;</div>
-</div>
+	
 <?php
 echo "
-	<div class=\"helper\">
-	<a href=../documentacion/ayuda.php?help=". $_SESSION["lang"]."/export_import.html target=_blank>".$msgstr["help"]."</a>&nbsp &nbsp";
-	if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-		echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/export_import.html target=_blank>".$msgstr["edhlp"]."</a>";
-	echo " &nbsp; &nbsp; <a href='http://abcdwiki.net/wiki/es/index.php?title=Exportar-Importar' target=_blank>AbcdWiki</a>";
-	echo "<font color=white>&nbsp; &nbsp; Script: utilities/iso_export.php</font>";
-
-	echo "
+	
 
 	</div>
 	 <div class=\"middle form\">
 			<div class=\"formContent\">
 	";
 ?>
-<p>
+
 <?php echo $msgstr["exportiso_mx"].": ".$arrHttp["base"]?>
 <form name=upload method=post action=iso_export_ex.php onsubmit="EnviarForma();return false;">
 <table cellpadding=10><tr><td>
 <?php echo $msgstr["export_folder"];?></td><td>
-<input type=text name=storein size=30 onclick=javascript:blur()> <a href=javascript:Explorar()><?php echo $msgstr["explore"]?></a><br>
+<input type=text name=storein size=30 onclick=javascript:blur()> <a class="btn btn-default" href=javascript:Explorar()><?php echo $msgstr["explore"]?></a><br>
 <tr><td><?php echo $msgstr["iso_name"];?></td><td><input type=text name=isoname></td>
 </table>
 <input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<p><input type=submit value=<?php echo $msgstr["procesar"]?>>
+<p><input type=submit class="btn btn-default" value=<?php echo $msgstr["procesar"]?>>
 </form>
 </div>
 </div>

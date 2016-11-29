@@ -18,26 +18,16 @@ $converter_path=$cisis_path;
 
 include("../common/institutional_info.php");
 	$encabezado="&encabezado=s";
-echo "<div style='float:right;'> <a href=\"menu_mantenimiento.php?base=".$base."&encabezado=s\" class=\"defaultButton backButton\">";
-echo "<img 'src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong> back </strong></span>
-				</a></div>";
+
 echo "<div class=\"sectionInfo\">
 			<div class=\"breadcrumb\">Import ISO: " . $base."
 			</div>
 			<div class=\"actions\">";
 echo "</div>
-	<div class=\"spacer\">&#160;</div>
+	
 	</div>";
 ?>
-<div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/menu_mantenimiento_vmxISO_load.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
- 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/menu_mantenimiento_vmxISO_load.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: vmxISO_import.php</font>";
-?>
-</div>
+
 <div class="middle form">
 <form action="" method="post" enctype="multipart/form-data">
  <br> <label for="archivo">Choose File:</label>

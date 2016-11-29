@@ -21,10 +21,7 @@ if (isset($arrHttp["encabezado"])) {
 }
 
 
-echo "<div style='float:right;'> <a href=\"../dbadmin/menu_mantenimiento.php?base=".$base."&encabezado=s\" class=\"defaultButton backButton\">";
-echo "<img 'src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong> back </strong></span>
-				</a></div>";
+
 
 
 $OS=strtoupper(PHP_OS);
@@ -64,14 +61,7 @@ echo "</div>
 	</div>";
 
 ?>
-<div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/menu_mantenimiento_barcode.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
- 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/menu_mantenimiento_barcode.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: barcode.php</font>";
-?>
-</div>
+
 <div class="middle form">
 	<div class="formContent">
 <form name=maintenance>
@@ -88,7 +78,7 @@ echo "<font color=white>&nbsp; &nbsp; Script: barcode.php</font>";
 		  Enter barcode <input type='text' name='barcode'><br><br>
 		  Enter secondary database <input type='text' name='bd2' value='marc'> <br><br>
 		  Control Number Field <input type='text' name='cnf' value='1'>
-		  <input type='submit' value='search'>
+		  <input class=\"btn btn-default\" type='submit' value='search'>
 		  		  </form>
 		  ";
 		  ?>
