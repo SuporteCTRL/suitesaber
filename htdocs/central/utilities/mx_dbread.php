@@ -58,7 +58,7 @@ global $msgstr;
 <input type=text name=storein size=30 onclick=javascript:blur()> <a class=\"btn btn-default\" href=javascript:Explorar()>";
 	echo $msgstr["explore"];
 	echo "</a><br>";
-	echo "<input type=\"button\" value=".$msgstr["procesar"]."></a>
+	echo "<input class=\"btn btn-default\" type=\"button\" value=".$msgstr["procesar"]."></a>
 	<td></tr></table>\n
 	</form>";
     die;

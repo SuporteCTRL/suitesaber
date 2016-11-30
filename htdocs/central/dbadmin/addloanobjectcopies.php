@@ -21,21 +21,6 @@ echo "<div class=\"sectionInfo\">
 			<div class=\"breadcrumb\">".$msgstr["addLOwithoCP_mx"].": " . $base_ant."
 			</div>
 			<div class=\"actions\">";
-if (isset($arrHttp["encabezado"])){
-echo "<a href=\"menu_mantenimiento.php?base=".$base_ant."&encabezado=s\" class=\"defaultButton backButton\">";
-echo "<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-	<span><strong>". $msgstr["back"]."</strong></span></a>";
-}
-echo "</div>
-	<div class=\"spacer\">&#160;</div>
-	</div>";
-?>
-<div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/menu_mantenimiento_addloanobjectcopies.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
- 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/menu_mantenimiento_addloanobjectcopies.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: addloanobjectcopies.php</font>";
 ?>
 <script language="javascript">
 function AlterEntry(opcion)
@@ -136,18 +121,19 @@ document.form1.typef.focus();
 <?php
 echo "<p>".$msgstr["addloanobjectcopies"]."</p>";   
   echo " <input type=\"hidden\" value=\"$base_ant\" name=\"base\"/>";
-  echo "<h3>".$msgstr["database"]." ".$base_ant."<p>";
+  echo $msgstr["database"]." ".$base_ant."<p>";
   ?>  
-  <table width="750" border="0">
-  <tr>
-    <td width="202" align="right"> <label>From
+  
+  <ul>
+   <label>From
    <input type="text" name="from" id="from" onchange="ComprobarNum('from')"/>
-  </label>  </td>
-    <td width="22">&nbsp;</td>
-    <td width="187" align="left">  <label>To
+  </label> 
+    
+  <label>To
   <input type="text" name="to" id="to" onchange="ComprobarNum('to')"/>
-  </label></td>
-    <td width="200" align="left">    <label>
+  </label>
+  </ul>
+ <label>
 	<script language="javascript">//estableciendo el foco en el 2do textbox
    document.form1.from.value="1";
   document.form1.to.focus();
@@ -163,7 +149,7 @@ settings='width='+w+',height='+h+',top='+TopPosition+',left='+LeftPosition+',scr
 win=window.open(mypage,myname,settings);}
 
   </script>
-    Last MFN=
+  <label>Last MFN=</label>
 <?php 
 $IsisScript=$xWxis."administrar.xis";
 $query = "&base=".$base_ant."&cipar=$db_path"."par/".$base_ant.".par&Opcion=status";
@@ -185,91 +171,80 @@ echo '<script language="javascript">
    </script>';
 echo $total;  
   ?>
-  </label></td>
-   <td width="121" align="right">&nbsp;</td>
-  </tr>
-    <tr>
-    <td align="right">&nbsp;</td>
-    <td>&nbsp;</td>
-    <td align="left">&nbsp;</td>
-    <td align="left">&nbsp;</td>
-	<td align="left">&nbsp;</td>
-  </tr>
-  <tr>
-  <tr>
-    <td align="right"><label>Control Number Field
-  <input name="cnf" type="text" id="cnf" value="<?php if ($_POST["cnf"]!="") echo $_POST["cnf"]; else echo "v1";?>" size="5"/>
-  </label></td>
-    <td align="center">-</td>
-    <td align="left"><label>SubField
-  <input name="cnsf" type="text" id="cnsf" value="<?php if ($_POST["cnsf"]!="") echo $_POST["cnsf"];?>" size="5"/>
-  </label></td>    
-    <td align="left"><select name=agregar id=atunique onChange=AlterEntry(1) style=width:165px>
-	<option value=''>add</option>
+ <ul>
+  <label>Control Number Field</label>
+  <input name="cnf" class="form-control" type="text" id="cnf" value="<?php 
+  if (isset($_POST['cnf']))
+    echo $_POST['cnf'];
+    else echo "v1";
+    ?>" size="5">
+  
+  <label>SubField</label>
+  <input name="cnsf" class="form-control" type="text" id="cnsf" value="<?php 
+  if (isset($_POST['cnsf']))
+  echo $_POST['cnsf'];
+  ?>" size="5" />
+  <option value="">add</option>
 	<option value="ml">Main Library</option>
 	<option value="bl">Branch Library</option>
 	<option value="tome">Tome</option>
 	<option value="volume">Volume/Part</option>
-	</select>&nbsp;<a href=javascript:AlterEntry(0)><img src=../dataentry/img/delete_occ.gif border=0 ></a>	
-	</td>
-	<td align="left"></td>
-  </tr>
-  <tr>
-    <td align="right">&nbsp;</td>
-    <td>&nbsp;</td>
-    <td align="left">&nbsp;</td>
-    <td align="left">&nbsp;</td>
-	<td align="left">&nbsp;</td>
-  </tr>
-  <tr>
-    <td align="right"><label>Inventory Number Field
-  <input name="inf" type="text" id="inf" value="<?php if ($_POST["inf"]!="") echo $_POST["inf"];?>" size="5"/>
+	</select><a class="btn btn-default" href=javascript:AlterEntry(0)><i class="fa fa-times" aria hidden="true" ></i></a>	
+	</ul>
+
+
+<ul>
+  <label>Inventory Number Field</label>
+  <input name="inf" class="form-control" type="text" id="inf" value="<?php if (isset($_POST['inf'])) echo $_POST['inf'];?>" size="5"/>
+
+    <label>SubField </label>
+  <input name="insf" class="form-control" type="text" id="insf" value="<?php 
+  if (isset($_POST['insf'])) 
+    echo $_POST['insf'];
+  ?>" size="5"/>
   </label></td>
-    <td align="center">-</td>
-    <td align="left"><label>SubField
-  <input name="insf" type="text" id="insf" value="<?php if ($_POST["insf"]!="") echo $_POST["insf"];?>" size="5"/>
-  </label></td>
-    <td align="left"></td>
-	<td align="left">&nbsp;</td>
-  </tr>
-    </tr>
-    <tr>
-    <td align="right">&nbsp;</td>
-    <td>&nbsp;</td>
-    <td align="left">&nbsp;</td>
-    <td align="left">&nbsp;</td>
-	<td align="left">&nbsp;</td>
-  </tr>
-</table> 
+   
+</ul>
+
+
 <?php 
-if ($_POST["mlf"]!="")
+if (isset($_POST['mlf']))
 echo '<div id="ml" style="display:block"><table width="750" border="0"><tr><td width="202" align="right"><label>Main Library Field&nbsp;<input name="mlf" type="text" id="mlf" value="'.$_POST["mlf"].'" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="mlsf" type="text" id="mlsf" value="'.$_POST["mlsf"].'" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table></div>'; 
 else 
 echo '<div id="ml" style="display:none"></div>';
 
-if ($_POST["blf"]!="")
+if (isset($_POST['blf']))
 echo '<div id="bl" style="display:block"><table width="750" border="0"><tr><td width="202" align="right"><label>Branch Library Field&nbsp;<input name="blf" type="text" id="blf" value="'.$_POST["blf"].'" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="blsf" type="text" id="blsf" value="'.$_POST["blsf"].'" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table></div>'; 
 else 
 echo '<div id="bl" style="display:none"></div>';
 
-if ($_POST["tomef"]!="")
+if (isset($_POST['tomef']))
 echo '<div id="tome" style="display:block"><table width="750" border="0"><tr><td width="202" align="right"><label>Tome Field&nbsp;<input name="tomef" type="text" id="tomef" value="'.$_POST["tomef"].'" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="tomesf" type="text" id="tomesf" value="'.$_POST["tomesf"].'" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table></div>'; 
 else 
 echo '<div id="tome" style="display:none"></div>';
 
-if ($_POST["volumef"]!="")
+if (isset($_POST['volumef']))
 echo '<div id="volume" style="display:block"><table width="750" border="0"><tr><td width="202" align="right"><label>Volume Field&nbsp;<input name="volumef" type="text" id="volumef" value="'.$_POST["volumef"].'" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="volumesf" type="text" id="volumesf" value="'.$_POST["volumesf"].'" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table></div>'; 
 else 
 echo '<div id="volume" style="display:none"></div>';
 ?>
-<table width="750" border="0">
-<tr>
-<td width="202" align="right"><label>Use the system types
-      <input name="radiobutton" type="radio" value="systype" <?php if ($_POST["radiobutton"]=="systype") echo 'checked="checked"'; else if (!$_POST["submit"]) echo 'checked="checked"'; ?> onchange="ChangeOption(1)"/>
-      </label></td>
 
-<td width="187"align="left"><div id="systype" style="display:<?php if ($_POST["radiobutton"]=="systype") echo "block"; else if (!$_POST["submit"]) echo "block"; else echo "none"; ?>">
-	    <label>Type of object
+<ul>
+<label>Use the system types</label>
+      <input name="radiobutton" type="radio" value="systype" 
+      <?php 
+      if ($_POST['radiobutton']=="systype") 
+        echo "checked"; 
+      else 
+        if ($_POST['submit']) 
+          echo "checked"; 
+        ?>
+           onchange="ChangeOption(1)"/>
+      
+<ul>
+<div id="systype" style="display:<?php if ($_POST['radiobutton']=="systype") echo "block"; else if ($_POST['submit']) echo "block"; else echo "none"; ?>">
+	    <label>Type of object</label>
+
 <select name="type" id="type">
    <?php
 	@ $fp = fopen($db_path."circulation/def/$lang/items.tab", "r");
@@ -279,7 +254,7 @@ echo '<div id="volume" style="display:none"></div>';
      echo "Unable to open file circulation/def/$lang/items.tab.</strong></p></body></html>";         
      exit;
    }   
-while(!feof($fp))
+ while(!feof($fp))
 {
  $order= fgets($fp, 100);
  $splitorder=explode("|",$order);
@@ -289,57 +264,25 @@ while(!feof($fp))
   fclose($fp);
    ?>
     </select>
-    </label>	
-	</div></td>
-<td width="121" align="left"></td>
-<td width="200" align="left">&nbsp;</td>
-</tr>
-<tr>
-<td align="right">&nbsp;</td>
-<td>&nbsp;</td>
-<td align="left">&nbsp;</td>
-<td align="left">&nbsp;</td>
-<td align="right">&nbsp;</td>
-</tr>
-<tr>
-<td align="right"><label>Use a field-subfield combination
-      <input name="radiobutton" type="radio" value="fieldsel" <?php if ($_POST["radiobutton"]=="fieldsel") echo 'checked="checked"'; ?> onchange="ChangeOption(2)"/>
-      </label></td>
-<td>&nbsp;</td>
-    <td colspan="3" align="left"><div id="fieldsel" style="display:<?php if ($_POST["radiobutton"]=="fieldsel") echo "block"; else echo "none"; ?>">
-      <table width="280px" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <th width="40%" scope="col"><label>Type Field
+	</ul>
+
+<label>Use a field-subfield combination </label>
+<input name="radiobutton" type="radio" value="fieldsel" <?php if ($_POST["radiobutton"]=="fieldsel") echo 'checked="checked"'; ?> onchange="ChangeOption(2)"/>
+
+<div id="fieldsel" style="display:<?php if ($_POST["radiobutton"]=="fieldsel") echo "block"; else echo "none"; ?>">
+      
+<label>Type Field </label>
   <input name="typef" type="text" id="typef" value="<?php if ($_POST["typef"]!="") echo $_POST["typef"];?>" size="5"/>
-  </label></th>
-          <th width="20%" scope="col" align="center">-</th>
-          <th width="40%" scope="col"><label>SubField
+ 
+ <label>SubField</label>
   <input name="typesf" type="text" id="typesf" value="<?php if ($_POST["typesf"]!="") echo $_POST["typesf"];?>" size="5"/>
-  </label></th>
-        </tr>
-      </table>
-    </div></td>
-</tr>
-<tr>
-<td align="right">&nbsp;</td>
-<td>&nbsp;</td>
-<td align="left">&nbsp;</td>
-<td align="left">&nbsp;</td>
-<td align="right">&nbsp;</td>
-</tr>
+  
 
-</table>
-
-
-<table width="750px" border="0">
-  <tr>
-     <td width="22">&nbsp;</td>
-    <td><?php 
+<?php 
   echo "<input type=submit name=submit value=".$msgstr["update"].">"; 
   if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";
- ?></td>
-    </tr>
-</table> 
+ ?>
+ 
 </form>
 </div>
 <?php

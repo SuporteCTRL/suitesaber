@@ -31,14 +31,9 @@ if (isset($arrHttp["encabezado"])) {
 	
 }
 
-echo "<a href=\"menu_mantenimiento.php?base=".$arrHttp["base"]."&encabezado=s\" class=\"defaultButton backButton\">";
-echo "<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong> back </strong></span>
-				</a>";
+
 //$base=$arrHttp['base']; //$_POST['base'];
-echo "<br>";
-echo "<br>";
-echo "<br>";
+
 ?>
 
 <div class="middle form">
@@ -51,19 +46,12 @@ $base=$_POST['base'];
 echo $base;
 ?>
 </label>
-  <label>
-  <br>
-  <br>
-  From
-   <input type="text" name="from" id="from" />
-  </label>
+  <label> From: <input type="text" name="from" id="from" /> </label>
   <script language="javascript">//estableciendo el foco en el 1mer textbox
    document.form1.from.value="1";
   document.form1.from.focus();
   </script>
-  <label>To
-  <input type="text" name="to" id="to" />
-    <label>
+  <label>To: <input type="text" name="to" id="to" /> <label>
     last MFN=<?php 
   include("../common/get_post.php");
 $base=$_POST['base'];
@@ -73,7 +61,7 @@ for($i=0;$i<count($outmx_max_mfn);$i++)
 {
 $datosMFN.=$outmx_max_mfn[$i];
 }
-$split_mfn=explode("mfn=",$datosMFN);
+$split_mfn= (explode('mfn=',$datosMFN));
 $max_mfn=count($split_mfn);
 $max_mfnM1=$max_mfn-1;
   echo "
@@ -158,36 +146,36 @@ while(!feof($fp))
  
   echo " <input type=\"hidden\" value=\"$base\" name=\"base\"/>";
   ?>
-      <input type="submit" name="sub" id="sub" value="Submit"
+      <input class="btn btn-default" type="submit" name="sub" id="sub" value="Submit"
   onClick="javascript:validar();" />
       </label>
-  </p>
-  <p>&nbsp;</p>
+
+
   
 </form>
 </div>
 <?php
 include("../common/get_post.php");
-$base=$_POST['base'];
+$base=$_POST["base"];
 $IsisScript="$Wxis"."wxis.exe IsisScript=hi.xis";
-$from=$_POST['from'];
-$to=$_POST['to'];
-$bprinc=$_POST['ml'];;
-$bsec=$_POST['sl'];
-$campo=$_POST['field'];
-$tag=$_POST['tag'];
+$from = (isset($_POST["from"]));
+$to=(isset($_POST['to']));
+$bprinc=(isset($_POST['ml']));
+$bsec=(isset($_POST['sl']));
+$campo=(isset($_POST['field']));
+$tag=(isset($_POST['tag']));
 $bdp="loanobjects";
-$CNF=$_POST['cnf'];
+$CNF=(isset($_POST['cnf']));
 $mx="$mx_path"."mx.exe $db_path".$base."/data/".$base." from=$from to=$to pft=v".$campo;
 $queryNro="$mx_path"."mx.exe $db_path".$base."/data/".$base." from=$from to=$to pft=v".$CNF;
-$cantCopias=$_POST['nc'];
-$numcopiascampo=$_POST['fnc'];
-$numcopiassubcampo=$_POST['ncsf'];
-$type=$_POST['type'];
+$cantCopias=(isset($_POST['nc']));
+$numcopiascampo=(isset($_POST['fnc']));
+$numcopiassubcampo=(isset($_POST['ncsf']));
+$type=(isset($_POST['type']));
 exec($mx,$outmx,$banderamx);
 exec($queryNro,$outNro,$banderaNro);
-$dospuntos=explode("..",$outmx[0]);
-$dospuntosNro=explode("..",$outNro[0]);
+$dospuntos = explode('..', $outmx[0]);
+$dospuntosNro = explode('..', $outNro[0]);
 $cantReg=0;
 
 if($from<=$to && $to>0 && $from>0&&$to<=$max_mfn-1)

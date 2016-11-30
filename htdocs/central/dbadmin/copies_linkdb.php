@@ -45,7 +45,7 @@ foreach ($fp as $value){
 	$value=trim($value);
 	$v=explode('|',$value);
 	if ($v[0]==$base){
-		if ($v[2]=="Y") $copies_link=" checked";
+		if ($v[1]=="Y") $copies_link="checked";
 		break;
 	}
 }

@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION["permiso"])){
 	header("Location: ../common/error_page.php") ;
 }
-if (!isset($_SESSION["lang"]))  $_SESSION["lang"]="en";
+if (!isset($_SESSION["lang"]))  $_SESSION["lang"]="pt";
 include("../common/get_post.php");
 include("../config.php");
 $lang=$_SESSION["lang"];
@@ -15,27 +15,9 @@ include("../common/header.php");
 $base=$arrHttp["base"];
 
 include("../common/institutional_info.php");
-	$encabezado="&encabezado=s";
-echo "<div style='float:right;'> <a href=\"../dbadmin/menu_mantenimiento.php?base=".$base."&encabezado=s\" class=\"defaultButton backButton\">";
-echo "<img 'src=\"../dataentry/images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong> back </strong></span>
-				</a></div>";
-echo "<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">Import ISO: " . $base."
-			</div>
-			<div class=\"actions\">";
-echo "</div>
-	<div class=\"spacer\">&#160;</div>
-	</div>";
+
 ?>
-<div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/menu_mantenimiento_vmxISO_load.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
- 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/menu_mantenimiento_vmxISO_load.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: vmxISO_load.php</font>";
-?>
-</div>
+
 <div class="middle form">
 <?php
 if (file_exists($db_path.$arrHttp["base"]."/protect_status.def")){
@@ -58,15 +40,16 @@ if (file_exists($db_path.$arrHttp["base"]."/protect_status.def")){
   <option>append</option>
   <option>create</option>
   </select>
-  <br><br>
-  <input type=checkbox name=tolinux value=Y>From windows to linux <br><br>
+  
+  <input type=checkbox name=tolinux value=Y> From windows to linux <br><br>
  <?php
- include("../common/get_post.php");
-  $base=$arrHttp["base"];
 
-  echo " <input type=\"hidden\" value=\"$base\" name=\"base\"/>";
-  ?>
-  <input type="submit" value="Send"/>
+  include("../common/get_post.php");
+    $base=$arrHttp["base"];
+    echo " <input type=\"hidden\" value=\"$base\" name=\"base\"/>";
+
+ ?>
+  <input class="btn btn-default" type="submit" value="Send"/>
   </form>
 
 <?php
@@ -108,7 +91,8 @@ else
         echo '<br/>The file: ' . $nombre. " already exists";
       }
 	  else
-	  {	  if (isset($arrHttp["tolinux"]) and $arrHttp["tolinux"]=="Y"){
+	  {
+	  if (isset($arrHttp["tolinux"]) and $arrHttp["tolinux"]=="Y"){
 	  	exec("tr -d \"\\015\" < ".$nombre_tmp." > ". $db_path."wrk/" . $nombre);
 	  }else{
    		move_uploaded_file($nombre_tmp,$db_path."wrk/" . $nombre);

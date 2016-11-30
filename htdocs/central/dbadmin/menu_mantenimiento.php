@@ -69,120 +69,120 @@ function EnviarForma(Opcion,Mensaje){
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/copy_db.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "mxdbread":
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/mx_dbread.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "readiso":
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/mx_dbread.php"
 			document.admin.iso="Y"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "dbrestore":
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/dbrestore.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "lock":
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="lock_bd.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "eliminarbd":
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="eliminarbd.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "inicializar":
 			document.admin.base.value=base
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
         case "cn":  //assign control number
           	document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="assign_control_number.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break
 		case "resetcn":    //RESET LAST CONTROL NUMBER IN THE BIBLIOGRAPHIC DATABASE
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="reset_control_number.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "linkcopies":    //LINK BIBLIOGRAPHIC DATABASE WITH COPIES DATABASE
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="copies_linkdb.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "addcopiesdatabase":    //Marcos Script
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="addcopiesdatabase.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "copiesocurrenciesreport":    //Marcos Script
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="copiesdupreport.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "addloanobjectcopies":    //Marcos Script
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="addloanobjectcopies.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "addloanobj":    //Marino Vretag
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="addloanobject.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "fullinv":     //INVERTED FILE GENERATION WITH MX
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/vmx_fullinv.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "importiso":    //Marino ISO load
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/vmxISO_load.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "exportiso":
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/iso_export.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "unlock":    //Marino Vretag
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="unlock_db_retag_check.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "addloanobj":    //Marino addloanobj
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="addloanobject.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "barcode":    //Marino barcode search
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/barcode.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "dirtree": //EXPLORE DATABASE DIRECTORY
 			switch (Mensaje){
@@ -196,13 +196,13 @@ function EnviarForma(Opcion,Mensaje){
 					break;
 			}
 			document.admin.action="dirtree.php";
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		case "more_utils":    //More utils
 			document.admin.base.value=base
 			document.admin.cipar.value=base+".par"
 			document.admin.action="../utilities/more_utils.php"
-			document.admin.target=""
+			document.admin.target="configura"
 			break;
 		default:
 			alert("")
@@ -238,10 +238,10 @@ echo "
 </div>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
+
     <div class="navbar-header">
       <a class="navbar-brand"> Ultilitários</a>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -281,6 +281,10 @@ echo "
            <li><a href='Javascript:EnviarForma("addloanobj","<?php echo $msgstr["addLOfromDB_mx"]?>")'><?php echo $msgstr["addLOfromDB_mx"]?></a></li>
 			<li><a href='Javascript:EnviarForma("addloanobjectcopies","<?php echo $msgstr["addLOwithoCP_mx"]?>")'><?php echo $msgstr["addLOwithoCP_mx"]?></a></li>
 			<li><a href='Javascript:EnviarForma("addcopiesdatabase","<?php echo $msgstr["addCPfromDB_mx"]?>")'><?php echo $msgstr["addCPfromDB_mx"]?></a></li>
+			<li><a href='Javascript:EnviarForma("dirtree","par")'><?php echo "par"?></a></li>
+			<li><a href='Javascript:EnviarForma("dirtree","www")'><?php echo "www"?></a></li>
+			<li><a href='Javascript:EnviarForma("dirtree","wrk")'><?php echo "wrk"?></a></li>
+			<li><a href='javascript:EnviarForma("more_utils","<?php echo $msgstr["more_utils"]?>")'><?php echo $msgstr["more_utils"]?></a></li>
        </ul>
        </li>
        </ul>
@@ -288,6 +292,7 @@ echo "
  <ul class="nav navbar-nav navbar-right">
         <li><a href='Javascript:EnviarForma("barcode","<?php echo "Barcode search"?>")'><?php echo "Barcode search"?></a></li>
         <li><a href='Javascript:EnviarForma("copiesocurrenciesreport","<?php echo $msgstr["CPdupreport_mx"]?>")'><?php echo $msgstr["CPdupreport_mx"]?></a></li>
+
        </div>
         </nav>
 
@@ -297,53 +302,11 @@ echo "
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<iframe src name="configura" width="100%" height="3000px" frameborder="0"></iframe>
 
 			
 		
 
-			<?php if (($arrHttp["base"]!="copies") and ($arrHttp["base"]!="providers") and ($arrHttp["base"]!="suggestions") and ($arrHttp["base"]!="purchaseorder") and ($arrHttp["base"]!="users") and ($arrHttp["base"]!="loanobjects") and ($arrHttp["base"]!="trans") and ($arrHttp["base"]!="suspml") ) {
-				if ($copies=="Y"){
-			?>
-
-			<?php }}
-			if ($arrHttp["base"]!="providers" and $arrHttp["base"]!="suggestions" and $arrHttp["base"]!="purchaseorder" and $arrHttp["base"]!="users" and $arrHttp["base"]!="loanobjects" and $arrHttp["base"]!="trans" and $arrHttp["base"]!="suspml") {
-				if ($copies=="Y" or $arrHttp["base"]=="copies" or $arrHttp["base"]=="loanobjects"){
-            ?>
-			
-            <?php }?>
-             <li><a href='Javascript:EnviarForma("barcode","<?php echo "Barcode search"?>")'><?php echo "Barcode search"?></a></li>
-			<?php
-			}
-			if ($arrHttp["base"]=="copies") {
-			?>r
-			<li><a href='Javascript:EnviarForma("copiesocurrenciesreport","<?php echo $msgstr["CPdupreport_mx"]?>")'><?php echo $msgstr["CPdupreport_mx"]?></a></li>
-			<?php }?>
-
-	<?php
-	if ($_SESSION["profile"]=="adm"
-        and isset($dirtree) and $dirtree=="Y"
-    ){
-    ?>
-    <li><a href='Javascript:EnviarForma("dirtree","<?php echo $msgstr["expbases"]?>")'><?php echo $msgstr["expbases"]?></a></li>
-    <?php
-    }
-	if (($_SESSION["profile"]=="adm" or isset($_SESSION["permiso"]["CENTRAL_ALL"]) or
-		isset($_SESSION["permiso"]["CENTRAL_EXDBDIR"]) or
-        isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_EXDBDIR"]))
-        and isset($dirtree) and $dirtree=="Y"
-    ){
-
-    ?>
-
-	        <li><?php echo $msgstr["explore_sys_folders"]?></li>
-	        <ul>
-			<li><a href='Javascript:EnviarForma("dirtree","par")'><?php echo "par"?></a></li>
-			<li><a href='Javascript:EnviarForma("dirtree","www")'><?php echo "www"?></a></li>
-			<li><a href='Javascript:EnviarForma("dirtree","wrk")'><?php echo "wrk"?></a></li>
-	        </ul>
-	<?php }?>
-	<li><a href='javascript:EnviarForma("more_utils","<?php echo $msgstr["more_utils"]?>")'><?php echo $msgstr["more_utils"]?></a></li>
-			</ul>
 
 		</td>
 </table></form>

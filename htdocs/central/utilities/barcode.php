@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION["permiso"])){
 	header("Location: ../common/error_page.php") ;
 }
-if (!isset($_SESSION["lang"]))  $_SESSION["lang"]="en";
+if (!isset($_SESSION["lang"]))  $_SESSION["lang"]="pt";
 include("../common/get_post.php");
 include("../config.php");
 $lang=$_SESSION["lang"];
@@ -57,7 +57,7 @@ echo "<div class=\"sectionInfo\">
 			<div class=\"actions\">";
 
 echo "</div>
-	<div class=\"spacer\">&#160;</div>
+	
 	</div>";
 
 ?>
@@ -100,7 +100,7 @@ $i++;
 return $mfn;
 }
 
-			if($t==0 and $barcode!=""){
+      if($t==0 and $barcode!=""){
 echo ("<h3>Results for barcode '$barcode' in database $base</h3><br>");
 echo "<li>Found in $base?";
 if(strpos($strstr,"Hits=0")==false and $t==0) echo " yes";
@@ -124,10 +124,10 @@ $str=$strstr;
 for($i=0;$i<strlen($str)-3;$i++)
 {
 
-if($str[$i]=='1' and $str[$i+1]==' ' and $str[$i+2]==' ' and $str[$i+3]=='®')
+if($str[$i]=='1' and $str[$i+1]==' ' and $str[$i+2]==' ' and $str[$i+3]=='Â®')
 {
 $i=$i+4;
-while($str[$i]!='¯')
+while($str[$i]!='Â¯')
 {
 $prevcn.=$str[$i];
 $i++;
@@ -190,10 +190,10 @@ $cnf=$_GET['cnf'];
 for($i=0;$i<strlen($str)-3;$i++)
 {
 
-if($str[$i]=='$cnf' and $str[$i+1]==' ' and $str[$i+2]==' ' and $str[$i+3]=='®')
+if($str[$i]=='$cnf' and $str[$i+1]==' ' and $str[$i+2]==' ' and $str[$i+3]=='Â®')
 {
 $i=$i+4;
-while($str[$i]!='¯')
+while($str[$i]!='Â¯')
 {
 $prevcn.=$str[$i];
 $i++;
