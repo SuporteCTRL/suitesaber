@@ -9,7 +9,7 @@ include("../config.php");
 $lang=$_SESSION["lang"];
 include("../lang/dbadmin.php");
 include("../common/header.php");
-$converter_path=$cisis_path."mx";
+$converter_path=$mx_path;
 $base_ant=$arrHttp["base"];
 echo "<script src=../dataentry/js/lr_trim.js></script>";
 echo "<body onunload=win.close()>\n";
@@ -126,11 +126,11 @@ echo "<p>".$msgstr["addloanobjectcopies"]."</p>";
   
   <ul>
    <label>From
-   <input type="text" name="from" id="from" onchange="ComprobarNum('from')"/>
+   <input class="form-control" type="text" name="from" id="from" onchange="ComprobarNum('from')"/>
   </label> 
     
   <label>To
-  <input type="text" name="to" id="to" onchange="ComprobarNum('to')"/>
+  <input class="form-control" type="text" name="to" id="to" onchange="ComprobarNum('to')"/>
   </label>
   </ul>
  <label>
@@ -202,7 +202,7 @@ echo $total;
   if (isset($_POST['insf'])) 
     echo $_POST['insf'];
   ?>" size="5"/>
-  </label></td>
+ 
    
 </ul>
 
@@ -233,17 +233,23 @@ echo '<div id="volume" style="display:none"></div>';
 <label>Use the system types</label>
       <input name="radiobutton" type="radio" value="systype" 
       <?php 
-      if ($_POST['radiobutton']=="systype") 
+      if (isset($_POST['radiobutton'])) 
         echo "checked"; 
       else 
-        if ($_POST['submit']) 
+        if (isset($_POST['submit']))
           echo "checked"; 
         ?>
            onchange="ChangeOption(1)"/>
       
 <ul>
-<div id="systype" style="display:<?php if ($_POST['radiobutton']=="systype") echo "block"; else if ($_POST['submit']) echo "block"; else echo "none"; ?>">
-	    <label>Type of object</label>
+<div id="systype" style="display:
+<?php if (isset($_POST['radiobutton'])) 
+echo "block"; 
+else 
+  if ($_POST['submit']) echo "block"; else echo "none"; ?>">
+	   
+
+ <label>Type of object</label>
 
 <select name="type" id="type">
    <?php
@@ -258,7 +264,11 @@ echo '<div id="volume" style="display:none"></div>';
 {
  $order= fgets($fp, 100);
  $splitorder=explode("|",$order);
- if ($splitorder[0]!="" and $splitorder[1]!="") if ($_POST["type"]==$splitorder[0]) echo "<option value=\"$splitorder[0]\" selected=\"selected\" > $splitorder[1]</option>"; else echo "<option value=\"$splitorder[0]\" > $splitorder[1]</option>";
+ if ($splitorder[0] and $splitorder[1])
+  if ($_POST["type"]==$splitorder[0])
+    echo "<option value=\"$splitorder[0]\" selected=\"selected\" > $splitorder[1]</option>"; 
+  else 
+    echo "<option value=\"$splitorder[0]\" > $splitorder[1]</option>";
 }
  flock($fp, 3);
   fclose($fp);
@@ -266,20 +276,28 @@ echo '<div id="volume" style="display:none"></div>';
     </select>
 	</ul>
 
-<label>Use a field-subfield combination </label>
-<input name="radiobutton" type="radio" value="fieldsel" <?php if ($_POST["radiobutton"]=="fieldsel") echo 'checked="checked"'; ?> onchange="ChangeOption(2)"/>
 
-<div id="fieldsel" style="display:<?php if ($_POST["radiobutton"]=="fieldsel") echo "block"; else echo "none"; ?>">
+<label>Use a field-subfield combination </label>
+<input name="radiobutton" type="radio" value="fieldsel" 
+<?php 
+if (isset($_POST["radiobutton"])) 
+  echo '"checked"'; 
+?> 
+onchange="ChangeOption(1)"/>
+
+<div id="fieldsel" style="display:<?php if ($_POST["radiobutton"]=="fieldsel") echo "block"; else echo "none"; 
+
+?>">
       
 <label>Type Field </label>
-  <input name="typef" type="text" id="typef" value="<?php if ($_POST["typef"]!="") echo $_POST["typef"];?>" size="5"/>
+  <input name="typef" class="form-control"  type="text" id="typef" value="<?php if (isset($_POST["typef"])) echo $_POST["typef"];?>" size="5"/>
  
  <label>SubField</label>
-  <input name="typesf" type="text" id="typesf" value="<?php if ($_POST["typesf"]!="") echo $_POST["typesf"];?>" size="5"/>
+  <input name="typesf" class="form-control"  type="text" id="typesf" value="<?php if (isset($_POST["typesf"])) echo $_POST["typesf"];?>" size="5"/>
   
 
 <?php 
-  echo "<input type=submit name=submit value=".$msgstr["update"].">"; 
+  echo "<input class=\"btn btn-default\"  type=\"submit\" name=\"submit\" value=".$msgstr["update"].">"; 
   if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";
  ?>
  
@@ -298,7 +316,7 @@ $field=trim($field);
 if ($field[0]=='^') return str_replace( '^','',$field);
 return $field;
 }
-if ($_POST["submit"])
+if (isset($_POST["submit"]))
 {
 $from=$_POST['from'];
 $to=$_POST['to'];

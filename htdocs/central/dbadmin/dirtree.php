@@ -3340,4 +3340,4 @@ $ENDTIME = $MTIME;
 $_SESSION['Total_Time'] = ($ENDTIME - $STARTTIME);
 TABLEDIR_FOOTER("black", "yellow"); //table below the treeview
 PAGE_FOOTER("", ""); //finish the web page
-};?>
+;?>

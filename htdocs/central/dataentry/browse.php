@@ -39,10 +39,14 @@ include("../lang/dbadmin.php");
 
 include("../lang/admin.php");
 include("../lang/prestamo.php");
-if (!isset($arrHttp["bymfn"])) {	unset($_SESSION["Browse_Expresion"]);}else{
+if (!isset($arrHttp["bymfn"])) {
+	unset($_SESSION["Browse_Expresion"]);
+}else{
 	if (isset($arrHttp["Expresion"])){
 		$_SESSION["Browse_Expresion"] = $arrHttp["Expresion"];
-	}else{		if (isset($_SESSION["Browse_Expresion"]))  $arrHttp["Expresion"]=$_SESSION["Browse_Expresion"];	}
+	}else{
+		if (isset($_SESSION["Browse_Expresion"]))  $arrHttp["Expresion"]=$_SESSION["Browse_Expresion"];
+	}
 }
 //foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";
 
@@ -234,8 +238,10 @@ function Eliminar(Mfn){
 	}
 }
 
-function Mostrar(Mfn){	msgwin=window.open("show.php?base=<?php echo $arrHttp["base"]?>&cipar=<?php echo $arrHttp["base"]?>.par&Mfn="+Mfn+"&encabezado=s&Opcion=editar","show","width=600,height=400,scrollbars, resizable")
-	msgwin.focus()}
+function Mostrar(Mfn){
+	msgwin=window.open("show.php?base=<?php echo $arrHttp["base"]?>&cipar=<?php echo $arrHttp["base"]?>.par&Mfn="+Mfn+"&encabezado=s&Opcion=editar","show","width=600,height=400,scrollbars, resizable")
+	msgwin.focus()
+}
 </script>
 <?php
 echo "<body>";
@@ -266,14 +272,11 @@ if (file_exists($db_path."/menu.dat")){
 			$ret=str_replace("|","?",$arrHttp["return"])."$encabezado=".$arrHttp["encabezado"];
 		}
 	?>
-		<a href=<?php echo $ret?> class="defaultButton backButton">
-		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-		<span><strong><?php echo $msgstr["back"]?></strong></span>
-		</a>
-		<a href="javascript:Crear()" class="defaultButton  newButton">
-		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-		<span><strong><?php echo $msgstr["crear"]?></strong> </span>
-		</a>
+		
+		<a href="javascript:Crear()" class="btn btn-default" title="<?php echo $msgstr["crear"];?>" >
+		<i class="fa fa-plus" aria hidden="true" />
+		
+		</a></i>
 
 	</div>
 <?php }?>
@@ -393,34 +396,46 @@ foreach ($lista_users as $value){
 }
 echo "			</table>";
 
-?>			<div class="tMacroActions">
+?>			
 <?php echo "$Pft_rec $Pft_tit";?>
-				<div class="pagination">
-					<a href="javascript:EjecutarBusqueda('first')" class="singleButton eraseButton">
-						<span class="sb_lb">&#160;</span>
-						&#171; <?php echo $msgstr["first"]?>
-						<span class="sb_lb">&#160;</span>
-					</a>
-					<a href="javascript:EjecutarBusqueda('previous')" class="singleButton eraseButton">
-						<span class="sb_lb">&#160;</span>
-						&#171; <?php echo $msgstr["previous"]?>
-						<span class="sb_lb">&#160;</span>
-					</a>
-					<a href="javascript:EjecutarBusqueda('next')" class="singleButton eraseButton">
-						<span class="sb_rb">&#160;</span>
-						&#187; <?php echo $msgstr["next"] ?>
-						<span class="sb_rb">&#160;</span>
-					</a>
-					<a href="javascript:EjecutarBusqueda('last')" class="singleButton eraseButton">
-						<span class="sb_rb">&#160;</span>
-						&#171; <?php echo $msgstr["last"]?>
-						<span class="sb_rb">&#160;</span>
-					</a>
-					<div class="spacer">&#160;</div>
-				</div>
-				<div class="spacer">&#160;</div>
-			</div>
-		</div>
+
+	
+
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="javascript:EjecutarBusqueda('first')" class="singleButton eraseButton">
+        <span aria-hidden="true">&laquo;<?php echo $msgstr["first"]?> </span>
+      </a>
+    </li>
+    <li>
+    	<a href="javascript:EjecutarBusqueda('previous')" class="singleButton eraseButton"><?php echo $msgstr["previous"]?>
+    		
+    	</a>
+    </li>
+    <li>
+    	<a href="javascript:EjecutarBusqueda('next')" class="singleButton eraseButton"><?php echo $msgstr["next"] ?>
+    		
+    	</a>
+    </li>
+    <li>
+      <a href="javascript:EjecutarBusqueda('last')" class="singleButton eraseButton">
+        <span aria-hidden="true"> <?php echo $msgstr["last"]?> &raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+
+
+
+
+
+
+
 <?php
 echo "</div></div>";
 echo " </form>\n";

@@ -45,13 +45,14 @@ if (isset($arrHttp["encabezado"])) {
 $base=$_POST['base'];
 echo $base;
 ?>
+
 </label>
-  <label> From: <input type="text" name="from" id="from" /> </label>
+  <label> From: <input class="form-control"  type="text" name="from" id="from" /> </label>
   <script language="javascript">//estableciendo el foco en el 1mer textbox
    document.form1.from.value="1";
   document.form1.from.focus();
   </script>
-  <label>To: <input type="text" name="to" id="to" /> <label>
+  <label>To: <input class="form-control"  type="text" name="to" id="to" /> <label>
     last MFN=<?php 
   include("../common/get_post.php");
 $base=$_POST['base'];
@@ -61,7 +62,7 @@ for($i=0;$i<count($outmx_max_mfn);$i++)
 {
 $datosMFN.=$outmx_max_mfn[$i];
 }
-$split_mfn= (explode('mfn=',$datosMFN));
+$split_mfn =(explode('mfn=',$datosMFN));
 $max_mfn=count($split_mfn);
 $max_mfnM1=$max_mfn-1;
   echo "
@@ -71,34 +72,28 @@ $max_mfnM1=$max_mfn-1;
   echo $max_mfnM1 ;
   ?>
   </label>
-  <label></label>
-  <br />
-  <br />
-  
-  <label>
-     Field for barcode
-     </label>
-  <input type="text" name="field" id="field" value="82"/>
+  <label>Field for barcode</label>
+  <input class="form-control" type="text" name="field" id="field" value="82"/>
   <script>
    document.form1.field.value="82";
     </script>
        Sub-field
-  <input type="text" name="tag" id="tag" value="a"/>
+  <input class="form-control"  type="text" name="tag" id="tag" value="a"/>
    <label></label><label><br />
   <br />
   
   Control number field
-  <input name="cnf" type="text" id="cnf" value="1" />
+  <input class="form-control"  name="cnf" type="text" id="cnf" value="1" />
   <br />
   <br />
   Number of copies
-  <input name="nc" type="text" id="nc" value="3" />
+  <input class="form-control"  name="nc" type="text" id="nc" value="3" />
    or take the number
     
    of copies from field 
-   <input name="fnc" type="text" id="fnc" />
+   <input class="form-control"  name="fnc" type="text" id="fnc" />
     and sub-field 
-    <input type="text" name="ncsf" id="ncsf" />
+    <input class="form-control"  type="text" name="ncsf" id="ncsf" />
     <br />
     <br />
     Type of object
@@ -130,12 +125,12 @@ while(!feof($fp))
   </label>
   <p> 
     <label>Main Library
-    <input type="text" name="ml" id="ml" />
+    <input class="form-control"  type="text" name="ml" id="ml" />
     </label>
 </p>
   <p>
     <label>Secundary Library
-    <input type="text" name="sl" id="sl" />
+    <input class="form-control"  type="text" name="sl" id="sl" />
     </label>
     </p>
   <p>

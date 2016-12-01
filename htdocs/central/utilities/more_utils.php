@@ -39,7 +39,8 @@ foreach ($fp as $value){
 	$value=trim($value);
 	$x=explode("|",$value);
 	if ($x[0]==$arrHttp["base"]){
-		if (isset($x[2]) and $x[2]=="Y"){			$copies="Y";
+		if (isset($x[2]) and $x[2]=="Y"){
+			$copies="Y";
 		}
 		break;
 	}
@@ -68,7 +69,8 @@ function EnviarForma(Opcion,Mensaje){
 	document.admin.action=""
 	document.admin.target=""
 	document.admin.Opcion.value=Opcion
-	switch (Opcion){	}
+	switch (Opcion){
+	}
 	document.admin.submit()
 }
 
@@ -86,19 +88,14 @@ echo "
 
 	";
 
-	echo "<a href=\"../dbadmin/menu_mantenimiento.php?base=".$arrHttp["base"]."\" class=\"defaultButton backButton\">";
-echo "<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-	<span><strong>". $msgstr["back"]."</strong></span></a>";
-echo "</div>
-	<div class=\"spacer\">&#160;</div>
-	</div>";
+	
 ?>
 <div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/more_utils.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+	
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
- 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."more_utils.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo " &nbsp; &nbsp; <a href='http://abcdwiki.net/wiki/es/index.php?title=Más_utilitarios' target=_blank>abcdwiki.net</a>";
+ 	
+echo " <a href='http://abcdwiki.net/wiki/es/index.php?title=Más_utilitarios' target=_blank>abcdwiki.net</a>";
 echo "<font color=white>&nbsp; &nbsp; Script: utilities/more_utils.php";
 ?>
 </font>
