@@ -114,6 +114,6 @@ if (file_exists($db_path.$db."/def/z3950.cnv")){
 echo "<input type=hidden name=encabezado value=s>\n";
 ?>
 <form>
-<?php include("../common/footer.php")?>
+<?php include("../common/footer.php");?>
 </body>
 </html>
