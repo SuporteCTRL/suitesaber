@@ -253,10 +253,13 @@ $encabezado="&encabezado=s";
 	<div class="breadcrumb">
 		<form name=forma1 onsubmit="javascript:return false">
 		<?php echo $msgstr["admin"]." (".$arrHttp["base"],")"?>
-		    <span><input type=checkbox name=showdeleted value=show
+		    <span>
+		    <input type="checkbox" name="showdeleted" value="show" 
                 <?php if (isset($arrHttp["showdeleted"])) echo " ";
-                	echo ">".$msgstr["showdelrec"]?></span>
+                	echo ">".$msgstr["showdelrec"]
+    ;?>            	
 	</div>
+</span>
 <?php
 if (file_exists($db_path."/menu.dat")){
 	MenuBrowse();
@@ -273,14 +276,16 @@ if (file_exists($db_path."/menu.dat")){
 		}
 	?>
 		
-		<a href="javascript:Crear()" class="btn btn-default" title="<?php echo $msgstr["crear"];?>" >
+		<a href="javascript:Crear()" class="btn btn-success" title="<?php echo $msgstr["crear"];?>" >
 		<i class="fa fa-plus" aria hidden="true" />
 		
 		</a></i>
 
 	</div>
-<?php }?>
-	<div class="spacer">&#160;</div>
+<?php 
+}
+?>
+	
 </div>
 		<div class="middle list">
 <?php
@@ -289,7 +294,7 @@ $archivo=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/camposbusqueda.t
 if (!file_exists($archivo)) $archivo=$db_path.$arrHttp["base"]."/pfts/".$lang_db."/camposbusqueda.tab";
 if (file_exists($archivo)){
 	$ad_s="S";
-	echo "<Script>Indices='Y'</script>\n" ;
+	echo "<Sscript>Indices='Y'</script>\n" ;
 ?>
 
 
@@ -374,11 +379,11 @@ foreach ($lista_users as $value){
 			echo "</td>";
 			for ($ix=4;$ix<count($u);$ix++) echo "<td>" .$u[$ix]."</td>";
 			echo "<td class=\"action\" nowrap>
-				<a href=javascript:Editar($Mfn,$Status)>
-				<img src=\"../images/edit.png\" alt=\"".$msgstr["edit"]."\" title=\"".$msgstr["edit"]."\" /></a>
-				<a href=javascript:Mostrar(".$Mfn.")><img src=\"../images/zoom.png\"  alt=\"".$msgstr["show"]."\" title=\"".$msgstr["show"]."\" /></a>";
+				<a href=javascript:Editar($Mfn,$Status) class=\"btn btn-warning\">
+				<i class=\"fa fa-pencil-square-o\" alt=\"".$msgstr["edit"]."\" title=\"".$msgstr["edit"]."\" /></i></a>
+				<a href=javascript:Mostrar(".$Mfn.") class=\"btn btn-primary\"><i class=\" fa fa-search\"  alt=\"".$msgstr["show"]."\" title=\"".$msgstr["show"]."\" /></a></i>";
 			if ($Status==0) echo "
-				<a href=\"javascript:Eliminar($Mfn)\"><img src=\"../images/delete.png\" alt=\"".$msgstr["eliminar"]."\" title=\"".$msgstr["eliminar"]."\" /></a>";
+				<a href=\"javascript:Eliminar($Mfn)\" class=\"btn btn-danger\"><i class=\"fa fa-times\" alt=\"".$msgstr["eliminar"]."\" title=\"".$msgstr["eliminar"]."\" /></a></i>";
 			else {
 				switch ($Status){
 					case -2:

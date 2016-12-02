@@ -4,7 +4,11 @@ unset($_SESSION["DCIMPORT"]);
 unset($_SESSION["CISIS"]);
 if (!isset($_SESSION["permiso"])){
 	header("Location: ../common/error_page.php") ;
-}else{	if (!isset($_SESSION["permiso"]["CENTRAL_ALL"]) and !isset($_SESSION["permiso"]["CENTRAL_CRDB"])){		header("Location: ../common/error_page.php") ;	}}
+}else{
+	if (!isset($_SESSION["permiso"]["CENTRAL_ALL"]) and !isset($_SESSION["permiso"]["CENTRAL_CRDB"])){
+		header("Location: ../common/error_page.php") ;
+	}
+}
 unset($_SESSION["FDT"]);
 unset($_SESSION["PFT"]);
 unset($_SESSION["FST"]);
@@ -53,10 +57,12 @@ function Validar(){
     document.forma1.base.value=dbn.toLowerCase()
     document.forma1.nombre.value=dbn.toLowerCase()
 	ix=document.forma1.base_sel.options.length
-	for (i=1;i<ix;i++){		if (document.forma1.base_sel.options[i].value==dbn){
+	for (i=1;i<ix;i++){
+		if (document.forma1.base_sel.options[i].value==dbn){
 			alert("<?php echo $msgstr["dbexists"]?>")
 			return
-		}	}
+		}
+	}
 	desc=Trim(document.forma1.desc.value)
 	if (desc==""){
 		alert("<?php echo $msgstr["falta"]." ".$msgstr["descripcion"]?>")
@@ -93,7 +99,9 @@ function Validar(){
 if (isset($arrHttp["encabezado"])){
 	include("../common/institutional_info.php");
 	$encabezado="s";
-}else{	$encabezado="";}
+}else{
+	$encabezado="";
+}
 ?>
 	<div class="sectionInfo">
 
@@ -101,27 +109,7 @@ if (isset($arrHttp["encabezado"])){
 				<?php echo $msgstr["createdb"]?>
 		</div>
 
-		<div class="actions">
-<?php if (isset($arrHttp["encabezado"])){
-	echo "<a href=\"../common/inicio.php?reinicio=s\" class=\"defaultButton cancelButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["cancel"]."</strong></span>
-				</a>
-	";
-}
-?>
-		</div>
-		<div class="spacer">&#160;</div>
-	</div>
-
-	<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/admin.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]) or isset($_SESSION["permiso"]["CENTRAL_ALL"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/admin.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/menu_creardb.php</font>";
-?>
-	</div>
+		
 	<form method=post name=forma1 onsubmit="javascript:return false">
 		<input type=hidden name=Opcion>
 		<input type=hidden name=base>
@@ -131,29 +119,29 @@ echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/menu_creardb.php</font>";
 	<!--			<h4>New Database</h4>-->
 
 				<div id="formRow01" class="formRow">
-					<label for="field01"><strong><?php echo $msgstr["dbn"]?></strong></label>
+					<label for="field01"><?php echo $msgstr["dbn"];?></label>
 					<div class="frDataFields">
-						<input type="text" name="nombre"  id="field01" value="" class="textEntry singleTextEntry" onfocus="this.className = 'textEntry singleTextEntry textEntryFocus';document.getElementById('formRow01').className = 'formRow formRowFocus';" onblur="this.className = 'textEntry singleTextEntry';document.getElementById('formRow01').className = 'formRow';" />
-						<p>
+						<input class="form-control" type="text" name="nombre"  id="field01" value="" class="textEntry singleTextEntry" onfocus="this.className = 'textEntry singleTextEntry textEntryFocus';document.getElementById('formRow01').className = 'formRow formRowFocus';" onblur="this.className = 'textEntry singleTextEntry';document.getElementById('formRow01').className = 'formRow';" />
+					
 					</div>
-					<div class="spacer">&#160;</div>
+					
 				</div>
 				<div id="formRow02" class="formRow">
-					<label for="field02"><strong><?php echo $msgstr["descripcion"]?></strong></label>
+					<label for="field02"><?php echo $msgstr["descripcion"];?></label>
 					<div class="frDataFields">
-						<input type=text name="desc" id="field02" class="textEntry singleTextEntry" onfocus="this.className = 'textEntry singleTextEntry textEntryFocus';document.getElementById('formRow02').className = 'formRow formRowFocus';" onblur="this.className = 'textEntry singleTextEntry';document.getElementById('formRow02').className = 'formRow';">
+						<input class="form-control" type=text name="desc" id="field02" class="textEntry singleTextEntry" onfocus="this.className = 'textEntry singleTextEntry textEntryFocus';document.getElementById('formRow02').className = 'formRow formRowFocus';" onblur="this.className = 'textEntry singleTextEntry';document.getElementById('formRow02').className = 'formRow';">
 						<p>
 					</div>
-					<div class="spacer">&#160;</div>
+			
 				</div>
 
 				<div id="formRow3" class="formRow formRowFocus">
-					<label for="field3"><strong><?php echo $msgstr["createfrom"]?>:</strong></label>
+					<label for="field3"><?php echo $msgstr["createfrom"];?>:</label>
 					<div class="frDataFields">
-						<select name="base_sel" id="field3"  onchange=VerificarTipo() class="textEntry singleTextEntry">
+						<select class="form-control" name="base_sel" id="field3"  onchange=VerificarTipo() class="textEntry singleTextEntry">
 							<option value=""></option>
-							<option value="~~NewDb"><?php echo $msgstr["newdb"]?></option>
-							<option value="~~WinIsis"><?php echo $msgstr["winisisdb"]?></option>
+							<option value="~~NewDb"><?php echo $msgstr["newdb"];?></option>
+							<option value="~~WinIsis"><?php echo $msgstr["winisisdb"];?></option>
 <?php
 
 $fp = file($db_path."bases.dat");
@@ -169,7 +157,7 @@ foreach ($fp as $linea){
 }
 ?>
 						</select>
-						<p>
+					
 <div name=dbtype id=dbtype style="display:none">
 <!--
 CISIS type <select name='cisis'>
@@ -185,21 +173,21 @@ CISIS type <select name='cisis'>
 -->
 </div>
 					</div>
-					<div class="spacer">&#160;</div>
+				
 				</div>
 
 			</div>
 		</div>
 		<div class="formFoot">
 			<div class="pagination">
-				<a href="javascript:Validar()" class="singleButton singleButtonSelected">
-						<span class="sb_lb">&#160;</span>
-						[<?php echo $msgstr["continuar"]?>]
-						<span class="sb_rb">&#160;</span>
+				<a href="javascript:Validar()" class="btn btn-primary">
+				
+						<?php echo $msgstr["continuar"];?>
+						
 					</a>
-				<div class="spacer">&#160;</div>
+				
 			</div>
-			<div class="spacer">&#160;</div>
+			
 		</div>
 	</div>
 	</form>

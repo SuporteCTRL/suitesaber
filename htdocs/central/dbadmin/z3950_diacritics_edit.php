@@ -131,24 +131,8 @@ if (isset($arrHttp["encabezado"])){
 <?php echo $msgstr["z3950"].". ".$msgstr["z3950_diacritics"] ?>
 	</div>
 
-	<div class="actions">
-<?php
-	if ($encabezado!="") echo "<a href=z3950_conf.php?&base=^a".$arrHttp["base"]."$encabezado class=\"defaultButton backButton\">";
-?>
-<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-<span><strong><?php echo $msgstr["back"]?></strong></span>
-</a>
-			</div>
-			<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/z3950_conf.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/z3950_conf.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: z3950_diacritics_edit.php </font>";
-?>
-	</div>
+	
+
 <div class="middle form">
 			<div class="formContent">
 <form name=eacfrm method=post action=z3950_diacritics_update.php onsubmit="javascript:return false">
@@ -162,28 +146,31 @@ else
 $ix=-1;
 echo "<center><div id=accent>";
 echo "Marc-8 &nbsp; &nbsp; ANSI";
-foreach ($fp as $value){	if (trim($value)!=""){
+foreach ($fp as $value){
+	if (trim($value)!=""){
 		$ix=$ix+1;
 		$v=explode(" ",$value);
 		echo "<br>";
-		echo "<input type=text size=3 name=ac$ix id=iac$ix value=".$v[0].">&nbsp; &nbsp; &nbsp;";
-		echo "<input type=text size=3 name=nac$ix id=inac$ix value=".$v[1].">";
-	}}
+		echo "<input type=text class=\"form-control\" name=ac$ix id=iac$ix value=".$v[0].">";
+		echo "<input type=text class=\"form-control\" name=nac$ix id=inac$ix value=".$v[1].">";
+	}
+}
 $ix=$ix+1;
-for ($i=$ix;$i<$ix+5;$i++){	echo "<br>";
-	echo "<input type=text size=3 name=ac$i id=iac$i value=\"\">&nbsp; &nbsp; &nbsp;";
-	echo "<input type=text size=3 name=nac$i id=inac$i value=\"\">";
+for ($i=$ix;$i<$ix+5;$i++){
+	echo "<br>";
+	echo "<input type=text  name=ac$i id=iac$i class=\"form-control\">";
+	echo "<input type=text name=nac$i id=inac$i class=\"form-control\">";
 }
 
-echo "</div><br>";
-echo "<font face=arial size=2>";
-echo $msgstr["add"]." <input type=text name=agregar size=3> ".$msgstr["lines"];
-echo " &nbsp; <a href='javascript:Agregar(\"accent\")'>".$msgstr["add"]."</a>";
+
+
+echo $msgstr["add"]." <input type=text name=agregar class=\"form-control\"> ".$msgstr["lines"];
+echo "  <a class=\"btn btn-success\" href='javascript:Agregar(\"accent\")' >Adicionar  <i tittle=\"".$msgstr["add"]."\" class=\"fa fa-plus\" aria hidden=\"true\"></a></i>";
 
 if (isset($arrHttp["encabezado"]))
-	echo "<input type=hidden name=encabezado value=s>\n";
+	echo "<input  type=hidden name=encabezado value=s>\n";
 ?>
-<p><br><input type=submit value=<?php echo $msgstr["update"]?> onclick=javascript:Enviar()>
+<input class="btn btn-primary" type=submit value=<?php echo $msgstr["update"]?> onclick=javascript:Enviar()>
 <input type=hidden name=ValorCapturado>
 </form>
 </body>

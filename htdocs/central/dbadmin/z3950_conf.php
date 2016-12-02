@@ -80,7 +80,7 @@ if (isset($arrHttp["encabezado"])){
 </div>
 
 
-	<li><a href=../dataentry/browse.php?base=servers&return=../dbadmin/z3950_conf.php|base=^a<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_servers"]?></a><br><br></li>
+	<li><a href=../dataentry/browse.php?base=servers&return=../dbadmin/z3950_conf.php|base=^a<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_servers"]?></a></li>
 	<li><?php echo $msgstr["z3950_cnv"]?>
 	<dd><a href=z3950_conversion.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["new"]?></a>
 <?php
@@ -93,7 +93,7 @@ if (file_exists($db_path.$db."/def/z3950.cnv")){
 		$o=explode('|',$value);
 		echo "<option value='".$o[0]."'>".$o[1]."\n";
 	}
-	echo "</select><br><br>";
+	echo "</select>";
 }
 ?>
 

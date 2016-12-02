@@ -47,8 +47,10 @@ include("../common/header.php");
 <script src=../dataentry/js/lr_trim.js></script>
 <script language=javascript>
 function Enviar(){
-	if (Trim(document.cnv.namecnvtb.value)=="" || Trim(document.cnv.descr.value)==""){		alert("<?php echo $msgstr["namecnvtamiss"]?>")
-		return	}
+	if (Trim(document.cnv.namecnvtb.value)=="" || Trim(document.cnv.descr.value)==""){
+		alert("<?php echo $msgstr["namecnvtamiss"]?>")
+		return
+	}
 	document.cnv.target=""
 	document.cnv.action="z3950_conversion_update.php"
 	document.cnv.submit()
@@ -71,26 +73,16 @@ if (isset($arrHttp["encabezado"])){
 
 	<div class="actions">
 <?php
-	echo "<a href=z3950_conf.php?base=^a".$arrHttp["base"]."$encabezado class=\"defaultButton backButton\">
-		<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-		<span><strong>".$msgstr["back"]."</strong></span>
-		</a>\n";
-	echo "<a href=javascript:Enviar() class=\"defaultButton saveButton\">
-		<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-		<span><strong>".$msgstr["save"]."</strong></span>
-		</a>\n";
+	
+	echo "<a href=javascript:Enviar() class=\"btn btn-default\" tittle=\" ".$msgstr["save"]."\">
+		<i class=\"fa fa-check\" aria hidden=\"true\">
+		
+		</a></i>\n";
 ?>
 			</div>
-			<div class="spacer">&#160;</div>
+	
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/z3950_conf.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/z3950_conf.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: z3950_conversion.php </font>";
-?>
-	</div>
+
 <div class="middle form">
 	<div class="formContent">
 <form name=cnv  method=post onsubmit="javascript:return false">
@@ -120,7 +112,7 @@ $Dir=$db_path.$arrHttp["base"]."/def/";
 $archivo=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["base"].".fdt";
 if (!file_exists($archivo)) $archivo=$db_path.$arrHttp["base"]."/def/".$lang_db."/".$arrHttp["base"].".fdt";
 $fp=file($archivo);
-echo "<dd><table border=0 bgcolor=#cccccc cellpadding=3 cellspacing=1 class=td width=95%>";
+echo "<dd><table cellpadding=3 cellspacing=1 class=td width=95%>";
 echo "<tr><td>".$msgstr["ft_f"]."</td><td>".$msgstr["tag"]."</td><td>".$msgstr["ft_s"]."</td><td nowrap>".$msgstr["z3950_cnv"]."</td>";
 $ix=-1;
 
@@ -130,14 +122,14 @@ foreach ($fp as $value){
 		$ix=$ix+1;
 		$tag=$t[1];
 		if ($tag!=""){
-			echo "<tr><td bgcolor=white class=td>";
+			echo "<tr><td  class=td>";
 			echo $t[2];
 			echo "</td>";
-			echo "<td bgcolor=white class=td>".$tag."<input type=hidden name=tag$tag value=".$tag."></td>";
-			echo "<td bgcolor=white class=td>";
+			echo "<td class=td>".$tag."<input type=hidden name=tag$tag value=".$tag."></td>";
+			echo "<td  class=td>";
 			echo $t[5];
 			echo "</td>";
-			echo "<td bgcolor=white><textarea cols=100 rows=1 name=formato$tag>";
+			echo "<td ><textarea cols=100 rows=1 name=formato$tag>";
 			if (isset($pft[$tag])) echo $pft[$tag];
 			echo "</textarea></td>";
 		}
@@ -147,20 +139,21 @@ foreach ($fp as $value){
 
 echo "</table><p><dd>";
 echo $msgstr["namecnvtb"].":";
-if (!isset($arrHttp["Table"])){	echo  "<input type=text name=namecnvtb size=30> &nbsp &nbsp;";
+if (!isset($arrHttp["table"])){
+	echo  "<input type=text name=namecnvtb size=30> &nbsp &nbsp;";
 	echo $msgstr["description"].": ";
 	echo "<input type=text name=descr size=30>\n";
 }else{
-	echo "<input type=text name=namecnvtb size=30 value='".$arrHttp["Table"]."'> &nbsp; &nbsp;\n";
+	echo "<input class=\"form-control\" type=text name=namecnvtb size=30 value='".$arrHttp["Table"]."'>\n";
 	echo $msgstr["description"].": ";
-	echo "<input type=text name=descr size=30 value='".$arrHttp["descr"]."'>\n";
+	echo "<input class=\"form-control\" type=text name=descr size=30 value='".$arrHttp["descr"]."'>\n";
 }
-echo "<a href=javascript:Enviar()>".$msgstr["update"]."</a>  &nbsp; &nbsp";
+echo "<a class=\"btn btn-default\" href=javascript:Enviar()>".$msgstr["update"]."</a>";
 if (!isset($arrHttp["encabezado"])) echo "<a href=menu_modificardb.php?base=". $arrHttp["base"].">".$msgstr["cancel"]."</a>";
 echo "</form>";
 ?>
 	</div>
 </div>
-<?php include("../common/footer.php")?>
+<?php include("../common/footer.php");?>
 </body>
 </html>
