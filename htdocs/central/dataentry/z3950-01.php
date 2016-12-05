@@ -45,10 +45,14 @@ if (isset($arrHttp["cnvtab"]) ) {
 $file=$db_path."cnv/marc-8_to_ansi.tab";
 $marc8=array ();
 $ansi=array();
-if (file_exists($file)){	$fp=file($file);
-	foreach ($fp as $value){		$ar=explode(" ",$value);
+if (file_exists($file)){
+	$fp=file($file);
+	foreach ($fp as $value){
+		$ar=explode(" ",$value);
 		$marc8[]=trim($ar[0]);
-		$ansi[]=trim($ar[1]);	}}
+		$ansi[]=trim($ar[1]);
+	}
+}
 unset($fp);
 //foreach ($arrHttp as $var => $value) 	echo "$var = $value<br>";
 
@@ -114,11 +118,13 @@ $host=Array();
 			<?php if (isset($_SESSION["cnvtab"]))
 			echo "\ncnvtab='&cnvtab=".urlencode($_SESSION["cnvtab"])."'\n";
 			?>
-			if (Opcion=="edit"){				loc="z3950_copy.php?userid=g&Opcion=capturar&ver=N&Mfn="+Mfn+"&base=<?php echo $arrHttp["base"]?>&cipar=<?php echo $arrHttp["cipar"]?>&Opcion_z="+Opcion
+			if (Opcion=="edit"){
+				loc="z3950_copy.php?userid=g&Opcion=capturar&ver=N&Mfn="+Mfn+"&base=<?php echo $arrHttp["base"]?>&cipar=<?php echo $arrHttp["cipar"]?>&Opcion_z="+Opcion
 				loc=loc+"&ValorCapturado="+campo+cnvtab
        			window.opener.top.main.location=loc
        			document.z3950.marc[ixT].value=""
-				window.opener.top.main.focus()			}else{
+				window.opener.top.main.focus()
+			}else{
 				loc="z3950_copy.php?userid=g&Opcion=capturar&ver=N&Mfn=New&base=<?php echo $arrHttp["base"]?>&cipar=<?php echo $arrHttp["cipar"]?>&Opcion_z="+Opcion
 				loc=loc+"&ValorCapturado="+campo+cnvtab
        			window.opener.top.main.location=loc
@@ -153,7 +159,7 @@ Host: <?php echo $host[0]?>
 
 ?>
 <div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]."/z3950-01.html"?> target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+
  <?php if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/z3950-01.html target=_blank>".$msgstr["edhlp"]."</a>";
  echo "&nbsp; &nbsp; Script: z3950.php" ?></font>
 </div>
@@ -298,7 +304,8 @@ if ((!empty($term)||$expr_isbn!="") && $num_hosts > 0)
 					$ixreg=$ixreg+1;
 					echo "$pos/$max_hits<br>";
                		if (is_array($ar)){
-                   		if ($syntax == "GRS-1") {                    		print_structured_record($ar);
+                   		if ($syntax == "GRS-1") {
+                    		print_structured_record($ar);
                    		} else {
 							echo '<table cellspacing="0" cellpadding="2" border="0"><tr><td align="center" class=td>';
 							echo '<a href="javascript:Transmitir('.$ixreg.')"><img src=img/capturar.gif border=0 alt="Copy to the database"></a>';
@@ -346,7 +353,8 @@ if ($max_hits > 0)
     $tope=0;
     while ($i < $max_hits  && $number > 1) {
         echo '&nbsp;';
-        if ($start != $i) {
+        if ($start != $i) {
+
             echo '<a href=z3950-01.php?';
             echo "start=$i&number=$number&reintentar=$intentos&";
             echo $host_url."^s$syntax^f$element";
@@ -363,8 +371,10 @@ if ($max_hits > 0)
             echo '</a>';
         }
         $tope=$tope+1;
-        if ($tope>10){        	echo "<br>";
-        	$tope=0;        }
+        if ($tope>10){
+        	echo "<br>";
+        	$tope=0;
+        }
         $i += $number;
     }
 }

@@ -80,9 +80,11 @@ if (isset($arrHttp["encabezado"])){
 </div>
 
 
-	<li><a href=../dataentry/browse.php?base=servers&return=../dbadmin/z3950_conf.php|base=^a<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_servers"]?></a></li>
+	<a class="btn btn-default" href=../dataentry/browse.php?base=servers&return=../dbadmin/z3950_conf.php|base=^a<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_servers"]?></a>
+
 	<li><?php echo $msgstr["z3950_cnv"]?>
-	<dd><a href=z3950_conversion.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["new"]?></a>
+	
+	<dd><a class="btn btn-default" href=z3950_conversion.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["new"]?></a>
 <?php
 if (file_exists($db_path.$db."/def/z3950.cnv")){
 	echo  "&nbsp; | <a href=javascript:Edit()>".$msgstr["edit"]."</a> &nbsp; | <a href=javascript:Delete()>".$msgstr["delete"]."</a> &nbsp; ";
@@ -97,8 +99,9 @@ if (file_exists($db_path.$db."/def/z3950.cnv")){
 }
 ?>
 
-	<li><a href=z3950_diacritics_edit.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_diacritics"]?></a><br><br></li>
-	<li><a href=../dataentry/z3950.php?base=<?php echo $db.$encabezado?>&test=Y target=_blank><?php echo $msgstr["test"]?></a></li>
+	<a class="btn btn-default" href=z3950_diacritics_edit.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_diacritics"]?></a><br><br></li>
+	
+	<a class="btn btn-default" href=../dataentry/z3950.php?base=<?php echo $db.$encabezado?>&test=Y target=_blank><?php echo $msgstr["test"]?></a></li>
 	</ul>
 	</td>
 	

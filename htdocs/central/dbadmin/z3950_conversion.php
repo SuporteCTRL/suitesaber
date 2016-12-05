@@ -74,7 +74,7 @@ if (isset($arrHttp["encabezado"])){
 	<div class="actions">
 <?php
 	
-	echo "<a href=javascript:Enviar() class=\"btn btn-default\" tittle=\" ".$msgstr["save"]."\">
+	echo "<a href=javascript:Enviar() class=\"btn btn-primary\" tittle=\" ".$msgstr["save"]."\">
 		<i class=\"fa fa-check\" aria hidden=\"true\">
 		
 		</a></i>\n";
@@ -129,7 +129,7 @@ foreach ($fp as $value){
 			echo "<td  class=td>";
 			echo $t[5];
 			echo "</td>";
-			echo "<td ><textarea cols=100 rows=1 name=formato$tag>";
+			echo "<td ><textarea class=\"form-control\" cols=100 rows=1 name=formato$tag>";
 			if (isset($pft[$tag])) echo $pft[$tag];
 			echo "</textarea></td>";
 		}
@@ -140,7 +140,7 @@ foreach ($fp as $value){
 echo "</table><p><dd>";
 echo $msgstr["namecnvtb"].":";
 if (!isset($arrHttp["table"])){
-	echo  "<input type=text name=namecnvtb size=30> &nbsp &nbsp;";
+	echo  "<input class=\"form-control\" type=text name=namecnvtb size=30> &nbsp &nbsp;";
 	echo $msgstr["description"].": ";
 	echo "<input type=text name=descr size=30>\n";
 }else{
@@ -148,7 +148,7 @@ if (!isset($arrHttp["table"])){
 	echo $msgstr["description"].": ";
 	echo "<input class=\"form-control\" type=text name=descr size=30 value='".$arrHttp["descr"]."'>\n";
 }
-echo "<a class=\"btn btn-default\" href=javascript:Enviar()>".$msgstr["update"]."</a>";
+echo "<a class=\"btn btn-success\" href=javascript:Enviar()>".$msgstr["update"]."</a>";
 if (!isset($arrHttp["encabezado"])) echo "<a href=menu_modificardb.php?base=". $arrHttp["base"].">".$msgstr["cancel"]."</a>";
 echo "</form>";
 ?>

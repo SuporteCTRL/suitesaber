@@ -23,7 +23,9 @@ echo "<body>\n";
 if (isset($arrHttp["encabezado"])){
 	$encabezado="&encabezado=s";
    	include("../common/institutional_info.php");
-}else{	$encabezado="";}
+}else{
+	$encabezado="";
+}
 echo "
 	<div class=\"sectionInfo\">
 	<div class=\"breadcrumb\">".
@@ -33,73 +35,46 @@ echo "
 if (isset($arrHttp["encabezado"])){
 	echo "<a href=\"../common/inicio.php?reinicio=s";
 	if (isset($arrHttp["base"]))echo "&base=".$arrHttp["base"];
-	echo "\" class=\"defaultButton backButton\">
-		<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-		<span><strong>". $msgstr["back"]."</strong></span>
-		</a>
-	";
+	
 }
 echo "</div>
 			<div class=\"spacer\">&#160;</div>
 		</div>";
 ?>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/menu_traducir.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]) or isset($_SESSION["permiso"]["CENTRAL_ALL"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/menu_traducir.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: menu_traducir.php";
-?>
-</font>
-	</div>
+
 <div class="middle homepage">
 	<div class="mainBox" onmouseover="this.className = 'mainBox mainBoxHighlighted';" onmouseout="this.className = 'mainBox';">
 		<div class="boxTop">
-			<div class="btLeft">&#160;</div>
-			<div class="btRight">&#160;</div>
+		
 		</div>
 		<div class="boxContent titleSection">
 			<div class="sectionTitle">
 				<h4><strong><?php echo $msgstr["traducir"]?></strong></h4>
 			</div>
 			<div class="sectionButtons">
-				<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=admin.tab<?php echo $encabezado?>" class="menuButton  listButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["catalogacion"]?></strong></span>
-				</a>
+				<ul>
+				
+<li>
+<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=admin.tab<?php echo $encabezado?>" ><?php echo $msgstr["catalogacion"]?></a></li>
+<li>
+<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=dbadmin.tab<?php echo $encabezado?>"><<?php echo $msgstr["dbadmin"];?></a></li>
 
-				<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=dbadmin.tab<?php echo $encabezado?>" class="menuButton  databaseButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["dbadmin"]?></strong></span>
-				</a>
-				<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=soporte.tab<?php echo $encabezado?>" class="menuButton  utilsButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["maintenance"]?></strong></span>
-				</a>
-    			<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=prestamo.tab<?php echo $encabezado?>" class="menuButton  importButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["prestamo"]?></strong></span>
-				</a>
-				<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=reports.tab<?php echo $encabezado?>" class="menuButton  reportsButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["reports"]?></strong></span>
-				</a>
-				 <a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=statistics.tab<?php echo $encabezado?>" class="menuButton  statButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["statistics"]?></strong></span>
-				</a>
-				<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=acquisitions.tab<?php echo $encabezado?>" class="menuButton  databaseButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["acquisitions"]?></strong></span>
-				</a>
-                <a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=iah_conf.tab<?php echo $encabezado?>" class="menuButton  databaseButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["iah-conf"]?></strong></span>
-				</a>
-				<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=profile.tab<?php echo $encabezado?>" class="menuButton  userButton">
-					<img src="../images/mainBox_iconBorder.gif" alt="" title="" />
-					<span><strong><?php echo $msgstr["profiles"]?></strong></span>
-				</a>
+<li>
+<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=soporte.tab<?php echo $encabezado?>"><?php echo $msgstr["maintenance"]?></a></li>
+<li>
+<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=prestamo.tab<?php echo $encabezado?>"><?php echo $msgstr["prestamo"]?></a></li>
+<li>
+<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=reports.tab<?php echo $encabezado?>"><?php echo $msgstr["reports"]?></a></li>
+<li>				
+ <a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=statistics.tab<?php echo $encabezado?>"><?php echo $msgstr["statistics"]?></a></li>
+<li>
+<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=acquisitions.tab<?php echo $encabezado?>" class="menuButton  databaseButton"><?php echo $msgstr["acquisitions"]?></a></li>
+
+<li>
+ <a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=iah_conf.tab<?php echo $encabezado?>" class="menuButton  databaseButton"><?php echo $msgstr["iah-conf"]?></a> </li>
+
+<li>
+<a href="translate.php?lang=<?php echo $_SESSION["lang"]?>&componente=profile.tab<?php echo $encabezado?>"><?php echo $msgstr["profiles"];?></a></li>
 			</div>
 			<div class="spacer">&#160;</div>
 		</div>

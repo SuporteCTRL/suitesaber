@@ -13,7 +13,6 @@ include("../common/header.php");
 ?>
 <script src=../dataentry/js/lr_trim.js></script>
 <script>
-
 document.onkeypress =
 	function (evt) {
 			var c = document.layers ? evt.which
@@ -22,10 +21,8 @@ document.onkeypress =
 			if (c==13) Agregar()
 			return true;
 	}
-
 var valores_ac=new Array()
 var valores_nac=new Array()
-
 function LeerValores(){
 	val=""
 	j=-1;
@@ -33,7 +30,6 @@ function LeerValores(){
         	tipo=document.eacfrm.elements[i].type
         	nombre=document.eacfrm.elements[i].name
         	if (nombre.substr(0,2)=="ac" || nombre.substr(0,3)=="nac"){
-
         		if (nombre.substr(0,2)=="ac"){
         			j++
         			valores_ac[j]= document.eacfrm.elements[i].value
@@ -42,10 +38,8 @@ function LeerValores(){
         			valores_nac[j]= document.eacfrm.elements[i].value
         		}
         	}
-
  	}
 }
-
 function returnObjById( id )
 {
     if (document.getElementById)
@@ -56,29 +50,29 @@ function returnObjById( id )
         var returnVar = document.layers[id];
     return returnVar;
 }
-
 function getElement(psID) {
 	if(!document.all) {
 		return document.getElementById(psID);
-
 	} else {
 		return document.all[psID];
 	}
 }
 
+
 function Agregar(IdSec){
 	agregar=document.eacfrm.agregar.value
-    ix=0
+    ix=0;
 	nuevo=""
 	LeerValores()
 	for (i=0;i<valores_ac.length;i++){
-		nuevo+="\n<br><input type=text name=\"ac"+i+"\" id=\"iac"+i+"\" value=\""+valores_ac[i]+"\" size=3>&nbsp; &nbsp; &nbsp;<input type=text name=\"nac"+i+"\" id=\"inac"+i+"\" value=\""+valores_nac[i]+"\" size=3>";
-		ix=i
+		nuevo+="\n<br><br> <div class=\"form-group\"><div class=\"col-md-5\"><input type=text  name=\"ac"+i+"\" id=\"iac"+i+"\" value=\""+valores_ac[i]+"\"  class=\"form-control\" ></div><div class=\"col-md-1\"><i class=\"fa fa-arrow-right\"></i></div>	<div class=\"col-md-6\"><input type=text name=\"nac"+i+"\" id=\"inac"+i+"\" value=\""+valores_nac[i]+"\"  class=\"form-control\"></div></div>";
+		ix=i;
 	}
+
 	if (agregar>0){
-		for (i=1;i<=agregar;i++){
-			ix++
-			nuevo+="\n<br><input type=text name=\"ac"+ix+"\" id=\"iac"+ix+"\" value=\"\" size=3>&nbsp; &nbsp; &nbsp;<input type=text name=\"nac"+ix+"\" id=\"inac"+ix+"\" value=\"\" size=3>";
+		for (i=0;i<agregar;i++){
+			ix++;
+			nuevo+="\n<br><br> <div class=\"form-group\"><div class=\"col-md-5\"><input type=text name=\"ac"+ix+"\" id=\"iac"+ix+"\" value=\"\" class=\"form-control\"></div><div class=\"col-md-1\"><i class=\"fa fa-arrow-right\"></i></div>	<div class=\"col-md-6\"><input type=text name=\"nac"+ix+"\" id=\"inac"+ix+"\" value=\"\"  class=\"form-control\"></div></div>";
 		}
 	}
 	seccion=returnObjById( IdSec )
@@ -92,6 +86,7 @@ function Enviar(){
         tipo=document.eacfrm.elements[i].type
         nombre=document.eacfrm.elements[i].name
         if (nombre.substr(0,2)=="ac" || nombre.substr(0,3)=="nac"){
+        	
         	val=""
 
         	if (nombre.substr(0,2)=="ac"){
@@ -105,7 +100,7 @@ function Enviar(){
         		valores_nac[j]= document.eacfrm.elements[i].value
         		campo1=valores_nac[j]
         		if (campo!="" && Trim(campo1)=="" || campo=="" && Trim(campo1)!=""){
-        			alert("<?php echo $msgstr["ft_l"]?>"+": "+campo+"/"+campo1+" <?php echo $msgstr["specvalue"]?>")
+        			alert("<?php echo $msgstr["ft_l"]?>"+": "+campo+"/"+campo1+" <?php echo $msgstr["specvalue"];?>")
         			return
         		}
         	}
@@ -116,6 +111,7 @@ function Enviar(){
 	document.eacfrm.ValorCapturado.value=ValorCapturado
 	document.eacfrm.submit()
 }
+
 </script>
 <body>
 <?php
@@ -126,16 +122,15 @@ if (isset($arrHttp["encabezado"])){
 	$encabezado="";
 }
 ?>
-<div class="sectionInfo">
-	<div class="breadcrumb">
+
 <?php echo $msgstr["z3950"].". ".$msgstr["z3950_diacritics"] ?>
-	</div>
+
 
 	
 
-<div class="middle form">
-			<div class="formContent">
-<form name=eacfrm method=post action=z3950_diacritics_update.php onsubmit="javascript:return false">
+
+
+<form name="eacfrm" method="post" action="z3950_diacritics_update.php" onsubmit="javascript:return false" >
 <?php
 unset($fp);
 $file=$db_path."cnv/marc-8_to_ansi.tab";
@@ -144,34 +139,69 @@ if (file_exists($file))
 else
 	$fp[]="  ";
 $ix=-1;
-echo "<center><div id=accent>";
+echo "<div id=accent>";
 echo "Marc-8 &nbsp; &nbsp; ANSI";
 foreach ($fp as $value){
 	if (trim($value)!=""){
 		$ix=$ix+1;
 		$v=explode(" ",$value);
-		echo "<br>";
-		echo "<input type=text class=\"form-control\" name=ac$ix id=iac$ix value=".$v[0].">";
-		echo "<input type=text class=\"form-control\" name=nac$ix id=inac$ix value=".$v[1].">";
+?>
+<br><br>
+ <div class="form-group">
+	<div class="col-md-5">
+		<input type="text" class="form-control" name="<?php echo "ac".$ix; ?>" id="<?php echo "iac".$ix?>" value="<?php echo $v[0] ?>">
+	</div>
+	<div class="col-md-1">
+		<i class="fa fa-arrow-right"></i>
+	</div>
+	<div class="col-md-6">
+		<input type="text" class="form-control" name="<?php echo "nac".$ix; ?>" id="<?php echo "inac".$ix?>" value="<?php echo $v[1]?>">
+	</div>
+</div>	
+
+<?php
 	}
 }
 $ix=$ix+1;
-for ($i=$ix;$i<$ix+5;$i++){
-	echo "<br>";
-	echo "<input type=text  name=ac$i id=iac$i class=\"form-control\">";
-	echo "<input type=text name=nac$i id=inac$i class=\"form-control\">";
-}
-
-
-
-echo $msgstr["add"]." <input type=text name=agregar class=\"form-control\"> ".$msgstr["lines"];
-echo "  <a class=\"btn btn-success\" href='javascript:Agregar(\"accent\")' >Adicionar  <i tittle=\"".$msgstr["add"]."\" class=\"fa fa-plus\" aria hidden=\"true\"></a></i>";
-
-if (isset($arrHttp["encabezado"]))
-	echo "<input  type=hidden name=encabezado value=s>\n";
+for ($i=$ix;$i<$ix+1;$i++){
 ?>
-<input class="btn btn-primary" type=submit value=<?php echo $msgstr["update"]?> onclick=javascript:Enviar()>
-<input type=hidden name=ValorCapturado>
-</form>
-</body>
+<br><br>
+ <div class="form-group">
+	<div class="col-md-5">
+		<input type="text" class="form-control" name="<?php echo "ac".$ix; ?>" id="<?php echo "iac".$ix?>" >
+	</div>
+	<div class="col-md-1">
+		<i class="fa fa-arrow-right"></i>
+	</div>
+	<div class="col-md-6">
+		<input type="text" class="form-control" name="<?php echo "nac".$ix; ?>" id="<?php echo "inac".$ix?>" >
+	</div>
+</div>	
+</div>
+<?php
+}
+?>
+				<br><br>
+				<div class="form-group form-inline">
+				<label>
+					<?php echo $msgstr["add"];?>
+				</label>
+					<input type="number" name="agregar" class="form-control"> 
+				<label>
+				<?php echo $msgstr["lines"];?>				
+				</label>
+				<a class="btn btn-success" href="javascript:Agregar('accent')" >Adicionar</a>
+				
+				<?php
+				if (isset($arrHttp["encabezado"]))
+					echo "<input  type=hidden name=encabezado value=s>\n";
+				?>
+				</div>
+
+			<input class="btn btn-primary" type="submit" value="<?php echo $msgstr["update"]?>" onclick="javascript:Enviar()">
+			<input type="hidden" name="ValorCapturado">
+
+		</form>
+	</body>
+
 </html>

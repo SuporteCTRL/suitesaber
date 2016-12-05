@@ -52,27 +52,13 @@ if (isset($arrHttp["encabezado"])){
 <?php echo $msgstr["usuarios"]?>
 	</div>
 
-	<div class="actions">
-<?php echo "<a href=\"../common/inicio.php?reinicio=s$encabezado\" class=\"defaultButton backButton\">";?>
-		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-		<span><strong><?php echo $msgstr["BACK"]?></strong></span></a>
-	</div>
-	<div class="spacer">&#160;</div>
-</div>
-
-<div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/profiles.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
- 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/profiles.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: users_adm.php" ?></font>
-	</div>
+	
 <div class="middle form">
 	<div class="formContent">
 	<ul>
 <?php
-echo "<li><a href=../dataentry/browse.php?showdeleted=Y&encabezado=s&base=acces&cipar=acces.par&return=../dbadmin/users_adm.php|>".$msgstr["usuarios"] ."</a><p>";
-echo "<li><a href=profile_edit.php?encabezado=s>".$msgstr["profiles"]."</a>";
+echo "<a class=\"btn btn-default\" href=../dataentry/browse.php?showdeleted=Y&encabezado=s&base=acces&cipar=acces.par&return=../dbadmin/users_adm.php|>".$msgstr["usuarios"] ."</a><p>";
+echo "<a class=\"btn btn-default\" href=profile_edit.php?encabezado=s>".$msgstr["profiles"]."</a>";
 
 ?>
 	</ul>
