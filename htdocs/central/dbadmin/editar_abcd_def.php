@@ -20,7 +20,8 @@ if (!isset($_SESSION["login"])or $_SESSION["profile"]!="adm" ){
     die;
 }
 $Permiso=$_SESSION["permiso"];
-function LeerIniFile($ini_vars,$ini){	foreach ($ini_vars as $key=>$Opt){
+function LeerIniFile($ini_vars,$ini){
+	foreach ($ini_vars as $key=>$Opt){
 		echo "<tr>
 		         <td>$key</td>
 		         <td>";
@@ -59,12 +60,15 @@ function LeerIniFile($ini_vars,$ini){	foreach ($ini_vars as $key=>$Opt){
                 break;
 		}
 		echo "</td></tr>\n";
-	}}
+	}
+}
 ?>
 
 <script src=../dataentry/js/lr_trim.js></script>
 <script language="javascript" type="text/javascript">
-function Enviar(){	document.maintenance.submit()}
+function Enviar(){
+	document.maintenance.submit()
+}
 </script>
 <body >
 <?php
@@ -130,45 +134,39 @@ echo "
 			<div class=\"actions\">
 
 	";
-if ($arrHttp["Opcion"]=="abcd_def")
-	echo "<a href=\"../dbadmin/conf_abcd.php?reinicio=s\" class=\"defaultButton backButton\">";
-else
-	echo "<a href=\"menu_modificardb.php?base=".$arrHttp["base"]."&encabezado=s\" class=\"defaultButton backButton\">";
-echo "<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-	<span><strong>Regresar</strong></span></a>";
-if (!isset($arrHttp["Accion"]) or $arrHttp["Accion"]!=="actualizar"){
-	echo "<a href=\"javascript:Enviar()\" class=\"defaultButton saveButton\">";
-	echo "
-			<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-			<span><strong>". $msgstr["save"]."</strong></span>
-			</a>";
-}
-echo "</div>
-	<div class=\"spacer\">&#160;</div>
-	</div>";
+
 ?>
-<div class="helper">
-	<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/menu_mantenimiento.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+
 <?php
 
 
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])  or isset($_SESSION["permiso"]["CENTRAL_ALL"]) )
- 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/distribucion.html target=_blank>".$msgstr["edhlp"]."</a>";
+ 	
 echo "&nbsp; &nbsp; <a href=http://abcdwiki.net/wiki/es/index.php?title=$help target=_blank>abcdwiki.net</a>";
 $ini=array();
 $modulo=array();
 $mod="";
-if (file_exists($file)){	$fp=file($file);
+if (file_exists($file)){
+	$fp=file($file);
 	foreach ($fp as $key=>$value){
 		$value=trim($value);
 		if ($value!=""){
 			$x=explode('=',$value);
-			if ($mod=="Y"){				$modulo[$x[0]]=$x[1];			}else{				if (isset($x[1])){					$ini[$x[0]]=$x[1];
-				}else{					if (trim($x[0])=="[MODULOS]"){						$modulo[$x[0]]=$x[0];
-						$mod="Y";					}				}
+			if ($mod=="Y"){
+				$modulo[$x[0]]=$x[1];
+			}else{
+				if (isset($x[1])){
+					$ini[$x[0]]=$x[1];
+				}else{
+					if (trim($x[0])=="[MODULOS]"){
+						$modulo[$x[0]]=$x[0];
+						$mod="Y";
+					}
+				}
 			}
 		}
-	}}
+	}
+}
 ?>
 </font>
 </div>
@@ -179,17 +177,29 @@ if (file_exists($file)){	$fp=file($file);
 <?php
 if (isset($arrHttp["base"]))
 	echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";
-if (!isset($arrHttp["Accion"])){	echo "<input type=hidden name=Accion value=\"actualizar\">\n";	echo "<table cellspacing=5 width=400 align=center >";
+if (!isset($arrHttp["Accion"])){
+	echo "<input type=hidden name=Accion value=\"actualizar\">\n";
+	echo "<table cellspacing=5 width=400 align=center >";
 	LeerIniFile($ini_vars,$ini);
-	if ($arrHttp["Opcion"]=="abcd_def"){		echo "<tr><td colspan=2><strong>[MODULOS]</strong></td></tr>";
-		LeerIniFile($mod_vars,$ini);	}
+	if ($arrHttp["Opcion"]=="abcd_def"){
+		echo "<tr><td colspan=2><strong>[MODULOS]</strong></td></tr>";
+		LeerIniFile($mod_vars,$ini);
+	}
 	echo "</table>";
-}else{	if ($arrHttp["Accion"]=="actualizar"){	    $fp=fopen($file,"w");
-	    foreach ($ini_vars as $key=>$Opt){	    	if (isset($arrHttp["ini_".$key])){	    		echo $key."=".$arrHttp["ini_".$key]."<br>";
+}else{
+	if ($arrHttp["Accion"]=="actualizar"){
+	    $fp=fopen($file,"w");
+	    foreach ($ini_vars as $key=>$Opt){
+	    	if (isset($arrHttp["ini_".$key])){
+	    		echo $key."=".$arrHttp["ini_".$key]."<br>";
 	    		fwrite($fp,$key."=".trim($arrHttp["ini_".$key])."\n");
-	    	}	    }
-	    if ($help=="Abcd.def" and !isset($arrHttp["ini_LEGEND2"])){	    	fwrite($fp,"LEGEND2=\n");	    }
-	    if (isset($arrHttp["mod_TITLE"])){	    	echo "[MODULOS]<BR>";
+	    	}
+	    }
+	    if ($help=="Abcd.def" and !isset($arrHttp["ini_LEGEND2"])){
+	    	fwrite($fp,"LEGEND2=\n");
+	    }
+	    if (isset($arrHttp["mod_TITLE"])){
+	    	echo "[MODULOS]<BR>";
 	    	foreach ($mod_vars as $key){
 	    		if (isset($arrHttp["mod_".$key])){
 	    			echo $key."=".$arrHttp["mod_".$key]."<br>";
@@ -199,7 +209,8 @@ if (!isset($arrHttp["Accion"])){	echo "<input type=hidden name=Accion value=\"a
 	    }
 	    fclose($fp);
 	    echo "<h4>$help ".$msgstr["updated"]."</h4>";
-	 }}
+	 }
+}
 ?>
 </form>
 </div>

@@ -21,7 +21,12 @@ include("../lang/dbadmin.php");
 include("../lang/prestamo.php");
 
 // VERIFICACION DE LA PERMISOLOTIA
-if (isset($_SESSION["permiso"]["CENTRAL_ALL"])){}else{	echo "<h2>".$msgstr["invalidright"]. " ".$base;	die;}
+if (isset($_SESSION["permiso"]["CENTRAL_ALL"])){
+
+}else{
+	echo "<h2>".$msgstr["invalidright"]. " ".$base;
+	die;
+}
 
 
 
@@ -41,7 +46,7 @@ function Update(Option){
 </script>
 <body>
 <div id="loading">
-  <img id="loading-image" src="../dataentry/img/preloader.gif" alt="Loading..." />
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
 </div>
 <?php
 // ENCABEZAMIENTO DE LA PÁGINA
@@ -56,13 +61,11 @@ echo "
 			<div class=\"actions\">
 
 	";
-echo "<a href=\"../common/inicio.php?reinicio=s\" class=\"defaultButton backButton\">";
 echo "
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["back"]."</strong></span>
+					
 				</a>";
 echo "			</div>
-			<div class=\"spacer\">&#160;</div>
+			
 	</div>";
 
 
@@ -70,7 +73,7 @@ echo "			</div>
 // OPCIONES DEL MENU
  ?>
 <div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/admin.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+ 
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]) or isset($_SESSION["permiso"]["CENTRAL_ALL"]))
 	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/admin.html target=_blank>".$msgstr["edhlp"]."</a>";
@@ -93,9 +96,9 @@ echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/menu_modificardb.php";
             <br>
             <ul style="font-size:12px;line-height:20px">
             <?php if ($_SESSION["profile"]=="adm"){
-				echo "<li><a href=../dbadmin/editar_abcd_def.php?Opcion=abcd_def>abcd.def</a></li>";
-				echo "<li><a href=../dbadmin/databases_list.php>". $msgstr["dblist"]."</a></li>";
-				echo "<li><a href=../dbadmin/editar_correo_ini.php>correo.ini</a></li>";
+				echo "<a class=\"btn btn-default\" href=../dbadmin/editar_abcd_def.php?Opcion=abcd_def>abcd.def</a>";
+				echo "<a class=\"btn btn-default\" href=../dbadmin/databases_list.php>". $msgstr["dblist"]."</a>";
+				echo "<a class=\"btn btn-default\" href=../dbadmin/editar_correo_ini.php>correo.ini</a>";
 			}
 			?>
             </ol>

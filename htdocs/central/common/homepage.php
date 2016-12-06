@@ -448,7 +448,15 @@ if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_CRDB"]) or isset(
 }
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_USRADM"]) or isset($Permiso["ADM_USRADM"])){
 ?>
-    			<li><a href="../dbadmin/users_adm.php?encabezado=s&base=acces&cipar=acces.par" target="content" class="menuButton userButton"><?php echo $msgstr["usuarios"]?></a></li>
+    		<!--	<li><a href="../dbadmin/users_adm.php?encabezado=s&base=acces&cipar=acces.par" target="content" class="menuButton userButton"><?php echo $msgstr["usuarios"]?></a>-->
+
+    			<?php
+echo "<li><a target=\"content\" href=../dataentry/browse.php?showdeleted=Y&encabezado=s&base=acces&cipar=acces.par&return=../dbadmin/users_adm.php|>".$msgstr["usuarios"] ."</a></li>";
+echo "<li><a target=\"content\" href=../dbadmin/profile_edit.php?encabezado=s>".$msgstr["profiles"]."</a></li>";
+
+?>
+
+    			</li>
 <?php
 }
 if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_RESETLIN"])){
@@ -460,28 +468,55 @@ if (isset($Permiso["CENTRAL_ALL"])  or isset($Permiso["CENTRAL_TRANSLATE"])){
 ?>
 				<li><a href="javascript:CambiarBaseAdministrador('traducir')"  class="menuButton exportButton"><?php echo $msgstr["translate"]?></a></li>
 
+ </ul>
+      </li>
 <?php
+ }
 }
-if ($_SESSION["profile"]=="adm"){
 ?>
-	<li><a href="../dbadmin/conf_abcd.php?Opcion=abcd_def" target="content" class="menuButton utilsButton">
-		<?php echo $msgstr["configure"]. " ABCD"?></a></li>
-<?php
-}
 
+<?php
+//if ($_SESSION["profile"]=="adm"){
+?>	
+
+<!--<li><a href="../dbadmin/conf_abcd.php?Opcion=abcd_def" target="content" class="menuButton utilsButton">
+		<?php echo $msgstr["configure"]. " ABCD"?></a></li>-->
+
+<li>
+    <a><i class="fa fa-database"></i><?php echo $msgstr["configure"]. " ABCD"?><span class="fa fa-chevron-down"></span></a>	
+ 	<ul class="nav child_menu">
+            <?php if ($_SESSION["profile"]=="adm"){
+				echo "<li><a target=\"content\" href=../dbadmin/editar_abcd_def.php?Opcion=abcd_def>abcd.def</a></li>";
+				echo "<li><a target=\"content\" href=../dbadmin/databases_list.php>". $msgstr["dblist"]."</a></li>";
+				echo "<li><a target=\"content\" href=../dbadmin/editar_correo_ini.php>correo.ini</a></li>";
+			}
+			?>
+		
+		<li><a href="javascript:CambiarBaseAdministrador('z3950')"  class="menuButton z3950Button"><?php echo $msgstr["z3950"]?></a></li>
+
+<?php
 if ($dirtree==1 or $dirtree=="Y"){
 	if ($_SESSION["profile"]=="adm"){
 ?>
-   <li><a href="../dbadmin/dirtree.php?encabezado=s&retorno=inicio" target="content" class="menuButton exploreButton">
+		   <li><a href="../dbadmin/dirtree.php?encabezado=s&retorno=inicio" target="content" class="menuButton exploreButton">
        <?php echo $msgstr["expbases"]?></a></li>
-<?php }
-}?>
- </ul>
-      </li>
+<?php 
+	}
+}
+?>
+
+	</ul>
+</li>	
+
+
+
+
+
+
 		
 
 <?php
-	}
+	//}
 }
 // end function Administrador
 
