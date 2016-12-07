@@ -172,8 +172,8 @@ if (file_exists($file)){
 </div>
 <div class="middle">
 	<div class="formContent" >
-<form name=maintenance method=post>
-<input type=hidden name=Opcion value=<?php echo $arrHttp["Opcion"]?>>
+<form name="maintenance" method="post">
+<input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"]?>">
 <?php
 if (isset($arrHttp["base"]))
 	echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";

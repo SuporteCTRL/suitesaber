@@ -294,7 +294,7 @@ $archivo=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/camposbusqueda.t
 if (!file_exists($archivo)) $archivo=$db_path.$arrHttp["base"]."/pfts/".$lang_db."/camposbusqueda.tab";
 if (file_exists($archivo)){
 	$ad_s="S";
-	echo "<Sscript>Indices='Y'</script>\n" ;
+	
 ?>
 
 
@@ -304,6 +304,7 @@ if (file_exists($archivo)){
 				</label>
 				<input type="text" name="expre" id="Expre" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';"
 				value='<?php if (isset($arrHttp["Expresion"])) echo $arrHttp["Expresion"]?>' />
+				
 				<select name="indexes" class="textEntry">
 					<option></option>
 <?php
@@ -323,9 +324,10 @@ if (file_exists($archivo)){
 	}
 ?>
 				</select>
+<br><br>
+				<input class="btn btn-default" type="button" name="ok" value="<?php echo $msgstr["index"]?>" xclass="submit" onClick=javascript:PresentarDiccionario() />
 
-				<input type="button" name="ok" value="<?php echo $msgstr["index"]?>" xclass="submit" onClick=javascript:PresentarDiccionario() />
-				<input type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="submit" onClick=javascript:document.diccionario.from.value=1;EjecutarBusqueda() />
+				<input class="btn btn-default" type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="submit" onClick=javascript:document.diccionario.from.value=1;EjecutarBusqueda() />
 				<?php if (isset($arrHttp["Expresion"]))
 					echo "\n<input type=\"submit\" name=\"ok\" value=\"".$msgstr["bmfn"]."\"  onClick=javascript:Browse() />"
 				?>
@@ -334,13 +336,13 @@ if (file_exists($archivo)){
 
 		</div>
 <?php }else{
-	echo "<Script>Indices='N'</script>\n" ;
+	echo "<script>Indices='N'</script>\n" ;
 }
 
 echo "
 			<table class=\"listTable\">
-				<tr>
-					<th>&nbsp;</th>
+				
+					
 	";
 // se lee la tabla con los títulos de las columnas
 $archivo=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/tbtit.tab";
@@ -375,7 +377,7 @@ foreach ($lista_users as $value){
 		if (($Status==0 or $Status==-2) or (isset($arrHttp["showdeleted"]) and $Status==1)){
 			echo "<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\">\n";
 			echo "<td>".$u[2]."/",$u[3];
-			if ($Status==1) echo "<img src=\"../images/delete.png\" align=absmiddle alt=\"excluir base de dados\" title=\"excluir base de dados\" />";
+			if ($Status==1) echo "<img  align=absmiddle alt=\"excluir base de dados\" title=\"excluir base de dados\" />";
 			echo "</td>";
 			for ($ix=4;$ix<count($u);$ix++) echo "<td>" .$u[$ix]."</td>";
 			echo "<td class=\"action\" nowrap>

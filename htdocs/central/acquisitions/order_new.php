@@ -12,7 +12,8 @@ include("../lang/admin.php");
 
 include("../common/get_post.php");
 $arrHttp["Mfn"]="New";
-//foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";foreach ($arrHttp as $var => $value) {
+//foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";
+foreach ($arrHttp as $var => $value) {
 	if (substr($var,0,3)=="tag" ){
 		$tag=explode("_",$var);
 		if (isset($variables[$tag[0]])){
@@ -31,8 +32,11 @@ include("javascript.php");
 ?>
 
 <script>
-function EnviarForma(){	document.forma1.submit()}
-function Validar(){	err=""
+function EnviarForma(){
+	document.forma1.submit()
+}
+function Validar(){
+	err=""
 	res=""
 	if (Trim(document.forma1.tag1.value)==""){
 		alert ("<?php echo $msgstr["missorder"]?>")
@@ -40,7 +44,9 @@ function Validar(){	err=""
 		return "N"
 	}
 	status=""
-	for (i=0;i<document.forma1.tag2.length;i++){		if (document.forma1.tag2[i].checked) status="ok"	}
+	for (i=0;i<document.forma1.tag2.length;i++){
+		if (document.forma1.tag2[i].checked) status="ok"
+	}
 	if (status=="" || Trim(document.forma1.tag3.value)==""){
 		alert ("<?php echo $msgstr["missdate"]?>")
 		document.forma1.tag2.focus()
@@ -62,9 +68,11 @@ function Validar(){	err=""
 		document.forma1.tag18.focus()
 		return "N"
 	}
-	if (Trim(document.forma1.tag50_0_b.value)=="") {		alert ("<?php echo $msgstr["err300b"]?>")
+	if (Trim(document.forma1.tag50_0_b.value)=="") {
+		alert ("<?php echo $msgstr["err300b"]?>")
 		document.forma1.tag50_0_b.focus()
-		return "N"	}
+		return "N"
+	}
 	if (Trim(document.forma1.tag50_0_c.value)=="") {
 		alert ("<?php echo $msgstr["err300c"]?>")
 		document.forma1.tag50_0_c.focus()
@@ -89,7 +97,8 @@ function Validar(){	err=""
 			return "N"
 		}
 	}
-}
+
+}
 </script>
 <script>
 function switchMenu(obj) {
@@ -176,38 +185,21 @@ include("../common/institutional_info.php");
 		$m=explode('|',$arrHttp["mov"]);
 		echo $m[1].": ".$msgstr["new"]?>
 	</div>
-	<div class="actions">
-		<a href=order_new_menu.php class="defaultButton cancelButton">
-			<img src=../images/defaultButton_iconBorder.gif alt="" title="" />
-			<span><strong><?php echo $msgstr["cancel"]?></strong></span>
-		</a>
-		<a href=javascript:EnviarForma() class="defaultButton saveButton">
-			<img src=../images/defaultButton_iconBorder.gif alt="" title="" />
-			<span><strong><?php echo $msgstr["actualizar"]?></strong></span>
-		</a>
-	</div>
-
-	<div class="spacer">&#160;</div>
+	
+	
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/acquisitions/suggestions_new.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/acquisitions/suggestions_new.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: order_new.php</font>\n";
-?>
-	</div>
+
 <div class="middle form">
 	<div class="formContent">
-<form method=post name=forma1 action=order_new_update.php onSubmit="javascript:return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["base"].".par"?>>
-<input type=hidden name=ValorCapturado value="">
-<input type=hidden name=check_select value="">
-<input type=hidden name=Indice value="">
-<input type=hidden name=Mfn value="<?php echo $arrHttp["Mfn"]?>">
-<input type=hidden name=valor value="">
-<input type=hidden name=wks value=<?php echo $arrHttp["wks"]?>>
+<form method="post" name="forma1" action="order_new_update.php" onSubmit="javascript:return false">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="cipar" value="<?php echo $arrHttp["base"].".par"?>">
+<input type="hidden" name="ValorCapturado" value="">
+<input type="hidden" name="check_select" value="">
+<input type="hidden" name="Indice" value="">
+<input type="hidden" name="Mfn" value="<?php echo $arrHttp["Mfn"]?>">
+<input type="hidden" name="valor" value="">
+<input type="hidden" name="wks" value="<?php echo $arrHttp["wks"]?>">
 <?php
 $fmt_test="S";
 include("../dataentry/plantilladeingreso.php");

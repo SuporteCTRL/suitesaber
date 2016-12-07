@@ -28,15 +28,19 @@ document.onkeypress =
     return true;
   };
 
-function EnviarForma(){	if (Trim(document.inventorysearch.searchExpr.value)==""){		alert("Debe especificar el inventario")
-		return	}
+function EnviarForma(){
+	if (Trim(document.inventorysearch.searchExpr.value)==""){
+		alert("Debe especificar el inventario")
+		return
+	}
 	<?php if (isset($inventory_numeric) and $inventory_numeric =="Y")
 		echo "document.inventorysearch.searchExpr.value=parseInt(document.inventorysearch.searchExpr.value,10)\n";
 	?>
 	document.inventorysearch.submit();
 }
 
-function AbrirIndiceAlfabetico(){	db="trans"
+function AbrirIndiceAlfabetico(){
+	db="trans"
 	cipar="trans.par"
 	postings=1
 	tag="10"
@@ -71,14 +75,14 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
 	</div>
-	<div class="spacer">&#160;</div>
+	
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/circulation/loan.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+<br><br>
+
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-		echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/circulation/loan.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: renovar.php</font>\n";
+		
+echo "<font Script: renovar.php</font>\n";
 ?>
 	</div>
 
@@ -86,26 +90,27 @@ echo "<font color=white>&nbsp; &nbsp; Script: renovar.php</font>\n";
 
 	<div class="searchBox">
 	<form name=inventorysearch action=renovar_ex.php method=post onsubmit="javascript:return false">
-	<table width=100%>
+	
 		<?php
 if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 			echo "<tr><td><label for=lappso><strong>".$msgstr["days"]."</strong></td><td><input type=text name=lpn size=4></td></tr>";
 		}
 ?>
-		<td width=100>
-		<label for="searchExpr">
-			<strong><?php echo $msgstr["inventory"]?></strong>
-		</label>
-		</td><td>
-		<input type="text" name="searchExpr" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
+		
+		<label for="searchExpr"><?php echo $msgstr["inventory"]?></label>
+		
+		<input type="text" class="form-control" name="searchExpr" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
+       
         <input type=hidden name=base value=trans>
         <?php if (isset($arrHttp["usuario"])) echo "<input type=hidden name=usuario value=".$arrHttp["usuario"].">"?>
-		<input type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
-		<input type="submit" name="renovar" value="<?php echo $msgstr["renew"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+		
+		<input class="btn btn-default" type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
+		
+		<input class="btn btn-default" type="submit" name="renovar" value="<?php echo $msgstr["renew"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
 		</td>
 
 
-		</table>
+	<br><br>
 		<?php echo $msgstr["clic_en"]." <i>[".$msgstr["renew"]."]</i> ".$msgstr["para_c"]?>
 	</form>
 	</div>
@@ -117,9 +122,11 @@ if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 <?php
 include("../common/footer.php");
 echo "</body></html>" ;
-if (isset($arrHttp["error"])){	echo "<script>
+if (isset($arrHttp["error"])){
+	echo "<script>
 			alert('".$arrHttp["error"]."')
 			</script>
-	";}
+	";
+}
 
 ?>

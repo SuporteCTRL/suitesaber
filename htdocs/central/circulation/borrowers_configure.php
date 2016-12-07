@@ -68,10 +68,12 @@ $usname="";
 $uspft="";
 if ($fp){
 	$fp=file($archivo);
-	foreach ($fp as $value){		$ix++;
+	foreach ($fp as $value){
+		$ix++;
 		$value=trim($value);
 		switch ($ix){
-			case 1:				$uskey=$value;
+			case 1:
+				$uskey=$value;
 		       	break;
 		 	case 2:
 		 		$usname=$value;
@@ -125,21 +127,9 @@ echo "
 			</div>
 			<div class=\"actions\">\n";
 
-				echo "<a href=\"configure_menu.php?encabezado=s\" class=\"defaultButton backButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["back"]."</strong></span>
-				</a>
-				<a href=javascript:Guardar() class=\"defaultButton saveButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>".$msgstr["update"]."</strong></span>
-				</a>
-			</div>
-			<div class=\"spacer\">&#160;</div>
-		</div>
-		<div class=\"helper\">
-	<a href=../documentacion/ayuda.php?help=".$_SESSION["lang"]."/circulation/loans_borrowers_configure.html target=_blank>".$msgstr["help"]."</a>&nbsp &nbsp;";
+				
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/circulation/loans_borrowers_configure.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: borrowers_configure.php </font>";
+echo "<font Script: borrowers_configure.php </font>";
 echo "</div>
 		<div class=\"middle form\">
 			<div class=\"formContent\"> ";
@@ -147,15 +137,30 @@ echo "<p><h5>".$msgstr["database"].": ".$arrHttp["base"]." &nbsp; &nbsp;[<a href
 echo "<form name=forma1 action=borrowers_configure.php method=post>\n";
 echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";
 echo "
-<table>
-<tr><td valign=top>1. ".$msgstr["uskey"]." (loans_uskey.tab)</td><td valign=top><input type=text name=uskey value=\"".$uskey."\"></td>
-<tr><td valign=top>2. ".$msgstr["usname"]." (loans_uskey.tab)</td><td valign=top><input type=text name=usname value=\"".$usname."\"></td>
-<tr><td valign=top>3. ".$msgstr["uspft"]." (loans_uskey.tab)</td><td valign=top><input type=text name=uspft value=\"".$uspft."\"></td>
-<tr><td valign=top>4. ".$msgstr["pft_uskey"]." (loans_uskey.pft)</td><td valign=top><textarea rows=2 cols=80 name=pft_uskey>".$pft_uskey."</textarea></td>
-<tr><td valign=top>5. ".$msgstr["pft_ustype"] ." (loans_ustype.pft)</td><td valign=top><textarea rows=2 cols=80 name=pft_ustype>".$pft_ustype."</textarea></td>
-<tr><td valign=top>6. ".$msgstr["pft_usvig"] ." (loans_usvig.pft)</td><td valign=top><textarea rows=2 cols=80 name=pft_usvig>".$pft_usvig."</textarea></td>
-<tr><td valign=top>7. ".$msgstr["pft_usdisp"] ." (loans_usdisp.pft)</td><td valign=top><textarea rows=6 cols=80 name=pft_usdisp>".$pft_usdisp."</textarea></td>
-</table>
+
+<label> 1. ".$msgstr["uskey"]." (loans_uskey.tab)</label>
+<br>
+<input class=\"form-control\" type=\"text\" name=\"uskey\" value=\"".$uskey."\">
+
+<label> 2. ".$msgstr["usname"]." (loans_uskey.tab)</label>
+<input  class=\"form-control\" type=\"text\" name=\"usname\" value=\"".$usname."\">
+
+<label> 3. ".$msgstr["uspft"]." (loans_uskey.tab)</label>
+<input  class=\"form-control\" type=\"text\" name=\"uspft\" value=\"".$uspft."\">
+
+<label> 4. ".$msgstr["pft_uskey"]." (loans_uskey.pft)</label>
+<input  class=\"form-control\" type=\"text\" name=\"pft_uskey\" value=\"".$pft_uskey."\">
+
+<label> 5. ".$msgstr["pft_ustype"] ." (loans_ustype.pft)</label>
+<input  class=\"form-control\" type=\"text\" name=\"pft_ustype\" value=\"".$pft_ustype."\">
+
+<label> 6. ".$msgstr["pft_usvig"] ." (loans_usvig.pft)</label>
+<input  class=\"form-control\" type=\"text\" name=\"pft_usvig\" value=\"".$pft_usvig."\">
+
+<label> 7. ".$msgstr["pft_usdisp"] ." (loans_usdisp.pft)</label>
+<input  class=\"form-control\" type=\"text\" name=\"pft_usdisp\" value=\"".$pft_usdisp."\">
+
+
 ";
 echo "&nbsp; &nbsp;<a href=javascript:Test()>".$msgstr["test"]."</a>
 Mfn: <input type=text name=Mfn size=10>&nbsp; &nbsp;

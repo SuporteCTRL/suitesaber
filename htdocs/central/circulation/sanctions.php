@@ -83,8 +83,10 @@ document.onkeypress =
   }
 
 function EnviarForma(){
-	if (Trim(document.usersearch.usuario.value)=="" ){		alert("<?php echo $msgstr["falta"]." ".$msgstr["usercode"]?>")
-		return	}
+	if (Trim(document.usersearch.usuario.value)=="" ){
+		alert("<?php echo $msgstr["falta"]." ".$msgstr["usercode"]?>")
+		return
+	}
 	document.usersearch.action="sanctions_ex.php"
 	document.usersearch.submit()
 }
@@ -126,35 +128,31 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
 	</div>
-	<div class="spacer">&#160;</div>
+	
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/circulation/sanctions.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/circulation/sanctions.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: sanctions.php</font>\n";
+	
+echo "<font Script: sanctions.php</font>\n";
 ?>
 	</div>
 <div class="middle list">
 	<div class="searchBox">
 	<form name=usersearch action="" method=post onsubmit="javascript:return false">
 	<input type=hidden name=Indice>
-	<table width=100%>
-		<td width=100>
-		<label for="searchExpr">
-			<strong><?php echo $msgstr["usercode"]?></strong>
-		</label>
-		</td><td>
-		<input type="text" name="usuario" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
+	
+		<label for="searchExpr"><?php echo $msgstr["usercode"]?> </label>
 
-		<input type="button" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="AbrirIndice('U',document.usersearch.usuario)" />
-		<input type="submit" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="EnviarForma()"/>
-		</td>
-	</table>
+		<input class="form-control" type="text" name="usuario" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
+
+		<input class="btn btn-default" type="button" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="AbrirIndice('U',document.usersearch.usuario)" />
+		<input class="btn btn-default" type="submit" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="EnviarForma()"/>
+	
+	
 	</form>
 	</div>
-	<div class=\"spacer\">&#160;</div>
+	
 	<dd>
 		<?php echo $msgstr["clic_en"]." <i>".$msgstr["search"]."</i> ".$msgstr["para_c"]?>
 	</div>

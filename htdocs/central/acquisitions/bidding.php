@@ -29,9 +29,12 @@ function Editar(Mfn){
 	document.EnviarFrm.Mfn.value=Mfn
 	document.EnviarFrm.Opcion.value=\"editar\"
 	document.EnviarFrm.submit()
-}
-function Mostrar(Mfn){	msgwin=window.open(\"../dataentry/show.php?base=".$arrHttp["base"]."&Mfn="."\"+Mfn,\"show\",\"width=600, height=600, scrollbars, resizable\")
-	msgwin.focus()}
+
+}
+function Mostrar(Mfn){
+	msgwin=window.open(\"../dataentry/show.php?base=".$arrHttp["base"]."&Mfn="."\"+Mfn,\"show\",\"width=600, height=600, scrollbars, resizable\")
+	msgwin.focus()
+}
 </script>
 ";
 echo "<body>\n";
@@ -42,7 +45,8 @@ $arrHttp["base"]="suggestions";
 // Se ubican todas las solicitudes que estén pendientes (STATUS=0)
 // se asigna el formato correspondiente a la clave de clasificación
 // se lee el título de las columnas de la tabla
-switch($arrHttp["sort"]){	case "TI":
+switch($arrHttp["sort"]){
+	case "TI":
 		$index="ti_bidding.pft";
 		$tit="ti_bidding_tit.tab";
 		break;
@@ -57,12 +61,15 @@ switch($arrHttp["sort"]){	case "TI":
 	case "OP":
 		$index="op_bidding.pft";
 		$tit="op_bidding_tit.tab";
-		break;}
+		break;
+}
 $Formato=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/$index" ;
 $tit_pft=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/$tit";
 if (!file_exists($Formato)) $Formato=$db_path.$arrHttp["base"]."/pfts/".$lang_db."/$index" ;
-if (!file_exists($Formato)){	echo $msgstr["missing"] ." $Formato";
-	die;}
+if (!file_exists($Formato)){
+	echo $msgstr["missing"] ." $Formato";
+	die;
+}
 if (!file_exists($tit_pft)) $tit_pft=$db_path.$arrHttp["base"]."/pfts/".$lang_db."/$tit" ;
 if (!file_exists($tit_pft)){
 	echo $msgstr["missing"] ." $tit_pft";
@@ -80,13 +87,16 @@ $recom=array();
 $ix=-1;
 foreach ($contenido as $value){
 	$value=trim($value);
-	if ($value!="")	{		$ix=$ix+1;
+	if ($value!="")	{
+		$ix=$ix+1;
 		$s=explode('|',$value);
 		$key=$s[0].$ix;
-		$recom[$key]=$value;	}
+		$recom[$key]=$value;
+	}
 
 
-}
+
+}
 ksort($recom);
 ?>
 <script src=../dataentry/js/lr_trim.js></script>
@@ -115,43 +125,21 @@ function Enviar(sort){
 		<?php echo $msgstr["suggestions"].": ".$msgstr["bidding"]?>
 	</div>
 	<div class="actions">
-		<?php include("suggestions_menu.php")?>
+		<?php include("suggestions_menu.php");?>
 	</div>
-	<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/acquisitions/bidding.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/acquisitions/bidding.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: bidding.php</font>\n";
-?>
+	
 	</div>
 <form name=sort>
 <div class="middle form">
 	<div class="formContent">
 		<?php echo $msgstr["approved_rec"]." ".$msgstr["sorted"]?>
 		<div class="pagination">
-			<a href=javascript:Enviar("TI") class="singleButton singleButtonSelected">
-						<span class="sb_lb">&#160;</span>
-						[  <?php echo $msgstr["title"]?> ]
-						<span class=sb_rb>&#160;</span>
-					</a>
-			<a href=javascript:Enviar("RB") class="singleButton singleButtonSelected">
-						<span class="sb_lb">&#160;</span>
-						[  <?php echo $msgstr["recomby"]?> ]
-						<span class=sb_rb>&#160;</span>
-					</a>
-			<a href=javascript:Enviar("DA") class="singleButton singleButtonSelected">
-						<span class="sb_lb">&#160;</span>
-						[ <?php echo $msgstr["date_app"]?> ]
-						<span class=sb_rb>&#160;</span>
-					</a>
-			<a href=javascript:Enviar("OP") class="singleButton singleButtonSelected">
-						<span class="sb_lb">&#160;</span>
-						[ <?php echo $msgstr["operator"]?> ]
-						<span class=sb_rb>&#160;</span>
-					</a>
+
+			<a href=javascript:Enviar("TI") class="btn btn-primary"><?php echo $msgstr["title"];?></a>
+			<a href=javascript:Enviar("RB") class="btn btn-warning"><?php echo $msgstr["recomby"];?></a>
+			<a href=javascript:Enviar("DA") class="btn btn-info"><?php echo $msgstr["date_app"];?></a>
+			<a href=javascript:Enviar("OP") class="btn btn-danger"><?php echo $msgstr["operator"];?></a>
+
 			<p align=right><input type=checkbox name=see_all
 			<?php if (isset($arrHttp["see_all"])) echo " value=Y checked"?>><?php echo $msgstr["all_oper"]?>
 		</div>
@@ -166,16 +154,22 @@ echo "<font color=white>&nbsp; &nbsp; Script: bidding.php</font>\n";
 	$t=explode('|',$tit_tab);
 	foreach ($t as $v)  echo "<th>".$v."</th>";
 
-	foreach ($recom as $value){		echo "\n<tr>";		$r=explode('|',$value);
+	foreach ($recom as $value){
+		echo "\n<tr>";
+		$r=explode('|',$value);
 		$ix1="";
-		foreach ($r as $cell){			if ($ix1=="")
+		foreach ($r as $cell){
+			if ($ix1=="")
 				$ix1=1;
 			else
-				if ($ix1==1){					echo "<td nowrap><a href=javascript:Editar($cell)><img src=\"../images/edit.png\"></a>&nbsp;
+				if ($ix1==1){
+					echo "<td nowrap><a href=javascript:Editar($cell)><img src=\"../images/edit.png\"></a>&nbsp;
 					<a href=javascript:Mostrar($cell)><img src=\"../images/zoom.png\"></a>
 					</td>";
-					$ix1=2;				}else
-	 				echo "<td>$cell</td>";		}
+					$ix1=2;
+				}else
+	 				echo "<td>$cell</td>";
+		}
 
 	}
 ?>

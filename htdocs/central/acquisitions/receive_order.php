@@ -16,7 +16,8 @@ $encabezado="";
 <script>
 function Mostrar(Expresion){
 	msgwin=window.open("../dataentry/show.php?base=suggestions&Expresion=NC_"+Expresion,"show")
-	msgwin.focus()}
+	msgwin.focus()
+}
 function Editar(Mfn){
 	document.EnviarFrm.Mfn.value=Mfn
 	document.EnviarFrm.Opcion.value="editar"
@@ -93,7 +94,9 @@ function EnviarForma(){
 	if (Trim(document.forma1.searchExpr.value)==""){
 		alert("<?php echo $msgstr["missorder"]?>")
 		return
-	}    document.forma1.submit();}
+	}
+    document.forma1.submit();
+}
 
 </script>
 <?php
@@ -101,22 +104,14 @@ function EnviarForma(){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["purchase"].": ".$msgstr["receiving"]?>
+		<?php echo $msgstr["purchase"].": ".$msgstr["receiving"];?>
 	</div>
 	<div class="actions">
-	<?php include("order_menu.php")?>
+	<?php include("order_menu.php");?>
 	</div>
-	<div class="spacer">&#160;</div>
+	
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/acquisitions/receive_order.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/acquisitions/receive_order.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: receive_order.php</font>\n";
 
-?>
-	</div>
 <div class="middle list">
 
 	<div class="searchBox">
@@ -124,13 +119,13 @@ echo "<font color=white>&nbsp; &nbsp; Script: receive_order.php</font>\n";
 	<table width=100%>
 		<td width=200>
 		<label for="searchExpr">
-			<strong><?php echo $msgstr["date_receival"]?></strong>
+			<strong><?php echo $msgstr["date_receival"];?></strong>
 		</label>
 		</td><td>
 <!-- calendar attaches to existing form element -->
-		<input type=text name=date id=date size=12 maxlength=10   onChange='Javascript:DateToIso(this.value,document.forma1.isodate)' value="<?php echo date("d/m/Y")?>"/>
+		<input type="text" name="date" id="date" size="12" maxlength="10"   onChange='Javascript:DateToIso(this.value,document.forma1.isodate)' value="<?php echo date("d/m/Y")?>"/>
 
- 		<img src="../dataentry/img/calendar.gif" id="f_date" style="cursor: pointer;" title="Date selector"/>
+ 		<i class="fa fa-calendar" id="f_date" style="cursor: pointer;" title="Date selector"/>
 		<script type="text/javascript">
 	  	Calendar.setup({
 	      inputField     :    "date",     // id of the input field
@@ -143,30 +138,29 @@ echo "<font color=white>&nbsp; &nbsp; Script: receive_order.php</font>\n";
 		  align          :    "Tl",           // alignment (defaults to \"Bl\")
 		  singleClick    :    true
 		});
+		
 		</script>
 		</td>
 		<tr>
 		<td width=200>
 		<label for="searchExpr">
-			<strong><?php echo $msgstr["isodate_receival"]?></strong>
+			<?php echo $msgstr["isodate_receival"];?>
 		</label>
 		</td><td>
-		<input type="text" size=11 maxlength=8 name="isodate" id="isodate" value="<?php echo date("Ymd")?>" xclass="textEntry" xonfocus="this.className = 'textEntry';"  xonblur="this.className = 'textEntry';" />
+		<input type="text" size=11 maxlength=8 name="isodate" id="isodate" value="<?php echo date("Ymd");?>" xclass="textEntry" xonfocus="this.className = 'textEntry';"  xonblur="this.className = 'textEntry';" />
 
 		</td>
 		<tr>
 		<td width=200>
-		<label for="searchExpr">
-			<strong><?php echo $msgstr["order_no"]?></strong>
-		</label>
+		<label for="searchExpr"><?php echo $msgstr["order_no"];?></label>
+
 		</td><td>
 		<input type="text" name="searchExpr" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
-        <input type=hidden name=base value=>
-		<input type="submit" name="list" value="<?php echo $msgstr["search"]?>" onclick="javascript:EnviarForma();return false"/>
-		<input type="submit" name="list" value="<?php echo $msgstr["listorders"]?>"  onclick="javascript:AbrirIndiceAlfabetico();return false"/>
+        <input type="hidden" name="base" value="">
+		<input class="btn btn-primary" type="submit" name="list" value="<?php echo $msgstr["search"];?>" onclick="javascript:EnviarForma();return false"/>
+		<input class="btn btn-warning" type="submit" name="list" value="<?php echo $msgstr["listorders"];?>"  onclick="javascript:AbrirIndiceAlfabetico();return false"/>
 		</td>
-		</table>
-		<?php //echo $msgstr["clic_en"]." <i>[".$msgstr["return"]."]</i> ".$msgstr["para_c"]?>
+		</table>		<?php //echo $msgstr["clic_en"]." <i>[".$msgstr["return"]."]</i> ".$msgstr["para_c"]?>
 	</form>
 	</div>
 </div>

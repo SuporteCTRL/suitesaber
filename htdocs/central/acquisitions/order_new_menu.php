@@ -13,7 +13,8 @@ include("../lang/admin.php");
 include("../common/get_post.php");
 $arrHttp["Mfn"]="New";
 $arrHttp["base"]="suggestions";
-//foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";foreach ($arrHttp as $var => $value) {
+//foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";
+foreach ($arrHttp as $var => $value) {
 	if (substr($var,0,3)=="tag" ){
 		$tag=split("_",$var);
 		if (isset($variables[$tag[0]])){
@@ -39,22 +40,10 @@ include("../common/institutional_info.php");
 	<div class="breadcrumb">
 		<?php echo $msgstr["suggestions"].": ".$msgstr["new"]?>
 	</div>
-	<div class="actions">
-		<a href=../common/inicio.php?reinicio=s&encabezado=s&modulo=acquisitions&base=<?php echo $arrHttp["base"]?> class="defaultButton cancelButton">
-			<img src=../images/defaultButton_iconBorder.gif alt="" title="" />
-			<span><strong><?php echo $msgstr["cancel"]?></strong></span>
-		</a>
-    </div>
-	<div class="spacer">&#160;</div>
+	
+	
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/acquisitions/suggestions_new.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/acquisitions/suggestions_new.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: order_new.php</font>\n";
-?>
-</div>
+
 <div class="middle form">
 	<div class="formContent">
     <ul>
@@ -67,7 +56,9 @@ echo "<font color=white>&nbsp; &nbsp; Script: order_new.php</font>\n";
 	foreach ($fp as $var){
 		$var=trim($var);
 		$v=explode('|',$var);
-		$var=urlencode($var);		echo "<li><a href=order_new.php?base=purchaseorder&cipar=purchaseorder.par&mov=$var&Opcion=nuevo&wks=".$v[0].">".$v[1]."</a>";	}
+		$var=urlencode($var);
+		echo "<a class=\"btn btn-primary\" href=order_new.php?base=purchaseorder&cipar=purchaseorder.par&mov=$var&Opcion=nuevo&wks=".$v[0].">".$v[1]."</a>";
+	}
 
 ?>
 	</ul>

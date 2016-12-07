@@ -39,10 +39,14 @@ include("../lang/dbadmin.php");
 
 include("../lang/admin.php");
 include("../lang/prestamo.php");
-if (!isset($arrHttp["bymfn"])) {	unset($_SESSION["Browse_Expresion"]);}else{
+if (!isset($arrHttp["bymfn"])) {
+	unset($_SESSION["Browse_Expresion"]);
+}else{
 	if (isset($arrHttp["Expresion"])){
 		$_SESSION["Browse_Expresion"] = $arrHttp["Expresion"];
-	}else{		if (isset($_SESSION["Browse_Expresion"]))  $arrHttp["Expresion"]=$_SESSION["Browse_Expresion"];	}
+	}else{
+		if (isset($_SESSION["Browse_Expresion"]))  $arrHttp["Expresion"]=$_SESSION["Browse_Expresion"];
+	}
 }
 //foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";
 
@@ -234,8 +238,10 @@ function Eliminar(Mfn){
 	}
 }
 
-function Mostrar(Mfn){	msgwin=window.open("show.php?base=<?php echo $arrHttp["base"]?>&cipar=<?php echo $arrHttp["base"]?>.par&Mfn="+Mfn+"&encabezado=s&Opcion=editar","show","width=600,height=400,scrollbars, resizable")
-	msgwin.focus()}
+function Mostrar(Mfn){
+	msgwin=window.open("show.php?base=<?php echo $arrHttp["base"]?>&cipar=<?php echo $arrHttp["base"]?>.par&Mfn="+Mfn+"&encabezado=s&Opcion=editar","show","width=600,height=400,scrollbars, resizable")
+	msgwin.focus()
+}
 </script>
 <?php
 echo "<body>";
@@ -266,20 +272,13 @@ if (file_exists($db_path."/menu.dat")){
 			$ret=str_replace("|","?",$arrHttp["return"])."$encabezado=".$arrHttp["encabezado"];
 		}
 	?>
-		<a href=<?php echo $ret?> class="defaultButton backButton">
-		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-		<span><strong><?php echo $msgstr["back"]?></strong></span>
-		</a>
-		<a href="javascript:Crear()" class="defaultButton  newButton">
-		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-		<span><strong><?php echo $msgstr["crear"]?></strong> </span>
-		</a>
+		
 
 	</div>
 <?php }?>
-	<div class="spacer">&#160;</div>
+	<
 </div>
-		<div class="middle list">
+		
 <?php
 $ad_s="";  // Hay formulario de búsqueda avanzada?
 $archivo=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/camposbusqueda.tab";
@@ -291,11 +290,11 @@ if (file_exists($archivo)){
 
 
 		<div class="searchBox">
-				<label for="searchExpr">
-					<strong><?php echo $msgstr["buscar"]?></strong>
-				</label>
-				<input type="text" name="expre" id="Expre" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';"
-				value='<?php if (isset($arrHttp["Expresion"])) echo $arrHttp["Expresion"]?>' />
+				<label for="searchExpr"><?php echo $msgstr["buscar"]?></label>
+
+				<input class="form-control" type="text" name="expre" id="Expre" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';"
+				value='<?php if (isset($arrHttp["Expresion"])) echo $arrHttp["Expresion"];?>' />
+
 				<select name="indexes" class="textEntry">
 					<option></option>
 <?php
@@ -316,10 +315,11 @@ if (file_exists($archivo)){
 ?>
 				</select>
 
-				<input type="button" name="ok" value="<?php echo $msgstr["index"]?>" xclass="submit" onClick=javascript:PresentarDiccionario() />
-				<input type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="submit" onClick=javascript:document.diccionario.from.value=1;EjecutarBusqueda() />
+				<input class="btn btn-default" type="button" name="ok" value="<?php echo $msgstr["index"]?>" xclass="submit" onClick=javascript:PresentarDiccionario() />
+
+				<input class="btn btn-default" type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="submit" onClick=javascript:document.diccionario.from.value=1;EjecutarBusqueda() />
 				<?php if (isset($arrHttp["Expresion"]))
-					echo "\n<input type=\"submit\" name=\"ok\" value=\"".$msgstr["bmfn"]."\"  onClick=javascript:Browse() />"
+					echo "\n<input class=\"btn btn-default\" type=\"submit\" name=\"ok\" value=\"".$msgstr["bmfn"]."\"  onClick=javascript:Browse() />"
 				?>
 				<input type=hidden name=Target value=S>
 
@@ -331,8 +331,8 @@ if (file_exists($archivo)){
 
 echo "
 			<table class=\"listTable\">
-				<tr>
-					<th>&nbsp;</th>
+				
+					
 	";
 // se lee la tabla con los títulos de las columnas
 $archivo=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/tbtit.tab";
@@ -351,7 +351,7 @@ if (file_exists($archivo)){
 		}
 	}
 }
-echo "<th class=\"action\">&nbsp;</th></tr>";
+
 $desde=0;
 $hasta=0;
 foreach ($lista_users as $value){
@@ -365,15 +365,15 @@ foreach ($lista_users as $value){
 		$hasta=$u[3];
 		unset($arrHttp["showdeleted"]);
 		if (($Status==0 or $Status==-2) or (isset($arrHttp["showdeleted"]) and $Status==1)){
-			echo "<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\">\n";
-			echo "<td>".$u[2]."/",$u[3];
-			if ($Status==1) echo "<img src=\"../images/delete.png\" align=absmiddle alt=\"excluir base de dados\" title=\"excluir base de dados\" />";
-			echo "</td>";
+			echo "< onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\">\n";
+			echo "".$u[2]."/",$u[3];
+			if ($Status==1) echo "<img  align=absmiddle alt=\"excluir base de dados\" title=\"excluir base de dados\" />";
+			
 			for ($ix=4;$ix<count($u);$ix++) echo "<td>" .$u[$ix]."</td>";
 			echo "<td class=\"action\" nowrap>
 				<a href=javascript:Editar($Mfn,$Status)>
-				<img src=\"../images/edit.png\" alt=\"".$msgstr["edit"]."\" title=\"".$msgstr["edit"]."\" /></a>
-				<a href=javascript:Mostrar(".$Mfn.")><img src=\"../images/zoom.png\"  alt=\"".$msgstr["show"]."\" title=\"".$msgstr["show"]."\" /></a>";
+				<img  alt=\"".$msgstr["edit"]."\" title=\"".$msgstr["edit"]."\" /></a>
+				<a href=javascript:Mostrar(".$Mfn.")><img  alt=\"".$msgstr["show"]."\" title=\"".$msgstr["show"]."\" /></a>";
 			if ($Status==0) echo "
 				<a href=\"javascript:Eliminar($Mfn)\"><img src=\"../images/delete.png\" alt=\"".$msgstr["eliminar"]."\" title=\"".$msgstr["eliminar"]."\" /></a>";
 			else {
@@ -386,39 +386,37 @@ foreach ($lista_users as $value){
 						break;
 				}
 			}
-			echo "</td>";
-			echo "</tr>";
+			
 		}
 	}
 }
-echo "			</table>";
 
 ?>			<div class="tMacroActions">
 <?php echo "$Pft_rec $Pft_tit";?>
 				<div class="pagination">
 					<a href="javascript:EjecutarBusqueda('first')" class="singleButton eraseButton">
-						<span class="sb_lb">&#160;</span>
-						&#171; <?php echo $msgstr["first"]?>
-						<span class="sb_lb">&#160;</span>
+						<span class="sb_lb">=</span>
+					  <?php echo $msgstr["first"]?>
+						<span class="sb_lb">=</span>
 					</a>
 					<a href="javascript:EjecutarBusqueda('previous')" class="singleButton eraseButton">
-						<span class="sb_lb">&#160;</span>
-						&#171; <?php echo $msgstr["previous"]?>
-						<span class="sb_lb">&#160;</span>
+						<span class="sb_lb"></span>
+						 <?php echo $msgstr["previous"]?>
+						<span class="sb_lb"></span>
 					</a>
 					<a href="javascript:EjecutarBusqueda('next')" class="singleButton eraseButton">
-						<span class="sb_rb">&#160;</span>
-						&#187; <?php echo $msgstr["next"] ?>
-						<span class="sb_rb">&#160;</span>
+						<span class="sb_rb"</span>
+						 <?php echo $msgstr["next"] ?>
+						<span class="sb_rb"></span>
 					</a>
 					<a href="javascript:EjecutarBusqueda('last')" class="singleButton eraseButton">
-						<span class="sb_rb">&#160;</span>
-						&#171; <?php echo $msgstr["last"]?>
-						<span class="sb_rb">&#160;</span>
+						<span class="sb_rb"></span>
+						 <?php echo $msgstr["last"]?>
+						<span class="sb_rb"></span>
 					</a>
-					<div class="spacer">&#160;</div>
+				
 				</div>
-				<div class="spacer">&#160;</div>
+				
 			</div>
 		</div>
 <?php

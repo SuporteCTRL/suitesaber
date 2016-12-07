@@ -78,7 +78,8 @@ global $db_path,$lang_db,$prefix_nc,$prefix_in;
 		}
 	}
 }
-if (file_exists($db_path."loans.dat"))	echo "<script>search_in='IN='\n";
+if (file_exists($db_path."loans.dat"))
+	echo "<script>search_in='IN='\n";
 else
     echo "<script>search_in=''\n";
 echo "</script>\n";
@@ -100,7 +101,8 @@ kardex=""
 function ValidarFecha(){
 	msg=""
 	valor=Trim(document.inventorysearch.date.value)
-	if (valor!=""){		var expreg = /^(\d{4})([0][1-9]|[1][0-2])([0][1-9]|[12][0-9]|3[01])$/;
+	if (valor!=""){
+		var expreg = /^(\d{4})([0][1-9]|[1][0-2])([0][1-9]|[12][0-9]|3[01])$/;
    		if (!expreg.test(valor) )  {
             msg="<?php echo $msgstr["js_inv_dateformat"]?>"
         }else{
@@ -110,8 +112,10 @@ function ValidarFecha(){
    		if(msg!=""){
    			alert(msg)
    			return false
-   		}	}
-	return true}
+   		}
+	}
+	return true
+}
 
 function DateToIso(From,To){
 		if (Trim(From)=="") {
@@ -143,12 +147,19 @@ function DateToIso(From,To){
 	}
 
 
-function CambiarBase(){	bd_sel=document.inventorysearch.db_inven.selectedIndex
+function CambiarBase(){
+	bd_sel=document.inventorysearch.db_inven.selectedIndex
 	bd_a=document.inventorysearch.db_inven.options[bd_sel].value
-	b=bd_a.split('|')	kardex=b[5].toUpperCase()
-	if (kardex=="KARDEX"){       document.getElementById('kardex').style.visibility = 'visible';
-       document.getElementById('kardex').style.display = 'block';	}else{       document.getElementById('kardex').style.visibility = 'none';
-       document.getElementById('kardex').style.display = 'none';	}}
+	b=bd_a.split('|')
+	kardex=b[5].toUpperCase()
+	if (kardex=="KARDEX"){
+       document.getElementById('kardex').style.visibility = 'visible';
+       document.getElementById('kardex').style.display = 'block';
+	}else{
+       document.getElementById('kardex').style.visibility = 'none';
+       document.getElementById('kardex').style.display = 'none';
+	}
+}
 
 function EnviarForma(){
 	if (ASK_LPN=="Y"){
@@ -161,13 +172,18 @@ function EnviarForma(){
 		alert("<?php echo $msgstr["falta"]." ".$msgstr["inventory"]." / ".$msgstr["usercode"]?>")
 		return
 	}
-	if (kardex=="KARDEX"){		if (Trim(document.inventorysearch.year.value)=="" || Trim(document.inventorysearch.numero.value)=="" ){			alert("Debe especificar el año, el número y opcionalmente el volumen")
-			return		}	}
+	if (kardex=="KARDEX"){
+		if (Trim(document.inventorysearch.year.value)=="" || Trim(document.inventorysearch.numero.value)=="" ){
+			alert("Debe especificar el año, el número y opcionalmente el volumen")
+			return
+		}
+	}
     INV=escape(document.inventorysearch.inventory_sel.value)
     if (loan_policy=="BY_USER")
     	document.inventorysearch.action="ask_policy.php"
     document.inventorysearch.inventory.value=INV
-    document.inventorysearch.submit()}
+    document.inventorysearch.submit()
+}
 
 function AbrirIndiceAlfabetico(xI,Prefijo,Subc,Separa,db,cipar,tag,postings,Repetible,Formato){
 		Ctrl_activo=xI
@@ -192,7 +208,8 @@ function AbrirIndice(Tipo,xI){
     	              else
     	            echo "Repetible=1\n";
  	?>
-	switch (Tipo){
+	switch (Tipo){
+
 		case "S":
 			bd_sel=document.inventorysearch.db_inven.selectedIndex
 			if (bd_sel<=0){
@@ -226,7 +243,8 @@ function AbrirIndice(Tipo,xI){
 					AbrirIndiceAlfabetico(xI,prefijo,"","",bd,bd+".par","3",1,Repetible,formato)
 					break
 			}
-			break		case "I":
+			break
+		case "I":
 			Separa=""
 			ancho=200
 
@@ -239,8 +257,10 @@ function AbrirIndice(Tipo,xI){
 				sel=document.inventorysearch.db_inven.options[ix].value
 				s=sel.split('|')
 				bd=s[0]
-				pref="IN_"+pref				Prefijo=Separa+"&prefijo="+pref
-				url_indice="capturaclaves.php?opcion=autoridades&base="+bd+"&cipar="+bd+".par"+Prefijo+"&postings=1"+"&lang="+lang+"&repetible="+Repetible+"&Formato=@autoridades.pft"			}
+				pref="IN_"+pref
+				Prefijo=Separa+"&prefijo="+pref
+				url_indice="capturaclaves.php?opcion=autoridades&base="+bd+"&cipar="+bd+".par"+Prefijo+"&postings=1"+"&lang="+lang+"&repetible="+Repetible+"&Formato=@autoridades.pft"
+			}
 			break
 		case "U":
 <?php
@@ -254,7 +274,8 @@ $codigo=LeerPft("loans_uskey.pft","users");
     		Prefijo=Separa+"&prefijo=<?php if (isset($t[1])) echo trim($t[1]); else echo 'NO_';?>"
     		ancho=200
 			url_indice="capturaclaves.php?opcion=autoridades&base=users&cipar=users.par"+Prefijo+"&postings=1"+"&lang="+lang+"&repetible=0&Formato="+Formato
-			break	}
+			break
+	}
 	msgwin=window.open(url_indice,"Indice","width=480, height=450,left=300,scrollbars")
 	msgwin.focus()
 }
@@ -277,14 +298,14 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
 	</div>
-	<div class="spacer">&#160;</div>
+	
 </div>
 <div class="helper">
-<?php echo "
-<a href=../documentacion/ayuda.php?help=". $_SESSION["lang"]."/circulation/loan.html target=_blank>". $msgstr["help"]."</a>&nbsp &nbsp;";
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/circulation/loan.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: prestar.php </font>
+<?php 
+
+
+	
+echo "<font Script: prestar.php </font>
 	</div>";
 // prestar, reservar o renovar
 ?>
@@ -303,18 +324,19 @@ if (file_exists($db_path."loans.dat")){
 	$fp=file($db_path."loans.dat");
 	$sel_base="S";
 ?>
-	<table width=100% border=0>
-		<td width=150>
+	
 		<label for="dataBases">
-			<strong><?php echo $msgstr["basedatos"]?></strong>
+			<?php echo $msgstr["basedatos"]?>
 		</label>
-		</td><td>
+		
 		<select name=db_inven onchange=CambiarBase()>
-		<option></option>
+		
 <?php
 	$xselected=" selected";
 	$cuenta=0;
-	foreach ($fp as $value){		if (trim($value)!=""){			$cuenta=$cuenta+1;
+	foreach ($fp as $value){
+		if (trim($value)!=""){
+			$cuenta=$cuenta+1;
 			$value=trim($value);
 			$v=explode('|',$value);
 			//SE LEE EL PREFIJO PARA OBTENER EL NUMERO DE INVENTARIO DE LA BASE DE DATOS
@@ -326,12 +348,17 @@ if (file_exists($db_path."loans.dat")){
             if (isset($_SESSION["library"])) $prefix_in=$prefix_in;
 			$value.="|".$prefix_in."|ifp|".urlencode($signa);
 			$value.='|';
-			if (isset($v[2])){				$value.=$v[2];			}
+			if (isset($v[2])){
+				$value.=$v[2];
+			}
 
-			if (isset($_SESSION["loans_dbinven"])){				if ($_SESSION["loans_dbinven"]==$v[0])
+			if (isset($_SESSION["loans_dbinven"])){
+
+				if ($_SESSION["loans_dbinven"]==$v[0])
 					$xselected=" selected";
 				else
-					$xselected="";			}
+					$xselected="";
+			}
 			echo "<option value='$value' $xselected>".$v[1]."</option>\n";
 			$xselected="";
 		}
@@ -339,39 +366,46 @@ if (file_exists($db_path."loans.dat")){
 
 ?>
 		</select>
-		</td>
-	</table>
+		
 	</div>
-<?php }?>
+
+<?php
+ }
+ ?>
 	<div class="searchBox">
-	<table width=100% border=0>
-		<td width=150>
-		<label for="searchExpr">
-			<strong><?php echo $msgstr["inventory"]?></strong>
+	 <?php echo $msgstr["inventory"]?>
 		</label>
-		</td><td>
-		<?php if (isset($LOAN_POLICY) and $LOAN_POLICY=="BY_USER"  ){			?><input type=text name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';">	<?php }else{			?>
-		<textarea name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" rows=5 cols=50/></textarea>
-	<?php }
+
+		<?php if (isset($LOAN_POLICY) and $LOAN_POLICY=="BY_USER"  ){
+			?>
+			<input class="form-control" type=text name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';">
+<?php 
+}
+	else{
+?>
+
+		<textarea class="form-control" name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" rows=5 cols=50/></textarea>
+	<?php 
+}
 
 	?>
-	    <input type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('<?php if ($sel_base=="S") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
+	    <input class="btn btn-default"  name="list" value="<?php echo $msgstr["list"]?>"  onclick="javascript:AbrirIndice('<?php if ($sel_base=="S") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
+
         <div id=kardex style="display:none;">
             <br>
-			Año: <input type=text name=year size=4>
-			Volumen:<input type=text name=volumen size=8>
-			Número:<input type=text name=numero size=8>
+			Ano: <input type=text name=year class="form-control">
+			Volume: <input type=text name=volumen class="form-control">
+			Número:<input type=text name=numero  class="form-control">
 		</div>
-		</td>
+		
 <?php
 if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 			echo "<tr><td height=50>
 			<label for=date>".$msgstr["date"]. "</td><td> <!-- calendar attaches to existing form element -->
-					<input type=text name=date id=date"."_c Xreadonly=\"1\"  value=\"\" size=10";
+					<input class=\"form-control\" type=text name=date id=date"."_c Xreadonly=\"1\"  value=\"\" ";
 			echo " onChange='Javascript:DateToIso(this.value,document.inventorysearch.date)'";
 			echo "/>
-				<img src=\"../dataentry/img/calendar.gif\" id=\"f_date\" style=\"cursor: pointer;\" title=\"Date selector\"
-			 	 / valign=bottom>
+				<i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>
 				<script type=\"text/javascript\">
 				   Calendar.setup({
        					inputField     :    \"date"."_c\",     // id of the input field
@@ -392,18 +426,16 @@ if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
             echo  "</td></tr>";
 		}
 ?>
-	</table>
+
 	</div>
 
 
 	<div class="searchBox">
-		<table width=100% border=0>
-		<td width=150>
+		
 		<label for="searchExpr">
-			<strong><?php echo $msgstr["usercode"]?></strong>
+			<?php echo $msgstr["usercode"]?>
 		</label>
-		</td>
-		<td>
+		
 		<input type="text" name="usuario" id="usuario" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry'; "
 <?php
 if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="")
@@ -412,15 +444,14 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="")
  onclick="document.inventorysearch.usuario.value=''"
 />
 
-		<input type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('U',document.inventorysearch.usuario)"/></td>
+		<input class="btn btn-default" type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('U',document.inventorysearch.usuario)"/></td>
 
-		<tr><br><td>
-		<label for="searchExpr">
-			<strong><?php echo $msgstr["comments"]?></strong>
-		</label></td><td><br><input type=text name=comments   size=100 maxlength=100>
-		<input type="submit" name="prestar" value="<?php echo $msgstr["loan"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
-
-		</td></table>
+		
+		<label for="searchExpr"><?php echo $msgstr["comments"]?></label>
+		<input class="form-control" type=text name=comments   size=100 maxlength=100>
+		<input class="btn btn-default" type="submit" name="prestar" value="<?php echo $msgstr["loan"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+<br><br>
+		
         <?php echo $msgstr["clic_en"]." <i>[".$msgstr["loan"]."]</i> ".$msgstr["para_c"]?>
 
 	</div>
@@ -430,7 +461,8 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="")
 </form>
 <?php include("../common/footer.php");
 echo "</body></html>" ;
-if (isset($cuenta) and $cuenta==1){	echo "<script>
+if (isset($cuenta) and $cuenta==1){
+	echo "<script>
 	        document.inventorysearch.db_inven.selectedIndex=2
 	     </script";
 }

@@ -208,13 +208,13 @@ if (file_exists($archivo)){
 <form name=forma1 onsubmit="javascript:return false">
 <table width=750>
 <td align=center>
-<table bgcolor="#cccccc">
+<table >
 	<td>
 
 			<strong>Buscar</strong>
-			<input type="text" name="expre" id="Expre" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';"
+			<input type="text" name="expre" id="Expre" class="form-control" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';"
 			value='<?php if (isset($arrHttp["Expresion"])) echo $arrHttp["Expresion"]?>' />
-			<select name="indexes" class="textEntry">
+			<select name="indexes" class="form-control">
 				<option></option>
 <?php
 

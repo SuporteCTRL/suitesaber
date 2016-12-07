@@ -126,15 +126,12 @@ if (isset($arrHttp["db_inven"])){
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
 	</div>
-	<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/circulation/sala.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php echo "
-<a href=../documentacion/ayuda.php?help=". $_SESSION["lang"]."/circulation/sala.html target=_blank>". $msgstr["help"]."</a>&nbsp &nbsp;";
+	
+
+<?php 
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/circulation/sala.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: circulation/sala.php </font>
+	
+echo "<font Script: circulation/sala.php </font>
 	</div>";
 // prestar, reservar o renovar
 ?>
@@ -143,7 +140,6 @@ echo "<font color=white>&nbsp; &nbsp; Script: circulation/sala.php </font>
 	<div class="searchBox">
 	<form name=sala action=sala_ex.php method=post onsubmit="javascript:return false">
 	<input type=hidden name=invSearch>
-<table width=100% border=0>
 <?php
 $sel_base="N";
 if (file_exists($db_path."loans.dat")){
@@ -151,12 +147,9 @@ if (file_exists($db_path."loans.dat")){
 	$sel_base="S";
 ?>
 
-		<td width=150>
-		<label for="dataBases">
-			<strong><?php echo $msgstr["basedatos"]?></strong>
-		</label>
-		</td><td>
-		<select name=db_inven onchange=CambiarBase()>
+		<br><br>
+		<label for="dataBases"><?php echo $msgstr["basedatos"]?></label>
+				<select name=db_inven onchange=CambiarBase()>
 		<option></option>
 <?php
 	$xselected=" selected";
@@ -193,20 +186,19 @@ if (file_exists($db_path."loans.dat")){
 
 echo "
 		</select>
-		</td>
-		</tr>";
+		";
 }
 ?>
-		<tr>
-		<td width=100 valign=top>
+<br><br>
+		
 		<label for="searchExpr">
-			<strong><?php echo $msgstr["inventory"]?></strong>
+			<?php echo $msgstr["inventory"]?>
 		</label>
-		</td><td valign=top>
-		<textarea name="inventory" id="inventory" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" /></textarea>
+		
+		<textarea class="form-control" name="inventory" id="inventory" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" /></textarea>
 
-		<input type="submit" name="Enviar" value="<?php echo $msgstr["return"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
-		</td></table>
+		<input class="btn btn-default" type="submit" name="Enviar" value="<?php echo $msgstr["return"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+
     <p><br><br>
 	</form>
 	</div>

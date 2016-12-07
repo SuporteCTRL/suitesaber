@@ -85,8 +85,11 @@ document.onkeypress =
     return true;
   }
 
-function EnviarForma(Proceso){	if (Trim(document.usersearch.code.value)=="" ){		alert("<?php echo $msgstr["falta"]." ".$msgstr["usercode"]?>")
-		return	}
+function EnviarForma(Proceso){
+	if (Trim(document.usersearch.code.value)=="" ){
+		alert("<?php echo $msgstr["falta"]." ".$msgstr["usercode"]?>")
+		return
+	}
 	document.EnviarFrm.usuario.value=document.usersearch.usercode.value
 	document.EnviarFrm.action="borrower_history_ex.php"
 	document.EnviarFrm.submit()
@@ -129,30 +132,29 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
 	</div>
-	<div class="spacer">&#160;</div>
+	
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/loans/borrower_history.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/loans/borrower_history.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: borrower_history.php</font>\n";
+	
+echo "<font Script: borrower_history.php</font>\n";
 ?>
+<br>
 	</div>
 <div class="middle list">
 	<div class="searchBox">
 	<form name=usersearch action="" method=post onsubmit="javascript:return false">
 	<input type=hidden name=Indice>
-	<table width=100%>
-		<td width=100>
-		<label for="searchExpr">
-			<strong><?php echo $msgstr["usercode"]?></strong>
-		</label>
-		</td><td>
-		<input type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
+	
+		<label for="searchExpr"><?php echo $msgstr["usercode"];?></label>
+		
+		<input class="form-control" type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
+		<br>
 
-		<input type="button" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
-		<input type="button" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
+		<input class="btn btn-default" type="button" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
+
+		<input class="btn btn-default" type="button" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
 		</td></table>
 	</form>
 	</div>
@@ -167,9 +169,11 @@ echo "<font color=white>&nbsp; &nbsp; Script: borrower_history.php</font>\n";
 </form>
 <?php include("../common/footer.php");
 echo "</body></html>" ;
-if (isset($arrHttp["error"]) and $arrHttp["inventory"]!=""){	echo "
+if (isset($arrHttp["error"]) and $arrHttp["inventory"]!=""){
+	echo "
 	<script>
 	alert('".$arrHttp["inventory"].": El número de inventario no está prestado')
 	</script>
-	";}
+	";
+}
 ?>

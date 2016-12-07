@@ -89,7 +89,11 @@ function AbrirIndiceAlfabetico(){
 	cipar="trans.par"
 	postings=1
 	tag="10"
-	<?php if (isset($_SESSION["library"])){		echo "Prefijo='TR_P_".$_SESSION["library"]."_'\n";	}else{		echo "Prefijo='TR_P_'\n";	}
+	<?php if (isset($_SESSION["library"])){
+		echo "Prefijo='TR_P_".$_SESSION["library"]."_'\n";
+	}else{
+		echo "Prefijo='TR_P_'\n";
+	}
 	?>
 	Ctrl_activo=document.inventorysearch.inventory
 	lang="<?php echo $_SESSION["lang"]?>"
@@ -140,15 +144,10 @@ include("../common/institutional_info.php");
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
 	</div>
-	<div class="spacer">&#160;</div>
+	
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/devolver.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php echo "
-<a href=../documentacion/ayuda.php?help=". $_SESSION["lang"]."/circulation/loan.html target=_blank>". $msgstr["help"]."</a>&nbsp &nbsp;";
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/circulation/loan.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: devolver.php </font>
+<?php
+echo "<font  Script: devolver.php </font>
 	</div>";
 // prestar, reservar o renovar
 ?>
@@ -156,28 +155,29 @@ echo "<font color=white>&nbsp; &nbsp; Script: devolver.php </font>
 
 	<div class="searchBox">
 	<form name=inventorysearch action=devolver_ex.php method=post onsubmit="javascript:return false">
-	<table>
-		<tr>
-		<td width=100 valign=top>
+	
 		<label for="searchExpr">
-			<strong><?php echo $msgstr["inventory"]?></strong>
+			<?php echo $msgstr["inventory"]?>
 		</label>
-		</td><td valign=top>
-		<textarea name="inventory" id="inventory" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" /></textarea>
+		
+		<input type="text" class="form-control" name="inventory" id="inventory" value="" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" /></input>
         <input type=hidden name=base value=trans>
         <input type=hidden name=searchExpr>
         </td><td valign=top>
-		<input type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
-		<input type="submit" name="reservar" value="<?php echo $msgstr["return"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
-		</td></table>
+		<input type="button" class="btn btn-default" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
+		<input type="submit" class="btn btn-default" name="reservar" value="<?php echo $msgstr["return"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+		
+		<br><br>
 		<?php echo $msgstr["clic_en"]." <i>[".$msgstr["return"]."]</i> ".$msgstr["para_c"]?>
 	</form>
 	</div>
 <?php
-if (isset($arrHttp["usuario"])){   // include("ec_include.php");
+if (isset($arrHttp["usuario"])){
+   // include("ec_include.php");
    // echo "<div class=formContent>$ec_output</div>";
 }
-if (isset($arrHttp["devuelto"]) and $arrHttp["devuelto"]=="S" and isset($arrHttp["errores"])){	$inven=explode(';',$arrHttp["errores"]);
+if (isset($arrHttp["devuelto"]) and $arrHttp["devuelto"]=="S" and isset($arrHttp["errores"])){
+	$inven=explode(';',$arrHttp["errores"]);
 	foreach ($inven as $inventario){
 		if (trim($inventario)!=""){
 			$Mfn=trim($inventario);
@@ -205,10 +205,14 @@ if (isset($arrHttp["devuelto"]) and $arrHttp["devuelto"]=="S" and isset($arrHttp
 }
 
 //SE VERIFICA SI ALGUNO DE LOS EJEMPLARES DEVUELTOS ESTÁ RESERVADO
-if (isset($arrHttp["lista_control"])) {	include("../reserve/reserves_read.php");
+if (isset($arrHttp["lista_control"])) {
+	include("../reserve/reserves_read.php");
 	$rn=explode(";",$arrHttp["lista_control"]);
 	$Expresion="";
-	foreach ($rn as $value){		$value=trim($value);		if ($value!=""){			if ($Expresion=="")
+	foreach ($rn as $value){
+		$value=trim($value);
+		if ($value!=""){
+			if ($Expresion=="")
 				$Expresion=$value;
 			else
 				$Expresion.=" or ".$value;
@@ -220,13 +224,15 @@ if (isset($arrHttp["lista_control"])) {	include("../reserve/reserves_read.php")
 	if ($reserves_title!=""){
 		echo "<p><!--strong>".$msgstr["reserves"]."</strong><br-->";
 		echo $reserves_title."<p>";
-	}}
+	}
+}
 
 // se imprimen los recibos de devolucion, si procede
 if (isset($arrHttp["rec_dev"])) {
 	$r=explode(";",$arrHttp["rec_dev"]);
 	$recibo="";
-	foreach ($r as $Mfn){		if ($Mfn!=""){
+	foreach ($r as $Mfn){
+		if ($Mfn!=""){
 			$Formato="";
 			if (file_exists($db_path."trans/pfts/".$_SESSION["lang"]."/r_return.pft")){
 				$Formato=$db_path."trans/pfts/".$_SESSION["lang"]."/r_return";
@@ -237,18 +243,26 @@ if (isset($arrHttp["rec_dev"])) {
 			}
 			if ($Formato!="") {
                 $Formato="&Formato=$Formato";
-				$IsisScript=$xWxis."leer_mfnrange.xis";				$query = "&base=trans&cipar=$db_path"."par/trans.par&from=$Mfn&to=$Mfn$Formato";
+				$IsisScript=$xWxis."leer_mfnrange.xis";
+				$query = "&base=trans&cipar=$db_path"."par/trans.par&from=$Mfn&to=$Mfn$Formato";
 				include("../common/wxis_llamar.php");
-				foreach ($contenido as $value){					$recibo.=trim($value);				}			}		}
+				foreach ($contenido as $value){
+					$recibo.=trim($value);
+				}
+			}
+		}
 	}
 	if ($recibo!="") {
-		ImprimirRecibo($recibo);	}
+		ImprimirRecibo($recibo);
+	}
 }
 
-if (isset($arrHttp["error"])){	echo "<script>
+if (isset($arrHttp["error"])){
+	echo "<script>
 			alert('".$arrHttp["error"]."')
 			</script>
-	";}
+	";
+}
 echo "</div>";
 include("../common/footer.php");
 echo "</body></html>" ;
