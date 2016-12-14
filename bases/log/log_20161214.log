@@ -1,2 +1,30 @@
 **Wednesday 14th of December 2016 09:11:28 AM Operador: abcd
 /central/dataentry/z3950.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=servers&cipar=/var/www/suitesaber.git/bases/par/servers.par&from=1&Formato=v1'|'v2'|'v3'|'v4'|'v5/&Opcion=rango&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 10:10:52 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=servers&cipar=/var/www/suitesaber.git/bases/par/servers.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/servers/pfts/pt/tbservers&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 10:11:23 AM Operador: abcd
+/central/dataentry/z3950.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=servers&cipar=/var/www/suitesaber.git/bases/par/servers.par&from=1&Formato=v1'|'v2'|'v3'|'v4'|'v5/&Opcion=rango&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 10:33:06 AM Operador: abcd
+/central/dataentry/z3950.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=servers&cipar=/var/www/suitesaber.git/bases/par/servers.par&from=1&Formato=v1'|'v2'|'v3'|'v4'|'v5/&Opcion=rango&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 10:33:27 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=servers&cipar=/var/www/suitesaber.git/bases/par/servers.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/servers/pfts/pt/tbservers&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 10:34:30 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/acces/pfts/pt/tbacces&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 01:45:54 PM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=users&cipar=/var/www/suitesaber.git/bases/par/users.par&Opcion=autoridades&prefijo=NO_&pref=NO_&postings=1&formato_e=v30,`$$$`,if P(v20) then v20 else v35 fi&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 01:51:41 PM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=users&cipar=/var/www/suitesaber.git/bases/par/users.par&Opcion=autoridades&prefijo=NO_&pref=NO_&postings=1&formato_e=v30,`$$$`,if P(v20) then v20 else v35 fi&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 02:00:32 PM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=users&cipar=/var/www/suitesaber.git/bases/par/users.par&Opcion=autoridades&prefijo=NO_&pref=NO_&postings=1&formato_e=v30,`$$$`,if P(v20) then v20 else v35 fi&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 02:06:21 PM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=users&cipar=/var/www/suitesaber.git/bases/par/users.par&Opcion=autoridades&prefijo=NO_&pref=NO_&postings=1&formato_e=v30,`$$$`,if P(v20) then v20 else v35 fi&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 02:08:17 PM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=users&cipar=/var/www/suitesaber.git/bases/par/users.par&Opcion=autoridades&prefijo=NO_&pref=NO_&postings=1&formato_e=v30,`$$$`,if P(v20) then v20 else v35 fi&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 02:10:22 PM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=users&cipar=/var/www/suitesaber.git/bases/par/users.par&Opcion=autoridades&prefijo=NO_&pref=NO_&postings=1&formato_e=v30,`$$$`,if P(v20) then v20 else v35 fi&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 02:17:05 PM Operador: abcd
+/central/output_circulation/rs01.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/sort.xis &base=reserve&cipar=/var/www/suitesaber.git/bases/par/reserve.par&Expresion=(ST_0 or ST_3)&Opcion=buscar&Formato=v15`$$$`V20`$$$`V10, `$$$`V30,`$$$`V40,`$$$`V1`$$$`f(mfn,1,0)`$$$`,@/var/www/suitesaber.git/bases/reserve/pfts/pt/reserve_01.pft&sortkey=ref(['users']l(['users']'CO_'v10),v30)&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 03:03:40 PM Operador: abcd
+/central/common/inicio.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/login.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&login=abcd&password=adm&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Wednesday 14th of December 2016 03:38:06 PM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=trans&cipar=/var/www/suitesaber.git/bases/par/trans.par&Opcion=autoridades&prefijo=TR_P_&pref=TR_P_&postings=1&formato_e=v10,`$$$`,v10&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par

@@ -80,14 +80,19 @@ if (isset($arrHttp["encabezado"])){
 </div>
 
 
-	<a class="btn btn-default" href=../dataentry/browse.php?base=servers&return=../dbadmin/z3950_conf.php|base=^a<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_servers"]?></a>
+	<a class="btn btn-primary" href=../dataentry/browse.php?base=servers&return=../dbadmin/z3950_conf.php|base=^a<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_servers"]?></a></label></a>
 
-	<li><?php echo $msgstr["z3950_cnv"]?>
-	
-	<dd><a class="btn btn-default" href=z3950_conversion.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["new"]?></a>
+
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $msgstr["z3950_cnv"];?>
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li>
+    <a href=z3950_conversion.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["new"];?>
 <?php
 if (file_exists($db_path.$db."/def/z3950.cnv")){
-	echo  "&nbsp; | <a href=javascript:Edit()>".$msgstr["edit"]."</a> &nbsp; | <a href=javascript:Delete()>".$msgstr["delete"]."</a> &nbsp; ";
+	echo  "<a href=javascript:Edit()>".$msgstr["edit"]."</a> 
+	<a href=javascript:Delete()>".$msgstr["delete"]."</a>";
 	$fp=file($db_path.$db."/def/z3950.cnv");
 	echo "<select name=cnv>
 	<option value=''>\n";
@@ -98,10 +103,16 @@ if (file_exists($db_path.$db."/def/z3950.cnv")){
 	echo "</select>";
 }
 ?>
+</li></a>
+<li><a href=z3950_diacritics_edit.php?base=<?php echo $db.$encabezado;?>>
+     <?php echo $msgstr["z3950_diacritics"]?>
+</a></li>
+  </ul>
+ </div>
 
-	<a class="btn btn-default" href=z3950_diacritics_edit.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_diacritics"]?></a><br><br></li>
 	
-	<a class="btn btn-default" href=../dataentry/z3950.php?base=<?php echo $db.$encabezado?>&test=Y target=_blank><?php echo $msgstr["test"]?></a></li>
+	<br><br>
+	<a class="btn btn-success" href=../dataentry/z3950.php?base=<?php echo $db.$encabezado?>&test=Y target=_blank><?php echo $msgstr["test"]?></a></li>
 	</ul>
 	</td>
 	

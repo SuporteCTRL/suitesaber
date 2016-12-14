@@ -97,27 +97,27 @@ if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 		}
 ?>
 		
-		<label for="searchExpr"><?php echo $msgstr["inventory"]?></label>
+		<label for="searchExpr"><?php echo $msgstr["inventory"];?></label>
 		
-		<input type="text" class="form-control" name="searchExpr" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
+		<input type="text" class="form-control" name="searchExpr" id="searchExpr" value="" class="textEntry"  />
        
-        <input type=hidden name=base value=trans>
-        <?php if (isset($arrHttp["usuario"])) echo "<input type=hidden name=usuario value=".$arrHttp["usuario"].">"?>
+        <input type="hidden" name="base" value="trans">
+        <?php if (isset($arrHttp["usuario"])) echo "<input type=\"hidden\" name=usuario value=".$arrHttp["usuario"]."?>"?>
 		
-		<input class="btn btn-default" type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
+		<input class="btn btn-default" type="button" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
 		
-		<input class="btn btn-default" type="submit" name="renovar" value="<?php echo $msgstr["renew"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+		<input class="btn btn-default" type="submit" name="renovar" value="<?php echo $msgstr["renew"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
 		</td>
 
 
 	<br><br>
-		<?php echo $msgstr["clic_en"]." <i>[".$msgstr["renew"]."]</i> ".$msgstr["para_c"]?>
+		<?php echo $msgstr["clic_en"]." <i>[".$msgstr["renew"]."]</i> ".$msgstr["para_c"];?>
 	</form>
 	</div>
 </div>
-<form name=EnviarFrm method=post>
-<input type=hidden name=base value="<?php echo $arrHttp["base"]?>">
-<input type=hidden name=usuario value="">
+<form name="EnviarFrm" method="post">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="usuario" value="">
 </form>
 <?php
 include("../common/footer.php");

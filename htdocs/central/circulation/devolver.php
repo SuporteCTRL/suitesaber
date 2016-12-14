@@ -139,7 +139,7 @@ include("../common/institutional_info.php");
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["return"]?>
+		<?php echo $msgstr["return"];?>
 	</div>
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
@@ -154,20 +154,23 @@ echo "<font  Script: devolver.php </font>
 <div class="middle list">
 
 	<div class="searchBox">
-	<form name=inventorysearch action=devolver_ex.php method=post onsubmit="javascript:return false">
+	<form name="inventorysearch" action="devolver_ex.php" method="post" onsubmit="javascript:return false">
 	
 		<label for="searchExpr">
-			<?php echo $msgstr["inventory"]?>
+			<?php echo $msgstr["inventory"];?>
 		</label>
 		
-		<input type="text" class="form-control" name="inventory" id="inventory" value="" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" /></input>
-        <input type=hidden name=base value=trans>
-        <input type=hidden name=searchExpr>
-        </td><td valign=top>
-		<input type="button" class="btn btn-default" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
-		<input type="submit" class="btn btn-default" name="reservar" value="<?php echo $msgstr["return"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+		<input type="text" class="form-control" name="inventory" id="inventory" value="" />
+		</input>
+        <input type="hidden" name="base" value="trans">
+        <input type="hidden" name="searchExpr">
+        
+<br><br>
+		<input type="button" class="btn btn-primary" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
+
+		<input type="submit" class="btn btn-primary" name="reservar" value="<?php echo $msgstr["return"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
 		
-		<br><br>
+		<br>
 		<?php echo $msgstr["clic_en"]." <i>[".$msgstr["return"]."]</i> ".$msgstr["para_c"]?>
 	</form>
 	</div>

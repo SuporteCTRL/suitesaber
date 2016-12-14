@@ -152,26 +152,23 @@ else
 	
 <div class="middle list">
 	<div class="searchBox">
-	<form name=usersearch action="" method=post onsubmit="javascript:return false">
-	<input type=hidden name=Indice>
+	<form name="Susersearch"S action="" method="post" onsubmit="javascript:return false">
+	<input type=""hidden"" name="Indice">     
 	
 		<label for="searchExpr">
-			<strong><?php echo $msgstr["usercode"]?></strong>
+			<strong><?php echo $msgstr["usercode"];?></strong>
 		</label>
 		
-		<input class="form-control" type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
+		<input class="form-control" type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"];?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
+		<br>
 
-		<input type="button" class="btn btn-default" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
-<<<<<<< HEAD
-		<input  type="button" class="btn btn-default" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
-=======
-		<input type="button" class="btn btn-default" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
->>>>>>> master
-		
-	</form>
+		<input type="button" class="btn btn-primary" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
+
+		<input  type="button" class="btn btn-primary" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
+</form>
 	</div>
 	
-	<form name=inventorysearch action=numero_inventario.php method=post onsubmit="javascript:return false">
+	<form name="inventorysearch" action="numero_inventario.php" method="post" onsubmit="javascript:return false">
 <?php if (!isset($arrHttp["reserve"]) and !isset($arrHttp["reserve_ex"])){
 ?>
 
@@ -183,17 +180,17 @@ else
 			<?php echo $msgstr["inventory"]?>
 		</label>
 		
-<<<<<<< HEAD
+
 		<input class="form-control" type="text" name="inventory" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
 
-		<input class="btn btn-default" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"/>
-		<input class="btn btn-default" type="button" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('I')"/>
-=======
+		<input class="btn btn-default" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"/>
+		<input class="btn btn-default" type="button" name="buscar" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('I')"/>
+
 		<input type="text" name="inventory" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
 
-		<input class="btn btn-default" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"/>
-		<input type="button" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('I')"/>
->>>>>>> master
+		<input class="btn btn-default" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"/>
+		<input type="button" name="buscar" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('I')"/>
+
 		
 
 
@@ -205,44 +202,52 @@ else
 
 		if ((isset($arrHttp["reserve"]) and $arrHttp["reserve"]=="S") or (isset($arrHttp["reserve_ex"]) and $arrHttp["reserve_ex"]=="S")) {
 			
-			echo "<h4>".$msgstr["reports"]."</h4>";
 			echo "<br><br>";
+			echo "<h4>".$msgstr["reports"]."</h4>";
+			echo "<br>";
 			echo $msgstr["orderby"];
-			echo "&nbsp; &nbsp;<input type=radio name=sort value=name>".$msgstr["name"];
-			echo "&nbsp; &nbsp;<input type=radio name=sort value=date_reservation>".$msgstr["reserve_date"];
-			echo "&nbsp; &nbsp;<input type=radio name=sort value=date_assigned>".$msgstr["assigned_date"];
-			echo "&nbsp; &nbsp;<input type=radio name=sort value=date_attended>".$msgstr["loandate"];
-			echo "<br> <br> <br>";
-			echo "<input class=\"btn btn-default\" type=button name=rs00 value=\"".$msgstr["rs00"]."\" onClick=\"javascript:Output('today','rs00')\" style='width:400px'><p>";
-			echo "<input class=\"btn btn-default\" type=button name=rs01 value=\"".$msgstr["rs01"]."\" onClick=\"javascript:Output('actives','rs01')\" style='width:400px'><p>";
-			echo "<input class=\"btn btn-default\" type=button name=rs02 value=\"".$msgstr["rs02"]."\" onClick=\"javascript:Output('assigned','rs02')\" style='width:400px'><p>";
-			echo "<input class=\"btn btn-default\" type=button name=rs03 value=\"".$msgstr["rs03"]."\" onClick=\"javascript:Output('overdued','rs03')\" style='width:400px'><p>";
-			echo "<input class=\"btn btn-default\" type=button name=rs04 value=\"".$msgstr["rs04"]."\" onClick=\"javascript:Output('attended','rs04')\" style='width:400px'><p>";
-			echo "<input class=\"btn btn-default\" type=button name=rs05 value=\"".$msgstr["rs05"]."\" onClick=\"javascript:Output('cancelled','rs05')\" style='width:400px' ><p>";
+			echo "<br>";
+			echo "<input type=radio name=sort value=name>".$msgstr["name"];
+			echo "<br>";
+            echo "<input type=radio name=sort value=date_reservation>".$msgstr["reserve_date"];
+            echo "<br>";
+			echo "<input type=radio name=sort value=date_assigned>".$msgstr["assigned_date"];
+            echo "<br>";
+			echo "<input type=radio name=sort value=date_attended>".$msgstr["loandate"];
+
+			echo "<br><br>";
+			echo "<input class=\"btn btn-primary\" type=\"button\" name=\"rs00\" value=\"".$msgstr["rs00"]."\" onClick=\"javascript:Output('today','rs00')\" >";
+
+			echo "<input class=\"btn btn-warning\" type=\"button\" name=\"rs01\" value=\"".$msgstr["rs01"]."\" onClick=\"javascript:Output('actives','rs01')\">";
+			echo "<input class=\"btn btn-success\" type=\"button\" name=\"rs02\" value=\"".$msgstr["rs02"]."\" onClick=\"javascript:Output('assigned','rs02')\" >";
+			echo "<input class=\"btn btn-danger\" type=\"button\" name=\"rs03\" value=\"".$msgstr["rs03"]."\" onClick=\"javascript:Output('overdued','rs03')\" >";
+			echo "<input class=\"btn btn-info\" type=\"button\" name=\"rs04\" value=\"".$msgstr["rs04"]."\" onClick=\"javascript:Output('attended','rs04')\" >";
+			echo "<input class=\"btn btn-default\" type=\"button\" name=\"rs05\" value=\"".$msgstr["rs05"]."\" onClick=\"javascript:Output('cancelled','rs05')\" >";
 			echo "<br><br>";
 		}
 ?>
 </form>
 </div>
+<br>
 
-<form name=EnviarFrm method=post>
-<input type=hidden name=base value="<?php echo $arrHttp["base"]?>">
-<input type=hidden name=usuario value="">
-<input type=hidden name=inventory>
-<input type=hidden name=ecta value=Y>
+<form name="EnviarFrm" method="post">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="usuario" value="">
+<input type="hidden" name="inventory">
+<input type="hidden" name="ecta" value="Y">
 <?php if (isset($arrHttp["reserve"])){
 	echo "<input type=hidden name=reserve value=S>\n";
 }
 ?>
 </form>
-<form name=output method=post>
-<input type=hidden name=base value=reserve>
-<input type=hidden name=code>
-<input type=hidden name=name>
-<input type=hidden name=user>
-<input type=hidden name=sort>
-<input type=hidden name=retorno value=../circulation/estado_de_cuenta.php>
-<input type=hidden name=reserva value="S">
+<form name="output" method="post">
+<input type="hidden" name="base" value=reserve>
+<input type="hidden" name="code">
+<input type="hidden" name="name">
+<input type="hidden" name="user">
+<input type="hidden" name="sort">
+<input type="hidden" name="retorno" value=../circulation/estado_de_cuenta.php>
+<input type="hidden" name="reserva" value="S">
 </form>
 <?php include("../common/footer.php");
 echo "</body></html>" ;
