@@ -301,11 +301,19 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 	
 </div>
 <div class="helper">
+<<<<<<< HEAD
 <?php 
 
 
 	
 echo "<font Script: prestar.php </font>
+=======
+<?php echo "
+<a href=../documentacion/ayuda.php?help=". $_SESSION["lang"]."/circulation/loan.html target=_blank>". $msgstr["help"]."</a>";
+if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
+	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/circulation/loan.html target=_blank>".$msgstr["edhlp"]."</a>";
+echo "<font color=white>&nbsp; &nbsp; Script: prestar.php </font>
+>>>>>>> master
 	</div>";
 // prestar, reservar o renovar
 ?>
@@ -351,9 +359,15 @@ if (file_exists($db_path."loans.dat")){
 			if (isset($v[2])){
 				$value.=$v[2];
 			}
+<<<<<<< HEAD
 
 			if (isset($_SESSION["loans_dbinven"])){
 
+=======
+
+			if (isset($_SESSION["loans_dbinven"])){
+
+>>>>>>> master
 				if ($_SESSION["loans_dbinven"]==$v[0])
 					$xselected=" selected";
 				else
@@ -369,14 +383,19 @@ if (file_exists($db_path."loans.dat")){
 		
 	</div>
 
+<<<<<<< HEAD
 <?php
  }
  ?>
+=======
+<?php }?>
+>>>>>>> master
 	<div class="searchBox">
 	 <?php echo $msgstr["inventory"]?>
 		</label>
 
 		<?php if (isset($LOAN_POLICY) and $LOAN_POLICY=="BY_USER"  ){
+<<<<<<< HEAD
 			?>
 			<input class="form-control" type=text name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';">
 <?php 
@@ -391,6 +410,16 @@ if (file_exists($db_path."loans.dat")){
 	?>
 	    <input class="btn btn-default"  name="list" value="<?php echo $msgstr["list"]?>"  onclick="javascript:AbrirIndice('<?php if ($sel_base=="S") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
 
+=======
+			?><input class="form-control" type=text name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';">
+	<?php }else{
+			?>
+		<textarea class="form-control" name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" rows=5 cols=50/></textarea>
+	<?php }
+
+	?>
+	    <input class="btn btn-default"  name="list" value="<?php echo $msgstr["list"]?>"  onclick="javascript:AbrirIndice('<?php if ($sel_base=="S") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
+>>>>>>> master
         <div id=kardex style="display:none;">
             <br>
 			Ano: <input type=text name=year class="form-control">

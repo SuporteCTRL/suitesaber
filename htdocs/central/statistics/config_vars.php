@@ -8,7 +8,8 @@ $lang=$_SESSION["lang"];
 include("../lang/dbadmin.php");
 include("../lang/statistics.php");
 
-// ENCABEZAMIENTO HTML Y ARCHIVOS DE ESTILOinclude("../common/header.php");
+// ENCABEZAMIENTO HTML Y ARCHIVOS DE ESTILO
+include("../common/header.php");
 
 // LECTURA DE LA FDT DE LA BASE DE DATOS Y CREAR LISTA DE CAMPOS
 $file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["base"].".fdt";
@@ -29,12 +30,15 @@ echo "</script>\n";
 <script languaje=javascript>
 //LEE LA FDT O LA FST
 function Ayuda(hlp){
-	switch (hlp){		case 0:
+	switch (hlp){
+		case 0:
 			msgwin=window.open("../dbadmin/fdt_leer.php?base=<?php echo $arrHttp["base"]?>","FDT","")
 			break
 		case 1:
 		   	msgwin=window.open("../dbadmin/fst_leer.php?base=<?php echo $arrHttp["base"]?>","FST","")
-			break	}
+			break
+	}
+
 	msgwin.focus()
 }
 
@@ -45,14 +49,23 @@ total=0
 //PARA AGREGAR NUEVAS VARIABLES A LA LISTA
 function returnObjById( id )
 {
-    if (document.getElementById)
+    if (document.getElementById){
+
         var returnVar = document.getElementById(id);
-    else if (document.all)
-        var returnVar = document.all[id];
-    else if (document.layers)
-        var returnVar = document.layers[id];
+    }
+    
+    else if (document.all){
+
+        var returnVar = document.all(id);
+    }
+    
+    else if (document.layers){
+    	
+        var returnVar = document.layers(id);
+    }
     return returnVar;
 }
+
 
 function getElement(psID) {
 	if(!document.all) {
@@ -63,13 +76,17 @@ function getElement(psID) {
 	}
 }
 
+
 function DrawElement(ixE,seltext,nombre,pft){
-	xhtml="<tr><td bgcolor=white width=300 valign=top><select name=sel_text style='width:150px' onchange=Cambiar("+ixE+")>\n<option></option>"
+   	xhtml="<div class=\"col-md-3\"><select class=\"form-control\" name=sel_text onchange=Cambiar("+ixE+")>\n<option></option>"
+	
 	option=fields.split('||')
 	for (var opt in option){
-		o=option[opt].split('$$$')		xhtml+="<option value=\""+o[0]+"\">"+o[1]+"</option>\n";	}
-	xhtml+="</select><input type=text name=\"nombre\" value=\""+nombre+"\" size=20></td><td bgcolor=white width=400><textarea name=pft style='width:400px;height:30px'>"+pft+"</textarea></td><td bgcolor=white valign=top><input type=text name=prefix size=5></a>";
-	xhtml+="&nbsp;<a href=javascript:DeleteElement("+ixE+")><img src=../dataentry/img/toolbarDelete.png alt=\"<?php echo $msgstr["delete"]?>\" text=\"<?php echo $msgstr["delete"]?>\"></a></td></tr>"
+		o=option[opt].split('$$$')
+		xhtml+="<option value=\""+o[0]+"\">"+o[1]+"</option>\n";
+	}
+	xhtml+="</select></div><div class=\"col-md-3\"><input class=\"form-control\" type=text name=\"nombre\" value=\""+nombre+"\" size=20></div><div class=\"col-md-4\"><textarea name=pft class=\"form-control\"'>"+pft+"</textarea></div><div class=\"col-md-1\"><input class=\"form-control\" type=text name=prefix size=5></a></div><div class=\"col-md-1\">";
+	xhtml+="<a class=\"btn btn-danger\" href=javascript:DeleteElement("+ixE+")><i class=\"fa fa-times\" alt=\"<?php echo $msgstr["delete"]?>\" text=\"<?php echo $msgstr["delete"]?>\"></a></i></div>";
     return xhtml
 }
 
@@ -125,14 +142,18 @@ function AddElement(){
 			    	html+=xhtm
 			    }
 		    }
-		 }	 }else{		ia=0	 }
+		 }
+	 }else{
+		ia=0
+	 }
 	nuevo=DrawElement(ia,"","","")
 	seccion.innerHTML = html+nuevo+"</table>"
 }
 
 // PASA AL CAMPO DE TEXTO EL NOMBRE DE LA VARIABLE SELECCIONADA
 function Cambiar(ix){
-		sel=document.stats.sel_text[ix].selectedIndex
+
+		sel=document.stats.sel_text[ix].selectedIndex
 		if (sel==0){
 			document.stats.nombre[ix].value=""
 			document.stats.pft[ix].value=""
@@ -143,12 +164,17 @@ function Cambiar(ix){
 }
 
 //RECOLECTA LOS VALORES DE LA PAGINA Y ENVIA LA FORMA
-function Guardar(){	ValorCapturado=""
+function Guardar(){
+	ValorCapturado=""
 	base="<?php echo $arrHttp["base"]?>"
-	total=document.stats.nombre.length	if (total==0){
+	total=document.stats.nombre.length
+	if (total==0){
 		pft=Trim(document.stats.pft.value)
-		nombre=Trim(document.stats.nombre.value)		if (nombre=="" && pft!=""){			alert("<?php echo $msgstr["mustselectfield"]?>")
-			return;		}
+		nombre=Trim(document.stats.nombre.value)
+		if (nombre=="" && pft!=""){
+			alert("<?php echo $msgstr["mustselectfield"]?>")
+			return;
+		}
 		if (nombre!="" && pft==""){
 			alert("<?php echo $msgstr["misspft"]?>")
 			return;
@@ -158,7 +184,9 @@ function Guardar(){	ValorCapturado=""
 			pft=pft.replace(new RegExp('\\r','g'),'')
 			ValorCapturado=nombre+"|"+pft
 		}
-	}else{		for (i=0;i<total;i++){			pft=Trim(document.stats.pft[i].value)
+	}else{
+		for (i=0;i<total;i++){
+			pft=Trim(document.stats.pft[i].value)
 			nombre=Trim(document.stats.nombre[i].value)
 			if (nombre=="" && pft!=""){
 				xi=i+1
@@ -173,15 +201,21 @@ function Guardar(){	ValorCapturado=""
 				pft=pft.replace(new RegExp('\\n','g'),' ')
 				pft=pft.replace(new RegExp('\\r','g'),'')
 				ValorCapturado+=nombre+"|"+pft+"\n"
-			}		}	}
+			}
+		}
+	}
 
 	document.enviar.base.value=base
 	document.enviar.ValorCapturado.value=ValorCapturado
-	document.enviar.submit()}</script>
+	document.enviar.submit()
+}
+
+</script>
 <body>
 <?php
 // VERIFICA SI VIENE DEL TOOLBAR O NO PARA COLOCAR EL ENCABEZAMIENTO
-if (isset($arrHttp["encabezado"])){	include("../common/institutional_info.php");
+if (isset($arrHttp["encabezado"])){
+	include("../common/institutional_info.php");
 	$encabezado="&encabezado=s";
 }else{
 	$encabezado="";
@@ -194,76 +228,102 @@ if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics")
 	$script="tables_generate.php";
 else
 	$script="../dbadmin/menu_modificardb.php";
-	echo "<a href=\"$script?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
-echo "<img src=\"../images/defaultButton_iconBorder.gif\" />
-	<span><strong>".$msgstr["back"]."</strong></span></a>
-	<a href=\"javascript:Guardar()\" class=\"defaultButton saveButton\">
-	<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-	<span><strong>".$msgstr["save"]."</strong></span></a>";
+
+
 ?>
-</div><div class="spacer">&#160;</div></div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_config_vars.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/stats/stats_config_vars.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: config_vars.php";
-?>
-</font>
-	</div>
+
+
 <div class="middle form">
 	<div class="formContent">
-		<table width=800  class=listTable bgcolor=#bbbbbb>
-			<td width=280 valign=top><strong><?php echo $msgstr["var"]?></strong><a href=javascript:Ayuda(0)><img src=../dataentry/img/helper_bg.png></a></td>
-			<td width=450><strong><?php echo $msgstr["pft_ext"]?></td>
-			<td valign=top><strong><?php echo $msgstr["prefix"]?></strong> <a href=javascript:Ayuda(1)><img src=../dataentry/img/helper_bg.png></a></td>
-		</table>
+		
+	
+			<label><?php echo $msgstr["pft_ext"];?></label>
+		    <a class="btn btn-info" href=javascript:Ayuda(0)><i class="fa fa-info-circle" value="<?php echo $msgstr["var"];?>"></a></i>
+			<br>
+			<label><?php echo $msgstr["prefix"];?></label>
+			 <a href=javascript:Ayuda(1) class="btn btn-info"><i class="fa fa-info-circle" aria hidden="true"></a></i>
+	
+
+
+
         <div id=rows>
+        <div class="col-md 3">
  <?php
  	$total=-1;
  	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
  	if (!file_exists($file)) $file=$db_path.$arrHttp["base"]."/def/".$lang_db."/stat.cfg";
- 	echo "<table width=800 class=listTable>";
+ 	
  	$ix=-1;
- 	if (file_exists($file)){ 		$fp=file($file); 		foreach ($fp as $value) { 			if (trim($value)!=""){
+ 	if (file_exists($file)){
+ 		$fp=file($file);
+ 		foreach ($fp as $value) {
+ 			if (trim($value)!=""){
  				$ix++;
- 				$total=$ix; 				$var=explode('|',$value); 				echo "<tr><td bgcolor=white width=300 valign=top><select name=sel_text style='width:150px' onchange=Cambiar(".$ix.")><option</option>\n";
+ 				$total=$ix;
+ 				$var=explode('|',$value);
+ 				echo "<select class=\"form-control\" name=sel_text onchange=Cambiar(".$ix.")><option</option>\n";
  				$f=explode('||',$fields);
 	    		foreach ($f as $opt) {
 					$o=explode('$$$',$opt);
-	    			echo "<option value=\"".$o[0]."\" >".$o[1]."</option>\n";
+	    			echo "
+	    			<option class=\"form-control\" value=\"".$o[0]."\" >".$o[1]."</option>\n";
 	    		}
- 				echo "</select><input type=text name=\"nombre\" value=\"".$var[0]."\" size=20></td><td bgcolor=white width=400><textarea name=pft style='width:400px;height:30px'>".$var[1]."</textarea></td><td bgcolor=white valign=top><input type=text name=prefix size=5></a>";
- 				echo "&nbsp;<a href=javascript:DeleteElement(".$ix.")><img src=../dataentry/img/toolbarDelete.png alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></a></td></tr>\n";
- 			} 		}
+ 				echo "</select>
+ 				 <input type=text class=\"form-control\" name=\"nombre\" value=\"".$var[0]."\" size=20>
+ 				 <textarea class=\"form-control\" name=pft style='width:400px;height:30px'>".$var[1]."</textarea>
+ 				 <input class=\"form-control\" type=text name=prefix size=5></a>";
+ 				echo "
+ 				<a class=\"btn btn-danger\" href=javascript:DeleteElement(".$ix.")>
+ 				<i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></i></a>\n";
+ 			}
+ 		}
 
  	}
+    ?>
+
+
+    </div>
+
+
+ 	<div class=\"col-md 3\">
+    <?php
 
  	if ($ix<1){
  		$ix++;
  		$total++;
  		for ($ix=$ix;$ix<2;$ix++){
-		 	echo "<tr><td bgcolor=white width=300 valign=top><select name=sel_text style='width:150px' onchange=Cambiar(".$ix.")><option></option>\n";
+		 	echo "
+		 
+		 	<select name=sel_text style='width:150px' onchange=Cambiar(".$ix.")><option></option>\n";
 		 	$f=explode('||',$fields);
 			foreach ($f as $opt) {
 				$o=explode('$$$',$opt);
 				echo "<option value=\"".$o[0]."\" >".$o[1]."</option>\n";
 			}
-		 	echo "</select><input type=text name=\"nombre\" value=\"\" size=20></td><td bgcolor=white width=400><textarea name=pft style='width:400px;height:30px'></textarea></td><td bgcolor=white valign=top><input type=text name=prefix size=5></a>";
-		 	echo "&nbsp;<a href=javascript:DeleteElement(".$ix.")><img src=../dataentry/img/toolbarDelete.png alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></a></td></tr>\n";
+		 	echo "</select></div>";
+
+		 	echo"<input class=\"form-control\" type=text name=\"nombre\" value=\"\" size=20></td>
+		 	
+		 	<textarea class=\"form-control\" name=pft ></textarea></td>
+		 	<input type=text name=prefix size=5></a>";
+
+		 	echo "<a class=\"btn btn-danger\" href=javascript:DeleteElement(".$ix.")><i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></a></td></tr>\n";
 	   	}
 	}
     echo "</table>";
  ?>
         </div>
 
-		<a href="javascript:AddElement('rows')"><?php echo $msgstr["add"]?></a>
+		<a href="javascript:AddElement('rows')"><?php echo $msgstr["add"];?></a>
+		<a href="javascript:Guardar()" class="btn btn-primary"><i class="fa fa-check" aria hidden="true>"></i></a>
 	</div>
 </div>
 </form>
-<form name=enviar method=post action=config_vars_update.php>
-<input type=hidden name=base>
-<input type=hidden name=ValorCapturado>
+<a href="javascript:Guardar()" class="btn btn-primary"><i class="fa fa-check" aria hidden="true>"></i></a>
+
+<form name="enviar" method="post" action="config_vars_update.php">
+<input type="hidden" name="base">
+<input type="hidden" name="ValorCapturado">
 <?php
 if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>\n";
 if (isset($arrHttp["from"])) echo "<input type=hidden name=from value=".$arrHttp["from"].">\n";

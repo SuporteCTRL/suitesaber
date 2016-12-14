@@ -154,6 +154,7 @@ div#savesearch{
 	color: #000000;
 }
 </style>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css"> <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
 <script languaje=javascript>
 
 TipoFormato=""
@@ -297,14 +298,14 @@ function GenerarFormato(Tipo){
 				xTag=t[1]
 				xTipoE=t[0]
 				if (xTag=="" || xTipoE=="L"){
-					campo="'<tr><td colspan=2 valign=top><font face=arial size=2><b>"+t[2]+"</b></td>'/\n"
+					campo="'<tr><td colspan=2 valign=top><strong>"+t[2]+"</strong></td>'/\n"
 		    	}else {
 		    		if(Trim(t[5])!=""){
 						tag=SubCampos(xTag,t[5],t[6])
 					}else{
 						tag="v"+xTag+"+|<br>|"
 					}
-			    	campo="if p(v"+xTag+ ") then '<tr><td width=20% valign=top><font face=arial size=2><b>"+t[2]+"</b></td><td valign=top><font face=arial size=2>'"+tag+",'</td>' fi/\n"
+			    	campo="if p(v"+xTag+ ") then '<tr><td width=20% valign=top><strong>"+t[2]+"</strong></td><td valign=top><strong>'"+tag+",'</td>' fi/\n"
 				}
 				formato+=campo
 			}
@@ -350,7 +351,7 @@ function GenerarFormato(Tipo){
 					}else{
 						tag="v"+xTag+"+|; |"
 					}
-			    	campo="'<td valign=top><font face=arial size=2>'"+tag+" if a(v"+xTag+") then '&nbsp;' fi,'</td>'/\n"
+			    	campo="'<td valign=top><strong>'"+tag+" if a(v"+xTag+") then '&nbsp;' fi,'</strong></td>'/\n"
 			    	formato+=campo
 			    	head+=t[2]+"\n"
 				}
@@ -597,92 +598,59 @@ function Listados(){
 }
 
 </script>
+
+<script type="text/javascript">
+	addEventListener('load', function() 
+		{ 
+		var code = document.querySelector('#code'); 
+		var worker = new Worker('worker.js'); 
+		worker.onmessage = function(event) 
+		{ 
+			code.innerHTML = event.data; 
+		} 
+		worker.postMessage(code.textContent); 
+	})
+</script>
+
 <body>
 
-<?php
-if (isset($arrHttp["encabezado"])){
-	include("../common/institutional_info.php");
-	$encabezado="&encabezado=s";
-}else{
-	$encabezado="";
-}
-
-?>
-
-
-<div class="page-title">
-  <div class="title_left">
-      <h3><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $msgstr["listados"].": ".$arrHttp["base"]?></h3>
-      <small><?php echo $msgstr["pft"].": ".$arrHttp["base"]?></small>
-  </div>            
-</div>
-
-<div class="clearfix"></div>
-
-
-
-
-
-
-
-<form name=forma1 method=post action=../dataentry/imprimir_g.php onsubmit="Javascript:return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["base"]?>.par>
-<input type=hidden name=Dir value=<?php echo $arrHttp["Dir"]?>>
-<input type=hidden name=Modulo value=<?php if (isset($arrHttp["Modulo"])) echo $arrHttp["Modulo"]?>>
-<input type=hidden name=tagsel>
-<input type=hidden name=Opcion>
-<input type=hidden name=vp>
-
-
-
-<?php 
-if (isset($arrHttp["encabezado"])) 
-
-echo "<input type=hidden name=encabezado value=s>\n";
-if ($arrHttp["Opcion"]!="new"){
- 	unset($fp);
-    $archivo=$db_path.$base."/pfts/".$_SESSION["lang"]."/listados.dat";
-	if (!file_exists($archivo)) $archivo=$db_path.$base."/pfts/".$lang_db."/listados.dat";
-	if (file_exists($archivo)) $fp = file($archivo);
-	if (isset($fp)){
-
-		echo "<strong>".$msgstr["listados"]."</strong>: <xselect name=listados onchange=javascript:Listados()><option></option>";
-		foreach ($fp as $value){
-			if (trim($value)!=""){
-				$pp=explode('|',$value);
-				if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_pft_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"])
-				   or isset($_SESSION["permiso"][$arrHttp["base"]."_pft_".$pp[0]])){
-				   if (strpos($pp[1],"?")==false) $pp[1].="?";
-				   $url="";
-				   $url="&base=".$arrHttp["base"];
-				   if (isset($arrHttp["retorno"])) $url.="&retorno=".$arrHttp["retorno"];
-				   if (isset($arrHttp["modulo"])) $url.="&modulo=".$arrHttp["modulo"];
-					echo "<a href=\"".$pp[1]."$encabezado".$url."\">".$pp[0]."</a><br>\n";
-				}
-			}
-		}
-        echo "</xselect>";
-	}
-}
-?>
-
-
-
-<?php echo "<strong>".$msgstr["r_fgent"]."</strong>";?>
-<a href=http://bvsmodelo.bvsalud.org/download/cisis/CISIS-LinguagemFormato4-<?php echo $_SESSION["lang"]?>.pdf target=_blank><font size=1><?php echo $msgstr["cisis"]?></a>
-
-
-
-
-
-<!--USAR EXISTENTE-->
 
 <?php
-
+echo "</table>\n";
 if ($arrHttp["Opcion"]!="new"){
 //USE AN EXISTING FORMAT
-?>	
+	
+	//echo "<a href=javascript:LeerArchivo(\"\")>".$msgstr["edit"]."</a> | <a href=javascript:EliminarFormato()>".$msgstr["delete"]."</a>";
+
+?>
+</table>
+</div>
+</td>
+
+</table>
+<?php }else{
+		echo "<div id=useexformat></div>";
+
+}
+if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDPFT"])  or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_EDPFT"]) or isset($_SESSION["permiso"]["CENTRAL_MODIFYDB"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_MODIFYDB"])){
+
+
+?>
+
+
+ <div class="page-title">
+              <div class="title_left">
+                <h3><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $msgstr["listados"].": ".$arrHttp["base"]?></h3>
+              </div>
+
+              <div class="title_right">
+					<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_tables_generate.html target=_blank><?php echo $msgstr["help"]?></a> Script: tables_generate.php
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+ <div class="container conteudo">
 
 <!-- CREATE A FORMAT -->
 <div class="container">
@@ -690,18 +658,17 @@ if ($arrHttp["Opcion"]!="new"){
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-			<a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo $msgstr["useexformat"];?> <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo $msgstr["useexformat"];?> <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
         </h4>
       </div>
 
+
       <div id="collapse1" class="panel-collapse collapse in">
         <div class="panel-body"><?php echo $msgstr["r_formatos"];?> 
+        <select name="tables" >
+    		<option value="">
 
-	<label><?php echo $msgstr["r_formatos"]; ?></label>
-	<select name="fgen" class="form-control" onclick="javascript:BorrarFormato("todos")">
-	<option value="">
-
-<?php
+<?php        
     unset($fp);
     $archivo=$db_path.$base."/pfts/".$_SESSION["lang"]."/formatos.dat";
 	if (!file_exists($archivo)) $archivo=$db_path.$base."/pfts/".$lang_db."/formatos.dat";
@@ -722,31 +689,28 @@ if ($arrHttp["Opcion"]!="new"){
 	}
 ?>
 
+</i></div>
+</select>
+      
+    <!--editar campo-->
 
-	</select>
-	<a class="btn btn-primary" href="javascript:LeerArchivo()"><?php echo $msgstr["edit"];?></a> 
-	<a class="btn btn-danger" href="javascript:EliminarFormato()"><?php echo $msgstr["delete"];?></a>
+     <a href=javascript:LeerArchivo(\"\") class="btn btn-default campo"><i class="fa fa-pencil-square-o" aria-hidden="true" alt="<?php echo $msgstr["edit"];?>"</a></i>
+ 
+      <!--excluir-->
+
+     <a href=javascript:EliminarFormato() ) class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true" 
+      alt="<?php echo $msgstr["delete"];?>"></i></a>
+
+
+
 
          </div>
       </div>
     </div>
 
-<!--FIM USAR EXISTENTE-->
 
 
 
-
-
-
-
-
-<?php }else{
-		echo "<div id=useexformat></div>";
-
-}
-if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDPFT"])  or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_EDPFT"]) or isset($_SESSION["permiso"]["CENTRAL_MODIFYDB"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_MODIFYDB"])){
-?>
-<!-- CREATE A FORMAT -->
 
 
 <div class="panel panel-default">
@@ -781,7 +745,7 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 
  	<a href="" ="#" class="btn btn-default campo" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 
-	<a href="" ="#" class="btn btn-default campo" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+	<a href="" ="#" class="btn btn-default campo" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
 </div>
 
 <div class="col-md-5">
@@ -796,12 +760,6 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 <a href=# onClick=" moveOptionDown(document.forms[0]['list21'])" class="btn btn-default campo" title="<?php echo $msgstr["r_bajar"]?>">
 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 	
-<a href=# onClick='javascript:BorrarFormato("pft")' class="btn btn-default campo" title="<?php echo $msgstr["borrar"]?>">
-<i class="fa fa-eraser" aria-hidden="true"></i></a>
-
-
-
-
 </div>
 
 <div class="clearfix"></div>
@@ -826,6 +784,8 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 
 	
 
+<a href=# onClick='javascript:BorrarFormato("pft")' class="btn btn-default campo" title="<?php echo $msgstr["borrar"]?>">
+<i class="fa fa-eraser" aria-hidden="true"></i></a>
 
 
 
@@ -843,17 +803,6 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 </div> <!--panel default-->
 
 
-<!--FECHA CRIAR FORMATO-->
-
-
-
-<!-- GENERATE OUTPUT -->
-<?php
-}else{
-	echo "<div id=createformat></div>";
-}
-if ($arrHttp["Opcion"]!="new"){?>
-
 
 <div class="panel panel-default">
  <div class="panel-heading">
@@ -870,9 +819,9 @@ if ($arrHttp["Opcion"]!="new"){?>
  <h5><?php echo $msgstr["r_mfnr"]?></h5>
   <div class="control-group">
    <label class="control-label" for="textinput"><?php echo $msgstr["r_desde"]?></label>
-    <input class="form-control" id="textinput" name="Mfn" type="text"class="input-medium" required="">
+    <input id="textinput" name="Mfn" type="text"class="input-medium" required="">
    <label class="control-label" for="textinput"><?php echo $msgstr["r_hasta"]?></label>
-    <input class="form-control" id="textinput" name="to" type="text"class="input-medium" required="">
+    <input id="textinput" name="to" type="text"class="input-medium" required="">
 
      <a href='javascript:BorrarRango()' class="btn btn-default campo" title="<?php echo $msgstr["borrar"]?>"><i class="fa fa-trash" aria-hidden="true"></i></a> 
      <script>
@@ -882,7 +831,7 @@ if ($arrHttp["Opcion"]!="new"){?>
 	<?php
 	if (isset($arrHttp["seleccionados"])){
 		echo "<tr>
-				  <td  align=center colspan=2><strong>".$msgstr["selected_records"]."</strong>:";
+				  <td  align=center colspan=2><strong>".$msgstr["selected_records"]."</strong>: &nbsp; &nbsp; &nbsp;";
 		$sel=str_replace("__",",",trim($arrHttp["seleccionados"]));
 		$sel=str_replace("_","",$sel);
 		echo "<input type=text name=seleccionados size=100 value=$sel>\n";
@@ -907,7 +856,7 @@ else
 		$fp = file($db_path.$arrHttp["base"]."/pfts/".$lang_db."/search_expr.tab");
 if (isset($fp)){
 	echo "&nbsp; &nbsp; &nbsp; &nbsp;".$msgstr["copysearch"].":";
-	echo "<select class=\"form-control\" name=Expr  onChange=CopiarExpresion()>
+	echo "<select name=Expr  onChange=CopiarExpresion()>
     		<option value=''>
     ";
 	foreach ($fp as $value){
@@ -921,14 +870,11 @@ if (isset($fp)){
 }
 ?> 
 
-<br>
-<br>
-<br>
 
+<br>
 
 <div class="form-group">
-   <textarea class="form-control col-md-11" rows="3" cols="80" name="Expresion"><?php if ($Expresion!="") echo $Expresion?></textarea>
-
+   <textarea class="input-control col-md-11" rows="3" cols="80" name="Expresion"><?php if ($Expresion!="") echo $Expresion?></textarea>
     <a href=javascript:BorrarExpresion() class= "btn btn-danger campo col-md-1" title="<?php echo $msgstr["borrar"]?>"><i class="fa fa-trash" aria-hidden="true"></i></a> 
 
 <?php
@@ -941,7 +887,7 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CE
 
 	<div id="savesearch">
 		<label><?php echo $msgstr["r_desc"];?>:</label>
-		 <input  type="text" class="form-control input-medium"  name="Descripcion">
+		 <input type="text" class="form-control input-medium"  name="Descripcion">
      	 <input type="button"  class="btn btn-default campo" value="<?php echo $msgstr["savesearch"];?>" onclick="GuardarBusqueda()">
 	</div>
 
@@ -952,8 +898,8 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CE
 
        
 <h5>Chave de ordenação: 
-<input  id="textinput" name="textinput" type="text" class="form-control" required=""></h5>
- <select class="form-control" name=sort  onChange=CopySortKey()>
+<input id="textinput" name="textinput" type="text"class="input-medium" required=""></h5>
+ <select name=sort  onChange=CopySortKey()>
     		<option value=""></option>
 <?php
 unset($fp);
@@ -975,9 +921,7 @@ if (isset($fp)){
 echo "			</select>";
 ?>
 
-
 <a href=javascript:CreateSortKey() title="<?php echo $msgstr["sortkeycreate"];?>" class="btn btn-default campo"><i class="fa fa-plus" aria-hidden="true"></i></a>
-
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDSORT"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_EDSORT"])){
  }
@@ -1003,38 +947,43 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CE
 	<a href="javascript:EnviarForma('P')" title="<?php echo $msgstr["vistap"];?>" class="btn btn-default campo">
 		<i class="fa fa-eye" aria-hidden="true"></i>
 	</a> 
-
-
-
-
-
-<!--FECHA GERAR SAÍDA-->
-
-
-
-
-
-
+<br><br>
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDPFT"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"])){
 $save="Y";
 ?>
-<table width=600 cellpadding=5 class=listTable>
-	<tr>
-		<td>
-			 <a href="javascript:toggleLayer('saveformat')"><u><strong><?php echo $msgstr["r_guardar"]?></strong></u></a>
-    		<div id=saveformat><p>
-			<table width=600 border=0 cellpadding=0>
-				<td  align=right >
-				<font face=arial size=1><?php echo $msgstr["r_guardar"]." ".$db_path.$arrHttp["base"]."/". $arrHttp["Dir"]?>/ </td>
-				<td><input type=text name=nombre size=20 maxlength=30></td>
-				<tr><td align=right valign=top><font face=arial size=1>
-					<?php echo $msgstr["r_desc"]?></td><td valign=top><input class="form-control" type=text name=descripcion maxlength=50 size=50>
-
-					<a href=javascript:GuardarFormato()><img src=../dataentry/img/toolbarSave.png border=0></a>
 
 
-<!--FECHA container conteudo-->
+
+
+ 
+<!--input text-->            
+
+
+		   <h3><?php echo $msgstr["r_guardar"];?></h3>
+    		<label><?php echo $msgstr["r_guardar"]." <small> ".$db_path.$arrHttp["base"]."/". $arrHttp["Dir"];?></small></label>
+				<input class="form-control" type="text" name="nombre" size="20" maxlength="30">
+				<label><?php echo $msgstr["r_desc"];?></label>
+				<input class="form-control" type="text" name="descripcion" maxlength="50" size="50">
+                <a href="javascript:GuardarFormato()" class="btn btn-default"><i class="fa fa-save"></a></i>
+			
+	
+
+
+
+
+</div> <!--div container-->
+
+</div>
+</div><!--panel d-->
+<!--container-->
+
+
+
+
+<!-- GENERATE OUTPUT -->
+
+
 
 
 
@@ -1052,7 +1001,6 @@ if (!isset($arrHttp["Modulo"]))
 <!--a href=menu_modificardb.php?base=<?php echo $arrHttp["base"]?>><?php echo $msgstr["cancel"]?></a>-->
 <input type=hidden name=sel_oper>
 </form>
-
 <form name=guardar method=post action=pft_update.php>
 <input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
 <input type=hidden name=pft>
@@ -1065,53 +1013,44 @@ if (!isset($arrHttp["Modulo"]))
 <input type=hidden name=sel_oper>
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>"; ?>
 </form>
-
 <form name=frmdelete action=pft_delete.php method=post>
 <input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
 <input type=hidden name=pft>
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>"; ?>
 </form>
-
 <form name=savesearch action=../dataentry/busqueda_guardar.php method=post target=savesearch>
-	<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+	<input type=hidden name=base value=<?php echo $arrHttp["base"];?>>
 	<input type=hidden name=Expresion value="">
 	<input type=hidden name=Descripcion value="">
 </form>	<p>
-
 <form name=sortkey method=post action=sortkey_edit.php target=sortkey>
-	<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+	<input type=hidden name=base value=<?php echo $arrHttp["base"];?>>
 	<input type=hidden name=encabezado value=s>
 </form>
-
 <form name=listadosfrm method=post>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<input type=hidden name=base value=<?php echo $arrHttp["base"];?>>
 </form>
-
-
-
-
+</center>
+</div>
+</div>
+</center>
 <?php
 include("../common/footer.php");
 ?>
 </body>
 </html>
-	<?php 
-if (isset($arrHttp["pft"])and $arrHttp["pft"]!="") {
-?> 
-
-<script>
+<?php if (isset($arrHttp["pft"])and $arrHttp["pft"]!="") {
+?> <script>
 		xpft='<?php echo $arrHttp["pft"]?>'
 		xDesc=xpft='<?php echo $arrHttp["desc"]?>'
 		document.forma.nombre.value=xpft
 		document.forma1.descripcion.value=
 		msgwin=window.open("leertxt.php?base=<?php echo $arrHttp["base"]."&cipar=".$arrHttp["cipar"]?>&archivo="+xpft,"editar","menu=no, resizable, scrollbars,width=790")
 		msgwin.focus()
-
-</script>
+	</script>
 <?php
   }
 ?>
 <?php
 if ($arrHttp["Opcion"]=="new")
-	echo "\n<script>toggleLayer('pftedit')\n</script>\n"; 
-?>
+	echo "\n<script>toggleLayer('pftedit')\n</script>\n"; ?>

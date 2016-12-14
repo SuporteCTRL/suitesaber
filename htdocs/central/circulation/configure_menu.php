@@ -50,72 +50,73 @@ echo "<div class=\"sectionInfo\">
 	<div class=\"actions\">";
 	include("submenu_prestamo.php");
 echo "</div>
-	<div class=\"spacer\">&#160;</div>
+	
 </div>";
 ?>
 
 
-	<div class="mainBox" onmouseover="this.className = 'mainBox mainBoxHighlighted';" onmouseout="this.className = 'mainBox';">
-		<div class="boxTop">
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand"> Configuração</a>
+    </div>
+
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="false" aria-expanded="false">	<label><?php echo $msgstr["policy"]?></label><span class="caret"></span></a>
+
+          <ul class="dropdown-menu">
 			
-		</div>
-		<div class="boxContent toolSection">
-			
-			<label><?php echo $msgstr["policy"]?></label>
-			</div>
-			<ul>
-		<li><a href="databases.php" class="menuButton multiLine origendatabaseButton"><?php echo $msgstr["sourcedb"];?></a></li>
 
-		<li><a href="borrowers_configure.php" class="menuButton multiLine usersconfigureButton"><?php echo $msgstr["bconf"];?></a></li>
-
-		<li><a href="typeofusers.php" class="menuButton multiLine userstypeButton"><?php echo $msgstr["typeofusers"];?></li></a>
-
-    	<li><a href="typeofitems.php" class="menuButton multiLine itemstypeButton"><?php echo $msgstr["typeofitems"];?></li></a>
-
-    	<li><a href="loanobjects.php" class="menuButton multiLine loanpolicyButton"><?php echo $msgstr["objectpolicy"];?></a></li>
-
-		<li><a href="locales.php" class="menuButton multiLine currency_daysButton"><?php echo $msgstr["local"];?></li></a>
-
-		<li><a href="calendario.php" class="menuButton multiLine calendarButton"><?php echo $msgstr["calendar"];?></a></li>
-
-        <li><a href="sala_configure.php" class="menuButton multiLine loanpolicyButton"><?php echo $msgstr["sala"];?></li></a>
-
-			
-		</div>
-		</ul>
+<li><a href="databases.php" target="configura" class="menuButton multiLine origendatabaseButton"><?php echo $msgstr["sourcedb"];?></a></li>
+<li><a href="borrowers_configure.php" target="configura" class="menuButton multiLine usersconfigureButton"><?php echo $msgstr["bconf"];?></a></li>
+<li><a href="typeofusers.php" target="configura" class="menuButton multiLine userstypeButton"><?php echo $msgstr["typeofusers"];?></li></a>
+<li><a href="typeofitems.php" target="configura" class="menuButton multiLine itemstypeButton"><?php echo $msgstr["typeofitems"];?></li></a>
+<li><a href="loanobjects.php" target="configura" class="menuButton multiLine loanpolicyButton"><?php echo $msgstr["objectpolicy"];?></a></li>
+<li><a href="locales.php" target="configura" class="menuButton multiLine currency_daysButton"><?php echo $msgstr["local"];?></li></a>
+<li><a href="calendario.php" target="configura" class="menuButton multiLine calendarButton"><?php echo $msgstr["calendar"];?></a></li>
+<li><a href="sala_configure.php" target="configura" class="menuButton multiLine loanpolicyButton"><?php echo $msgstr["sala"];?> </li></a>
+  
+  </ul>
+     </li>
+      </ul>
 		
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><label><?php echo $msgstr["outputs"];?></label> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+             <li><a target="configura" href="../circulation/receipts.php?base=trans&encabezado=s&retorno=../circulation/configure_menu.php" class="menuButton multiLine receiptsButton"><?php echo $msgstr["receipts"];?> </a></li>
+
+				<li><a target="configura" href="../dbadmin/pft.php?base=trans&encabezado=s&retorno=../circulation/configure_menu.php" class="menuButton multiLine reportsButton"><?php echo $msgstr["reports_trans"];?></a></li>
+
+				<li><a target="configura" href="../dbadmin/pft.php?base=suspml&encabezado=s&retorno=../circulation/configure_menu.php" class="menuButton multiLine reportsButton"> <?php echo $msgstr["reports_suspml"];?></a></li>
+
+				<li><a target="configura" href="../dbadmin/pft.php?base=users&encabezado=s&retorno=../circulation/configure_menu.php" class="menuButton multiLine reportsButton"><?php echo $msgstr["reports_borrowers"];?></a></li>
+
 		
-		
-		</div>
-	</div>
 
-	<div class="mainBox" onmouseover="this.className = 'mainBox mainBoxHighlighted';" onmouseout="this.className = 'mainBox';">
-		
-		<div class="boxContent toolSection">
-			
-			<div class="sectionTitle"> <label><?php echo $msgstr["outputs"];?></label> </div>
-			
-			<ul>
-				<li><a href="../circulation/receipts.php?base=trans&encabezado=s&retorno=../circulation/configure_menu.php" class="menuButton multiLine receiptsButton"><?php echo $msgstr["receipts"];?> </a></li>
 
-				<li><a href="../dbadmin/pft.php?base=trans&encabezado=s&retorno=../circulation/configure_menu.php" class="menuButton multiLine reportsButton"><?php echo $msgstr["reports_trans"];?></a></li>
 
-				<li><a href="../dbadmin/pft.php?base=suspml&encabezado=s&retorno=../circulation/configure_menu.php" class="menuButton multiLine reportsButton"> <?php echo $msgstr["reports_suspml"];?></a></li>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
-				<li><a href="../dbadmin/pft.php?base=users&encabezado=s&retorno=../circulation/configure_menu.php" class="menuButton multiLine reportsButton"><?php echo $msgstr["reports_borrowers"];?></a></li>
 
-			</div>
-			
-		</div>
-</ul>
-			
-		
-</div>
+<iframe src name="configura" width="100%" height="3000px" frameborder="0"></iframe>
 
-<form name=admin method=post action=administrar_ex.php onSubmit="Javascript:return false">
-<input type=hidden name=base>
-<input type=hidden name=cipar>
-<input type=hidden name=Opcion>
+
+
+
+
+<form name="admin" method="post" action="administrar_ex.php" onSubmit="Javascript:return false">
+<input type="hidden" name="base">
+<input type="hidden" name="cipar">
+<input type="hidden" name="Opcion">
 </form>
 </div>
 </div>

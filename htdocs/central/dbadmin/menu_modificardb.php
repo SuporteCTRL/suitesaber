@@ -48,7 +48,7 @@ include("../common/header.php");
 
 function Update(Option){
 	if (document.update_base.base.value==""){
-		alert("<?php echo $msgstr["seldb"]?>")
+		alert("<?php echo $msgstr["seldb"];?>")
 		return
 	}
 	switch (Option){

@@ -190,10 +190,10 @@ echo "<font color=white>&nbsp; &nbsp; Script: reports_menu.php";
 ?>
 </font>
 	</div>
-<form name=forma1 method=post action=print.php>
-<input type=hidden name=codigo>
-<input type=hidden name=base>
-<input type=hidden name=vp>
+<form name="forma1" method="post" action=print.php>
+<input type="hidden" name="codigo">
+<input type="hidden" name="base">
+<input type="hidden" name="vp">
 <div class="middle form">
 	<div class="formContent">
 
