@@ -384,15 +384,15 @@ the second phase.
     // check if the directory exists or not with the server path added
     $REAL_UPLOAD_DIR = str_replace(DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, DIRNAME($_SESSION['Server_Path'])) . DIRECTORY_SEPARATOR . $UPLOAD_DIR;
     if (!IS_DIR($REAL_UPLOAD_DIR)) {
-        Echo "<h3>The directory where to upload doesn't exist, please verify.. </h3></font></center></TD></TR>";
-        Echo "<TR><TD><a href=" . $_SERVER['PHP_SELF'] . "?ACTION=expand&NODE=" . $NODE . "&FILE_EXTENSION=" . $_SESSION['File_Extension'] . "$encabezado>   Cancel   </a></TD></TR>";
-        Echo "</TABLE>";
+        Echo "<h3>The directory where to upload doesn't exist, please verify.. </h3></font></center></td></tr>";
+        Echo "<tr><td><a href=" . $_SERVER['PHP_SELF'] . "?action=expand&NODE=" . $NODE . "&FILE_EXTENSION=" . $_SESSION['File_Extension'] . "$encabezado>   Cancel   </a></td></tr>";
+        Echo "</table>";
     } else {
         // check if the directory is writable.
         if (!IS_WRITEABLE($REAL_UPLOAD_DIR)) {
-            Echo "<h3>The directory where to upload is NOT writable, please put the write attribute permissions on </h3></font></center></TD></TR>";
-            Echo "<TR><TD><a href=" . $_SERVER['PHP_SELF'] . "?ACTION=expand&NODE=" . $NODE . "&FILE_EXTENSION=" . $_SESSION['File_Extension'] . "$encabezado>   Cancel   </a></TD></TR>";
-            Echo "</TABLE>";
+            Echo "<h3>The directory where to upload is NOT writable, please put the write attribute permissions on </h3></font></center></td></tr>";
+            Echo "<TR><TD><a href=" . $_SERVER['PHP_SELF'] . "?action=expand&NODE=" . $NODE . "&FILE_EXTENSION=" . $_SESSION['File_Extension'] . "$encabezado>   Cancel   </a></td></tr>";
+            Echo "</table>";
         } else {
             Echo"<h3>Directorio actual:" . $UPLOAD_DIR . "</h3></font></center></td></tr>";
     ?>
@@ -414,32 +414,32 @@ the second phase.
         <tr>
             <td>
             
-            <Font face='tahoma'>
+            <Font face="tahoma">
             <h3> Choose a the file to upload</h3>
-            <form name='formUploadFile' method='post' enctype='multipart/form-data' action='<?= $_SERVER['PHP_SELF'];?>'>
-                <table align='center' border='0' class=td>
-                    <input type='hidden' name='MAX_FILE_Svalue='<?= $_SESSION['Size_Bytes'];?>'>
-                    <Tr>
-                        <Td></Td><Td valign='baseline'><input type='file' name='filetoupload' size='50'></Td>
-                    </Tr>
-                    <input type='hidden' name='FILE_EXTENSION' value='<?= $_SESSION['File_Extension'];?>'>
-                    <input type='hidden' name='NODE' value='<?= $NODE;?>'>
-                    <input type='hidden' name='ACTION' value='upload2'>
-                    <Tr></Tr>
-                    <Tr>
-                        <td><input type='button' value='cancel' onclick='javascript:history.back()'></Td>
+            <form name="formUploadFile" method="post" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'];?>">
+                <table align="center" border="0" class="td">
+                    <input type="hidden" name="MAX_FILE_Svalue=<?php echo $_SESSION['Size_Bytes'];?>">
+                    <tr>
+                        <td></td><td valign="baseline"><input type="file" name="filetoupload" size="50"></td>
+                    </tr>
+                    <input type="hidden" name="FILE_EXTENSION" value="<?php echo $_SESSION['File_Extension'];?>">
+                    <input type="hidden" name="NODE" value="<?php echo $NODE;?>">
+                    <input type="hidden" name="ACTION" value="upload2">
+                    <tr></tr>
+                    <tr>
+                        <td><input type="button" value="cancel" onclick='javascript:history.back()'></Td>
                         <td></td>
-                        <Td><input type='submit' name='submit' value='   Upload File  '></Td>
-                    </Tr>
-                    <Tr>
-                        <Td><Noscript>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</Noscript></Td>
-                    </Tr>
+                        <Td><input type="submit" name="submit" value=""></td>
+                    </tr>
+                    <tr>
+                        <td><script> Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</script></td>
+                    </tr>
                 </table>
             </form>
             </font>
             </center>
-            </Td>
-        </Tr>
+            </td>
+        </tr>
    </table>
    <?php
         }
@@ -460,32 +460,32 @@ if the things go bad the process is aborted and the uploaded file is erased.
     $UPLOAD_DIR = BUILD_PATH($NODE);
     PAGE_HEADER("DIRECTORY MANAGER - DIRTREEVIEW", "UPLOAD FILE - CKECK PHASE", "", "");
     ?>
-   <table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 class=td>
+   <table widht="100%"" border="0" cellpadding="8" cellspacing="0" class="td">
         <tr>
-            <td valign=top align=left>
-                <Font face=tahoma>
+            <td valign="top" align="left">
+                <font face="tahoma">
    <?php
     $ERROR_FUNCTION = false;
     // File Size in bytes (change this value to fit your need)
     echo "<h3>Biggest File Size=" . $_SESSION['Size_Bytes'] . "</h3></font></td></tr>";
     echo "<h3>Upload Dir=" . $UPLOAD_DIR . "</h3></font></td></tr>";
     if ($_SESSION['File_Extension'] != "") {
-        echo "<tr><td><CENTER><H5>Extensions allowed= " . $_SESSION['File_Extension'] . "</H5></td></tr>";
+        echo "<tr><td>Extensions allowed= " . $_SESSION['File_Extension'] . "</td></tr>";
     }
     // check if the directory exists or not with the server path added
     $REAL_UPLOAD_DIR = str_replace(DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, DIRNAME($_SESSION['Server_Path'])) . DIRECTORY_SEPARATOR . $UPLOAD_DIR;
     if (!IS_DIR($REAL_UPLOAD_DIR)) {
-        echo "<tr><td><CENTER><h3>The directory where to upload doesn't exist, please verify.. </h3></td></tr>";
+        echo "<tr><td><h3>The directory where to upload doesn't exist, please verify.. </h3></td></tr>";
         $ERROR_FUNCTION = true;
     } else {
         // check if the directory is writable.
         if (!IS_WRITEABLE($REAL_UPLOAD_DIR)) {
-            echo "<tr><td><CENTER><h3>The directory where to upload is NOT writable, please put the write attribute permissions on </h3></td></tr>";
+            echo "<tr><td><h3>The directory where to upload is NOT writable, please put the write attribute permissions on </h3></td></tr>";
             $ERROR_FUNCTION = true;
         } else {
             // check if no file selected.
             if (!IS_UPLOADED_FILE($_FILES['filetoupload']['tmp_name'])) {
-                echo "<tr><td><CENTER><h3>Error: Please select a file to upload!. </h3></td></tr>";
+                echo "<tr><td><h3>Error: Please select a file to upload!. </h3></td></tr>";
                 $ERROR_FUNCTION = true;
             } else {
                 // Get the Size of the File
@@ -493,30 +493,30 @@ if the things go bad the process is aborted and the uploaded file is erased.
                 // Make sure that file size is correct
                 if ($SIZE > $_SESSION['Size_Bytes']) {
                     $KB = $_SESSION['Size_Bytes'] / 1024;
-                    echo "<tr><td><CENTER><h3>File Too Large. File must BE LESS THAN <b>$KB</b> KB. </h3></td></tr>";
+                    echo "<tr><td><h3>File Too Large. File must BE LESS THAN <b>$KB</b> KB. </h3></td></tr>";
                     $ERROR_FUNCTION = true;
                 } else {
                     // check file extension
                     if (($_SESSION['File_Extension'] != "") && (!IS_FILE_TO_DISPLAY($_FILES['filetoupload']['name']) != false)) {
-                        echo "<tr><td><CENTER><h3>***Wrong file extension. </h3></td></tr>";
+                        echo "<tr><td><h3>***Wrong file extension. </h3></td></tr>";
                         $ERROR_FUNCTION = true;
                     } else {
                         // $Filename will hold the value of the file name submitted from the form.
                         $FILENAME = $_FILES['filetoupload']['name'];
                         // Check if file is Already EXISTS.
                         if (File_Exists($REAL_UPLOAD_DIR . DIRECTORY_SEPARATOR . $FILENAME)) {
-                            echo "<tr><td><CENTER><h3>Sorry but the file named <b>" . $FILENAME . "</b> already exists in the server, please change the filename before UPLOAD</h3></td></tr>";
+                            echo "<tr><td><h3>Sorry but the file named <b>" . $FILENAME . "</b> already exists in the server, please change the filename before UPLOAD</h3></td></tr>";
                             $ERROR_FUNCTION = true;
                         } else {
                             // Move the File to the Directory choosen + the server path determined
                             // move_uploaded_file('filename','destination') Moves afile to a new location.
                             if (!MOVE_UPLOADED_FILE($_FILES['filetoupload']['tmp_name'], $REAL_UPLOAD_DIR . DIRECTORY_SEPARATOR . $FILENAME)) {
                                 // Print error msg.
-                                echo "<tr><td><CENTER><h3>There was a problem moving your file. </h3></td></tr>";
+                                echo "<tr><td><h3>There was a problem moving your file. </h3></td></tr>";
                                 $ERROR_FUNCTION = true;
                             } else {
                                 // tell the user that the file has been uploaded.
-                                echo "<tr><td><CENTER><h3>File SUCCESFULLY uploaded! </h3></td></tr>";
+                                echo "<tr><td><h3>File SUCCESFULLY uploaded! </h3></td></tr>";
                             }
                         }
                     }
@@ -528,18 +528,20 @@ if the things go bad the process is aborted and the uploaded file is erased.
        <tr>
             <td>
             
-            <font face=tahoma>
-           <form name="formUploadFile2" method="post" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'];?>">
-                <table align=center border=0 class=td>
+            <font face="tahoma">
+           <form name="formUploadFile2" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                <table align="center" border="0" class="td">
                     <tr>
                         <input type="hidden" name="FILE_EXTENSION" value="<?= $_SESSION['File_Extension'];?>">
-                        <input type="hidden" name="NODE" value="<?= $NODE;?>">
+                        <input type="hidden" name="NODE" value="<?php echo $NODE;?>">
                         <input type="hidden" name="ACTION" value="upload3">
 	<?php
     if ($ERROR_FUNCTION) {
-        ?> <td><input type="Submit" name="submit" value="Cancel"></Td><?php
+        ?> <td><input type="submit" name="submit" value="Cancel"></td>
+        <?php
     } else {
-        ?> <td><input type="Submit" name="submit" value="Accep"></Td><?php
+        ?> <td><input type="submit" name="submit" value="Accep"></td>
+        <?php
     }
     ?>
                     </tr>
@@ -560,11 +562,11 @@ confirm the operation.
 */
     PAGE_HEADER("FILE MANAGER - DIRTREEVIEW", "DOWNLOAD FILE", "ORANGE", "BLACK");
     ?>
-   <table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 class=td>
+   <table widht="100%" border="0" cellpadding="8" cellspacing="0" class="td">
         <tr>
-            <td VALIGN=top ALIGN=left>
+            <td valign="top" align="left">
                 
-                <font face=tahoma>
+                <font face="tahoma">
                 <h3>Current Filename :
     <?php
     $CURRENT_FILE = BUILD_PATH($NODE);
@@ -575,29 +577,29 @@ confirm the operation.
         <tr>
             <td>
             
-                <font face=tahoma>
+                <font face="tahoma">
                 <h3> File to DOWNLOAD: <?= $CURRENT_FILE;?></h3>
-                <form name='downloadfile' method='post' ENCTYPE='multipart/form-data' action='<?= $_SERVER['PHP_SELF'];?>'>
-                    <Table ALIGN=center border=0 class=td>
-                        <input type='hidden' name='FILE_EXTENSION' value='<?= $_SESSION['File_Extension'];?>'>
-                        <input type='hidden' name='NODE' value='<?= $NODE;?>'>
-                        <input type='hidden' name='ACTION' value='downloadfile1'>
+                <form name="downloadfile" method="post" ENCTYPE="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                    <table align="center" border="0" class="td">
+                        <input type="hidden" name="FILE_EXTENSION" value="<?php echo $_SESSION['File_Extension'];?>">
+                        <input type="hidden" name="NODE" value="<?php echo $NODE;?>">
+                        <input type="hidden" name="ACTION" value="downloadfile1">
                         <tr>
-                            <td><input type="button" value=" BACK " onclick="javascript:history.back()"></td>
+                            <td><input type="button" value="back" onclick="javascript:history.back()"></td>
                             <td></td><td></td><td></td><td></td><td></td>
-                            <td><input type="Submit" name="downloadfileform" value="DOWNLOAD"></td>
+                            <td><input type="submit" name="downloadfileform" value="download"></td>
                         </tr>
                         <tr>
-                            <td>When this process has been finished, click the BACK Button</Noscript></td>
+                            <td>When this process has been finished, click the BACK Button</noscript></td>
                         </tr>
                         <tr>
-                            <td><Noscript>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</Noscript></td>
+                            <td><script>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</script></td>
                         </tr>
-                    </Table>
+                    </table>
                 </form>
             </td>
         </tr>
-   </Table>
+   </table>
    <?php
     PAGE_FOOTER("ORANGE", "BLACK");
     exit;
@@ -641,11 +643,11 @@ structure from the server to the client computer , can be opened or saved.
     if ($ERROR_FUNCTION == true) {
         PAGE_HEADER("FILE MANAGER - DIRTREEVIEW", "DOWNLOAD FILE", "ORANGE", "BLACK");
         ?>
-        <table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 class=td>
+        <table widht="100%" border="0" cellpadding="8" cellspacing="0" class="td">
             <tr>
-                <td VALIGN=top ALIGN=left>
-                    <Center>
-                    <Font face=tahoma>
+                <td valign="top" align="left">
+                    
+                    <font face="tahoma">
                     <h3>FileName:
         <?php
         echo $CURRENT_FILE . "</h3>";
@@ -654,18 +656,18 @@ structure from the server to the client computer , can be opened or saved.
             </tr>
             <tr>
                 <td>
-                <form NAME="downloadfile1" METHOD="post" ENCTYPE="multipart/form-data" ACTION="<?= $_SERVER['PHP_SELF'];?>">
-                    <table ALIGN=center border=0 class=td>
+                <form name="downloadfile1" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                    <table align="center" border="0" class="td">
                         <tr>
                             <input type="hidden" name="FILE_EXTENSION" value="<?= $_SESSION['File_Extension'];?>">
-                            <input type="hidden" name="NODE" value="<?= $NODE;?>">
+                            <input type="hidden" name="NODE" value="<?php echo $NODE;?>">
                             <input type="hidden" name="ACTION" value="">
         <?php if ($ERROR_FUNCTION) {
             ECHO $ERROR_TEXT;
         ?>
                         </tr>
                         <tr>
-                            <td><center><input type="Submit" name="downloadfileform3b" value="   Accept   "></Td>
+                            <td><center><input type="Submit" name="downloadfileform3b" value="Accept"></td>
         <?php }
         ?>
                         </tr>
@@ -760,39 +762,39 @@ Set nothing is like no filter as "*.*".
 */
     PAGE_HEADER("FILE FILTER - DIRTREEVIEW", "SET FILE FILTER CRITERIA - File Extension ( not case sensitive )", "BLACK", "WHITE");
     ?>
-   <Table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 class=td>
-        <Tr>
-            <Td VALIGN=top ALIGN=left>
-                <Center>
-                <Font face=tahoma>
-                <H2> ! IMPORTANT ¡</H2>
+   <table widht="100%" border="0" cellpadding="8" cellspacing="0" class="td">
+        <tr>
+            <td valign="top" align="left">
+               
+                <font face="tahoma">
+                <h2> ! IMPORTANT ¡</h2>
                 <h3> Every Extension must be separated by an asterisc(*) and dot(.) at the begining and a comma(,) at the end. </h3>
                 <h3> The special characters (*) and (?) are not evaluated.</h3>
                 <h3> Set Sample for image filter: *.gif,*.jpg,*.jpeg,*.tiff,</h3>
                 </Font>
-                <form NAME="formFILEFILTER" METHOD="post" ENCTYPE="multipart/form-data" ACTION="<?= $_SERVER['PHP_SELF'];?>">
-                    <Table ALIGN=center border=0 class=td>
-                        <Tr>
-                            <Td VALIGN=baseline><H2>Extensions :</H2></Td>
-                            <Td VALIGN=top><H2><input TYPE='text' NAME='FILE_EXTENSION' SIZE=50 VALUE='<?= $_SESSION['File_Extension'];?>'></H2></Td>
-                        </Tr>
-                        <input TYPE="hidden" NAME="NODE" VALUE="<?= $_SESSION['Node'];?>">
-                        <input TYPE="hidden" NAME="ACTION" VALUE="filter2">
-                        <Tr></Tr>
-                        <Tr></Tr>
-                        <Tr>
-                            <Td><input TYPE="button" VALUE="    Cancel   " ONCLICK="javascript:history.back()"></Td>
-                            <Td></Td>
-                            <Td><input TYPE="Submit" NAME="Filefilterform" VALUE="    Accept   "></Td>
-                        </Tr>
-                        <Tr>
-                            <Td> <Noscript>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</Noscript></Td>
-                        </Tr>
-                    </Table>
+                <form name="formFILEFILTER" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                    <table align="center" border="0" class="td">
+                        <tr>
+                            <td valign="baseline"> <h2>Extensions :</h2></td>
+                            <td valign="top"> <h2><input type="text" name="FILE_EXTENSION" size="50" value="<?php echo $_SESSION['File_Extension'];?>"></h2></td>
+                        </tr>
+                        <input type="hidden" name="NODE" value="<?php echo $_SESSION['Node'];?>">
+                        <input type="hidden" name="ACTION" value="filter2">
+                        <tr></tr>
+                        <tr></tr>
+                        <tr>
+                            <td><input type="button" value="Cancel" onclick="javascript:history.back()"></td>
+                            <td></Td>
+                            <td><input type="Submit" name="Filefilterform" value="Accept"></td>
+                        </tr>
+                        <tr>
+                            <td> <script>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</script></td>
+                        </tr>
+                    </table>
                 </form>
-            </Td>
-        </Tr>
-   </Table>
+            </td>
+        </tr>
+   </table>
    <?php
     PAGE_FOOTER("BLACK", "WHITE");
     exit;
@@ -824,62 +826,62 @@ different button options.
 */
     PAGE_HEADER("DIRECTORY MANAGER - DIRTREEVIEW", "FILE FUNCTIONS", "BLACK", "ORANGE");
     ?>
-    <Table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 BGCOLOR=ORANGE class=td>
-        <Tr>
-            <Td VALIGN=top ALIGN=left>
-                <Center>
-                <Font face=tahoma>
-                <H2>  Choose the desired option</H2>
+    <table widht="100%" border="0" cellpadding="8" cellspacing="0" class="td">
+        <tr>
+            <td valign="top" align="left">
+                
+                <font face="tahoma">
+                <h2>  Choose the desired option</h2>
                 <h3>Current File :
     <?php
     $CURRENT_FILE = BUILD_PATH($NODE);
     Echo $CURRENT_FILE . "</h3>";
     ?>
-                <form NAME="FILEFUNCTIONS" METHOD="post" ENCTYPE="multipart/form-data" ACTION="<?= $_SERVER['PHP_SELF'];?>">
-                    <Table ALIGN=center border=0 class=td>
-                        <Tr>
-                            <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="downloadfile" CHECKED NAME="ACTION"> Download</P></Td>
-                        </Tr>
-                        <Tr>
-                            <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="emailfile" NAME="ACTION"> E-mail</P></Td>
-                        </Tr>
+                <form name="FILEFUNCTIONS" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                    <table align="center" border="0" class="td">
+                        <tr>
+                            <td></td><td align="left" valign="top"><input type="radio" value="downloadfile" name="ACTION"> Download</td>
+                        </tr>
+                        <tr>
+                            <td></td><td align="left" valign="top"><input type="radio" value="emailfile" name="ACTION"> E-mail</td>
+                        </tr>
     <?php
     if (STRTOUPPER(STRRCHR($CURRENT_FILE, ".")) == ".ZIP") {
         ?>
-                        <Tr>
-                            <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="listzipfile" NAME="ACTION"> List CONTENTS</P></Td>
-                        </Tr>
+                        <tr>
+                            <td></td><td align="left" valign="top"><input type="radio" value="listzipfile" name="ACTION"> List CONTENTS</td>
+                        </tr>
     <?php
     }
     if ($_SESSION['privileges'] == 'all') {
         ?>
-                        <Tr>
-                            <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="renamefile" NAME="ACTION"> Rename</P></Td>
-                        </Tr>
-                        <Tr>
-                            <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="erasefile" NAME="ACTION"> Erase</P></Td>
-                        </Tr>
+                        <tr>
+                            <td></td><td align="left" valign="top"><input type="radio" value="renamefile" name="ACTION"> Rename</td>
+                        </tr>
+                        <tr>
+                            <td></td><td align="left" valign="top"><input type="radio" value="erasefile" name="ACTION"> Erase</td>
+                        </tr>
                         <!--Tr>
                             <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="compressfile" NAME="ACTION"> Compress (ZIP)</P></Td>
                         </Tr-->
     <?php
     }
     ?>
-                        <input TYPE="hidden" NAME="FILE_EXTENSION" VALUE="<?= $_SESSION['File_Extension'];?>">
-                        <input TYPE="hidden" NAME="NODE" VALUE="<?= $NODE;?>">
-                        <Tr>
-                            <Td><input TYPE="button" VALUE="    Cancel   " ONCLICK="javascript:history.back()"></Td>
-                            <Td></Td>
-                            <Td><input TYPE="Submit" NAME="FileFunctionsform" VALUE="   Accept  "> </Td>
-                        </Tr>
-                        <Tr>
-                            <Td> <Noscript>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</Noscript></Td>
-                        </Tr>
-                    </Table>
+                        <input type="hidden" name="FILE_EXTENSION" value="<?php echo $_SESSION['File_Extension'];?>">
+                        <input type="hidden" name="NODE" value="<?php echo $NODE;?>">
+                        <tr>
+                            <td><input type="button" value="Cancel" ONCLICK="javascript:history.back()"></td>
+                            <td></td>
+                            <td><input type="Submit" name="FileFunctionsform" value="Accept"> </td>
+                        </tr>
+                        <tr>
+                            <td> <script>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</script></td>
+                        </tr>
+                    </table>
                 </form>
-            </Td>
-        </Tr>
-    </Table>
+            </td>
+        </tr>
+    </table>
     <?php
     PAGE_FOOTER("BLACK", "ORANGE");
     exit;
@@ -892,59 +894,59 @@ between a different button options.
 */
     PAGE_HEADER("DIRECTORY MANAGER - DIRTREEVIEW", "DIRECTORY FUNCTIONS", "BLACK", "blue");
     ?>
-   <Table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 BGCOLOR=darkred class=td>
-        <Tr>
-            <Td VALIGN=top ALIGN=left>
-                <Center>
-                <Font face=tahoma color=white>
-                <H2>  Choose the desired option</H2>
+   <table widht="100%" border="0" cellpadding="8" cellspacing="0" class="td">
+        <tr>
+            <td valign="top" align="left">
+                
+                <font face="tahoma" color="white">
+                <h2>  Choose the desired option</h2>
                 <h3>Current Folder :
     <?php
     $CURRENT_DIR = BUILD_PATH($NODE);
     Echo $CURRENT_DIR . "</h3>";
     ?>
-                <form NAME="MAKEDIR" METHOD="post" ENCTYPE="multipart/form-data" ACTION="<?= $_SERVER['PHP_SELF'];?>">
-                    <Table ALIGN=center border=0 class=menusec3>
-                        <Tr>
-                            <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="upload" CHECKED NAME="ACTION"> Upload a File</P></Td>
-                        </Tr>
-                        <Tr>
-                            <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="makedir" NAME="ACTION"> Make a New Folder</P></Td>
-                        </Tr>
-                        <Tr>
-                            <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="makeroot" NAME="ACTION"> Turn into the root of the Treeview</P></Td>
-                        </Tr>
+                <form name="MAKEDIR" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                    <table align="center" border="0" class="menusec3">
+                        <tr>
+                            <td></td><td align="left" valign="top"><input type="radio" value="upload" name="ACTION"> Upload a File</td>
+                        </tr>
+                        <tr>
+                            <td></td><td align="left" valign="top"><input type="radio" value="makedir" name="ACTION"> Make a New Folder</Td>
+                        </tr>
+                        <tr>
+                            <td></td><td align="left" valign="top"><input type="radio" value="makeroot" name="ACTION"> Turn into the root of the Treeview</Td>
+                        </tr>
     <?php
     if ($_SESSION['privileges'] == 'all') {
         if ($_SESSION['File_Extension'] == "") {
             ?>
-                                <Tr>
-                                <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="removedir" NAME="ACTION"> Remove Folder & Subfolders</P></Td>
-                                </Tr>
+                                <tr>
+                                <td></td><td align="left" valign="top"><input type="radio" value="removedir" name="ACTION"> Remove Folder & Subfolders</Td>
+                                </tr>
     <?php
         }
         ?>
-                            <Tr>
-                                <Td></Td><Td ALIGN=left VALIGN=top><P><input TYPE="radio" VALUE="renamedir" NAME="ACTION"> Rename Folder</P></Td>
-                            </Tr>
+                            <tr>
+                                <td></td><td align="left" valign="top"><input type="radio" value="renamedir" name="ACTION"> Rename Folder</td>
+                            </tr>
     <?php
     }
     ?>
-                        <input TYPE="hidden" NAME="FILE_EXTENSION" VALUE="<?= $_SESSION['File_Extension'];?>">
-                        <input TYPE="hidden" NAME="NODE" VALUE="<?= $NODE;?>">
-                        <Tr>
-                            <Td><input TYPE="button" VALUE="   Cancel   " ONCLICK="javascript:history.back()"></Td>
-                            <Td></Td>
-                            <Td><input TYPE="Submit" NAME="Makedirform" VALUE="   Accept  "> </Td>
-                        </Tr>
-                        <Tr>
-                            <Td> <Noscript>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</Noscript></Td>
-                        </Tr>
-                    </Table>
+                        <input type="hidden" name="FILE_EXTENSION" value="<?php echo $_SESSION['File_Extension'];?>">
+                        <input type="hidden" name="NODE" value="<?php echo $NODE;?>">
+                        <tr>
+                            <td><input type="button" value="Cancel" ONCLICK="javascript:history.back()"></td>
+                            <td></Td>
+                            <td><input type="Submit" name="Makedirform" value="Accept"> </td>
+                        </tr>
+                        <tr>
+                            <td> <script>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</script></td>
+                        </tr>
+                    </table>
                 </form>
-            </Td>
-        </Tr>
-   </Table>
+            </td>
+        </tr>
+   </table>
    <?php
     PAGE_FOOTER("BLACK", "RED");
     exit;
@@ -957,42 +959,42 @@ operation.
 */
     PAGE_HEADER("DIRECTORY MANAGER - DIRTREEVIEW", "TURN THE DIRECTORY IN THE ROOT TREEVIEW", "GREEN", "WHITE");
     ?>
-   <Table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 class=td>
-        <Tr>
-            <Td VALIGN=top ALIGN=left>
-                <Center>
-                <Font face=tahoma>
+   <table widht="100%" border="0" cellpadding="8" cellspacing="0" class="td">
+        <tr>
+            <td valign="top" align="left">
+                
+                <font face="tahoma">
                 <h3>Current Directory :
     <?php
     $CURRENT_DIR = BUILD_PATH($NODE);
     Echo $CURRENT_DIR;
     ?>
-            </h3></Td>
-        </Tr>
-        <Tr>
-            <Td>
-                <Center>
-                <Font face=tahoma>
+            </h3></td>
+        </tr>
+        <tr>
+            <td>
+                
+                <font face="tahoma">
                 <h3> Directory to TURN in the ROOT of the Treeview: <?= $CURRENT_DIR;?></h3>
                 <h3> Are you SURE ?</h3>
-                <form NAME="makerootdir" METHOD="post" ENCTYPE="multipart/form-data" ACTION="<?= $_SERVER['PHP_SELF'];?>">
-                    <Table ALIGN=center border=0 class=td>
-                        <input TYPE='hidden' NAME='FILE_EXTENSION' VALUE='<?= $_SESSION['File_Extension'];?>'>
-                        <input TYPE='hidden' NAME='NODE' VALUE='<?= $NODE;?>'>
-                        <input TYPE='hidden' NAME='ACTION' VALUE='makeroot1'>
-                        <Tr>
-                            <Td><input TYPE="button" VALUE="   NO   " ONCLICK="javascript:history.back()"></Td>
-                            <Td></Td><Td></Td><Td></Td><Td></Td><Td></Td>
-                            <Td><input TYPE="Submit" NAME="makerootdirform" VALUE="   YES  "></Td>
-                        </Tr>
-                        <Tr>
-                            <Td><Noscript>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</Noscript></Td>
-                        </Tr>
-                    </Table>
+                <form name="makerootdir" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                    <table align="center" border="0" class="td">
+                        <input type="hidde" name="FILE_EXTENSION" value="<?php echo $_SESSION['File_Extension'];?>">
+                        <input type="hidden" name="NODE" value="<?php echo $NODE;?>">
+                        <input type="hidden" name="ACTION" value="makeroot1">
+                        <tr>
+                            <td><input type="button" value="NO" onclick="javascript:history.back()"></td>
+                            <td></td><td></td><td></td><td></td><td></td>
+                            <td><input type="Submit" name="makerootdirform" value="YES"></td>
+                        </tr>
+                        <tr>
+                            <td><script>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</script></td>
+                        </tr>
+                    </table>
                 </form>
-            </Td>
-        </Tr>
-   </Table>
+            </td>
+        </tr>
+   </table>
    <?php
     PAGE_FOOTER("GREEN", "WHITE");
     exit;
@@ -1005,45 +1007,45 @@ the name of the new directory with a form.
 */
     PAGE_HEADER("DIRECTORY MANAGER - DIRTREEVIEW", "MAKE DIRECTORY", "RED", "WHITE");
     ?>
-   <Table widht=100% border=0 CELLPADDING=8 CELLSPACING=0 class=td>
-        <Tr>
-            <Td VALIGN=top ALIGN=left>
-                <Center>
-                <Font face=tahoma>
+   <table widht="100%" border="0" cellpadding="8 " cellspacing="0" class="td">
+        <tr>
+            <td valign="top" align="left">
+                
+                <font face="tahoma">
                 <h3>Current Folder Directory :
     <?php
     $CURRENT_DIR = BUILD_PATH($NODE);
     Echo $CURRENT_DIR;
     ?>
-            </h3></Td>
-        </Tr>
-        <Tr>
-            <Td>
-                <Center>
-                <Font face=tahoma>
+            </h3></td>
+        </tr>
+        <tr>
+            <td>
+               
+                <Font face="tahoma">
                 <h3> Choose a name for the new Sub-Directory Folder</h3>
-                <form NAME="makedir" METHOD="post" ENCTYPE="multipart/form-data" ACTION="<?= $_SERVER['PHP_SELF'];?>">
-                    <Table ALIGN=center border=0 class=td>
-                        <Tr>
-                            <Td VALIGN=baseline><h3>New Sub-Directory :<h3></Td>
-                            <Td VALIGN=top><input TYPE="text" NAME="MAKE_DIR" SIZE=50 VALUE=""></Td>
-                        </Tr>
-                        <input TYPE='hidden' NAME='FILE_EXTENSION' VALUE='<?= $_SESSION['File_Extension'];?>'>
-                        <input TYPE='hidden' NAME='NODE' VALUE='<?= $NODE;?>'>
-                        <input TYPE='hidden' NAME='ACTION' VALUE='makedir1'>
-                        <Tr>
-                            <Td><input TYPE="button" VALUE="    Cancel   " ONCLICK="javascript:history.back()"></Td>
-                            <Td></Td><Td></Td><Td></Td><Td></Td><Td></Td><Td></Td><Td></Td>
-                            <Td><input TYPE="Submit" NAME="MakeDirform2" VALUE="   Accept  "></Td>
-                        </Tr>
-                        <Tr>
-                            <Td><Noscript>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</Noscript></Td>
-                        </Tr>
-                    </Table>
+                <form name="makedir" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                    <table align="center" border=0 class=td>
+                        <tr>
+                            <td valign="baseline"><h3>New Sub-Directory :<h3></Td>
+                            <td valign="top"><input type="text" name="MAKE_DIR" SIZE=50 VALUE=""></td>
+                        </tr>
+                        <input type="hidden" name="FILE_EXTENSION" VALUE='<?= $_SESSION['File_Extension'];?>'>
+                        <input type="hidden" name="NODE" VALUE='<?= $NODE;?>'>
+                        <input type="hidden" name="ACTION" VALUE='makedir1'>
+                        <tr>
+                            <td><input type="button" VALUE="    Cancel   " ONCLICK="javascript:history.back()"></td>
+                            <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                            <td><input TYPE="Submit" NAME="MakeDirform2" VALUE="   Accept  "></td>
+                        </tr>
+                        <tr>
+                            <td><Noscript>Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</Noscript></td>
+                        </tr>
+                    </table>
                 </form>
-            </Td>
-        </Tr>
-   </Table>
+            </td>
+        </tr>
+   </table>
    <?php
     PAGE_FOOTER("RED", "WHITE");
     exit;
@@ -3340,4 +3342,4 @@ $ENDTIME = $MTIME;
 $_SESSION['Total_Time'] = ($ENDTIME - $STARTTIME);
 TABLEDIR_FOOTER("black", "yellow"); //table below the treeview
 PAGE_FOOTER("", ""); //finish the web page
-;?>
+;}?>

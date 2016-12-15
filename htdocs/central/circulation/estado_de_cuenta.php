@@ -138,6 +138,7 @@ else
 <div id="loading">
  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
 </div>
+
 <div class="sectionInfo">
 	<div class="breadcrumb">
 		<?php if (!isset($arrHttp["reserve"]))
@@ -153,43 +154,44 @@ else
 <div class="middle list">
 	<div class="searchBox">
 	<form name="Susersearch"S action="" method="post" onsubmit="javascript:return false">
-	<input type=""hidden"" name="Indice">     
+	<input type="hidden" name="Indice">     
 	
 		<label for="searchExpr">
 			<strong><?php echo $msgstr["usercode"];?></strong>
 		</label>
 		
-		<input class="form-control" type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"];?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
+		<input class="form-control" type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"];?>">
 		<br>
 
 		<input type="button" class="btn btn-primary" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
 
-		<input  type="button" class="btn btn-primary" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
+		<input  type="button" class="btn btn-warning" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
 </form>
 	</div>
-	
+	<br>
 	<form name="inventorysearch" action="numero_inventario.php" method="post" onsubmit="javascript:return false">
 <?php if (!isset($arrHttp["reserve"]) and !isset($arrHttp["reserve_ex"])){
 ?>
-
 	<div class="searchBox">
-	<i><?php echo $msgstr["ec_inv"]?></i>
+	<i><?php echo $msgstr["ec_inv"];?></i>
 
 	
 		<label for="searchExpr">
-			<?php echo $msgstr["inventory"]?>
+			<?php echo $msgstr["inventory"];?>
 		</label>
 		
+<br>
+		<input class="form-control" type="text" name="inventory" id="searchExpr" value="" >
+<br>
+		<input class="btn btn-primary" name="list" type="button" value="<?php echo $msgstr["list"];?>"  onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"/>
 
-		<input class="form-control" type="text" name="inventory" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
+		<input class="btn btn-warning"  name="buscar" type="button" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('I')"/>
 
-		<input class="btn btn-default" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"/>
-		<input class="btn btn-default" type="button" name="buscar" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('I')"/>
-
-		<input type="text" name="inventory" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
-
-		<input class="btn btn-default" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"/>
-		<input type="button" name="buscar" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('I')"/>
+<br><br>
+		<input class="form-control" type="text" name="inventory" id="searchExpr" value="" >
+<br>
+		<input class="btn btn-primary" name="list" value="<?php echo $msgstr["list"];?>" type="button" onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"/>
+		<input class="btn btn-warning" type="button" name="buscar" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('I')"/>
 
 		
 

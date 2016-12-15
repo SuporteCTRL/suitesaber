@@ -240,18 +240,18 @@ echo "<font color=white>&nbsp; &nbsp; Script: reports_menu.php";
 
 			echo " </ul>";
 			SolicitarExpresion($bd);
-			echo "<p>";
+			
 			echo " ".$msgstr["sendto"].": ";
-			echo "<a class=\"btn btn-default\" href=javascript:Imprimir(\"display\")>".$msgstr["ver"]."</a> | ";
-			echo "<a class=\"btn btn-default\" href=javascript:Imprimir(\"TB\")>".$msgstr["wsproc"]."</a> | ";
-			echo "<a class=\"btn btn-default\" href=javascript:Imprimir(\"WP\")>".$msgstr["word"]."</a>";
-			echo "<a class=\"btn btn-default\" href=javascript:Editar()><font color=red>".$msgstr["editar"]."</font></a>";
+			echo "<a class=\"btn btn-primary\" href=javascript:Imprimir(\"display\")>".$msgstr["ver"]."</a>";
+			echo "<a class=\"btn btn-warning\" href=javascript:Imprimir(\"TB\")>".$msgstr["wsproc"]."</a>";
+			echo "<a class=\"btn btn-success\" href=javascript:Imprimir(\"WP\")>".$msgstr["word"]."</a>";
+			echo "<a class=\"btn btn-danger\" href=javascript:Editar()>".$msgstr["editar"]."</a>";
 			
 		}
 	}
 ?>
 <br>
-<a href=print_add.php><?php echo $msgstr["new"]?></a>
+<a href="print_add.php" class="btn btn-info"><?php echo $msgstr["new"]?></a>
 
 </form>
 <p>

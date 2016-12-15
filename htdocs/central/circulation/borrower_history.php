@@ -144,28 +144,28 @@ echo "<font Script: borrower_history.php</font>\n";
 	</div>
 <div class="middle list">
 	<div class="searchBox">
-	<form name=usersearch action="" method=post onsubmit="javascript:return false">
-	<input type=hidden name=Indice>
+	<form name="usersearch" action="" method="post" onsubmit="javascript:return false">
+	<input type="hidden" name="Indice">
 	
 		<label for="searchExpr"><?php echo $msgstr["usercode"];?></label>
 		
 		<input class="form-control" type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
 		<br>
 
-		<input class="btn btn-default" type="button" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
+		<input class="btn btn-primary" type="button" name="index" value="<?php echo $msgstr["list"];?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
 
-		<input class="btn btn-default" type="button" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
+		<input class="btn btn-warning" type="button" name="buscar" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
 		</td></table>
 	</form>
 	</div>
-	<div class=\"spacer\">&#160;</div>
+	
 	<dd>
 		<?php echo $msgstr["clic_en"]." <i>".$msgstr["search"]."</i> ".$msgstr["para_c"]?>
 </div>
-<form name=EnviarFrm method=post>
-<input type=hidden name=base value="<?php echo $arrHttp["base"]?>">
-<input type=hidden name=usuario value="">
-<input type=hidden name=inventory>
+<form name="EnviarFrm" method="post">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="usuario" value="">
+<input type="hidden" name="inventory">
 </form>
 <?php include("../common/footer.php");
 echo "</body></html>" ;

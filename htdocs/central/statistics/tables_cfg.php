@@ -85,7 +85,7 @@ function getElement(psID) {
 }
 
 function DrawElement(ixEl,Title,ixRow,ixCol){
-	nuevo="<table width=800 bgcolor=#cccccc border=0>"
+	
 	nuevo+="<td rowspan=3 bgcolor=white valign=top><a href=javascript:DeleteElement("+ixEl+")><img src=../dataentry/img/toolbarDelete.png alt=\"<?php echo $msgstr["delete"]?>\" text=\"<?php echo $msgstr["delete"]?>\"></a></td>\n";
 	nuevo+="<td width=300 bgcolor=white><?php echo $msgstr["title"]?></td>"
 	nuevo+="<td bgcolor=white><input type=text name=tit size=120 value='"+Title+"'></td>"
@@ -232,26 +232,12 @@ if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics"){
 }else{
 	$script="../dbadmin/menu_modificardb.php";
 }
-	echo "<a href=\"$script?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
-echo "<img src=\"../images/defaultButton_iconBorder.gif\" />
-	<span><strong>".$msgstr["back"]."</strong></span></a>";
-if ($error==""){
-	echo "
-	<a href=\"javascript:Guardar()\" class=\"defaultButton saveButton\">
-	<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-	<span><strong>".$msgstr["save"]."</strong></span></a>";
-}
+	
+
+
+
 ?>
-</div><div class="spacer">&#160;</div></div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_config_tabs.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/stats/stats_config_tabs.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: tables_cfg.php";
-?>
-</font>
-	</div>
+</div>
 <div class="middle form">
 	<div class="formContent">
 <?php
@@ -275,19 +261,26 @@ foreach ($fp as $value) {
 	if ($value!=""){
 		$total++;
 		$t=explode('|',$value);
-		echo "<table  width=800 bgcolor=#cccccc border=0>";
-		echo "<td rowspan=3 bgcolor=white valign=top><a href=javascript:DeleteElement(".$total.")><img src=../dataentry/img/toolbarDelete.png alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></a></td>\n";
-		echo "<td width=300 bgcolor=white>".$msgstr["title"]."</td>";
-		echo "<td bgcolor=white><input type=text name=tit size=120 value=\"".$t[0]."\"></td>";
-   		echo "<tr><td bgcolor=white>".$msgstr["rows"]."</td><td bgcolor=white><select name=rows><option></option>";
+		
+		echo "<a class=\"btn btn-danger\" href=javascript:DeleteElement(".$total.")><i class=\"fa fa-times\" aria hidden=\"true\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></a></i>\n";
+
+		echo "<label>".$msgstr["title"]."</label>";
+
+		echo "<input class=\"form-control\" type=text name=tit  value=\"".$t[0]."\">";
+
+   		echo "<label>".$msgstr["rows"]."</label>
+   		<select name=rows>
+   		<option></option>";
    		$f=explode('||',$fields);
    		foreach ($f as $opt) {
    			$selected="";
    			if ($opt==$t[1]) $selected=" selected";
    			echo "<option value=\"$opt\" $selected>$opt</option>\n";
    		}
-   		echo "</select></td>";
-   		echo "<tr><td bgcolor=white>".$msgstr["cols"]."</td><td bgcolor=white><select name=cols><option></option>";
+   		echo "</select>";
+
+   		echo "<label>".$msgstr["cols"]."</label>
+   		<option></option>";
    		$f=explode('||',$fields);
    		foreach ($f as $opt) {
    			$selected="";
@@ -308,17 +301,19 @@ echo "<script>total=$total</script>\n";
 
 
         </div>
-        <a href='javascript:AddElement()'><?php echo $msgstr["add"]?></a>
+        <a class="btn btn-primary" href='javascript:AddElement()' value="<?php echo $msgstr["add"];?>"><i class="fa fa-check" aria hidden="true"></i></a>
 	</div>
 </div>
 </form>
-<form name=enviar method=post action=tables_cfg_update.php>
-<input type=hidden name=base>
-<input type=hidden name=ValorCapturado>
+<form name="enviar" method="post" action="tables_cfg_update.php">
+<input type="hidden" name="base">
+<input type="hidden" name="ValorCapturado">
 <?php
+
 if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>\n";
 if (isset($arrHttp["from"])) echo "<input type=hidden name=from value=".$arrHttp["from"].">\n";
 ?>
+
 </form>
 <?php
 include("../common/footer.php");

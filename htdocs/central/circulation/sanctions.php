@@ -146,21 +146,25 @@ echo "<font Script: sanctions.php</font>\n";
 
 		<input class="form-control" type="text" name="usuario" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
 
-		<input class="btn btn-default" type="button" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="AbrirIndice('U',document.usersearch.usuario)" />
-		<input class="btn btn-default" type="submit" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="EnviarForma()"/>
+
+         <br>
+		<input class="btn btn-primary" type="button" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="AbrirIndice('U',document.usersearch.usuario)" />
+
+		<input class="btn btn-warning" type="submit" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="EnviarForma()"/>
 	
 	
 	</form>
 	</div>
 	
-	<dd>
+	<br>
 		<?php echo $msgstr["clic_en"]." <i>".$msgstr["search"]."</i> ".$msgstr["para_c"]?>
 	</div>
+	<br>
 </div>
-<form name=EnviarFrm method=post>
-<input type=hidden name=base value="<?php echo $arrHttp["base"]?>">
-<input type=hidden name=usuario value="">
-<input type=hidden name=inventory>
+<form name="EnviarFrm" method="post">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="usuario" value="">
+<input type="hidden" name="inventory">
 </form>
 <?php include("../common/footer.php");
 echo "</body></html>" ;

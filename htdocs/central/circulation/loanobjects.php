@@ -85,10 +85,14 @@ if (file_exists($archivo)){
 	$fp[0]='||';
 
 }
-foreach ($fp as $value){	$value=trim($value);	if ($value!=""){		$t=explode('|',$value."|||||");
+foreach ($fp as $value){
+	$value=trim($value);
+	if ($value!=""){
+		$t=explode('|',$value."|||||");
 		if (!isset($t[1]) or trim($t[1]=="")) $t[1]=$t[0];
 		$type_users[$t[0]]=$t[1];
-	}}
+	}
+}
 unset($fp);
 $archivo=$db_path."circulation/def/".$_SESSION["lang"]."/items.tab";
 if (!file_exists($archivo)) $archivo=$db_path."circulation/def/".$lang_db."/items.tab";
@@ -98,7 +102,8 @@ if (file_exists($archivo)){
 	$fp[0]='||';
 
 }
-foreach ($fp as $value){	$value=trim($value);
+foreach ($fp as $value){
+	$value=trim($value);
 	if ($value!=""){
 		$t=explode('|',$value);
 		$type_items[$t[0]]=$t[1];
@@ -130,7 +135,9 @@ var item=new Array()
 ";
 $ix=-1;
 foreach ($fp as $value) {
-	if (trim($value)!=""){		$value=trim($value);		$value.="||||";
+	if (trim($value)!=""){
+		$value=trim($value);
+		$value.="||||";
 		$ix=$ix+1;
 		echo "
 		item[$ix]=\"".trim($value)."\"\n" ;
@@ -145,14 +152,18 @@ echo "</script>\n";
 	var RT_A=new Array()
 
 <?php
-foreach ($rows_title as $var=>$value){	echo "RT['$var']=\"$value\"\n";}
+foreach ($rows_title as $var=>$value){
+	echo "RT['$var']=\"$value\"\n";
+}
 
 foreach ($rows_title_a as $var=>$value){
 	echo "RT_A['$var']=\"$value\"\n";
 }
 
 echo "var TU=new Array()\n";
-foreach  ($type_users as $var=>$value){	echo "TU['$var']=\"$value\"\n";}
+foreach  ($type_users as $var=>$value){
+	echo "TU['$var']=\"$value\"\n";
+}
 echo "var TI=new Array()\n";
 foreach  ($type_items as $var=>$value){
 	echo "TI['$var']=\"$value\"\n";
@@ -160,26 +171,38 @@ foreach  ($type_items as $var=>$value){
 ?>
 	Accion=""
 
-    function NuevoTipo(){       	sel="||||||||||||||||||||||||"
+    function NuevoTipo(){
+       	sel="||||||||||||||||||||||||"
        	Accion="nuevo"
-       	Redraw(sel)    }
+       	Redraw(sel)
+    }
 
-    function ModificarTipo(){    	i=document.forma1.item.selectedIndex
-    	if (i==0) {    		Cancelar()
-    		return    	}
-    	sel=document.forma1.item.options[i].value    	Accion="modificar"
-    	Redraw(sel)    }
+    function ModificarTipo(){
+    	i=document.forma1.item.selectedIndex
+    	if (i==0) {
+    		Cancelar()
+    		return
+    	}
+    	sel=document.forma1.item.options[i].value
+    	Accion="modificar"
+    	Redraw(sel)
+    }
 
 	function Cancelar(){
-		elem = document.getElementById("acciones");		html="<a href=javascript:Enviar()><?php echo $msgstr["update"]?></a>&nbsp; &nbsp; &nbsp; &nbsp;"
-    	html+="<a href=configure_menu.php?encabezado=s><?php echo $msgstr["cancel"]?></a>"        elem.innerHTML = html
+		elem = document.getElementById("acciones");
+		html="<a href=javascript:Enviar()><?php echo $msgstr["update"]?></a>&nbsp; &nbsp; &nbsp; &nbsp;"
+    	html+="<a href=configure_menu.php?encabezado=s><?php echo $msgstr["cancel"]?></a>"
+        elem.innerHTML = html
         elem = document.getElementById("type_e");
         elem.innerHTML = ""
         Redraw_Table()
-	}
 
-	function Eliminar(index){		item.splice(index,1)
-		Redraw_Table()	}
+	}
+
+	function Eliminar(index){
+		item.splice(index,1)
+		Redraw_Table()
+	}
 
 	function Agregar(index){
 		item.splice(index,0,"||||||||||||||||||||||||||||||||")
@@ -191,7 +214,8 @@ foreach  ($type_items as $var=>$value){
 	function Editar_Tabla(index){
 		sel=item[index]
     	Accion="modificar"
-    	Redraw(sel,index)	}
+    	Redraw(sel,index)
+	}
 
     function Aceptar_Item(Index){
     	xItem=""
@@ -204,16 +228,20 @@ foreach  ($type_items as $var=>$value){
     	xItem=tipo_material
 
     	i=document.forma1.tipo_u.selectedIndex
-    	if (i<0){    		alert("debe seleccionar el tipo de usuario")
-    		return    	}
+    	if (i<0){
+    		alert("debe seleccionar el tipo de usuario")
+    		return
+    	}
     	tipo_usuario=Trim(document.forma1.tipo_u.options[i].value)
     	xItem+='|'+tipo_usuario
 
 
 
     	x=Trim(document.forma1.np_p.value)
-    	if (x==""){    		//alert("<?php echo $msgstr["falta"].$rows_title[2]?>")
-    		//return    	}
+    	if (x==""){
+    		//alert("<?php echo $msgstr["falta"].$rows_title[2]?>")
+    		//return
+    	}
     	xItem+='|'+x
 
 		x=Trim(document.forma1.lapsop_n.value)
@@ -299,7 +327,8 @@ foreach  ($type_items as $var=>$value){
     	xItem+='|'+x
 
     	x=Trim(document.forma1.fecha_u.value)
-    	if (x!=""){    		res=ValidarFecha(x.substr(4,2)+"/"+x.substr(6,2)+"/"+x.substr(0,4))
+    	if (x!=""){
+    		res=ValidarFecha(x.substr(4,2)+"/"+x.substr(6,2)+"/"+x.substr(0,4))
     		if (res==false){
     			alert("Fecha límite para el tipo de objeto inválida")
     			return
@@ -310,9 +339,11 @@ foreach  ($type_items as $var=>$value){
     	x=Trim(document.forma1.fecha_i.value)
     	if (x!=""){
 	    	res=ValidarFecha(x.substr(4,2)+"/"+x.substr(6,2)+"/"+x.substr(0,4))
-	    	if (res==false){	    		alert("Fecha límite para el tipo de objeto inválida")
+	    	if (res==false){
+	    		alert("Fecha límite para el tipo de objeto inválida")
 	    		return
-	   		}    	}
+	   		}
+    	}
     	xItem+='|'+x
 
     	if (document.forma1.infadicional.checked)
@@ -335,19 +366,23 @@ foreach  ($type_items as $var=>$value){
         Cancelar()
         Redraw_Table()
     }
-	function Redraw(sel,index){		Editar="Y"    	elem = document.getElementById("type_e");
-    	html='<table class="listTable" width=100% border=0>';
-    	html+="<tr><td></td><td align=right>"
-    	html+="<p align=right><a href=javascript:Aceptar_Item("+index+")><img src=../dataentry/img/aceptar.gif height=15 align=middle><?php echo $msgstr["acc_changes"]?></a>&nbsp &nbsp; <img src=../dataentry/img/toolbarCancelEdit.png align=middle><a href=javascript:Cancelar()><?php echo $msgstr["can_changes"]?></a>"
+	function Redraw(sel,index){
+		Editar="Y"
+    	elem = document.getElementById("type_e");
+    	
+    	html+="<a href=javascript:Aceptar_Item("+index+")><img src=../dataentry/img/aceptar.gif height=15 align=middle><?php echo $msgstr["acc_changes"]?></a>&nbsp &nbsp; <img src=../dataentry/img/toolbarCancelEdit.png align=middle><a href=javascript:Cancelar()><?php echo $msgstr["can_changes"]?></a>"
     	html+="</td></tr>"
     	cell=sel.split('|')
     	for (var c in RT){
     		html+="<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\"><td>"+RT[c]+"</td><td>"
-    		switch (c){    			case "0":
+    		switch (c){
+    			case "0":
     				html+="<select name=tipo_m>\n"
     				for (a in TI){
     					selected=""
-    					if (cell[c]==a) selected=" selected"    					html+="<option value=\""+a+"\""+selected+">"+TI[a]+" ("+a+")"    				}
+    					if (cell[c]==a) selected=" selected"
+    					html+="<option value=\""+a+"\""+selected+">"+TI[a]+" ("+a+")"
+    				}
     				html+="</select></td>"
     				break
     			case "1":
@@ -433,23 +468,26 @@ foreach  ($type_items as $var=>$value){
 
 	}
 
-	function Redraw_Table(){		Editar="N"   //PARA DARLE OTRO SENTIDO AL BOTÓN REGRESAR
+	function Redraw_Table(){
+		Editar="N"   //PARA DARLE OTRO SENTIDO AL BOTÓN REGRESAR
     	elem = document.getElementById("type_e");
     	html='<br><table class="listTable" border=0 width=100%>';
-    	for (var c in RT_A){    		html+= "<th>"+RT_A[c]+"</th>"
+    	for (var c in RT_A){
+    		html+= "<th>"+RT_A[c]+"</th>"
     	}
 
     	for (i=0;i<item.length;i++){
             sel=item[i]
 
-            if (Trim(sel)!="" && sel!="undefined"){	            html+="<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\">"
+            if (Trim(sel)!="" && sel!="undefined"){
+	            html+="<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\">"
 		    	cell=sel.split('|')
 		    	for (var c in cell){
 
 		    		switch (c){
 		    			case "0":
-		    				html+="<td width=100><a href=javascript:Eliminar("+i+")><img src=../dataentry/img/cancelar.gif border=0 height=10 alt='<?PHP echo $msgstr["delete"]?>' title='<?PHP echo $msgstr["delete"]?>'></a>"
-		    				html+=" <a href=javascript:Agregar("+i+")><img src=../dataentry/img/add.gif border=0 height=10 alt='<?PHP echo $msgstr["crear"]?>' title='<?PHP echo $msgstr["crear"]?>'><a href=javascript:Editar_Tabla("+i+")>"+TI[cell[c]]+" ("+cell[c]+")</a></td>\n"
+		    				html+="<td width=100><a class=\"btn btn-danger\" href=javascript:Eliminar("+i+")><i class=\"fa fa-times\" alt='<?php echo $msgstr["delete"]?>' title='<?PHP echo $msgstr["delete"]?>'></a></i>"
+		    				html+=" <a class=\"btn btn-primary\" href=javascript:Agregar("+i+")><i class=\"fa fa-plus\" alt='<?php echo $msgstr["crear"];?>' title='<?php echo $msgstr["crear"]?>'></i><a href=javascript:Editar_Tabla("+i+")>"+TI[cell[c]]+" ("+cell[c]+")</a></td>\n"
 		    				break
 		    			case "1":
 		    				html+="<td>"+TU[cell[c]]+" ("+cell[c]+")</td>\n"
@@ -510,19 +548,23 @@ foreach  ($type_items as $var=>$value){
 	  	}
     	elem.innerHTML = html+"</table>"
     	elem = document.getElementById("acciones");
-        html="<a href=javascript:Enviar()><img src=../dataentry/img/barSave.png align=middle><?php echo $msgstr["update"]?></a>&nbsp; &nbsp; &nbsp; &nbsp;"
-    	html+="<a href=configure_menu.php?encabezado=s><img src=../dataentry/img/toolbarCancelEdit.png align=middle><?php echo $msgstr["cancel"]?></a></td></tr>"
+
+        html="<a href=javascript:Enviar() class=\"btn btn-success\"><i class=\"fa fa-refresh\" value=\"<?php echo $msgstr["update"];?>\"></i></a>"
+
+    	html+="<a href=configure_menu.php?encabezado=s class=\"btn btn-danger\"><i class=\"fa fa-times\" aria hidden=\"true\"<?php echo $msgstr["cancel"];?></a></td></tr>"
         elem.innerHTML = html
 
 	}
 
 	function Enviar(){
-		ValorCapturado=""		for (i=0;i<item.length;i++){
+		ValorCapturado=""
+		for (i=0;i<item.length;i++){
             ValorCapturado+=item[i]+"\n"
   		}
   		document.forma2.ValorCapturado.value=escape(ValorCapturado)
   		document.forma2.submit()
-	}
+
+	}
 
 /**
  * DHTML date validation script. Courtesy of SmartWebby.com (http://www.smartwebby.com/dhtml/)
@@ -616,12 +658,15 @@ function ValidarFecha(Fecha){
  }
 
  function Verificar(){
- 	switch (Editar){ 		case "Y":
+ 	switch (Editar){
+ 		case "Y":
 			Cancelar()
  			break
  		case "N":
  			self.location.href="configure_menu.php?encabezado=s"
- 			break; 	} }
+ 			break;
+ 	}
+ }
 
 
 </script>
@@ -635,27 +680,19 @@ echo "
 			</div>
 			<div class=\"actions\">\n";
 
-				echo "<a href=javascript:Verificar() class=\"defaultButton backButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["cancel"]."</strong></span>
-				</a>
+				echo "
+				
 			</div>
 			<div class=\"spacer\">&#160;</div>
 		</div>
-		<div class=\"helper\">
-	<a href=../documentacion/ayuda.php?help=".$_SESSION["lang"]."/circulation/policy.html target=_blank>".$msgstr["help"]."</a>&nbsp &nbsp;";
-	if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-		echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/circulation/policy.html target=_blank>".$msgstr["edhlp"]."</a>";
-	echo "<font color=white>&nbsp; &nbsp; Script: loanobjects.php </font>";
-
-echo"</div>
+		
 		<div class=\"middle form\">
 			<div class=\"formContent\">";
 
 ?>
 
     <form name=forma1>
-  	<a href="javascript:NuevoTipo()" ><?php echo $msgstr["crear"]?></a>
+  	<a class="btn btn-primary" href="javascript:NuevoTipo()" ><i class="fa fa-plus" value="<?php echo $msgstr["crear"];?>"></i></a>
     <div id=type_e class="middle list"> </div>
     <p>
     <div id=acciones>
@@ -665,11 +702,11 @@ echo"</div>
 
 
 </form>
-<form name=forma2 action=loanobjects_update.php method=post>
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=desc>
-<input type=hidden name=Opcion value=>
-<input type=hidden name=base value=users>
+<form name="forma2" action="loanobjects_update.php" method=post>
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="desc">
+<input type="hidden" name="Opcion" value="">
+<input type="hidden" name="base" value="users">
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>"; ?>
 </form>
 

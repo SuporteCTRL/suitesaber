@@ -11,10 +11,14 @@ include ("../lang/admin.php");
 include ("../lang/dbadmin.php");
 include ("../lang/prestamo.php");
 
-if (!isset($_SESSION["login"])){	echo $msgstr["sessionexpired"];
-	die;}
+if (!isset($_SESSION["login"])){
+	echo $msgstr["sessionexpired"];
+	die;
+}
 
-function DoList($database){global $db_path,$msgstr,$encabezado,$lang_db; 	unset($fp);
+function DoList($database){
+global $db_path,$msgstr,$encabezado,$lang_db;
+ 	unset($fp);
 	if (file_exists($db_path."$database/pfts/".$_SESSION["lang"]."/formatos.dat"))
 		$fp = file($db_path."$database/pfts/".$_SESSION["lang"]."/formatos.dat");
 	else
@@ -34,7 +38,8 @@ function DoList($database){global $db_path,$msgstr,$encabezado,$lang_db; 	unse
 		echo "</ul>";
 
 	}
-    echo "<p>";}
+    echo "<p>";
+}
 
 
 // ==================================================================================================
@@ -71,11 +76,13 @@ if (isset($arrHttp["Expresion"]) and $arrHttp["Expresion"]!=""){
 include("../common/header.php");
 ?>
 <script language="javascript1.2" src="../dataentry/js/lr_trim.js"></script>
-<script language=Javascript src=../dataentry/js/selectbox.js></script>
+<script language="Javascript" src="../dataentry/js/selectbox.js"></script>
 <style type=text/css>
 
-td{	font-size:12px;
-	font-family:Arial;}
+td{
+	font-size:12px;
+	font-family:Arial;
+}
 
 div#useexformat{
 
@@ -107,9 +114,13 @@ TipoFormato=""
 C_Tag=Array()
 
 //IF THE TYPE OF OUTPUT IS NOT IN COLUMN, HEADINGS ARE NOT ALLOWED
-function CheckType(){	if (document.forma1.tipof[0].checked || document.forma1.tipof[1].checked){		alert("<?php echo $msgstr["r_noheading"]?>")
-		document.forma1.pft.focus()	}
-}
+function CheckType(){
+	if (document.forma1.tipof[0].checked || document.forma1.tipof[1].checked){
+		alert("<?php echo $msgstr["r_noheading"]?>")
+		document.forma1.pft.focus()
+	}
+
+}
 
 function CopiarExpresion(){
 	Expr=document.forma1.Expr.options[document.forma1.Expr.selectedIndex].value
@@ -123,8 +134,10 @@ function CopySortKey(){
 }
 
 function CreateSortKey(){
-	msgwin=window.open("","sortkey","resizable,scrollbars, width=600,height=600")	document.sortkey.submit()
-	msgwin.focus()}
+	msgwin=window.open("","sortkey","resizable,scrollbars, width=600,height=600")
+	document.sortkey.submit()
+	msgwin.focus()
+}
 
 function AbrirVentana(Archivo){
 	xDir=""
@@ -132,7 +145,8 @@ function AbrirVentana(Archivo){
 	msgwin.focus()
 }
 
-function EsconderVentana( whichLayer ){var elem, vis;
+function EsconderVentana( whichLayer ){
+var elem, vis;
 
 	if( document.getElementById ) // this is the way the standards work
 		elem = document.getElementById( whichLayer );
@@ -151,8 +165,10 @@ function EsconderVentana( whichLayer ){var elem, vis;
 function toggleLayer( whichLayer ){
 	var elem, vis;
 
-	switch (whichLayer){		case "createformat":
-<?php if ($arrHttp["Opcion"]!="new"){		echo '
+	switch (whichLayer){
+		case "createformat":
+<?php if ($arrHttp["Opcion"]!="new"){
+		echo '
 			document.forma1.fgen.selectedIndex=-1
 			EsconderVentana("useexformat")
             if (save=="Y"){
@@ -166,7 +182,8 @@ function toggleLayer( whichLayer ){
 		case "useexformat":
 			EsconderVentana("createformat")
 			break
-	}
+
+	}
 	if( document.getElementById ) // this is the way the standards work
 		elem = document.getElementById( whichLayer );
 	else if( document.all ) // this is the way old msie versions work
@@ -273,44 +290,24 @@ function GuardarBusqueda(){
 </script>
 <body>
 <?php
-if (isset($arrHttp["encabezado"])){	include("../common/institutional_info.php");
+if (isset($arrHttp["encabezado"])){
+	include("../common/institutional_info.php");
 	$encabezado="&encabezado=s";
 }
 ?>
-<div class="sectionInfo">
-	<div class="breadcrumb">
-<?php //echo $msgstr["pft"].": ".$arrHttp["base"]?>
-	</div>
 
-	<div class="actions">
-<?php
-	if (isset($arrHttp["encabezado"])){		echo "<a href=\"../common/inicio.php?reinicio=s&modulo=loan&base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">
-			<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-		<span><strong>".$msgstr["back"]."</strong></span></a>
-			";	}
-?>
+
 
 </div>
 
-<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/circulation/reports.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/circulation/reports.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: reports_menu.php";
-?>
-</font>
-	</div>
-<form name=forma1 method=post action=../dataentry/imprimir_g.php onsubmit="Javascript:return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["base"]?>.par>
-<input type=hidden name=Dir value=<?php echo $arrHttp["Dir"]?>>
-<input type=hidden name=Modulo value=<?php if (isset($arrHttp["Modulo"])) echo $arrHttp["Modulo"]?>>
-<input type=hidden name=tagsel>
-<input type=hidden name=Opcion>
-<input type=hidden name=vp>
+<form name="forma1" method="post" action="../dataentry/imprimir_g.php onsubmit="Javascript:return false">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="cipar" value="<?php echo $arrHttp["base"]?>.par">
+<input type="hidden" name="Dir" value="<?php echo $arrHttp["Dir"]?>">
+<input type="hidden" name="Modulo" value="<?php if (isset($arrHttp["Modulo"])) echo $arrHttp["Modulo"]?>">
+<input type="hidden" name="tagsel">
+<input type="hidden" name="Opcion">
+<input type="hidden" name="vp">
 
 
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>\n";

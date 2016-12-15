@@ -103,10 +103,10 @@ if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
        
         <input type="hidden" name="base" value="trans">
         <?php if (isset($arrHttp["usuario"])) echo "<input type=\"hidden\" name=usuario value=".$arrHttp["usuario"]."?>"?>
+		<br>
+		<input class="btn btn-primary" type="button" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
 		
-		<input class="btn btn-default" type="button" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
-		
-		<input class="btn btn-default" type="submit" name="renovar" value="<?php echo $msgstr["renew"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+		<input class="btn btn-warning" type="submit" name="renovar" value="<?php echo $msgstr["renew"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
 		</td>
 
 
@@ -115,6 +115,7 @@ if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 	</form>
 	</div>
 </div>
+<br>
 <form name="EnviarFrm" method="post">
 <input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
 <input type="hidden" name="usuario" value="">

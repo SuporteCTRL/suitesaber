@@ -62,7 +62,7 @@ global $msgstr,$arrHttp,$copies;
 		
 			<label for="dataBases"><?php echo $msgstr["basedatos"]?></label>
 		
-		<select name=db onChange=VerSiLoanObjects()>
+		<select name="db" onChange="VerSiLoanObjects()" class="form-control">
 			<option></option>
 <?php
 	$ixcount=0;
@@ -98,7 +98,7 @@ global $msgstr,$arrHttp,$copies;
 
 		</select>
 		<br>
-		<input class="btn btn-default" type=submit value="<?php echo $msgstr["adsearch"]?>" onclick=BusquedaAvanzada("<?php echo $copies?>")>
+		<input class="btn btn-success" type=submit value="<?php echo $msgstr["adsearch"]?>" onclick=BusquedaAvanzada("<?php echo $copies?>")>
 
 <?php
 }
@@ -271,7 +271,7 @@ echo "<font Script: situacion_de_un_objeto.php</font>\n";
 </div>
 <div class="middle list">
 	<div class="searchBox">
-		<form name=inventorysearch  method=post onsubmit="javascript:return false">
+		<form name="inventorysearch"  method="post" onsubmit="javascript:return false">
 <?php
 //READ BASES.DAT TO FIND THOSE DATABASES IF NOT WORKING WITH COPIES DATABASES
 $sel_base="";
@@ -310,37 +310,39 @@ if (file_exists($db_path."loans.dat")){
 
 
 
-	<input type=hidden name=inventory>
+	<input type="hidden" name="inventory">
 
 		<br><br>
-				<label for="searchExpr"><?php echo $msgstr["inventory"]?></label>
+				<label for="searchExpr"><?php echo $msgstr["inventory"];?></label>
 			
 				<textarea class="form-control" name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" rows=5 cols=50/></textarea>
+				<br>
 
-				<input class="btn btn-default" type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('<?php if ($sel_base=="Y") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
+				<input class="btn btn-primary" type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('<?php if ($sel_base=="Y") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
 
-				<input class="btn btn-default" type="submit" name="buscar" value="<?php echo $msgstr["search"]?>" class="submit" onclick="javascript:EnviarForma()"/>
+				<input class="btn btn-warning" type="submit" name="buscar" value="<?php echo $msgstr["search"]?>" class="submit" onclick="javascript:EnviarForma()"/>
 			</td>
 		</table>
 	</div>
-
+<br><br><br>
 	<div class="searchBox">
 	
 		<label for="searchExpr"><?php echo $msgstr["controlnum"];?></label>
 		
 		<input class="form-control" type="text" name="control" id="control" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
+		<br>
 
-		<input class="btn btn-default" type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('<?php if ($sel_base=="Y") echo "SC"; else echo "C";?>',document.inventorysearch.control)"/>
+		<input class="btn btn-primary" type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('<?php if ($sel_base=="Y") echo "SC"; else echo "C";?>',document.inventorysearch.control)"/>
 
-		<input class="btn btn-default" type="submit" name="ok" value="<?php echo $msgstr["search"]?>" class="submit" onClick=EnviarForma() />
+		<input class="btn btn-warning" type="submit" name="ok" value="<?php echo $msgstr["search"]?>" class="submit" onClick=EnviarForma() />
 		</td></table>
 	<p>
 
 	</form>
-	<form name=busqueda method=post action=buscar.php onsubmit="javascript:return false">
-	<input type=hidden name=Opcion value="formab">
+	<form name="busqueda" method="post" action="buscar.php" onsubmit="javascript:return false">
+	<input type="hidden" name="Opcion" value="formab">
 	<?php echo "<input type=hidden name=copies value=$copies>\n";?>
-	<input type=hidden name=base value="<?php if (isset($arrHttp["base"]))echo $arrHttp["base"]?>">
+	<input type="hidden" name="base" value="<?php if (isset($arrHttp["base"]))echo $arrHttp["base"]?>">
 	<?php if ($copies=="Y") {
 
 		DibujarSelectBases($fp);
@@ -352,23 +354,23 @@ if (file_exists($db_path."loans.dat")){
 	</div>
 
 </div>
-<form name=EnviarFrm method=post>
-<input type=hidden name=base value="<?php if (isset($arrHttp["base"])) echo $arrHttp["base"]?>">
-<input type=hidden name=usuario value="">
-<input type=hidden name=desde value=1>
+<form name="EnviarFrm" method="post">
+<input type="hidden" name="base" value="<?php if (isset($arrHttp["base"])) echo $arrHttp["base"]?>">
+<input type="hidden" name="usuario" value="">
+<input type="hidden" name="desde" value=1>
 </form>
-<form name=diccionario method=post action=diccionario.php target=Diccionario>
-	<input type=hidden name=base value="<?php if (isset($arrHttp["base"])) echo $arrHttp["base"]?>">
-	<input type=hidden name=cipar value="<?php if (isset($arrHttp["base"])) echo $arrHttp["base"]?>.par">
-	<input type=hidden name=prefijo>
-	<input type=hidden name=Formato>
-	<input type=hidden name=campo>
-	<input type=hidden name=id>
-	<input type=hidden name=Diccio>
-	<input type=hidden name=from value=$desde>
-	<input type=hidden name=Opcion value=diccionario>
-	<input type=hidden name=Target value=s>
-	<input type=hidden name=Expresion>
+<form name="diccionario" method="post" action="diccionario.php" target="Diccionario">
+	<input type="hidden" name="base" value="<?php if (isset($arrHttp["base"])) echo $arrHttp["base"]?>">
+	<input type="hidden" name="cipar" value="<?php if (isset($arrHttp["base"])) echo $arrHttp["base"]?>.par">
+	<input type="hidden" name="prefijo">
+	<input type="hidden" name="Formato">
+	<input type="hidden" name="campo">
+	<input type="hidden" name="id">
+	<input type="hidden" name="Diccio">
+	<input type="hidden" name="from" value="$desde">
+	<input type="hidden" name="Opcion" value="diccionario">
+	<input type="hidden" name="Target" value="s">
+	<input type="hidden" name="Expresion">
 </form>
 <?php include("../common/footer.php");
 echo "</body></html>" ;

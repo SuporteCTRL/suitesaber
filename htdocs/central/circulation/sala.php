@@ -196,8 +196,8 @@ echo "
 		</label>
 		
 		<textarea class="form-control" name="inventory" id="inventory" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" /></textarea>
-
-		<input class="btn btn-default" type="submit" name="Enviar" value="<?php echo $msgstr["return"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+<br>
+		<input class="btn btn-primary" type="submit" name="Enviar" value="<?php echo $msgstr["return"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
 
     <p><br><br>
 	</form>

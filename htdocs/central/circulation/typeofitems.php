@@ -89,35 +89,18 @@ echo "
 			<div class=\"breadcrumb\">".
 				$msgstr["typeofitems"]."
 			</div>
-			<div class=\"actions\">\n";
-
-				echo "<a href=\"configure_menu.php?encabezado=s\" class=\"defaultButton backButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["back"]."</strong></span>
-				</a>
-				<a href=javascript:Enviar() class=\"defaultButton saveButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>".$msgstr["update"]."</strong></span>
-				</a>
-			</div>
-			<div class=\"spacer\">&#160;</div>
-		</div>
-       	<div class=\"helper\">
-	<a href=../documentacion/ayuda.php?help=".$_SESSION["lang"]."/circulation/loans_typeofitems.html target=_blank>".$msgstr["help"]."</a>&nbsp &nbsp;";
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/circulation/loans_typeofitems.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: circulation/typeofitems.php </font>";
-echo "</div>
+			
+			
 		<div class=\"middle form\">
 			<div class=\"formContent\">";
 ?>
 		<br>
-			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
+			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"];?></a>
 
-			&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
-			&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
+			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"];?></a>
+			<br><a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
 
-	<table  style="width:600; height:400px" id=tblToGrid class="dhtmlxGrid">
+	<table   id=tblToGrid class="dhtmlxGrid">
 <?php
 	echo "<tr>";
 	foreach ($rows_title as $cell) echo "<td>$cell</td>\n";
@@ -128,15 +111,18 @@ echo "</div>
 	if (!file_exists($archivo)) $archivo=$db_path."circulation/def/".$lang_db."/items.tab" ;
 	if (file_exists($archivo))	{
 		$fp=file($archivo);
-	}else{		$fp=array();
+	}else{
+		$fp=array();
 		for ($i=0;$i<20;$i++){
 			$fp[$i]=' |';
 		}
-		$tope=20;	}
+		$tope=20;
+	}
 	$nfilas=0;
 	$i=-1;
 	$t=array();
-	foreach ($fp as $value){		$value=trim($value);
+	foreach ($fp as $value){
+		$value=trim($value);
 		$value.="||";
 		if (trim($value)!=""){
 	    	$nfilas=$nfilas+1;
@@ -178,11 +164,11 @@ echo "</div>
 </script>
 <br><br>
 </form>
-<form name=forma1 action=typeofitems_update.php method=post>
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=desc>
-<input type=hidden name=Opcion value=>
-<input type=hidden name=base value=users>
+<form name="forma1" action="typeofitems_update.php" method="post">
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="desc">
+<input type="hidden" name="Opcion" value=">
+<input type="hidden" name="base" value="users">
 </form>
 
 
