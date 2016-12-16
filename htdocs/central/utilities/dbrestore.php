@@ -62,11 +62,12 @@ global $msgstr;
 		echo "<input type=hidden name=$var value=\"$value\">\n";
 	}
 	
-	echo "<label>"  .$msgstr["mx_folder"]."</label>";
-	echo "<input type=text  name=storein size=30 onclick=javascript:blur()> <a class=\"btn btn-default\" href=javascript:Explorar()>";
+	echo "<label>" .$msgstr["mx_folder"]."</label>";
+	echo "<br>";
+	echo "<input type=text  name=storein size=30 onclick=javascript:blur()> <a class=\"btn btn-primary\" href=javascript:Explorar()>";
 	echo $msgstr["explore"];
 	echo "</a><br>";
-	echo "<p><input class=\"btn btn-default\" type=submit value=".$msgstr["procesar"]."></form>";
+	echo "<p><input class=\"btn btn-warning\" type=submit value=".$msgstr["procesar"]."></form>";
     die;
 }
 

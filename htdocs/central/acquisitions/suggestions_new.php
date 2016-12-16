@@ -19,10 +19,16 @@ include("javascript.php");
 ?>
 
 <script>
-function Validar(){	err=""
-	res=""	for (i=0;i<document.forma1.tag2.length;i++){		if (document.forma1.tag2[i].checked) res="Y"	}
-	if (res==""){		alert ("<?php echo $msgstr["err2"]?>")
-		return "N"	}
+function Validar(){
+	err=""
+	res=""
+	for (i=0;i<document.forma1.tag2.length;i++){
+		if (document.forma1.tag2[i].checked) res="Y"
+	}
+	if (res==""){
+		alert ("<?php echo $msgstr["err2"]?>")
+		return "N"
+	}
 	res=""
 //SE VERIFICA SI ES UN OBJETO NUEVO O UNA COPIA
 /*	for (i=0;i<document.forma1.tag3.length;i++){
@@ -32,8 +38,12 @@ function Validar(){	err=""
 		alert ("<?php echo $msgstr["err3"]?>")
 		return "N"
 	}
-	if (document.forma1.tag3[1].checked){       // se verifica que esté presente el código del objeto si no se trata de un nuevo objeto		if (Trim(document.forma1.tag6.value)==""){			alert ("<?php echo $msgstr["err6"]?>")
-			return "N"		}	} */
+	if (document.forma1.tag3[1].checked){       // se verifica que esté presente el código del objeto si no se trata de un nuevo objeto
+		if (Trim(document.forma1.tag6.value)==""){
+			alert ("<?php echo $msgstr["err6"]?>")
+			return "N"
+		}
+	} */
 	if (Trim(document.forma1.tag16.value)=="" && Trim(document.forma1.tag17.value)==""){
 		alert ("<?php echo $msgstr["err16"]?>")
 		return "N"
@@ -58,7 +68,8 @@ function Validar(){	err=""
 		alert ("<?php echo $msgstr["err220"]?>")
 		return "N"
 	}
-	return "Y";}
+	return "Y";
+}
 </script>
 <?php                                                                                                                                      $encabezado="";
 echo "<body>\n";
@@ -141,39 +152,19 @@ function switchMenu(obj) {
  </script>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["suggestions"].": ".$msgstr["new"]?>
+		<?php echo $msgstr["suggestions"].": ".$msgstr["new"];?>
 	</div>
-	<div class="actions">
-
-		<a href=overview.php?encabezado=s&base=<?php echo $arrHttp["base"]?> class="defaultButton cancelButton">
-			<img src=../images/defaultButton_iconBorder.gif alt="" title="" />
-			<span><strong><?php echo $msgstr["cancel"]?></strong></span>
-		</a>
-		<a href=javascript:EnviarForma() class="defaultButton saveButton">
-			<img src=../images/defaultButton_iconBorder.gif alt="" title="" />
-			<span><strong><?php echo $msgstr["actualizar"]?></strong></span>
-		</a>
-	</div>
-	<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/acquisitions/suggestions_new.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=". $_SESSION["lang"]."/acquisitions/suggestions_new.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: suggestions_new.php</font>\n";
-?>
-	</div>
+	
 <div class="middle form">
 	<div class="formContent">
-<form method=post name=forma1 action=suggestions_new_update.php onSubmit="javascript:return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["base"].".par"?>>
-<input type=hidden name=ValorCapturado value="">
-<input type=hidden name=check_select value="">
-<input type=hidden name=Indice value="">
-<input type=hidden name=Mfn value="<?php echo $arrHttp["Mfn"]?>">
-<input type=hidden name=valor value="">
+<form method="post" name="forma1" action="suggestions_new_update.php" onSubmit="javascript:return false">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="cipar" value="<?php echo $arrHttp["base"].".par";?>">
+<input type="hidden" name="ValorCapturado" value="">
+<input type="hidden" name="check_select" value="">
+<input type="hidden" name="Indice" value="">
+<input type="hidden" name="Mfn" value="<?php echo $arrHttp["Mfn"]?>">
+<input type="hidden" name="valor" value="">
 <?php
 $fmt_test="S";
 $arrHttp["wks"]="new.fmt";

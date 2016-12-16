@@ -330,7 +330,7 @@ if (file_exists($db_path."loans.dat")){
 			<?php echo $msgstr["basedatos"];?>
 		</label>
 		
-		<select name="db_inven" onchange="CambiarBase()">
+		<select class="form-control" name="db_inven" onchange="CambiarBase()">
 		
 <?php
 	$xselected=" selected";
@@ -403,7 +403,7 @@ if (file_exists($db_path."loans.dat")){
 	?>
 	<br>
 
-	    <input class="btn btn-primary"  name="list"  value="<?php 
+	    <input class="btn btn-primary" type="button"  name="list"  value="<?php 
 	     echo $msgstr["list"];?>"  onclick="javascript:AbrirIndice('<?php 
 	     	if ($sel_base=="S") { 
 	     		echo "S"; 
@@ -426,7 +426,7 @@ if (file_exists($db_path."loans.dat")){
 	?>
 	    <input class="btn btn-warning"  name="list" value="<?php echo $msgstr["list"];?>"  onclick="javascript:AbrirIndice('<?php if ($sel_base=="S") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
 
-        <div id=kardex style="display:none;">
+        <div id="kardex" style="display:none;">
             <br>
 			Ano: <input type="text" name="year" class="form-control">
 			Volume: <input type="text" name="volumen" class="form-control">

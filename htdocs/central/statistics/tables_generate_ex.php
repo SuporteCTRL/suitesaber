@@ -132,7 +132,8 @@ function SendTo(Opcion){
 	else
 		urlPie="?tipo="
 	urlPie+="&base=<?php echo $arrHttp["base"]."&cipar=".$arrHttp["base"].".par&titulo=$titulo&tit_filas=".$filas."&tit_columnas=".$columnas?>"
-	switch(Opcion){		case 'AG':
+	switch(Opcion){
+		case 'AG':
 			msgwin=window.open("cuadro_animado.php"+urlPie,"cuadro")
 			msgwin.focus()
 			break;
@@ -147,12 +148,15 @@ function SendTo(Opcion){
 				msgwin.focus()
 			}else{
 				document.sendto.target=""
-			}			seccion=returnObjById( "results" )
+			}
+			seccion=returnObjById( "results" )
 			html=seccion.innerHTML
-			document.sendto.html.value=html			document.sendto.Opcion.value=Opcion
+			document.sendto.html.value=html
+			document.sendto.Opcion.value=Opcion
 			document.sendto.submit()
 			if (Opcion=="P") msgwin.focus()
-	}}
+	}
+}
 </script>
 <body>
 
@@ -161,35 +165,7 @@ function SendTo(Opcion){
 <?php echo $msgstr["stats"].": ".$arrHttp["base"]?>
 	</div>
 
-	<div class="actions">
-<?php
-if (isset($arrHttp["encabezado"]))
-	echo "<a href=\"tables_generate.php?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">
-	<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-<span><strong>".$msgstr["back"]."</strong></span></a>
-	";
-
-
-?>
-</div>
-
-<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_tables_generate.html#TABLE target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/stats/stats_tables_generate.html#TABLE target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: tables_generate_ex.php";
-?>
-</font>
-</div>
-<form name=forma1 method=post onsubmit="Javascript:return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["base"]?>.par>
-
-<?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>\n";
-?>
+	
 <div class="middle form">
 	<div class="formContent">
 <?php
@@ -206,7 +182,8 @@ echo "\n<script>Pie=\"$Pie\"</script>\n";
 $tab=array();
 $total_r=0;
 $total_c=0;
-switch ($Opcion){	case "range":
+switch ($Opcion){
+	case "range":
 		$query = "&base=".$arrHttp["base"]."&cipar=$db_path"."par/".$arrHttp["cipar"]."&Opcion=rango&Formato=".$Formato;
 		$query.="&from=".$arrHttp["Mfn"]."&to=".$arrHttp["to"];
 		$IsisScript=$xWxis. "imprime.xis";
@@ -249,7 +226,8 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 	foreach ($row as $x){
 		if (trim($x)=="")
 			echo "<tr><td bgcolor=#ffffff>".$msgstr["nodata"]."</td>";
-		else			echo "<tr><td bgcolor=#ffffff>$x</td>";
+		else
+			echo "<tr><td bgcolor=#ffffff>$x</td>";
 		$total_r=0;
 		$arreglo.="###$x".'|'; //Título de las filas
 		foreach ($col as $y){
@@ -267,12 +245,20 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 				$total_r+=$cell;
 				$arreglo.=$cell.'|';
 			}
-			echo "<td align=center bgcolor=#ffffff>$cell</td>";		}
-		echo "<td align=center bgcolor=#ffffff>$total_r</td>";	}
+			echo "<td align=center bgcolor=#ffffff>$cell</td>";
+		}
+		echo "<td align=center bgcolor=#ffffff>$total_r</td>";
+	}
 	echo "<tr><td bgcolor=#ffffff><strong>".$msgstr["total"]."</strong></td>";
 	$total=0;
-	foreach ($total_c as $cell) {		if ($cell==""){			$cell="&nbsp";		}else{			$total+=$cell;		}
-		echo "<td align=center bgcolor=#ffffff>$cell</td>";	}
+	foreach ($total_c as $cell) {
+		if ($cell==""){
+			$cell="&nbsp";
+		}else{
+			$total+=$cell;
+		}
+		echo "<td align=center bgcolor=#ffffff>$cell</td>";
+	}
 	echo "<td align=center bgcolor=#ffffff>$total</td>";
 	echo "</table>";
 }else{
@@ -287,7 +273,8 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 	$total=0;
 	$arreglo='';
 	// IMPRESION  DE LA TABLA
-	foreach ($tab as $x=>$val){		if (trim($x)=="") $x=$msgstr["nodata"];
+	foreach ($tab as $x=>$val){
+		if (trim($x)=="") $x=$msgstr["nodata"];
 		$arreglo.="###$x|$val"; //Título de las filas
 		echo "<tr><td bgcolor=#ffffff>$x</td>";
 		echo "<td align=center bgcolor=#ffffff>".$val."</td>";
@@ -296,9 +283,11 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 	}
 	echo "<tr><td align=center bgcolor=#ffffff>".$msgstr["total"]."</td>";
 	echo "<td bgcolor=#ffffff><strong>$total</strong></td>";
-	echo "</table>";}
+	echo "</table>";
+}
 echo "</div></div>";
-echo "<dd>".$msgstr["sendto"].": ";echo "<a href=javascript:SendTo(\"W\")>".$msgstr["wks"]."</a> &nbsp; | &nbsp; ";
+echo "<dd>".$msgstr["sendto"].": ";
+echo "<a href=javascript:SendTo(\"W\")>".$msgstr["wks"]."</a> &nbsp; | &nbsp; ";
 echo "<a href=javascript:SendTo(\"D\")>".$msgstr["doc"]."</a> &nbsp; | &nbsp; ";
 echo "<a href=javascript:SendTo(\"P\")>".$msgstr["prn"]."</a> &nbsp; | &nbsp; ";
 echo "<a href=javascript:SendTo(\"AG\")>".$msgstr["ag"]."</a> &nbsp; | &nbsp; ";
@@ -373,18 +362,21 @@ global $trow,$tcol,$row,$col,$tab;
 }
 
 // SE CONSTRUYE EL FORMATO PARA LA TABLA DE FRECUENCIA
-function Frecuencia($rc){global $arrHttp,$tab_vars,$ttit,$trow,$trow_tit;
+function Frecuencia($rc){
+global $arrHttp,$tab_vars,$ttit,$trow,$trow_tit;
 	$rc=stripslashes($rc);
 	$tabla=explode('|',$rc);
 	$ttit=$tabla[0];
-	$trow=$tabla[1];
+	$trow=$tabla[0];
 	$trow_tit=$tabla[0];
-	$Formato=$tabla[1];
+	$Formato=$tabla[0];
 	if (strpos($Formato,"/")===false) $Formato.="'$$$$'/";
-	return ($Formato);}
+	return ($Formato);
+}
 
 // SE CONSTRUYE EL FORMATO PARA LA TABLA DE CONTINGENCIA
-function Contingencia(){global $arrHttp,$tab_vars,$ttit,$trow,$trow_tit,$tcol,$tcol_tit;
+function Contingencia(){
+global $arrHttp,$tab_vars,$ttit,$trow,$trow_tit,$tcol,$tcol_tit;
 // SE LEE LA LISTA DE VARIABLES PARA FORMAR LA TABLA
 	$tabla=explode('|',$arrHttp["tables"]); //[0]=NOMBRE DE LA TABLA, [1]=VARIABLE FILAS , [2]=VARIABLE COLUMNAS
 	$ttit=$tabla[0];    // TITULO DE LA TABLA
@@ -414,4 +406,5 @@ function Contingencia(){global $arrHttp,$tab_vars,$ttit,$trow,$trow_tit,$tcol,$
 	}
 
 	$Formato=$trow."'$$$$'".$tcol."'$$$$'/";
-	return $Formato;}
+	return $Formato;
+}

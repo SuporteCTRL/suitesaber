@@ -55,10 +55,11 @@ global $msgstr;
 	";
 	echo $msgstr["mx_folder"];
 	echo "</td><td>
-<input type=text name=storein size=30 onclick=javascript:blur()> <a class=\"btn btn-default\" href=javascript:Explorar()>";
+    <input type=\"text\" name=\"storein\" size=\"30\" class=\"form-control\"> 
+    <a class=\"btn btn-primary\" href=javascript:Explorar()>";
 	echo $msgstr["explore"];
 	echo "</a><br>";
-	echo "<input class=\"btn btn-default\" type=\"button\" value=".$msgstr["procesar"]."></a>
+	echo "<input class=\"btn btn-warning\" type=\"button\" value=".$msgstr["procesar"]."></a>
 	<td></tr></table>\n
 	</form>";
     die;

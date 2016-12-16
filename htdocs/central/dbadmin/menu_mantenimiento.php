@@ -219,14 +219,6 @@ function EnviarForma(Opcion,Mensaje){
 
 	include("../common/institutional_info.php");
 	$encabezado="&encabezado=s";
-echo "
-	<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">".
-				$msgstr["maintenance"]. ": " . $arrHttp["base"]."
-			</div>
-			<div class=\"actions\">
-
-	";
 
 	
 ?>

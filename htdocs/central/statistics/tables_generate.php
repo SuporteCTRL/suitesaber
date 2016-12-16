@@ -248,11 +248,11 @@ if (isset($arrHttp["encabezado"])){
 
             <div class="page-title">
               <div class="title_left">
-                <h3><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $msgstr["stats"].": ".$arrHttp["base"]?></h3>
+                <h3><i class="fa fa-bar-chart" aria-hidden="true"></i> <?php echo $msgstr["stats"].": ".$arrHttp["base"];?></h3>
               </div>
 
               <div class="title_right">
-					<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_tables_generate.html target=_blank><?php echo $msgstr["help"]?></a> Script: tables_generate.php
+					<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"];?>/stats/stats_tables_generate.html target=_blank><?php echo $msgstr["help"];?></a> Script: tables_generate.php
               </div>
             </div>
 
@@ -265,7 +265,7 @@ if (isset($arrHttp["encabezado"])){
  <input type="hidden" name="cipar" value="<?php echo $arrHttp['base']; ?>.par">
  <input type="hidden" name="Opcion">
 
-<?php if (isset($arrHttp["encabezado"])) ?>
+<?php if (isset($arrHttp["encabezado"])) ;?>
  <input type="hidden" name="encabezado" value="s">
 
 
@@ -277,10 +277,10 @@ if (isset($arrHttp["encabezado"])){
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse in">
-        <div class="panel-body"><?php echo $msgstr["tab_list"]; ?> <i class="fa fa-caret-down" aria-hidden="true"></i> 
+        <div class="panel-body"><?php echo $msgstr["tab_list"]; ?>  
           	 
-		<select name="tables" >
-    		<option value="">
+		<select class="form control" name="tables" >
+    		<option value=""></option>
   <?php 
     unset($fp);
 	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/tabs.cfg";

@@ -138,8 +138,8 @@ echo "<font Script: circulation/sala.php </font>
 <div class="middle list">
 
 	<div class="searchBox">
-	<form name=sala action=sala_ex.php method=post onsubmit="javascript:return false">
-	<input type=hidden name=invSearch>
+	<form name="sala" action="sala_ex.php" method="post" onsubmit="javascript:return false">
+	<input type="hidden" name="invSearch">
 <?php
 $sel_base="N";
 if (file_exists($db_path."loans.dat")){
@@ -149,7 +149,7 @@ if (file_exists($db_path."loans.dat")){
 
 		<br><br>
 		<label for="dataBases"><?php echo $msgstr["basedatos"]?></label>
-				<select name=db_inven onchange=CambiarBase()>
+				<select class="form-control" name="db_inven" onchange="CambiarBase()"">
 		<option></option>
 <?php
 	$xselected=" selected";
