@@ -218,9 +218,9 @@ else
 			echo "<input type=radio name=sort value=date_attended>".$msgstr["loandate"];
 
 			echo "<br><br>";
-			echo "<input class=\"btn btn-primary\" type=\"button\" name=\"rs00\" value=\"".$msgstr["rs00"]."\" onClick=\"javascript:Output('today','rs00')\" >";
+			echo "<input class=\"btn btn-primary\" type=button name=rs00 value=".$msgstr["rs00"]." onClick=javascript:Output('today','rs00') >";
 
-			echo "<input class=\"btn btn-warning\" type=\"button\" name=\"rs01\" value=\"".$msgstr["rs01"]."\" onClick=\"javascript:Output('actives','rs01')\">";
+			echo "<input class=\"btn btn-warning\" type=\"button\" name=rs01 value= ".$msgstr["rs01"]."  onClick=javascript:Output('actives','rs01')>";
 			echo "<input class=\"btn btn-success\" type=\"button\" name=\"rs02\" value=\"".$msgstr["rs02"]."\" onClick=\"javascript:Output('assigned','rs02')\" >";
 			echo "<input class=\"btn btn-danger\" type=\"button\" name=\"rs03\" value=\"".$msgstr["rs03"]."\" onClick=\"javascript:Output('overdued','rs03')\" >";
 			echo "<input class=\"btn btn-info\" type=\"button\" name=\"rs04\" value=\"".$msgstr["rs04"]."\" onClick=\"javascript:Output('attended','rs04')\" >";
@@ -243,12 +243,12 @@ else
 ?>
 </form>
 <form name="output" method="post">
-<input type="hidden" name="base" value=reserve>
+<input type="hidden" name="base" value="reserve">
 <input type="hidden" name="code">
 <input type="hidden" name="name">
 <input type="hidden" name="user">
 <input type="hidden" name="sort">
-<input type="hidden" name="retorno" value=../circulation/estado_de_cuenta.php>
+<input type="hidden" name="retorno" value="../circulation/estado_de_cuenta.php">
 <input type="hidden" name="reserva" value="S">
 </form>
 <?php include("../common/footer.php");

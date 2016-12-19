@@ -424,10 +424,10 @@ if (isset($arrHttp["encabezado"])){
 </div>
 
 </form>
-<form name=configure onSubmit="return false">
-	<input type=hidden name=Opcion value=update>
-	<input type=hidden name=from value="statistics">
-	<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<form name="configure" onSubmit="return false">
+	<input type="hidden" name="Opcion" value="update">
+	<input type="hidden" name="from" value="statistics">
+	<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
 	<?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";?>
 </form>
 

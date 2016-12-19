@@ -20,7 +20,7 @@ $rows_title[2]=$msgstr["tit_np"];
 
 include("../common/header.php");
 ?>
-<link rel="STYLESHEET" type="text/css" href="../dataentry/js/dhtml_grid/dhtmlXGrid.css">
+<link  type="text/css" href="../dataentry/js/dhtml_grid/dhtmlXGrid.css">
 <script  src="../dataentry/js/dhtml_grid/dhtmlx.js"></script>
 <script  src="../dataentry/js/lr_trim.js"></script>
 <script>
@@ -85,39 +85,17 @@ include("../common/header.php");
 <?php
 $encabezado="";
 include("../common/institutional_info.php");
-echo "
-		<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">".
-				$msgstr["typeofusers"]."
-			</div>
-			<div class=\"actions\">\n";
 
-				echo "
-
-					<a href=\"configure_menu.php?encabezado=s\" class=\"defaultButton backButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["back"]."</strong></span>
-				</a>
-				<a href=javascript:Enviar() class=\"defaultButton saveButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>".$msgstr["update"]."</strong></span>
-				</a>
-			</div>
-			<div class=\"spacer\">&#160;</div>
-		</div>
-		<div class=\"helper\">
-	<a href=../documentacion/ayuda.php?help=".$_SESSION["lang"]."/circulation/loans_typeofusers.html target=_blank>".$msgstr["help"]."</a>&nbsp &nbsp;";
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/circulation/loans_typeofusers.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: circulation/typeofusers.php </font>";
-echo "  </div>
+				
+if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/
 		<div class=\"middle form\">
 			<div class=\"formContent\">";
 ?>
 		<br>
-			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
+			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"];?></a>
 
-			&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
-			&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
+			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
+			<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
 
 	<table   id=tblToGrid class="dhtmlxGrid" style="height:400px">
 <?php
@@ -131,17 +109,20 @@ echo "  </div>
 		$archivo=$db_path."circulation/def/".$lang_db."/typeofusers.tab";
 	if (file_exists($archivo)){
 		$fp=file($archivo);
-	}else{		$fp=array();
+	}else{
+		$fp=array();
 		for ($i=0;$i<20;$i++){
 			$fp[$i]='|||||';
 		}
-		$tope=20;	}
+		$tope=20;
+	}
 	$nfilas=0;
 	$i=-1;
 	$t=array();
 	$i=-1;
 	$IN=array();
-	foreach ($fp as $value){		$value=trim($value);
+	foreach ($fp as $value){
+		$value=trim($value);
 		if (trim($value)!=""){
 	    	$nfilas=$nfilas+1;
 			echo "\n<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\">\n";
@@ -157,8 +138,8 @@ echo "  </div>
 ?>
 
 	</table>
-	<a href=javascript:Enviar()><?php echo $msgstr["update"]?></a>&nbsp; &nbsp; &nbsp; &nbsp;
-	<a href=configure_menu.php?encabezado=s><?php echo $msgstr["cancel"]?></a>
+	<a class="btn btn-primary" href=javascript:Enviar()><?php echo $msgstr["update"];?></a>
+	<a class="btn btn-danger" href=configure_menu.php?encabezado=s><?php echo $msgstr["cancel"]?></a>
 <script>
 
     nfilas=<?php echo $nfilas."\n"?>
@@ -184,13 +165,13 @@ echo "  </div>
 
 
 </script>
-<br><br>
+
 </form>
-<form name=forma1 action=typeofusers_update.php method=post>
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=desc>
-<input type=hidden name=Opcion value=>
-<input type=hidden name=base value=users>
+<form name="forma1" action="typeofusers_update.php" method="post">
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="desc">
+<input type="hidden" name="Opcion" value="">
+<input type="hidden" name="base" value="users">
 </form>
 
 

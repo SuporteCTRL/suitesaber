@@ -302,13 +302,13 @@ function EnviarForma(Opcion,Mensaje){
 
 		</td>
 </table></form>
-<form name=admin method=post action=administrar_ex.php onSubmit="Javascript:return false">
-<input type=hidden name=base>
-<input type=hidden name=cipar>
-<input type=hidden name=Opcion>
-<input type=hidden name=encabezado value=s>
-<input type=hidden name=iso>
-<input type=hidden name=activa value=<?php echo $_REQUEST["base"]?>>
+<form name="admin" method="post" action="administrar_ex.php" onSubmit="Javascript:return false">
+<input type="hidden" name="base">
+<input type="hidden" name="cipar">
+<input type="hidden" name="Opcion">
+<input type="hidden" name="encabezado" value="s">
+<input type="hidden" name="iso">
+<input type="hidden" name="activa" value="<?php echo $_REQUEST["base"];?>">
 </form>
 </div>
 </div>

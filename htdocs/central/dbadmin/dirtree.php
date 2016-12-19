@@ -245,10 +245,7 @@ global $arrHttp,$msgstr,$institution_name,$logo;
 				$retorno="../common/inicio.php?reinicio=s";
 			else
 				$retorno="menu_mantenimiento.php?base=".$_REQUEST["activa"];
-			echo "<a href=\"$retorno\" class=\"defaultButton backButton\">
-					<img src=\"../images/defaultButton_iconborder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["back"]."</strong></span>
-				</a>";
+			
 	echo "
 		</div>
 			<div class=\"spacer\">&#160;</div>
@@ -375,11 +372,11 @@ the second phase.
     $UPLOAD_DIR = BUILD_PATH($NODE);
     PAGE_HEADER("DIRECTORY MANAGER - DIRTREEVIEW", "UPLOAD FILE", "", "");
     ?>
-    <Table widht='100%' border='0' cellpading='0' cellspacing='0'class=td>
-        <Tr>
-            <td valign='top' align='left'>
+    <table widht="100%" border="0" cellpading="0" cellspacing="0" class="td">
+        <tr>
+            <td valign="top" align="left">
                 
-                <font face='tahoma'>
+                <font face="tahoma">
     <?php
     // check if the directory exists or not with the server path added
     $REAL_UPLOAD_DIR = str_replace(DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR, DIRECTORY_SEPARATOR, DIRname($_SESSION['Server_Path'])) . DIRECTORY_SEPARATOR . $UPLOAD_DIR;
@@ -414,9 +411,9 @@ the second phase.
         <tr>
             <td>
             
-            <Font face="tahoma">
+            <font face="tahoma">
             <h3> Choose a the file to upload</h3>
-            <form name="formUploadFile" method="post" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'];?>">
+            <form name="formUploadFile" method="post" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
                 <table align="center" border="0" class="td">
                     <input type="hidden" name="MAX_FILE_Svalue=<?php echo $_SESSION['Size_Bytes'];?>">
                     <tr>
@@ -427,9 +424,9 @@ the second phase.
                     <input type="hidden" name="ACTION" value="upload2">
                     <tr></tr>
                     <tr>
-                        <td><input type="button" value="cancel" onclick='javascript:history.back()'></Td>
+                        <td><input type="button" value="cancel" onclick='javascript:history.back()'></td>
                         <td></td>
-                        <Td><input type="submit" name="submit" value=""></td>
+                        <td><input type="submit" name="submit" value=""></td>
                     </tr>
                     <tr>
                         <td><script> Use your BACK ARROW button of your BROWSER NAVIGATOR to GO BACK</script></td>
@@ -578,7 +575,7 @@ confirm the operation.
             <td>
             
                 <font face="tahoma">
-                <h3> File to DOWNLOAD: <?= $CURRENT_FILE;?></h3>
+                <h3> File to DOWNLOAD: <?php echo $CURRENT_FILE;?></h3>
                 <form name="downloadfile" method="post" ENCtype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'];?>">
                     <table align="center" border="0" class="td">
                         <input type="hidden" name="FILE_EXTENSION" value="<?php echo $_SESSION['File_Extension'];?>">

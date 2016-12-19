@@ -77,7 +77,7 @@ unset($fp);
 ?>
 
 
-<script language=Javascript src=../dataentry/js/lr_trim.js></script>
+<script language=Javascript src="../dataentry/js/lr_trim.js"></script>
 <script>
 //NUMBER OF LANGUAGES DEFINED IN IAH.DEF.PHP
 n_lang=<?php echo count($lan_iah)."\n"?>

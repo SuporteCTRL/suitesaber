@@ -45,8 +45,10 @@ IF (!isset($arrHttp["mes"])) $arrHttp["mes"]="";
 if (!isset($arrHttp["cadena"])) $arrHttp["cadena"]="";
 if (!isset($arrHttp["ano"])) $arrHttp["ano"]="";
 //foreach ($arrHttp as $var=>$value) echo "$var = $value<br>";
-if (isset($arrHttp["Opcion"]) and $arrHttp["Opcion"]=="guardar"){	Calendario("feriados.tab");
-	die;}
+if (isset($arrHttp["Opcion"]) and $arrHttp["Opcion"]=="guardar"){
+	Calendario("feriados.tab");
+	die;
+}
 
 include("../common/header.php");
 ?>
@@ -82,42 +84,12 @@ function Dias_Fe(Tipo) {
 $encabezado="";
 include("../common/institutional_info.php");
 
-echo "
-		<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">".
-				$msgstr["calendar"]."
-			</div>
-			<div class=\"actions\">\n";
-if (isset($arrHttp["ver"])){	  echo "<a href=javascript:self.close() class=\"defaultButton cancelButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["cancel"]."</strong></span>
-				</a>\n";}else{
-				echo "<a href=\"configure_menu.php?encabezado=s\" class=\"defaultButton backButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["back"]."</strong></span>
-				</a>\n";
-}
-echo "
-				<a href=javascript:Dias_Fe(0) class=\"defaultButton saveButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>".$msgstr["update"]."</strong></span>
-				</a>
-			</div>
-			<div class=\"spacer\">&#160;</div>
-		</div>
-		<div class=\"helper\">
-	<a href=../documentacion/ayuda.php?help=".$_SESSION["lang"]."/circulation/calendario.html target=_blank>".$msgstr["help"]."</a>&nbsp &nbsp;";
-	if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-		echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/circulation/calendario.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; calendario.php </font>";
-echo "</div>
-			<div class=\"spacer\">&#160;</div>
-		</div>
-		<div class=\"middle homepage\">";
+
+
+echo "<div class=\"middle homepage\">";
 
 Calendario("feriados.tab");
 
-echo "<BR><BR><BR></CENTER></DIV></div>";
 include("../common/footer.php");
 echo "</body></html>" ;
 

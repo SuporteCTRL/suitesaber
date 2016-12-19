@@ -71,7 +71,7 @@ echo "
 		<td>".$msgstr["lastcn"]."</td><td><input type=textbox name=control_n value=$cn_val></td>";
 	echo "<tr><td colspan=2>&nbsp;</td>";
 	echo "<table>";
-	echo "<p><input type=\"submit\" class=\"btn btn-default\" name=\"send\" value=\" ".$msgstr["update"]."\" onclick=\"Enviar()>\"";
+	echo "<p><input type=submit class=\"btn btn-primary\" name=send value=".$msgstr["update"]." onclick=Enviar()>";
 
 echo "<form></div></div></body></html>";
 ?>

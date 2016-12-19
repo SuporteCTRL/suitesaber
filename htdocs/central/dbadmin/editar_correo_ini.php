@@ -65,8 +65,8 @@ if (file_exists($db_path."correo.ini")){
 </div>
 <div class="middle">
 	<div class="formContent" >
-<form name=maintenance>
-<input type=hidden name=Opcion value="actualizar">
+<form name="maintenance">
+<input type="hidden" name="Opcion" value="actualizar">
 
 <?php
 if (!isset($arrHttp["Opcion"])){

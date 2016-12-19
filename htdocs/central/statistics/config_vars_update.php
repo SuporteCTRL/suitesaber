@@ -27,10 +27,7 @@ if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics"){
 }else{
 	$script="../dbadmin/menu_modificardb.php";
 }
-echo "<a href=\"$script?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
-echo "<img src=\"../images/defaultButton_iconBorder.gif\" />
-	<span><strong>".$msgstr["back"]."</strong></span></a>
-	";
+
 ?>
 
 

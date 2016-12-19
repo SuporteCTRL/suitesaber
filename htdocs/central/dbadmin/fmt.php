@@ -208,17 +208,17 @@ if (isset($arrHttp["encabezado"])){
 				
 				</a>
 			</div>
-			<div class="spacer">&#160;</div>
+		
 </div>
-<form name=forma1 method=post action=fmt_update.php onsubmit="Javascript:return false" >
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["cipar"]?>>
-<input type=hidden name=tagsel>
-<input type=hidden name=Opcion>
-<input type=hidden name=wks>
-<input type=hidden name=fmt_name>
-<input type=hidden name=fmt_desc>
-<input type=hidden name=ret_script value=fmt.php>
+<form name="forma1" method="post" action="fmt_update.php" onsubmit="Javascript:return false" >
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="cipar" value="<?php echo $arrHttp["cipar"];?>">
+<input type="hidden name="tagsel">
+<input type="hidden" name="Opcion">
+<input type="hidden" name="wks">
+<input type="hidden" name="fmt_name">
+<input type="hidden" name="fmt_desc">
+<input type="hidden" name="ret_script" value="fmt.php">
 <?php if (isset($arrHttp["encabezado"]))
 	echo "<input type=hidden name=encabezado value=s>\n"?>
  <script type="text/javascript">
@@ -231,10 +231,10 @@ if (isset($arrHttp["encabezado"])){
 			<div class="formContent">
 
 
-<table border=0 >
-    <td valign=top>
-    <?php echo $msgstr["selfmt"]?></td>
-    <td><select class="btn btn-default" name=fmt>
+<table border="0 ">
+    <td valign="top">
+    <?php echo $msgstr["selfmt"];?></td>
+    <td><select class="btn btn-default" name="fmt">
     <option value=""> </option>
 <?php
 
@@ -268,7 +268,7 @@ if (file_exists($archivo)){
     <td valign=top colspan=4>
     	<div id=generateformat>
     	<table>
-			<td valign=top colspan=4><?php echo $msgstr["selfields"]?></td><tr>
+			<td valign=top colspan=4><?php echo $msgstr["selfields"];?></td><tr>
 			<td colspan=4>
 			<table><td>
 				<Select name=list11 style="width:350px" multiple size=20 onDblClick="moveSelectedOptions(this.form['list11'],this.form['list21'],false)">

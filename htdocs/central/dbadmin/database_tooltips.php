@@ -247,6 +247,5 @@ include("../common/footer.php");
 </form>
 </div>
 </div>
-
 </body>
 </html>

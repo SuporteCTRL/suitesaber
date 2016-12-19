@@ -221,9 +221,8 @@ if (isset($arrHttp["encabezado"])){
 	$encabezado="";
 }
 echo "<form name=stats method=post>";
-echo "<div class=\"sectionInfo\">
-	<div class=\"breadcrumb\">".$msgstr["stats_conf"]." - ".$msgstr["var_list"].": ".$arrHttp["base"]."</div>
-	<div class=\"actions\">";
+echo $msgstr["stats_conf"]." - ".$msgstr["var_list"].": ".$arrHttp["base"];
+
 if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics")
 	$script="tables_generate.php";
 else
@@ -233,9 +232,7 @@ else
 ?>
 
 
-<div class="middle form">
-	<div class="formContent">
-		
+
 	
 			<label><?php echo $msgstr["pft_ext"];?></label>
 		    <a class="btn btn-info" href=javascript:Ayuda(0)><i class="fa fa-info-circle" value="<?php echo $msgstr["var"];?>"></a></i>
@@ -246,8 +243,8 @@ else
 
 
 
-        <div id=rows>
-        <div class="col-md 3">
+
+       
  <?php
  	$total=-1;
  	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
@@ -261,20 +258,31 @@ else
  				$ix++;
  				$total=$ix;
  				$var=explode('|',$value);
- 				echo "<select class=\"form-control\" name=sel_text onchange=Cambiar(".$ix.")><option</option>\n";
+ 				echo " 
+ 				<div class=\"col-md-3\"><select class=\"form-control\" name=sel_text onchange=Cambiar(".$ix.")><option</option>\n";
  				$f=explode('||',$fields);
 	    		foreach ($f as $opt) {
 					$o=explode('$$$',$opt);
 	    			echo "
 	    			<option class=\"form-control\" value=\"".$o[0]."\" >".$o[1]."</option>\n";
 	    		}
- 				echo "</select>
- 				 <input type=text class=\"form-control\" name=\"nombre\" value=\"".$var[0]."\" size=20>
- 				 <textarea class=\"form-control\" name=pft style='width:400px;height:30px'>".$var[1]."</textarea>
- 				 <input class=\"form-control\" type=text name=prefix size=5></a>";
- 				echo "
+ 				echo "</select></div>
+ 				<div class=\"col-md-3\">
+ 				 <input type=text class=\"form-control\" name=\"nombre\" value=\"".$var[0]."\" ></div>
+ 				
+ 				 <div class=\"col-md-4\">
+ 				 <textarea class=\"form-control\" name=\"pft\" style='width:400px;height:30px'>".$var[1]."</div>
+ 				 </textarea>
+                 
+                 <div class=\"col-md-1\">
+ 				 <input class=\"form-control\" type=\"text\" name=\"prefix\" size=5>
+ 				 
+
+ 		
+ 				<div class=\"col-md-1\"
  				<a class=\"btn btn-danger\" href=javascript:DeleteElement(".$ix.")>
- 				<i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></i></a>\n";
+ 				<i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></i></a></div>";
+ 				
  			}
  		}
 
@@ -282,10 +290,10 @@ else
     ?>
 
 
-    </div>
+    
 
 
- 	<div class=\"col-md 3\">
+ 	<div class="col-md-3">
     <?php
 
  	if ($ix<1){
@@ -302,10 +310,20 @@ else
 			}
 		 	echo "</select></div>";
 
-		 	echo"<input class=\"form-control\" type=text name=\"nombre\" value=\"\" size=20></td>
+		 	?>
+		 	<div class="col-md-3">
+		 	 	<input class="form-control" type="text" name="nombre" value="" size=20></td>
+		 	</div>
+		 	<div class="col-md-4">
+
+		 	<textarea class="form-control" name=pft ></textarea>
+		 	</div>
+		 	<div class="col-md-1">
+		 	<input type=text name=prefix size=5>
+		 	</div>
+		 	<?php
+
 		 	
-		 	<textarea class=\"form-control\" name=pft ></textarea></td>
-		 	<input type=text name=prefix size=5></a>";
 
 		 	echo "<a class=\"btn btn-danger\" href=javascript:DeleteElement(".$ix.")><i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></a></td></tr>\n";
 	   	}

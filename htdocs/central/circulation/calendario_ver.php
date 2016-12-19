@@ -34,7 +34,8 @@ function calcula_numero_dia_semana($dia,$mes,$ano){
 	return $numerodiasemana;
 }
 //Funcion que verifica si el dia es feriado//
-function dia_feri($dia,$mes){global $db_path,$lang_db;
+function dia_feri($dia,$mes){
+global $db_path,$lang_db;
 	$file =$db_path."circulation/def/".$_SESSION["lang"]."/feriados.tab";
 	if (!file_exists($file) ) $file =$db_path."circulation/def/".$lang_db."/feriados.tab";
 	$arreglo=file($file);
@@ -84,7 +85,7 @@ global $arrHttp,$msgstr;
 	}
 	echo "<input type=hidden name=mes_ante value=".$mes_anterior.">";
 	echo "<input type=hidden name=ano_ante value=".$ano_anterior.">";
-	echo "<input type=button name=anterior value='&lt;&lt;' onClick=JavaScript:Dias_Fe(1)></td>";
+	echo "<button class=\"btn btn-success\" type=button name=anterior onClick=JavaScript:Dias_Fe(1)><i class=\"fa fa-angle-left\" aria hidden=\"true\"></i></button></td>";
 	   echo "<td align=center class=tit2>$nombre_mes $ano</td>";
 	   echo "<td align=center class=tit2>";
 	//calculo el mes y ano del mes siguiente
@@ -96,7 +97,11 @@ global $arrHttp,$msgstr;
 	}
 	echo "<input type=hidden name=mes_sig value=".$mes_siguiente.">";
 	echo "<input type=hidden name=ano_sig value=".$ano_siguiente.">";
-	echo "<input type=button name=siguiente value='&gt;&gt;' onClick=JavaScript:Dias_Fe(2)></td></tr></table></td></tr>";
+	echo "<button class=\"btn btn-success\" type=button name=siguiente onClick=JavaScript:Dias_Fe(2)>
+	<i class=\"fa fa-angle-right\" aria hidden=\"true\">
+	</i></button>
+	</td></tr></table></td></tr>";
+	
 	echo '	<tr>
 			    <td width=14% align=center class=altn>'.$msgstr["d1"].'</td>
 			    <td width=14% align=center class=altn>'.$msgstr["d2"].'</td>
@@ -122,9 +127,9 @@ global $arrHttp,$msgstr;
 	for ($i=0;$i<7;$i++){
 		if ($i < $numero_dia){
 			//si el dia de la semana i es menor que el numero del primer dia de la semana no pongo nada en la celda
-			echo "<td bgcolor=#B0D1EF> &nbsp;</td>";
+			echo "<td </td>";
 		} else {
-			echo "<td align=center bgcolor=#B0D1EF class=td><INPUT type=checkbox name=dias ".dia_feri($dia_actual,$mes).">$dia_actual</td>";
+			echo "<td align=center bgcolor=#eeeeee class=td><INPUT type=checkbox name=dias ".dia_feri($dia_actual,$mes).">$dia_actual</td>";
 			$dia_actual=$dia_actual+1;
 		}
 	}
@@ -136,7 +141,7 @@ global $arrHttp,$msgstr;
 		//si estamos a principio de la semana escribo el <TR>
 		if ($numero_dia == 0)
 			echo "<tr>";
-		echo "<td align=center bgcolor=#B0D1EF class=td><INPUT type=checkbox name=dias ".dia_feri($dia_actual,$mes).">$dia_actual</td>";
+		echo "<td align=center bgcolor=#eeeeee class=td><INPUT type=checkbox name=dias ".dia_feri($dia_actual,$mes).">$dia_actual</td>";
 		$dia_actual=$dia_actual+1;
 		$numero_dia=$numero_dia+1;
 		//si es el uñtimo de la semana, me pongo al principio de la semana y escribo el </tr>
