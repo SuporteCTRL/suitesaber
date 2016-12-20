@@ -62,7 +62,7 @@ for($i=0;$i<count($outmx_max_mfn);$i++)
 {
 $datosMFN.=$outmx_max_mfn[$i];
 }
-$split_mfn =(explode('mfn=',$datosMFN));
+$split_mfn=explode('mfn=',$datosMFN);
 $max_mfn=count($split_mfn);
 $max_mfnM1=$max_mfn-1;
   echo "
@@ -79,8 +79,8 @@ $max_mfnM1=$max_mfn-1;
     </script>
        Sub-field
   <input class="form-control"  type="text" name="tag" id="tag" value="a"/>
-   <label></label><label><br />
-  <br />
+   <label></label><label>
+ 
   
   Control number field
   <input class="form-control"  name="cnf" type="text" id="cnf" value="1" />

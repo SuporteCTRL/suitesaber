@@ -300,7 +300,7 @@ if (file_exists($archivo)){
 
 		<div class="searchBox">
 				<label for="searchExpr">
-					<strong><?php echo $msgstr["buscar"]?></strong>
+					<strong><?php echo $msgstr["buscar"];?></strong>
 				</label>
 				<input type="text" name="expre" id="Expre" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';"
 				value='<?php if (isset($arrHttp["Expresion"])) echo $arrHttp["Expresion"]?>' />
@@ -534,7 +534,7 @@ global $msgstr,$arrHttp,$ret;
 		<a href="javascript:Crear()"><?php echo $msgstr["crear"]?></a> |
 		<a href="javascript:Generar()"><?php echo "Generar Agenda"?>
 		</a>
-        &nbsp; &nbsp; &nbsp;
+      
 	</div>
 
 <?php

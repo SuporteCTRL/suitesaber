@@ -42,36 +42,71 @@ include("../common/institutional_info.php");
 </div>
 
 <div>
-<div class="middle form">
+
 	<div class="formContent">
 
 	
 	<label><?php echo $msgstr["overview"].": ".$msgstr["suggestions"]?></label>
 	
-	<ul>
+	<ul class="list-group">
+            
+           
+			<a href=../dataentry/show.php?base=suggestions&Expresion=STA_0 target=_blank> 
+				<li class="list-group-item">
+            		<span class="badge"> <?php if (isset( $Total[0])) echo $Total[0];?></span>
+					<?php echo $msgstr["status_0"];?> 
+				</li>
+			</a> 
+			
+			<a href=../dataentry/show.php?base=suggestions&Expresion=STA_1 target=_blank>
+				<li class="list-group-item">
+					<span class="badge"><?php if (isset($Total[1])) echo $Total[1];?></span> 
+					<?php echo $msgstr["approved"];?>
+		    	</li>
+		    </a>
 
-			<a class="btn btn-default" href=../dataentry/show.php?base=suggestions&Expresion=STA_0 target=_blank> <?php echo $msgstr["status_0"]?>  <?php if (isset( $Total[0])) echo $Total[0]?></a> 
-			<br>
+			<a href=../dataentry/show.php?base=suggestions&Expresion=STA_2 target=_blank>
+				<li class="list-group-item">
+					<span class="badge"><?php if (isset($Total[2])) echo $Total[2];?></span>
+					<?php echo $msgstr["rejected"];?>
+ 				</li>
+ 			</a>
 		
-			<a class="btn btn-default" href=../dataentry/show.php?base=suggestions&Expresion=STA_1 target=_blank> <?php echo $msgstr["approved"]?> <?php if (isset($Total[1])) echo $Total[1]?> </a>
-			<br>
-		
-			<a class="btn btn-default" href=../dataentry/show.php?base=suggestions&Expresion=STA_2 target=_blank> <?php echo $msgstr["rejected"]?><?php if (isset($Total[2])) echo $Total[2]?></a>
-		
-		    <br>
-			<a class="btn btn-default" href=../dataentry/show.php?base=suggestions&Expresion=STA_3 target=_blank> <?php echo $msgstr["inbidding"]?> <?php if (isset($Total[3])) echo $Total[3]?> </a>
-			<br>
-		    
-			<a class="btn btn-default" href=../dataentry/show.php?base=suggestions&Expresion=STA_4 target=_blank> <?php echo $msgstr["prov_sel"]?> <?php if (isset($Total[4])) echo $Total[4]?></a>
+
+		    <a href=../dataentry/show.php?base=suggestions&Expresion=STA_3 target=_blank>
+		    	<li class="list-group-item">
+		    		<span class="badge"><?php if (isset($Total[3])) echo $Total[3];?></span>
+					<?php echo $msgstr["inbidding"];?> 
+				 </li>
+			</a>
+
+			<a href=../dataentry/show.php?base=suggestions&Expresion=STA_4 target=_blank>
+				<li class="list-group-item">
+					<span class="badge"><?php if (isset($Total[4])) echo $Total[4];?></span>
+		   			<?php echo $msgstr["prov_sel"];?> 
+		   		</li>
+		   	</a>
 		 
- <br>
-			<a class="btn btn-default" href=../dataentry/show.php?base=suggestions&Expresion=STA_5 target=_blank> <?php echo $msgstr["purchase"]?> <?php if (isset($Total[5])) echo $Total[5]?> </a>
+            <a href=../dataentry/show.php?base=suggestions&Expresion=STA_5 target=_blank>
+ 				<li class="list-group-item">
+ 					<span class="badge"><?php if (isset($Total[5])) echo $Total[5];?></span>
+				 	<?php echo $msgstr["purchase"];?>  
+				</li>
+		    </a>
 		
- <br>
-			<a class="btn btn-default" href=../dataentry/show.php?base=suggestions&Expresion=STA_6 target=_blank> <?php echo $msgstr["itemsrec"]?> <?php if (isset($Total[6])) echo $Total[6]?> </a>
-		 <br>
-
-			<a class="btn btn-default" href=../dataentry/show.php?base=suggestions&Expresion=STA_7 target=_blank><?php echo $msgstr["completed"]?> <?php if (isset($Total[7])) echo $Total[7]?></a>
+		    <a href=../dataentry/show.php?base=suggestions&Expresion=STA_6 target=_blank>
+ 				<li class="list-group-item">
+ 					<span class="badge"><?php if (isset($Total[6])) echo $Total[6];?></span>
+					<?php echo $msgstr["itemsrec"];?>  
+				</li>
+			</a>
+		 
+         <a href=../dataentry/show.php?base=suggestions&Expresion=STA_7 target=_blank>
+		 	<li class="list-group-item">
+		 		<span class="badge"><?php if (isset($Total[7])) echo $Total[7];?></span>
+                <?php echo $msgstr["completed"];?>
+		 </li>
+		 	</a>
 	</ul>
 
 	</div>

@@ -49,15 +49,15 @@ include("../common/institutional_info.php");
 
 <div class="middle form">
 	<div class="formContent">
-<form name=forma1 action=actualizararchivotxt.php method=post onsubmit='javascript:return false'>
-<input type=hidden name=txt>
-<input type=hidden name=archivo value='bases.dat'>
-<input type=hidden name=retorno value=conf_abcd.php>
-<input type=hidden name=encabezado value=s>
+<form name="forma1" action="actualizararchivotxt.php" method="post" onsubmit='javascript:return false'>
+<input type="hidden" name="txt">
+<input type="hidden" name="archivo" value="bases.dat">
+<input type="hidden" name="retorno" value="conf_abcd.php">
+<input type="hidden" name="encabezado" value="s">
 <br>
-<table border=0>
+<table border="0">
 	<tr>
-		<td valign=center>
+		<td valign="center">
    			<button value="Up" class="btn btn-success" onClick="moveOptionUp(this.form['lista'])">
    			<i class="fa fa-angle-up" aria hidden="true"></i></button>
 			<br>
@@ -65,7 +65,7 @@ include("../common/institutional_info.php");
 			<i class="fa fa-angle-down" aria hidden="true"></i></button>
    		</td>
 		<td>
-			<select name=lista size=20>
+			<select name="lista" size="20">
 <?php
 $fp=file($db_path."bases.dat");
 foreach ($fp as $value){

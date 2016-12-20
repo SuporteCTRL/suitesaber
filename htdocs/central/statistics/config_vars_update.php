@@ -27,35 +27,42 @@ if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics"){
 }else{
 	$script="../dbadmin/menu_modificardb.php";
 }
-
+echo "<a href=\"$script?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
+echo "<img src=\"../images/defaultButton_iconBorder.gif\" />
+	<span><strong>".$msgstr["back"]."</strong></span></a>
+	";
 ?>
-
-
+</div><div class="spacer">&#160;</div></div>
+<div class="helper">
+<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats_index.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	
+	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/stats_index.html target=_blank>".$msgstr["edhlp"]."</a>";
 echo "<font color=white>&nbsp; &nbsp; Script: config_vars_update.php";
 ?>
 </font>
 	</div>
 <div class="middle form">
 	<div class="formContent">
-
 <?php
-
-$file= $db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
-
+$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
 $fp=fopen($file,"w");
-
 $arrHttp["ValorCapturado"]=stripslashes($arrHttp["ValorCapturado"]);
-
-$vc=explode($arrHttp["ValorCapturado"]);
+$vc=explode("\n",$arrHttp["ValorCapturado"]);
 foreach ($vc as $value){
-	$r = fwrite($fp,$value, "");
+	$r=fwrite($fp,$value."\n");
 }
 $r=fclose($fp);
-echo "<h4>". $arrHttp["base"]."/".$_SESSION["lang"]."/def/stat.cfg"." ".$msgstr["updated"]."</h4>" ;
+?>
 
+<?php
+echo  .$arrHttp["base"]. .$_SESSION["lang"]". /def/stat.cfg" .$msgstr["updated"].;
+?>
+
+
+<?php
+$volta = $script."?base=".$arrHttp[base].$encabezado;
+	header('Refresh: 1; url='.$volta.'');
 ?>
 	</div>
 </div>

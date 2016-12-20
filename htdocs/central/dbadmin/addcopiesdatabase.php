@@ -330,8 +330,8 @@ echo $total;
   size="5"/>
   
 
-  <select name=agregar id=atunique onChange=AlterEntry(1) >
-	<option value=''>adicionar</option>
+  <select name="agregar" id="atunique" onChange="AlterEntry(1)" >
+	<option value="">adicionar</option>
 	<option value="ml">Main Library</option>
 	<option value="bl">Branch Library</option>
 	<option value="tome">Tome</option>
@@ -349,7 +349,7 @@ echo $total;
   <a href=javascript:AlterEntry(0) class="btn btn-default"><i class="fa fa-times" aria hidden="true"></a></i>
 	
   <label>Inventory Number Field</label>
-  <input name="inf" class="form-control" type="text" id="inf" value="
+  <input name="inf" class="form-control" type="text" id="inf" value="">
   <?php 
   if (isset($_POST["inf"])) 
     echo $_POST["inf"];
@@ -363,7 +363,7 @@ echo $total;
   <?php 
   if (isset($_POST["insf"])) 
     echo $_POST["insf"];
-  ?>" 
+  ?> "
   size="5"/>
   
 

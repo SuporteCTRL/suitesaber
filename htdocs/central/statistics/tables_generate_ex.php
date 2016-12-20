@@ -177,7 +177,7 @@ echo "<a href=javascript:SendTo(\"P\")>".$msgstr["prn"]."</a> &nbsp; | &nbsp; ";
 echo "<a href=javascript:SendTo(\"AG\")>".$msgstr["ag"]."</a> &nbsp; | &nbsp; ";
 //echo "<a href=javascript:SendTo(\"NAG\")>".$msgstr["nag"]."</a> &nbsp; | &nbsp; ";
 echo "<div id=results>";
-echo "<H4>$ttit</H4>";
+echo "<h4>$ttit</h4>";
 echo "\n<script>Pie=\"$Pie\"</script>\n";
 $tab=array();
 $total_r=0;
@@ -225,9 +225,9 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 	// IMPRESION  DE LA TABLA
 	foreach ($row as $x){
 		if (trim($x)=="")
-			echo "<tr><td bgcolor=#ffffff>".$msgstr["nodata"]."</td>";
+			echo "<tr><td>".$msgstr["nodata"]."</td>";
 		else
-			echo "<tr><td bgcolor=#ffffff>$x</td>";
+			echo "<tr><td>$x</td>";
 		$total_r=0;
 		$arreglo.="###$x".'|'; //Título de las filas
 		foreach ($col as $y){
@@ -245,11 +245,11 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 				$total_r+=$cell;
 				$arreglo.=$cell.'|';
 			}
-			echo "<td align=center bgcolor=#ffffff>$cell</td>";
+			echo "<td align=center >$cell</td>";
 		}
-		echo "<td align=center bgcolor=#ffffff>$total_r</td>";
+		echo "<td align=center >$total_r</td>";
 	}
-	echo "<tr><td bgcolor=#ffffff><strong>".$msgstr["total"]."</strong></td>";
+	echo "<tr><td ><strong>".$msgstr["total"]."</strong></td>";
 	$total=0;
 	foreach ($total_c as $cell) {
 		if ($cell==""){
@@ -257,15 +257,15 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 		}else{
 			$total+=$cell;
 		}
-		echo "<td align=center bgcolor=#ffffff>$cell</td>";
+		echo "<td align=center>$cell</td>";
 	}
-	echo "<td align=center bgcolor=#ffffff>$total</td>";
+	echo "<td align=center >$total</td>";
 	echo "</table>";
 }else{
 //TABLAS DE FRECUENCIA
 	//ENCABEZADO DE LA TABLA
 	$ix=count($tab);
-	echo "<table border class=statTable bgcolor=#eeeeee>";
+	echo "<table border class=statTable >";
 	echo "<tr><th>$trow_tit</th>";
 	ksort($tab);
 
@@ -276,21 +276,21 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 	foreach ($tab as $x=>$val){
 		if (trim($x)=="") $x=$msgstr["nodata"];
 		$arreglo.="###$x|$val"; //Título de las filas
-		echo "<tr><td bgcolor=#ffffff>$x</td>";
-		echo "<td align=center bgcolor=#ffffff>".$val."</td>";
+		echo "<tr><td >$x</td>";
+		echo "<td align=center >".$val."</td>";
         $total+=$val;
 
 	}
-	echo "<tr><td align=center bgcolor=#ffffff>".$msgstr["total"]."</td>";
-	echo "<td bgcolor=#ffffff><strong>$total</strong></td>";
+	echo "<tr><td align=center >".$msgstr["total"]."</td>";
+	echo "<td ><strong>$total</strong></td>";
 	echo "</table>";
 }
 echo "</div></div>";
 echo "<dd>".$msgstr["sendto"].": ";
-echo "<a href=javascript:SendTo(\"W\")>".$msgstr["wks"]."</a> &nbsp; | &nbsp; ";
-echo "<a href=javascript:SendTo(\"D\")>".$msgstr["doc"]."</a> &nbsp; | &nbsp; ";
-echo "<a href=javascript:SendTo(\"P\")>".$msgstr["prn"]."</a> &nbsp; | &nbsp; ";
-echo "<a href=javascript:SendTo(\"AG\")>".$msgstr["ag"]."</a> &nbsp; | &nbsp; ";
+echo "<a href=javascript:SendTo(\"W\")>".$msgstr["wks"]."</a>";
+echo "<a href=javascript:SendTo(\"D\")>".$msgstr["doc"]."</a>";
+echo "<a href=javascript:SendTo(\"P\")>".$msgstr["prn"]."</a>";
+echo "<a href=javascript:SendTo(\"AG\")>".$msgstr["ag"]."</a>";
 //echo "<a href=javascript:SendTo(\"NAG\")>".$msgstr["nag"]."</a> &nbsp; | &nbsp; ";
 echo "<p>";
 ?>
@@ -299,10 +299,10 @@ echo "<p>";
 </form>
 
 <!-- FORMA PARA ENVIAR LA SALIDA A UNA HOJA DE CALCULO O A UN DOCUMENTO-->
-<form name=sendto action=sendto.php method=post target="STATS">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=html>
-<input type=hidden name=Opcion>
+<form name="sendto" action="sendto.php" method="post" target="STATS">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="html">
+<input type="hidden" name="Opcion">
 <?php
 if (isset($arrHttp["Expresion"]))
 	echo "<input type=hidden name=Expresion value=\"".urlencode($arrHttp["Expresion"])."\">\n";
