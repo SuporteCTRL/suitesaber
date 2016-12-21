@@ -127,7 +127,7 @@ echo "<font color=white>&nbsp; &nbsp; Script: typeofrecs_marc_edit.php";
 </font>
 	</div>
 <div class="middle form">
-			<div class="formContent"> <xcenter>
+			<div class="formContent"> 
 
 
 <?php
@@ -189,18 +189,19 @@ if (!isset($fpType)){
 
 	if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";
     echo "<center>
-<table border=0 background=../img/fondo0.jpg>
+<table class=\"table table-striped\">
 	<tr>
-		<TD valign=top colspan=2>" . $msgstr["typeofrecords_new"]."</td>
+		<td>" . $msgstr["typeofrecords_new"]."</td>
 	</tr>
 	<tr>
-		<td width=50>".$msgstr["tag"]." 1</td><td width=500><input type=text name=tipom value='' size=4></td>
+		<td >".$msgstr["tag"]." 1</td><td><input type=text name=tipom value='' size=4></td>
 	</tr>
 	<tr>
 		<td>".$msgstr["tag"]." 2</td><td><input type=text name=nivelr value='' size=4></td>
 	</tr>
 
-</table><p>
+</table>
+<br><br>
 	<input  type=submit value=' &nbsp; &nbsp; ".$msgstr["send"]." &nbsp; &nbsp; ' onClick=javascript:EnviarTipoR()>
 </form>\n";
 echo "</div></div></center>";
@@ -228,7 +229,7 @@ if (isset($fpType)) {
 					$nivelr=trim(substr($linea,$ixpos+1));
 				}
 				echo "
-<table>
+<table class=\"table table-striped\">
 	<tr>
 		<td colspan=2>" .$msgstr["typeofrecords_new"]." ". $msgstr["typeofrecords_tags"]."</td>
 	</tr>
@@ -241,8 +242,8 @@ if (isset($fpType)) {
 
 </table><p>\n";
 				$ix=1;
-				echo "<table  border=0 cellspacing=0>";
-				echo "<tr><td align=center>".$msgstr["fmt"]."</td><td align=center>".$msgstr["tag"]." 1<br>".$msgstr["value"]."</td><td align=center>".$msgstr["tag"]." 2<br>".$msgstr["value"]."</td><td align=center>".$msgstr["typeofrecords"]." ".$msgstr["description"]."</td></tr>\n";
+				echo "<table class=\"table table-striped\">";
+				echo "<tr><td>".$msgstr["fmt"]."</td><td>".$msgstr["tag"]." 1<br>".$msgstr["value"]."</td><td>".$msgstr["tag"]." 2<br>".$msgstr["value"]."</td><td align=center>".$msgstr["typeofrecords"]." ".$msgstr["description"]."</td></tr>\n";
 			}else{
 				$j=$j+1;
 				$i=0;
@@ -256,7 +257,7 @@ if (isset($fpType)) {
 					switch ($i){
 
 						case 1:
-							$link="<td><div class=\"input-group\"><div class=\"input-group-btn\"><a class=\"btn btn-default\" href='javascript:VerFdt(\"cell$j"."_".$i."\")'>edit</a></div></div>";
+							$link="<td><div class=\"input-group\"><div class=\"input-group-btn\"><a class=\"btn btn-danger\" href='javascript:VerFdt(\"cell$j"."_".$i."\")'>Editar</a></div></div>";
 							echo "$link <select class=\"form-control\" name=cell$j"."_".$i.">
 								<option value=\"\"></option> ";
 							foreach ($fmt as $f){

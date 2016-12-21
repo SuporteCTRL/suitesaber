@@ -137,17 +137,17 @@ function EnviarForma(){
 	</div>
 	
 </div>
-
+<br><br>
 
 <div class="middle form">
 	<div class="formContent">
-	<table class="listTable" cellspacing=0 border=0>
+	<table class="table table-striped">
 		<tr>
 
 <?php
 // se imprime la lista de recomendaciones pendientes
 	$t=explode('|',$tit_tab);
-	echo "<th>&nbsp;</th>";
+	
 	foreach ($t as $v)  echo "<th>".$v."</th>";
     $ixelem=0;
 	foreach ($recom as $value){
@@ -163,8 +163,8 @@ function EnviarForma(){
 			foreach ($r as $cell){
 				$ix1=$ix1+1;
 				if ($ix1==1){
-					echo "<td nowrap><a href=javascript:Editar($cell)><i class=\"fa fa-pencil-square-o\"></i></a>
-					<a href=javascript:Delete($cell)><i class=\"fa fa-trash\" ></i></a>
+					echo "<td nowrap><a href=javascript:Editar($cell) class=\"btn btn-warning\"><i class=\"fa fa-pencil-square-o\"></i></a>
+					<a href=javascript:Delete($cell) class=\"btn btn-warning\"><i class=\"fa fa-trash\" ></i></a>
 					</td>";
 				}
 				if ($ix1>1){

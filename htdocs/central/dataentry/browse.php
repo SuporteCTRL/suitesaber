@@ -298,14 +298,15 @@ if (file_exists($archivo)){
 ?>
 
 
-		<div class="searchBox">
+		<div class="col-md-6">
 				<label for="searchExpr">
 					<strong><?php echo $msgstr["buscar"];?></strong>
 				</label>
-				<input type="text" name="expre" id="Expre" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';"
+				<input type="text" name="expre" id="Expre" class="form-control" 
 				value='<?php if (isset($arrHttp["Expresion"])) echo $arrHttp["Expresion"]?>' />
+				<br>
 				
-				<select name="indexes" class="textEntry">
+				<select name="indexes" class="form-control">
 					<option></option>
 <?php
 
@@ -324,14 +325,14 @@ if (file_exists($archivo)){
 	}
 ?>
 				</select>
-<br><br>
+<br>
 				<input class="btn btn-default" type="button" name="ok" value="<?php echo $msgstr["index"]?>" xclass="submit" onClick=javascript:PresentarDiccionario() />
 
 				<input class="btn btn-default" type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="submit" onClick=javascript:document.diccionario.from.value=1;EjecutarBusqueda() />
 				<?php if (isset($arrHttp["Expresion"]))
 					echo "\n<input type=\"submit\" name=\"ok\" value=\"".$msgstr["bmfn"]."\"  onClick=javascript:Browse() />"
 				?>
-				<input type=hidden name=Target value=S>
+				<input type="hidden" name="Target" value="S">
 
 
 		</div>
@@ -340,7 +341,8 @@ if (file_exists($archivo)){
 }
 
 echo "
-			<table class=\"listTable\">
+		
+			<table class=\"table table-striped\">
 				
 					
 	";

@@ -329,7 +329,6 @@ include("../lang/acquisitions.php");
       </div>
     </div>
 
-   
   <?php
     include("../common/footer.php");
   ?>

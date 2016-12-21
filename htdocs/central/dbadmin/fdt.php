@@ -602,7 +602,7 @@ function List(){
 
 							break
 					}
-					msgwin.document.write("<td bgcolor=white>"+cell+"&nbsp;</td>")
+					msgwin.document.write("<td >"+cell+"&nbsp;</td>")
 				}
 			}
 		}
@@ -740,12 +740,15 @@ if (isset($arrHttp["encabezado"])){
 
 	<div class="middle form">
 		<div class="formContent">
-			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
-
-			&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
-			&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
- &nbsp; &nbsp; <font color=darkred size=1><strong><?php echo $msgstr['double_click']?></strong></font>
-	<table  style="width:100%; height:200" id=tblToGrid class="dhtmlxGrid">
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
+            &nbsp;
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
+			&nbsp;
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
+ &nbsp; &nbsp;<label><?php echo $msgstr['double_click']?></label>
+ <br>
+	<table  class="table table-striped">
+	<br>
 <?php
 echo "<tr>";
 $tope=0;
@@ -886,12 +889,7 @@ if (isset($fp)){
 ?>
 
 	</table>
-	<a class="btn btn-default" href=javascript:Test()><?php echo $msgstr["test"]?></a>&nbsp; 
-	<a class="btn btn-default" href=javascript:List()><?php echo $msgstr["list"]?></a>&nbsp;
-	<a class="btn btn-default" href=javascript:Validate()><?php echo $msgstr["validate"]?></a>&nbsp;
-	<?php
-	if (!isset($arrHttp["moodle"]))
-		echo "<a class=\"btn btn-default\" href=javascript:Enviar()>". $msgstr["update"]."</a>";?>&nbsp; &nbsp; &nbsp; &nbsp;
+	
 
 <script>
 	var mygrid = new dhtmlXGridFromTable('tblToGrid');
@@ -990,6 +988,7 @@ if (isset($fp)){
 </script>
 <br><br>
 </form>
+
 <form name=forma1 action=fdt_update.php method=post>
 <?php if (isset($arrHttp["fmt_name"])){
 	echo "<input type=hidden name=fmt_name value=".$arrHttp["fmt_name"].">\n";
@@ -1010,6 +1009,8 @@ if (isset($fp)){
 ?>
 
 </form>
+
+
 <form name=rowedit action=fdt_rowedit.php method=post target=WinRow>
 <input type=hidden name=ValorCapturado>
 <input type=hidden name=row>
@@ -1027,9 +1028,16 @@ if (isset($fp)){
 <input type=hidden name=row>
 <input type=hidden name=type>
 </form>
+
 </div>
 </div>
-<?php include ("../common/footer.php");?>
+<a class="btn btn-primary" href=javascript:Test()><?php echo $msgstr["test"]?></a>&nbsp; 
+	<a class="btn btn-warning" href=javascript:List()><?php echo $msgstr["list"]?></a>&nbsp;
+	<a class="btn btn-danger" href=javascript:Validate()><?php echo $msgstr["validate"]?></a>&nbsp;
+	<?php
+	if (!isset($arrHttp["moodle"]))
+		echo "<a class=\"btn btn-success\" href=javascript:Enviar()>". $msgstr["update"]."</a>";?>&nbsp; &nbsp; &nbsp; &nbsp;
+
 </body>
 </html>
 <script>

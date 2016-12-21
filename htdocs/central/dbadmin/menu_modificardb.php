@@ -43,8 +43,8 @@ include("../common/header.php");
 
 // INCLUSION DE LOS SCRIPTS
 ?>
-<script src=../dataentry/js/lr_trim.js></script>
-<script languaje=javascript>
+<script src="../dataentry/js/lr_trim.js"></script>
+<script languaje="javascript">
 
 function Update(Option){
 	if (document.update_base.base.value==""){

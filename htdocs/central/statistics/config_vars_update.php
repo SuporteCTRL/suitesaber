@@ -32,7 +32,7 @@ echo "<img src=\"../images/defaultButton_iconBorder.gif\" />
 	<span><strong>".$msgstr["back"]."</strong></span></a>
 	";
 ?>
-</div><div class="spacer">&#160;</div></div>
+</div></div>
 <div class="helper">
 <a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats_index.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
 <?php

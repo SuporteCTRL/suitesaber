@@ -176,7 +176,7 @@ function EnviarForma(){
 		
 		</div>
 
-		<table class=listTable cellspacing=0 border=1>
+		<table class="table table-striped">
 		<tr>
 
 <?php
@@ -202,7 +202,7 @@ function EnviarForma(){
 					$ix1=1;
 				else
 					if ($ix1==1){
-						echo "<td nowrap><a href=javascript:Mostrar('$cell')><i class=\"fa fa-search\"></i></a>";
+						echo "<td nowrap><a href=javascript:Mostrar('$cell') class=\"btn btn-primary\"><i class=\"fa fa-search\"></i></a>";
 						echo "<input type=checkbox name=oc value=\"$cell\">&nbsp;";
 						echo "</td>";
 						$ix1=2;

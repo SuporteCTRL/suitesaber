@@ -625,14 +625,14 @@ if (isset($arrHttp["encabezado"])){
 
 
 
-<form name=forma1 method=post action=../dataentry/imprimir_g.php onsubmit="Javascript:return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["base"]?>.par>
-<input type=hidden name=Dir value=<?php echo $arrHttp["Dir"]?>>
-<input type=hidden name=Modulo value=<?php if (isset($arrHttp["Modulo"])) echo $arrHttp["Modulo"]?>>
-<input type=hidden name=tagsel>
-<input type=hidden name=Opcion>
-<input type=hidden name=vp>
+<form name="forma1" method="post" action="../dataentry/imprimir_g.php" onsubmit="Javascript:return false">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="cipar" value="<?php echo $arrHttp["base"]?>.par">
+<input type="hidden" name="Dir" value="<?php echo $arrHttp["Dir"]?>">
+<input type="hidden" name="Modulo" value="<?php if (isset($arrHttp["Modulo"])) echo $arrHttp["Modulo"]?>">
+<input type="hidden" name="tagsel">
+<input type="hidden" name="Opcion">
+<input type="hidden" name="vp">
 
 
 

@@ -145,7 +145,7 @@ function Enviar(sort){
 		</div>
 
 		</h5>
-	<table class=listTable cellspacing=0 border=1>
+	<table class="table table-striped">
 		<tr>
 
 <?php

@@ -149,7 +149,7 @@ function Enviar(sort){
 		</div>
 
 		
-	<table class=listTable cellspacing=0 border=1>
+	<table class="table table-striped">
 		
 <?php
 // se imprime la lista de recomendaciones pendientes
@@ -166,8 +166,8 @@ function Enviar(sort){
 				$ix1=1;
 			else
 				if ($ix1==1){
-					echo "<td nowrap><a href=\"javascript:Editar($cell)\"><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></a>
-					<a href=javascript:Mostrar($cell)><i class=\"fa fa-search\" aria-hidden=\"true\"></i></a>
+					echo "<td nowrap><a href=\"javascript:Editar($cell)\" class=\"btn btn-warning\"><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></a>
+					<a href=javascript:Mostrar($cell) class=\"btn btn-primary\"><i class=\"fa fa-search\" aria-hidden=\"true\"></i></a>
 					</td>";
 					$ix1=2;
 				}else
@@ -183,13 +183,13 @@ function Enviar(sort){
 	</div>
 </div>
 </form>
-<form name=EnviarFrm method=post action=decision_ex.php>
-<input type=hidden name=base value="<?php echo $arrHttp["base"]?>">
-<input type=hidden name=Mfn value="">
-<input type=hidden name=Opcion value="">
-<input type=hidden name=sort value=<?php echo $arrHttp["sort"]?>>
-<input type=hidden name=retorno value=../acquisitions/decision.php>
-<input type=hidden name=encabezado value="S">
+<form name="EnviarFrm" method="post" action="decision_ex.php">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="Mfn" value="">
+<input type="hidden" name="Opcion" value="">
+<input type="hidden" name="sort" value="<?php echo $arrHttp["sort"]?>">
+<input type="hidden" name="retorno" value="../acquisitions/decision.php">
+<input type="hidden" name="encabezado" value="S">
 <?php if (isset($arrHttp["see_all"])) echo "<input type=hidden name=see_all value=\"S\"> ";?>
 
 </form>

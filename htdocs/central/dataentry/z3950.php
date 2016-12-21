@@ -149,13 +149,13 @@ if (file_exists($archivo)){
 		<td></td>
 		<td>
 			<input class="form-control" type=""text"" size="50" name="term1" value="">
-			<?php echo $msgstr["z3950_in"]?>&nbsp;
+			<?php echo $msgstr["z3950_in"];?>
 			<select class="form-control" name="field1">
-				<option value="Todos los campos"><?php echo $msgstr["z3950_all"]?>
-				<option value="Título"><?php echo $msgstr["z3950_title"]?>
-				<option value="Autor"><?php echo $msgstr["z3950_author"]?>
-				<option value="ISBN"><?php echo $msgstr["z3950_isbn"]?>
-				<option value="ISSN"><?php echo $msgstr["z3950_issn"]?>
+				<option value="Todos los campos"><?php echo $msgstr["z3950_all"];?>
+				<option value="Título"><?php echo $msgstr["z3950_title"];?>
+				<option value="Autor"><?php echo $msgstr["z3950_author"];?>
+				<option value="ISBN"><?php echo $msgstr["z3950_isbn"];?>
+				<option value="ISSN"><?php echo $msgstr["z3950_issn"];?>
 			</select>
 		</td>
 		<tr>
@@ -163,46 +163,47 @@ if (file_exists($archivo)){
 	<table width=600>
 		<td  colspan=5 class=td><?php echo $msgstr["z3950_msg"]?></td>
 		<tr>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
 		<tr>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
 		<tr>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
 		<tr>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
 		<tr>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
-		<td align=center><input type="text" size="15" name=isbn value=""</td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
+		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
 	</table>
 <input type="hidden" name="isbn_l" value="">
-<br><?php echo $msgstr["show"]?> <input class="form-control" type="text" name=number value="10" size=4> <?php echo $msgstr["registros"]?>
-<?php echo $msgstr["z3950_retray"]?> <input type="text" name=reintentar value="10" size=2> <?php echo $msgstr["z3950_times"]?>
-<input class="btn btn-default" type="submit" name="action" onclick=Isbn() value="<?php echo $msgstr["busqueda"]?>"><input type=hidden name=start value="1">
+<br><?php echo $msgstr["show"];?> <input class="form-control" type="text" name="number" value="10" size="4"> <?php echo $msgstr["registros"];?>
+<?php echo $msgstr["z3950_retray"];?> <input type="text" name="reintentar" value="10" size="2"> <?php echo $msgstr["z3950_times"];?>
+<br>
+<input class="btn btn-primary" type="submit" name="action" onclick=Isbn() value="<?php echo $msgstr["busqueda"]?>"><input type=hidden name=start value="1">
 <input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
 
 <?php
-if (isset($arrHttp["Mfn"])) echo "<input  type=hidden name=Mfn value=".$arrHttp["Mfn"].">\n"; //COPY TO AN EXISTENT RECORD
+if (isset($arrHttp["Mfn"])) echo "<input type=hidden name=Mfn value=".$arrHttp["Mfn"].">\n"; //COPY TO AN EXISTENT RECORD
 if (isset($arrHttp["test"])){
-	echo "<input class=\"btn btn-default\" type=submit value='".$msgstr["cerrar"]."' onclick=javascript:self.close()>\n";
+	echo "<input class=\"btn btn-danger\" type=submit value='".$msgstr["cerrar"]."' onclick=javascript:self.close()>\n";
 	echo "<input type=hidden name=test value=Y>\n";
 
 }
@@ -213,7 +214,8 @@ if (isset($arrHttp["test"])){
 
 </div>
 </div>
-<?php include ("../common/footer.php")?>
+<?php 
+include ("../common/footer.php");?>
 
      </body>
 </html>

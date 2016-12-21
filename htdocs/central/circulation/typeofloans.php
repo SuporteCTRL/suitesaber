@@ -68,8 +68,12 @@ include("../common/header.php");
 			Actualizar()
 		}
 	}
-	function Validate(Accion){	}
-	function Actualizar(){	}
+	function Validate(Accion){
+
+	}
+	function Actualizar(){
+
+	}
 	function doBeforeRowDeleted(rowId){
   		VC=""
 		for (j=0;j<3;j++){
@@ -145,11 +149,13 @@ echo "<font color=white>&nbsp; &nbsp; Script: typeofloans.php</font>\n";
 	unset($fp);
 	if (file_exists($db_path."users/def/typeofloans.tab")){
 		$fp=file($db_path."users/def/typeofloans.tab");
-	}else{		$fp=array();
+	}else{
+		$fp=array();
 		for ($i=0;$i<20;$i++){
 			$fp[$i]='|||||||||';
 		}
-		$tope=20;	}
+		$tope=20;
+	}
 	$nfilas=0;
 	$i=-1;
 	$t=array();
@@ -159,7 +165,9 @@ echo "<font color=white>&nbsp; &nbsp; Script: typeofloans.php</font>\n";
 		$value=trim($value);
 		if (trim($value)!=""){
 			$t=explode("|",$value);
-			foreach ($t as $l){				if ($l=="") $l="&nbsp;";			 	echo "<td>$l</td>";
+			foreach ($t as $l){
+				if ($l=="") $l="&nbsp;";
+			 	echo "<td>$l</td>";
 			}
 		}
 	    echo " </tr>";
@@ -203,11 +211,11 @@ echo "<font color=white>&nbsp; &nbsp; Script: typeofloans.php</font>\n";
 </script>
 <br><br>
 </form>
-<form name=forma1 action=fdt_update.php method=post>
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=desc>
-<input type=hidden name=Opcion value=>
-<input type=hidden name=base value=users>
+<form name="forma1" action="fdt_update.php" method="post">
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="desc">
+<input type="hidden" name="Opcion" value="">
+<input type="hidden" name="base" value=users>
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>"; ?>
 </form>
 

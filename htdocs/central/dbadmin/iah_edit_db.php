@@ -383,7 +383,7 @@ function DrawElement(Val_1,Val_2,ixE,ixSec,Name){
     if (ixSec==1 && ixE==0){
 
     }else{
-    	xhtml+=" <a  href=javascript:DeleteElement("+ixE+","+ixSec+")><?php echo $msgstr["delete"]?></a>\n";
+    	xhtml+=" <a class=\"btn btn-danger\"  href=javascript:DeleteElement("+ixE+","+ixSec+")><?php echo $msgstr["delete"]?></a>\n";
     }
 
     return xhtml

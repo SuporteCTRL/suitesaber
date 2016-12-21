@@ -16,9 +16,12 @@ include("../common/header.php");
 ?>
 <script>
 function Enviar(){
-	document.wks.submit()}
-function Regresar(){	document.wks.Opcion.value="saveas";
-	document.wks.submit()}
+	document.wks.submit()
+}
+function Regresar(){
+	document.wks.Opcion.value="saveas";
+	document.wks.submit()
+}
 </script>
 <?php
 
@@ -40,7 +43,7 @@ include("../common/institutional_info.php");
 <span><strong><?php echo $msgstr["back"]?></strong></span>
 </a>
 			</div>
-			<div class="spacer">&#160;</div>
+			
 </div>
 <div class="helper">
 <?php echo "<font color=white>&nbsp; &nbsp; Script: fmt_update.php" ?></font>
@@ -48,17 +51,20 @@ include("../common/institutional_info.php");
 <div class="middle form">
 			<div class="formContent">
 <center><h2>
-<form name=wks method=post action=fmt_saveas.php onsubmit="javascript:Enviar();return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=Opcion value="save">
-<input type=hidden name=fmt_name value=<?php echo $arrHttp["fmt_name"]?>>
-<input type=hidden name=fmt_desc value="<?php echo $arrHttp["fmt_desc"]?>">
+<form name="wks" method="post" action="fmt_saveas.php" onsubmit="javascript:Enviar();return false">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="Opcion" value="save">
+<input type="hidden" name="fmt_name" value="<?php echo $arrHttp["fmt_name"];?>">
+<input type="hidden" name="fmt_desc" value="<?php echo $arrHttp["fmt_desc"];?>">
 <?php
-if (isset($arrHttp["name"])){	echo "<input type=hidden name=name value='". $arrHttp["name"]."'>\n";}
+if (isset($arrHttp["name"])){
+	echo "<input type=hidden name=name value='". $arrHttp["name"]."'>\n";
+}
 if (isset($arrHttp["desc"])){
 	echo "<input type=hidden name=desc value='". $arrHttp["desc"]."'>\n";
 }
-switch ($arrHttp["Opcion"]){	case "saveas":
+switch ($arrHttp["Opcion"]){
+	case "saveas":
 		echo "<p>".$msgstr["name"].": <input type=text name=name size=8 maxlength=12 value='";
 		if (isset($arrHttp["name"])) echo $arrHttp["name"];
 		echo "'> ".$msgstr["description"].": <input type=text size=50 maxlength=50 name=desc value='";
@@ -68,7 +74,8 @@ switch ($arrHttp["Opcion"]){	case "saveas":
 		break;
 	case "save":
 		GuardarWks();
-		die;}
+		die;
+}
 ?>
 </form>
 </center>
@@ -81,8 +88,11 @@ switch ($arrHttp["Opcion"]){	case "saveas":
 
 function  GuardarWks(){
 global $arrHttp,$msgstr,$db_path;
-	$err="N";	if (!isset($arrHttp["name"]) or trim($arrHttp["name"])==""){		echo $msgstr["missing"].": ".$msgstr["name"];
-		$err="S";	}
+	$err="N";
+	if (!isset($arrHttp["name"]) or trim($arrHttp["name"])==""){
+		echo $msgstr["missing"].": ".$msgstr["name"];
+		$err="S";
+	}
 	if (!isset($arrHttp["desc"]) or trim($arrHttp["desc"])==""){
 		echo "<br>".$msgstr["missing"].": ".$msgstr["description"];
 		$err="S";
@@ -92,11 +102,15 @@ global $arrHttp,$msgstr,$db_path;
    		$err="S";
 	}
 	if ($err=="N"){
-		if (file_exists($db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["name"].".fmt")){			echo $msgstr["fileexists"];
-			$err="S";		}
+		if (file_exists($db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["name"].".fmt")){
+			echo $msgstr["fileexists"];
+			$err="S";
+		}
 	}
-	if ($err=="S"){		echo "<p><a href=javascript:Regresar()>".$msgstr["back"]."</a>";
-		return;	}
+	if ($err=="S"){
+		echo "<p><a href=javascript:Regresar()>".$msgstr["back"]."</a>";
+		return;
+	}
 
 	copy($db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["fmt_name"].".fmt",$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["name"].".fmt");
 	$filename=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/formatos.wks";

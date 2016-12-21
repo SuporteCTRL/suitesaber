@@ -163,13 +163,14 @@ else
 		<input class="form-control" type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"];?>">
 		<br>
 
-		<input type="button" class="btn btn-primary" name="index" value="<?php echo $msgstr["list"]?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
+		<input type="button" class="btn btn-primary" name="index" value="<?php echo $msgstr["list"];?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
 
-		<input  type="button" class="btn btn-warning" name="buscar" value="<?php echo $msgstr["search"]?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
+		<input  type="button" class="btn btn-warning" name="buscar" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/><?php echo $msgstr["search"];?>
 </form>
 	</div>
 	<br>
 	<form name="inventorysearch" action="numero_inventario.php" method="post" onsubmit="javascript:return false">
+
 <?php if (!isset($arrHttp["reserve"]) and !isset($arrHttp["reserve_ex"])){
 ?>
 	<div class="searchBox">
@@ -220,8 +221,8 @@ else
 			echo "<br><br>";
 			echo "<input class=\"btn btn-primary\" type=button name=rs00 value=".$msgstr["rs00"]." onClick=javascript:Output('today','rs00') >";
 
-			echo "<input class=\"btn btn-warning\" type=\"button\" name=rs01 value= ".$msgstr["rs01"]."  onClick=javascript:Output('actives','rs01')>";
-			echo "<input class=\"btn btn-success\" type=\"button\" name=\"rs02\" value=\"".$msgstr["rs02"]."\" onClick=\"javascript:Output('assigned','rs02')\" >";
+			echo "<input class=\"btn btn-warning\" type=button name=rs01 value= ".$msgstr["rs01"]."  onClick=javascript:Output('actives','rs01')>";
+			echo "<input class=\"btn btn-success\" type=button name=rs02 value=".$msgstr["rs02"]." onClick=javascript:Output('assigned','rs02')>";
 			echo "<input class=\"btn btn-danger\" type=\"button\" name=\"rs03\" value=\"".$msgstr["rs03"]."\" onClick=\"javascript:Output('overdued','rs03')\" >";
 			echo "<input class=\"btn btn-info\" type=\"button\" name=\"rs04\" value=\"".$msgstr["rs04"]."\" onClick=\"javascript:Output('attended','rs04')\" >";
 			echo "<input class=\"btn btn-default\" type=\"button\" name=\"rs05\" value=\"".$msgstr["rs05"]."\" onClick=\"javascript:Output('cancelled','rs05')\" >";
