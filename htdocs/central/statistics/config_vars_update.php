@@ -32,13 +32,13 @@ echo "<img src=\"../images/defaultButton_iconBorder.gif\" />
 	<span><strong>".$msgstr["back"]."</strong></span></a>
 	";
 ?>
-</div></div>
+</div>
+</div>
 <div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats_index.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+
 <?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/stats_index.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: config_vars_update.php";
+
+echo "<font color=white>Script: config_vars_update.php";
 ?>
 </font>
 	</div>
@@ -46,22 +46,19 @@ echo "<font color=white>&nbsp; &nbsp; Script: config_vars_update.php";
 	<div class="formContent">
 <?php
 $file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
-$fp=fopen($file,"w");
+//$fp=fopen($file,"w");
 $arrHttp["ValorCapturado"]=stripslashes($arrHttp["ValorCapturado"]);
 $vc=explode("\n",$arrHttp["ValorCapturado"]);
 foreach ($vc as $value){
-	$r=fwrite($fp,$value."\n");
+ $r=fwrite($fp,$value."\n");
 }
-$r=fclose($fp);
+$r =fclose($fp);
+echo "<h4>". $arrHttp["base"]."/".$_SESSION["lang"]."/def/stat.cfg"." ".$msgstr["updated"]."</h4>" ;
+
 ?>
 
 <?php
-echo  .$arrHttp["base"]. .$_SESSION["lang"]". /def/stat.cfg" .$msgstr["updated"].;
-?>
-
-
-<?php
-$volta = $script."?base=".$arrHttp[base].$encabezado;
+$volta = $script.'?base='.$arrHttp['base'].$encabezado;
 	header('Refresh: 1; url='.$volta.'');
 ?>
 	</div>

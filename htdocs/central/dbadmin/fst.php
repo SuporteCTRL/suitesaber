@@ -146,11 +146,11 @@ if ($arrHttp["Opcion"]=="new"){
 
 </font>
 	</div>
-<div class="middle form">
+
 			<div class="formContent">
-<table width=100% border=0>
-   	<td width=680 valign=top >
-   		<table>
+
+  
+   		<table class="table table-striped">
 	        <tr>
 			<td>
 				<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
@@ -185,7 +185,8 @@ if ($arrHttp["Opcion"]=="new"){
 			</tr>
 		</table>
 	</td>
-	<td valign=top><iframe id="cframe" src="fdt_leer.php?Opcion=<?php echo $arrHttp["Opcion"]?>&base=<?php echo $arrHttp["base"]?>" width=100% height=400 scrolling=yes name=fdt></iframe>
+	<td valign=top>
+	<iframe id="cframe" src="fdt_leer.php?Opcion=<?php echo $arrHttp["Opcion"]?>&base=<?php echo $arrHttp["base"]?>" width='100%' height="400" scrolling="yes" name="fdt"></iframe>
 	</td>
 		</table>
 	</td>
@@ -264,19 +265,19 @@ if ($arrHttp["Opcion"]=="new"){
 
 
 </form>
-<form name=forma1 action=fst_update.php method=post>
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=desc>
-<input type=hidden name=Opcion value=<?php echo $arrHttp["Opcion"]?>>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<form name="forma1" action="fst_update.php" method="post">
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="desc">
+<input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>"; ?>
 </form>
-<form name=test action=fst_test.php method=post target="FST_Test">
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=desc>
-<input type=hidden name=Mfn>
-<input type=hidden name=Opcion value=<?php echo $arrHttp["Opcion"]?>>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<form name="test" action="fst_test.php" method="post" target="FST_Test">
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="desc">
+<input type="hidden" name="Mfn">
+<input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
 </form>
 </div></div>
 <?php

@@ -171,15 +171,7 @@ echo "			</div>
 	</div>";
 
  ?>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/trad_ayudas.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/trad_ayudas.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/database_tooltips.php";
-?>
-</font>
-	</div>
+
  <div class="middle form">
 			<div class="formContent">
 
@@ -222,8 +214,8 @@ if (!isset($arrHttp["Opcion"]) or isset($arrHttp["Opcion"]) and $arrHttp["Opcion
 <? } ?>
 <a href=database_tooltips.php?Opcion=Importar&base=<?php echo $arrHttp["base"]?>><?php echo $msgstr["import_ods"]?></a><br>
 <br>
-<form name=update action=database_tooltips_ex.php method=post>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<form name="update" action="database_tooltips_ex.php" method="post">
+<input type="hidden" name="base" value=<?php echo $arrHttp["base"]?>>
 <?php
 
 

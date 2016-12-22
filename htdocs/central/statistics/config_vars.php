@@ -112,7 +112,7 @@ function DeleteElement(ix){
 
 function AddElement(){
 	seccion=returnObjById( "rows" )
-	html_sec="<table class=\"listTable\">"
+	html="<table class=\"listTable\" >"
 	Ctrl=eval("document.stats.nombre")
 	if (Ctrl){
 		if (Ctrl.length){
@@ -211,7 +211,12 @@ if (isset($arrHttp["encabezado"])){
 	$encabezado="";
 }
 echo "<form name=stats method=post>";
-echo $msgstr["stats_conf"]." - ".$msgstr["var_list"].": ".$arrHttp["base"];
+echo "<div class=\"sectionInfo\">
+	
+	<div class=\"actions\">";
+
+
+
 
 if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics")
 	$script="tables_generate.php";
@@ -219,23 +224,29 @@ else
 	$script="../dbadmin/menu_modificardb.php";
 	echo "<a href=\"$script?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
 
-//echo "<a href=\"javascript:Guardar()\" class=\"defaultButton saveButton\"><img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" /><span><strong>".$msgstr["save"]."</strong></span></a>";
+echo "
+	<a href=\"javascript:Guardar()\" class=\"defaultButton saveButton\">
+	<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
+	<span><strong>".$msgstr["save"]."</strong></span></a>";
 ?>
+</div>
+</div>
 
 
 
-	
-			<label><?php echo $msgstr["pft_ext"];?></label>
-		    <a class="btn btn-info" href=javascript:Ayuda(0)><i class="fa fa-info-circle" value="<?php echo $msgstr["var"];?>"></a></i>
-			<br>
-			<label><?php echo $msgstr["prefix"];?></label>
-			 <a href=javascript:Ayuda(1) class="btn btn-info"><i class="fa fa-info-circle" aria hidden="true"></a></i>
-	
-
-<br><br>
 
 
-       
+<div class="middle form">
+	<div class="formContent">
+		
+			<label><?php echo $msgstr["var"]?></label>
+			<a href=javascript:Ayuda(0) class="btn btn-info"><i class="fa fa-info-circle" value="<?php echo $msgstr["var"];?>"></a></i>
+
+           <label><?php echo $msgstr["pft_ext"];?></label>
+	         
+	          <a href=javascript:Ayuda(1) class="btn btn-info"><i class="fa fa-info-circle" value="  <?php echo $msgstr["prefix"]?>"></a></i>
+		
+        <div id=rows>
  <?php
  	$total=-1;
  	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
@@ -249,39 +260,29 @@ else
  				$ix++;
  				$total=$ix;
  				$var=explode('|',$value);
- 				echo " <div class=\"col-md-3\">
- 				<select class=\"form-control\" name=sel_text onchange=Cambiar(".$ix.")><option</option>\n";
+ 				echo "<div class=\"col-md-3\">
+ 						<select name=sel_text class=\"form-control\" onchange=Cambiar(".$ix.")><option</option>\n";
  				$f=explode('||',$fields);
 	    		foreach ($f as $opt) {
 					$o=explode('$$$',$opt);
-	    			echo "</div>
-
-	    			<div class=\"col-md-3\">
-	    			<option class=\"form-control\" value=\"".$o[0]."\" >".$o[1]."</option>\n";
+	    			echo "<option value=\"".$o[0]."\" >".$o[1]."</option>\n";
 	    		}
  				echo "</select></div>
-                      
- 				<div class=\"col-md-3\">
- 				 <input type=text class=\"form-control\" name=\"nombre\" value=\"".$var[0]."\" >
- 				 </div>
- 				
- 		          
- 		         <div class=\"col-md-4\">
- 				 <textarea class=\"form-control\" name=\"pft\" >".$var[1]."
- 				 </textarea>
- 				 </div>
-                 
-                 <div class=\"col-md-1\">
- 				 <input class=\"form-control\" type=\"text\" name=\"prefix\" size=5>
- 				</div>
- 				 
 
- 		
- 				<div class=\"col-md-1\">
- 				<a class=\"btn btn-danger\" href=javascript:DeleteElement(".$ix.")>
- 				<i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\">
- 				</i></a></div>";
+                <div class=\"col-md-3\">
+ 					<input type=text name=\"nombre\" value=\"".$var[0]."\" class=\"form-control\">
+ 				</div>
+                <div class=\"col-md-4\">     
+ 					<textarea name=pft class=\"form-control\">".$var[1]."</textarea>
+                </div>
+                <div class=\"col-md-1\">
+ 				<input type=text name=prefix class=\"form-control\"></a></div>
  				
+                <div class=\"col-md-1\">   
+ 				<a href=javascript:DeleteElement(".$ix.") class=\"btn btn-danger\">
+ 				<i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\">
+ 				</i></a></div>\n";
+
  			}
  		}
 
@@ -291,55 +292,24 @@ else
  		$ix++;
  		$total++;
  		for ($ix=$ix;$ix<2;$ix++){
-		 	echo "<div class=\"col-md-3\">
-		 	<select name=sel_text style='width:150px' onchange=Cambiar(".$ix.")><option></option>\n";
+		 	echo "<tr><td bgcolor=white width=300 valign=top><select name=sel_text style='width:150px' onchange=Cambiar(".$ix.")><option></option>\n";
 		 	$f=explode('||',$fields);
 			foreach ($f as $opt) {
 				$o=explode('$$$',$opt);
-				echo "
-				<option value=\"".$o[0]."\" >".$o[1]."</option>\n";
+				echo "<option value=\"".$o[0]."\" >".$o[1]."</option>\n";
 			}
-		 	echo "</select></div>";
-
-		 	?>
-	             <div class="col-md-3">
-		 	 	<input class="form-control" type="text" name="nombre" value="" size="20">
-                   </div>
-		 	
-              <div class="col-md-4">
-		 	<textarea class="form-control" name="pft" ></textarea>
-           </div>
-	          
-	        <div class="col-md-1">
-		 	<input type="text" name="prefix" size="5">
-	     </div>
-		 	
-		 	<?php
-		 	echo "<div class=\"col-md-1\"> 
-		 	<a class=\"btn btn-danger\" href=javascript:DeleteElement(".$ix.")><i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></i></a></div>\n";
-?>
-        
-
-
-
-<?php
-
+		 	echo "</select><input type=text name=\"nombre\" value=\"\" size=20></td><td bgcolor=white width=400><textarea name=pft style='width:400px;height:30px'></textarea></td><td bgcolor=white valign=top><input type=text name=prefix size=5></a>";
+		 	echo "&nbsp;<a href=javascript:DeleteElement(".$ix.")><img src=../dataentry/img/toolbarDelete.png alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></a></td></tr>\n";
 	   	}
 	}
-  
+    echo "</table>";
  ?>
+        </div>
 
-
+		<a href="javascript:AddElement('rows')"><?php echo $msgstr["add"]?></a>
 	</div>
 </div>
-
-
 </form>
-		<a href="javascript:AddElement('rows')" class="btn btn-warning"><i class="fa fa-plus"></i><?php echo $msgstr["add"];?></a>
-
-		<a href="javascript:Guardar()" class="btn btn-primary"><i class="fa fa-check"></i><?php echo $msgstr["save"];?>
-		</a>
-
 <form name="enviar" method="post" action="config_vars_update.php">
 <input type="hidden" name="base">
 <input type="hidden" name="ValorCapturado">

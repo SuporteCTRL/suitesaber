@@ -197,7 +197,7 @@ function SendForm(){
 	
 <div class="middle form">
 	<div class="formContent">
-<form name="profile" action="profile_save.php" onsubmit="javascript:return false" method=post>
+<form name="profile" action="profile_save.php" onsubmit="javascript:return false" method="post">
 <?php
 if (isset($arrHttp["encabezado"]))
 	echo "<input type=hidden name=encabezado value=S>\n";
