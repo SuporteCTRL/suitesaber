@@ -172,17 +172,21 @@ if (file_exists($file)){
 </div>
 <div class="middle">
 	<div class="formContent" >
+
 <form name="maintenance" method="post">
-<input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
+<input type="hidden" class="form-control" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
 <?php
 if (isset($arrHttp["base"]))
 	echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";
 if (!isset($arrHttp["Accion"])){
 	echo "<input type=hidden name=Accion value=\"actualizar\">\n";
-	echo "<table cellspacing=5 width=400 align=center >";
+	echo "<table class=\"table table-striped\">";
 	LeerIniFile($ini_vars,$ini);
 	if ($arrHttp["Opcion"]=="abcd_def"){
-		echo "<tr><td colspan=2><strong>MODULOS</strong></td></tr>";
+		echo "<tr>
+		<td colspan=2>
+		<label>MODULOS</label>
+		</td></tr>";
 		LeerIniFile($mod_vars,$ini);
 	}
 	echo "</table>";

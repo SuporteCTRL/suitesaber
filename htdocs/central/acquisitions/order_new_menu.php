@@ -57,7 +57,8 @@ include("../common/institutional_info.php");
 		$var=trim($var);
 		$v=explode('|',$var);
 		$var=urlencode($var);
-		echo "<a class=\"btn btn-primary\" href=order_new.php?base=purchaseorder&cipar=purchaseorder.par&mov=$var&Opcion=nuevo&wks=".$v[0].">".$v[1]."</a>";
+		echo "<div class=\"btn-group btn-group-justified\">
+		<a class=\"btn btn-primary\" href=order_new.php?base=purchaseorder&cipar=purchaseorder.par&mov=$var&Opcion=nuevo&wks=".$v[0].">".$v[1]."</a></div>";
 	}
 
 ?>

@@ -194,7 +194,17 @@ if (!isset($arrHttp["encabezado"]))
 echo "
 </div>
 </div>
-";
+
+";?>
+
+<?php
+
+
+$volta = $script.'?base='.$arrHttp['base'].$encabezado;
+	header('Refresh: 1; url='.$volta.'');
+
+
+?>
 include("../common/footer.php");
 echo "</body></html>\n";
 ?>

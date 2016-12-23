@@ -316,7 +316,7 @@ if (isset($arrHttp["encabezado"])){
 			<div class="formContent">
 <!-- USE AN EXISTING FORMAT -->
 <?php
-	echo "<center><table>
+	echo "<center><table class=\"table table-striped\">
 			<tr>
 			<td align=left   valign=center>";
 	DoList("trans");

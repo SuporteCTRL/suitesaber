@@ -236,7 +236,8 @@ global $db_path,$msgstr,$encabezado;
 		if ($val!=""){
 			$p=explode('|',$val);
             if ($p[0]!="adm"){
-				echo "<tr><td>".$p[1]." (".$p[0].")</td><td><a class=\"btn btn-warning\" href=profile_edit.php?profile=".$p[0]."$encabezado&Opcion=edit>".$msgstr["EDIT"]."</a>  ";
+				echo "<tr><td>".$p[1]." (".$p[0].")</td><td>
+					<a class=\"btn btn-warning\" href=profile_edit.php?profile=".$p[0]."$encabezado&Opcion=edit>".$msgstr["EDIT"]."</a>  ";
 				echo "<a class=\"btn btn-danger\" href=javascript:DeleteProfile(\"".$p[0]."\")>".$msgstr["delete"]."</A></td>";
 			}
 		}

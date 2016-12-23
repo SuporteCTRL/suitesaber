@@ -70,13 +70,17 @@ if (file_exists($db_path."correo.ini")){
 
 <?php
 if (!isset($arrHttp["Opcion"])){
-	echo "<table cellspacing=5 width=400 align=center >";
+	echo "<table class=\"table table-striped\">";
 	foreach ($ini_vars as $key){
 		echo "<tr>
-		         <td>$key</td><td>
+		      <div class=\"col-md-6\">
+
+		         <td><label>$key</label></td></div>
+		         <div class=\"col-md-6\">
+		         <td>
 		   	";
 		if ($key!="PHPMAILER"){
-		    echo  "     <input type=text name=ini_$key size=150 value='";
+		    echo  "     <input class=\"form-control\" type=text name=ini_$key value='";
 			if (isset($ini[$key])) echo $ini[$key];
 			echo "'>\n";
 		}else{
@@ -87,7 +91,7 @@ if (!isset($arrHttp["Opcion"])){
             if (isset($ini[$key]) and $ini[$key]=="php") echo " checked";
             echo ">\n";
 		}
-		echo "</td></tr>\n";
+		echo "</td></tr></div>\n";
 	}
 	echo "</table>";
 }else{

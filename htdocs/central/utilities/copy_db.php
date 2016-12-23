@@ -31,10 +31,14 @@ function Explorar(){
     msgwin.focus()
 }
 function EnviarForma(){
-	if (Trim(document.upload.storein.value)==""){		alert("<?php echo $msgstr["falta"]." ".$msgstr["folder_name"]?>")
-		return	}
-	if (Trim(document.upload.copyname.value)==""){		alert("<?php echo $msgstr["falta"]." ".$msgstr["cp_name"]?>")
-		return	}
+	if (Trim(document.upload.storein.value)==""){
+		alert("<?php echo $msgstr["falta"]." ".$msgstr["folder_name"]?>")
+		return
+	}
+	if (Trim(document.upload.copyname.value)==""){
+		alert("<?php echo $msgstr["falta"]." ".$msgstr["cp_name"]?>")
+		return
+	}
 	dbn=Trim(document.upload.copyname.value)
 	var alphaExp = /^[a-zA-Z_0123456789-]+$/;
     if(dbn.match(alphaExp)){
@@ -47,9 +51,12 @@ function EnviarForma(){
    	document.upload.submit()
 }
 
-function Limpiar(){	fld=Trim(document.upload.storein.value)
-	if (fld.substr(0,1)=="/"){		fld=fld.substring(1)
-		document.upload.storein.value=fld	}
+function Limpiar(){
+	fld=Trim(document.upload.storein.value)
+	if (fld.substr(0,1)=="/"){
+		fld=fld.substring(1)
+		document.upload.storein.value=fld
+	}
 }
 </script>
 </head>
@@ -84,15 +91,15 @@ echo "
 ?>
 <p>
 <?php echo $msgstr["db_cp"].": ".$arrHttp["base"]?>
-<form name=upload method=post action=copy_db_ex.php onsubmit="EnviarForma();return false;">
+<form name="upload" method="post" action="copy_db_ex.php" onsubmit="EnviarForma();return false;">
 <table><tr><td>
 <?php echo $msgstr["cp_folder"];?></td><td>
-<input type=text name=storein size=30 onclick=javascript:blur()> <a href=javascript:Explorar()><?php echo $msgstr["explore"]?></a><br>
+<input type="text" name="storein" size="30" onclick="javascript:blur()"> <a href=javascript:Explorar()><?php echo $msgstr["explore"]?></a><br>
 <tr><td><?php echo $msgstr["cp_name"];?></td><td><input type=text name=copyname></td>
 </table>
-<input type=checkbox name=reorganize> <?php echo $msgstr["cp_reorganize"];?>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<p><input type=submit value=<?php echo $msgstr["procesar"]?>>
+<input type="checkbox" name="reorganize> <?php echo $msgstr["cp_reorganize"];?>
+<input type="hidden" name="base value="<?php echo $arrHttp["base"]?>">
+<p><input type="submit" value="<?php echo $msgstr["procesar"]?>">
 </form>
 </div>
 </div>

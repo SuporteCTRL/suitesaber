@@ -79,10 +79,10 @@ function Enviar(){
   }
 ?>
 
-<input type=hidden name=Opcion>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<input type="hidden" name="Opcion">
+<input type="hidden" name="base" value=<?php echo $arrHttp["base"];?>>
 <?php echo "
-		&nbsp;<textarea name=formato rows=20 cols=100% nowrap>";
+		<textarea class=\"form-control\" name=formato rows=20 cols=100% nowrap>";
 
   	$fp = file($a);
 	foreach ($fp as $linea){

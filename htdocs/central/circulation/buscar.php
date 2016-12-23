@@ -270,7 +270,7 @@ global $msgstr,$arrHttp,$db_path,$xWxis,$tagisis,$Wxis,$wxisUrl,$lang_db,$Expres
 				$items=Disponibilidad($lin[1],$arrHttp["copies"]);
 				$prestamos=LocalizarTransacciones($lin[1],"ON");
 				echo $lin[0];
-				echo "<table cellpadding=5>
+				echo "<table class=\"table table-striped\">
 						<th>".$msgstr["inventory"]."</th>
 						<th>".$msgstr["volume"]."</th>
 						<th>".$msgstr["tome"]."</th>
@@ -585,10 +585,10 @@ if (!isset($arrHttp["base"])){
 		?>  }
 		<form name="seleccionar">
 		<input type="hidden" name="Opcion" value="formab">
-		<table width="100%" border="0">
+		<table class="table table-striped">
 			<td width="150">
 				<label for="dataBases">
-				<strong><?php echo $msgstr["basedatos"];?></strong>
+				<label><?php echo $msgstr["basedatos"];?></label>
 				</label>
 				</td><td>
 				<select name="bd" onchange="Enviar()">
