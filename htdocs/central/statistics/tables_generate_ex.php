@@ -177,14 +177,14 @@ echo "<a href=javascript:SendTo(\"P\")>".$msgstr["prn"]."</a> &nbsp; | &nbsp; ";
 echo "<a href=javascript:SendTo(\"AG\")>".$msgstr["ag"]."</a> &nbsp; | &nbsp; ";
 //echo "<a href=javascript:SendTo(\"NAG\")>".$msgstr["nag"]."</a> &nbsp; | &nbsp; ";
 echo "<div id=results>";
-echo "<h4>$ttit</h4>";
+//echo "<h4>$ttit</h4>";
 echo "\n<script>Pie=\"$Pie\"</script>\n";
 $tab=array();
 $total_r=0;
 $total_c=0;
 switch ($Opcion){
 	case "range":
-		$query = "&base=".$arrHttp["base"]."&cipar=$db_path"."par/".$arrHttp["cipar"]."&Opcion=rango&Formato=".$Formato;
+	@	$query = "&base=".$arrHttp["base"]."&cipar=$db_path"."par/".$arrHttp["cipar"]."&Opcion=rango&formato=".$Formato;
 		$query.="&from=".$arrHttp["Mfn"]."&to=".$arrHttp["to"];
 		$IsisScript=$xWxis. "imprime.xis";
 		include ("../common/wxis_llamar.php");
@@ -192,13 +192,15 @@ switch ($Opcion){
 		break;
 	case "search":
 		$Expresion=urlencode($arrHttp["Expresion"]);
-		$query = "&base=".$arrHttp["base"]."&cipar=$db_path"."par/".$arrHttp["cipar"]."&Opcion=buscar&Formato=".$Formato;
+	@	$query = "&base=".$arrHttp["base"]."&cipar=$db_path"."par/".$arrHttp["cipar"]."&Opcion=buscar&Formato=".$Formato;
 		$query.="&Expresion=$Expresion";
 		$IsisScript=$xWxis. "imprime.xis";
 		include ("../common/wxis_llamar.php");
 		LeerRegistros($contenido);
 		break;
 }
+
+
 // PARA CONSTRUIR EL STRING QUE SE LE PASARÁ AL PROGRAMA QUE GRAFICA
 $arreglo="";
 
@@ -266,7 +268,7 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 	//ENCABEZADO DE LA TABLA
 	$ix=count($tab);
 	echo "<table border class=statTable >";
-	echo "<tr><th>$trow_tit</th>";
+//	echo "<tr><th>$trow_tit</th>";
 	ksort($tab);
 
 	echo "<th>".$msgstr["total"]."</th>";

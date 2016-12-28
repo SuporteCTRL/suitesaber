@@ -1,0 +1,26 @@
+CAMPO 856 - LOCALIZAÇÃO DE ACESSO ELETRÔNICO (R)
+Contém a informação necessária para localizar um item eletrônico. A informação identifica a localização
+eletrônica que contém o item ou a partir da qual ele está disponível.
+Transcrever o endereço eletrônico, isto é, URL.
+Indicador 1 - Método de acesso
+branco Informação não fornecida
+0 e-mail
+1 FTP
+2 Login remoto (TELNET)
+3 Dial-up
+4 http
+8 método especificado no subcampo \2
+Indicador 2 - Relacionamento
+branco Não informado
+0 fonte
+1 versão da fonte
+2 fonte relacionada
+8 não gerar constante
+Códigos de subcampo
+\a nome do servidor
+\b número de acesso
+\q tipo de formato eletrônico
+\u localizador da fonte (endereço eletrônico) URL
+\2 método de acesso
+Exemplo:
+856 |4 1| \uhttp://www.fee.tche.Br/cartaconj.htm

@@ -1,0 +1,32 @@
+CAMPO 600 - ASSUNTO - NOME PESSOAL (Repetitivo)
+Contém um nome pessoal usado como entrada secundária de assunto.
+Indicador 1 - Tipo do nome pessoal
+0 prenome simples e/ou composto
+1 sobrenome simples e/ou composto (DEFAULT)
+3 nome de família
+Indicador 2 - Sistema de cabeçalho de assunto/thesaurus
+0 cabeçalho de assunto da Library of Congress / lista de autoridades da LC
+1 cabeçalhos de assunto da LC para literatura infantil
+2 cabeçalhos de assuntos de Medicina / lista de autoridades da NLM
+3 lista de autoridade-assunto / Nat. Agricultural Library
+4 fonte não especificada (DEFAULT)
+5 cabeçalhos assuntos Canadenses (NLC)
+6 repertoire dês vedettes-matiere (NLC)
+7 fonte especificada no subcampo \2
+Códigos de subcampo
+\a nome pessoal
+\b numeração (que segue ao nome)
+\c títulos e outras palavras associadas ao nome (títulos que designam graduação, nobreza, abreviatura de
+graduação acadêmica, ou outras palavras associadas ao nome)
+\d datas associadas ao nome (datas de nascimento e morte)
+\q acréscimo a nomes que contém iniciais
+\t título da obra junto à entrada
+\v subdivisão de forma
+\x subdivisão geral
+\y subdivisão cronológica
+\z subdivisão geográfica
+\2 fonte do cabeçalho ou termo
+Exemplos:
+600 |0 4| \aPedro,\bII,\cImperador do Brasil,\d1825-1891
+600 |1 4| \aTinbergen, Jan,\d1903-
+600 |1 4| \aKennedy, John F.\q(JohnFitzgerald),\d1917-1963. \xAssassinato

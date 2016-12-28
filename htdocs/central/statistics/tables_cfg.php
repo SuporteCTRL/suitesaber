@@ -85,11 +85,10 @@ function getElement(psID) {
 }
 
 function DrawElement(ixEl,Title,ixRow,ixCol){
-	
-	nuevo+="<td rowspan=3 bgcolor=white valign=top><a href=javascript:DeleteElement("+ixEl+")><img src=../dataentry/img/toolbarDelete.png alt=\"<?php echo $msgstr["delete"]?>\" text=\"<?php echo $msgstr["delete"]?>\"></a></td>\n";
-	nuevo+="<td width=300 bgcolor=white><?php echo $msgstr["title"]?></td>"
-	nuevo+="<td bgcolor=white><input type=text name=tit size=120 value='"+Title+"'></td>"
-    nuevo+="<tr><td bgcolor=white><?php echo $msgstr["rows"]?></td><td bgcolor=white><select name=rows><option></option>"
+	nuevo="<div class=\"col-md-4\">"
+	nuevo+="<label><?php echo $msgstr["title"]?></label>"
+		nuevo+="<input type=text name=tit class=\"form-control\" value='"+Title+"'></div>"
+	nuevo+="<div class=\"col-md-4\"><label><?php echo $msgstr["rows"]?></label><select class=\"form-control\" name=rows><option></option>"
     f=fields.split('||')
     ix0=0
     for (var opt in f){
@@ -98,8 +97,8 @@ function DrawElement(ixEl,Title,ixRow,ixCol){
     	if (ix0==ixRow) selected=" selected"
     	nuevo+="<option value=\""+f[opt]+"\""+selected+">"+f[opt]+"</option>\n"
     }
-    nuevo+="</select></td>"
-    nuevo+="<tr><td bgcolor=white><?php echo $msgstr["cols"]?></td><td bgcolor=white><select name=cols><option></option>"
+     nuevo+="</select></div>"
+    nuevo+="<div class=\"col-md-2\"><label><?php echo $msgstr["cols"]?></label> <select class=\"form-control\" name=cols><option></option>"
     ix0=0
     for (var opt in f){
     	ix0++
@@ -107,9 +106,11 @@ function DrawElement(ixEl,Title,ixRow,ixCol){
     	if (ix0==ixCol) selected=" selected"
     	nuevo+="<option value=\""+f[opt]+"\""+selected+">"+f[opt]+"</option>\n"
     }
-    nuevo+="</select></td></table><br>"
+    nuevo+="</select></div>"
+    nuevo+="<div class=\"col-md-2\"><a class=\"btn btn-danger\" href=javascript:DeleteElement("+ixEl+")><i class=\"fa fa-times\" alt=\"<?php echo $msgstr["delete"]?>\" text=\"<?php echo $msgstr["delete"]?>\"></i></a></div>\n";
     return nuevo
 }
+
 
 function DeleteElement(ix){
 	seccion=returnObjById( "tabs" )
@@ -232,12 +233,26 @@ if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics"){
 }else{
 	$script="../dbadmin/menu_modificardb.php";
 }
-	
-
-
-
+	echo "<a href=\"$script?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
+echo "<img src=\"../images/defaultButton_iconBorder.gif\" />
+	<span><strong>".$msgstr["back"]."</strong></span></a>";
+if ($error==""){
+	echo "
+	<a href=\"javascript:Guardar()\" class=\"btn btn-primary\">
+	<i class=\"fa fa-check\" >
+	<span><strong>".$msgstr["save"]."</strong></span></i></a>";
+}
 ?>
-</div>
+</div><div class="spacer">&#160;</div></div>
+<div class="helper">
+<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_config_tabs.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+<?php
+if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
+	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/stats/stats_config_tabs.html target=_blank>".$msgstr["edhlp"]."</a>";
+echo "<font color=white>&nbsp; &nbsp; Script: tables_cfg.php";
+?>
+</font>
+	</div>
 <div class="middle form">
 	<div class="formContent">
 <?php
@@ -261,39 +276,36 @@ foreach ($fp as $value) {
 	if ($value!=""){
 		$total++;
 		$t=explode('|',$value);
+	
 		
-		echo "<a class=\"btn btn-danger\" href=javascript:DeleteElement(".$total.")><i class=\"fa fa-times\" aria hidden=\"true\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></a></i>\n";
-
-		echo "<label>".$msgstr["title"]."</label>";
-
-		echo "<input class=\"form-control\" type=text name=tit  value=\"".$t[0]."\">";
-
-   		echo "<label>".$msgstr["rows"]."</label>
-   		<select name=rows>
-   		<option></option>";
+		echo "<div class=\"col-md-4\"><label>".$msgstr["title"]."</label>";
+		echo "<input type=text name=tit class=\"form-control\" value=\"".$t[0]."\"></div>";
+   		echo "<div class=\"col-md-4\"><label>".$msgstr["rows"]."</label><select class=\"form-control\" name=rows><option></option>";
    		$f=explode('||',$fields);
    		foreach ($f as $opt) {
    			$selected="";
    			if ($opt==$t[1]) $selected=" selected";
    			echo "<option value=\"$opt\" $selected>$opt</option>\n";
    		}
-   		echo "</select>";
-
-   		echo "<label>".$msgstr["cols"]."</label>
-   		<option></option>";
+   		echo "</select></div>";
+   		echo "<div class=\"col-md-2\"><label>".$msgstr["cols"]."</label><select class=\"form-control\" name=cols><option></option>";
    		$f=explode('||',$fields);
    		foreach ($f as $opt) {
    			$selected="";
    			if ($opt==$t[2]) $selected=" selected";
    			echo "<option value=\"$opt\" $selected>$opt</option>\n";
    		}
-           echo "</table><br>";
-           echo "<script>MarcarSeleccion(document.stats.rows,$total,'".$t[1]."')
+           echo "</select></div>";
+           echo "
+           <script>MarcarSeleccion(document.stats.rows,$total,'".$t[1]."')
            MarcarSeleccion(document.stats.cols,$total,'".$t[2]."')
            </script>\n";
-	}
-}
 
+           echo "<div class=\"col-md-2\"><a class=\"btn btn-danger\" href=javascript:DeleteElement(".$total.")><i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></i></a></div>\n";
+
+	}
+
+}
 
 echo "<script>total=$total</script>\n";
 ?>
@@ -301,7 +313,9 @@ echo "<script>total=$total</script>\n";
 
 
         </div>
-        <a class="btn btn-primary" href='javascript:AddElement()' value="<?php echo $msgstr["add"];?>"><i class="fa fa-check" aria hidden="true"></i></a>
+
+        <div class="col-md-4">
+        <a class="btn btn-primary" href='javascript:AddElement()'><?php echo $msgstr["add"]?></a>
 	</div>
 </div>
 </form>
@@ -309,11 +323,9 @@ echo "<script>total=$total</script>\n";
 <input type="hidden" name="base">
 <input type="hidden" name="ValorCapturado">
 <?php
-
 if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>\n";
 if (isset($arrHttp["from"])) echo "<input type=hidden name=from value=".$arrHttp["from"].">\n";
 ?>
-
 </form>
 <?php
 include("../common/footer.php");

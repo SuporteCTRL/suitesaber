@@ -1,0 +1,30 @@
+CAMPO 100 - NOME PESSOAL (NR)
+Este campo contém um nome pessoal usado como entrada principal. Deve conter a forma autorizada do nome
+pessoal, estabelecida por uma Instituição autorizada a nível nacional ou Base de Dados Nacional, independente
+da forma como o nome apareça na folha de rosto. Se a forma como o nome aparece na folha de rosto, não for a
+forma autorizada, este aparecerá somente no corpo da ficha, na área destinada à indicação de
+responsabilidade.
+Pontuação: Para separar o nome pessoal (subcampo a) das datas associadas ao nome (data de
+nascimento e morte, inseridas no subcampo b) utilize vírgula-espaço, com hífen entre as datas.
+Para separar o nome pessoal (subcampo a) dos títulos e outras palavras relacionadas ao nome
+(subcampo c) utilize vírgula-espaço.
+Se as datas não são conhecidas nenhuma pontuação é usada, se apenas a data de nascimento foi
+encontrada a linha termina com hífen.
+No subcampo q, inserir a forma completa do nome entre colchetes.
+Indicador 1 - Tipo de entrada do nome pessoal
+0 prenome simples e/ou composto
+1 sobrenome simples e/ou composto (DEFAULT)
+3 nome de família
+Indicador 2 - Indefinido; contém branco (#)(DEFAULT)
+Códigos de subcampo
+\a nome pessoal
+\b numeração (que segue o nome)
+\c títulos e outras palavras associadas ao nome (títulos que designam graduação, nobreza, abreviaturas de
+graduação acadêmica, ou outras palavras associadas ao nome)
+\d datas associadas ao nome (datas de nascimento ou morte)
+\e termo relacionador (relacionamento com a obra) (TIRAR! NÃO USAMOS)
+\q forma completa do nome (acréscimo a nomes que contêm iniciais)
+\4 código relacionador
+Exemplos:
+Prenome
+100 |0 #| \aAristóteles

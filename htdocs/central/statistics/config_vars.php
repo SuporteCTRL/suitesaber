@@ -223,12 +223,11 @@ if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics")
 else
 	$script="../dbadmin/menu_modificardb.php";
 	echo "<a href=\"$script?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
-
-echo "
-	<a href=\"javascript:Guardar()\" class=\"defaultButton saveButton\">
-	<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-	<span><strong>".$msgstr["save"]."</strong></span></a>";
 ?>
+
+	<a href="javascript:Guardar()" class="btn btn-primary" title="salvar">
+	<i class="fa fa-check" value="<?php echo $msgstr["save"];?>"></i></a>
+
 </div>
 </div>
 
@@ -246,7 +245,7 @@ echo "
 	         
 	          <a href=javascript:Ayuda(1) class="btn btn-info"><i class="fa fa-info-circle" value="  <?php echo $msgstr["prefix"]?>"></a></i>
 		
-        <div id=rows>
+        <div id="rows">
  <?php
  	$total=-1;
  	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
@@ -292,21 +291,41 @@ echo "
  		$ix++;
  		$total++;
  		for ($ix=$ix;$ix<2;$ix++){
-		 	echo "<tr><td bgcolor=white width=300 valign=top><select name=sel_text style='width:150px' onchange=Cambiar(".$ix.")><option></option>\n";
+		 	echo "<div class=\"col-md-3\">
+		 	<select name=sel_text class=\"form-control\" onchange=Cambiar(".$ix.")>
+		 	<option></option>\n";
 		 	$f=explode('||',$fields);
 			foreach ($f as $opt) {
 				$o=explode('$$$',$opt);
 				echo "<option value=\"".$o[0]."\" >".$o[1]."</option>\n";
 			}
-		 	echo "</select><input type=text name=\"nombre\" value=\"\" size=20></td><td bgcolor=white width=400><textarea name=pft style='width:400px;height:30px'></textarea></td><td bgcolor=white valign=top><input type=text name=prefix size=5></a>";
-		 	echo "&nbsp;<a href=javascript:DeleteElement(".$ix.")><img src=../dataentry/img/toolbarDelete.png alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></a></td></tr>\n";
+		 	echo "</select></div>
+		 	 <div class=\"col-md-3\">
+		 	<input type=text name=\"nombre\" value=\"\" class=\"form-control\">
+		 	</div>
+
+            <div class=\"col-md-4\">     
+		 	<textarea name=pft class=\"form-control\"></textarea>
+		 	</div>
+
+		 	
+		 	<div class=\"col-md-1\">
+		 	<input type=text name=prefix class=\"form-control\">
+		 	</div>
+
+		    <div class=\"col-md-1\">
+		 	<a href=javascript:DeleteElement(".$ix.") class=\"btn btn-danger\">
+		 	<i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\">
+		 	</i></a></div>\n";
 	   	}
 	}
     echo "</table>";
  ?>
         </div>
-
-		<a href="javascript:AddElement('rows')"><?php echo $msgstr["add"]?></a>
+        <div class="col-md-6">
+		<a class="btn btn-primary" href="javascript:AddElement('rows')"><?php echo $msgstr["add"]?></a>
+	</div>
+	</a>
 	</div>
 </div>
 </form>

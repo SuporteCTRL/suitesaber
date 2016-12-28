@@ -19,44 +19,43 @@ if (isset($arrHttp["encabezado"])){
 	$encabezado="";
 }
 echo "<form name=stats method=post>";
-echo "<div class=\"sectionInfo\">
-	<div class=\"breadcrumb\">".$msgstr["stats_conf"].": ".$arrHttp["base"]."</div>
-	<div class=\"actions\">";
+
 if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics"){
 	$script="tables_generate.php";
 }else{
 	$script="../dbadmin/menu_modificardb.php";
 }
-echo "<a href=\"$script?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
+
 echo "<img src=\"../images/defaultButton_iconBorder.gif\" />
 	<span><strong>".$msgstr["back"]."</strong></span></a>
 	";
 ?>
-</div>
-</div>
+</div><div class="spacer">&#160;</div></div>
 <div class="helper">
-
+<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats_index.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
 <?php
-
-echo "<font color=white>Script: config_vars_update.php";
+if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
+	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/stats_index.html target=_blank>".$msgstr["edhlp"]."</a>";
+echo "<font color=white>&nbsp; &nbsp; Script: config_vars_update.php";
 ?>
 </font>
 	</div>
 <div class="middle form">
 	<div class="formContent">
 <?php
+
 $file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
-//$fp=fopen($file,"w");
+$fp=fopen($file,"w");
 $arrHttp["ValorCapturado"]=stripslashes($arrHttp["ValorCapturado"]);
 $vc=explode("\n",$arrHttp["ValorCapturado"]);
 foreach ($vc as $value){
- $r=fwrite($fp,$value."\n");
+	$r=fwrite($fp,$value."\n");
 }
-$r =fclose($fp);
-echo "<h4>". $arrHttp["base"]."/".$_SESSION["lang"]."/def/stat.cfg"." ".$msgstr["updated"]."</h4>" ;
+ $r=fclose($fp);
+
+ echo "<div class=\"alert alert-success\">". $arrHttp["base"]."/".$_SESSION["lang"]."/def/stat.cfg"." ".$msgstr["updated"]."</div>" ;
 
 ?>
-
 <?php
 $volta = $script.'?base='.$arrHttp['base'].$encabezado;
 	header('Refresh: 1; url='.$volta.'');

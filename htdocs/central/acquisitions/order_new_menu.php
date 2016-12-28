@@ -36,17 +36,26 @@ include("javascript.php");
 echo "<body>\n";
 include("../common/institutional_info.php");
 ?>
-<div class="sectionInfo">
-	<div class="breadcrumb">
-		<?php echo $msgstr["suggestions"].": ".$msgstr["new"]?>
-	</div>
-	
-	
-</div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
 
-<div class="middle form">
-	<div class="formContent">
-    <ul>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><?php echo $msgstr["suggestions"].": ".$msgstr["new"];?></a>
+    </div>
+	
+	
+	
+	
+
+     <div class="collapse navbar-collapse" >
+    <ul  class="nav navbar-nav">
 
 <?php
 	$file=$db_path."copies/def/".$_SESSION["lang"]."/acquiredby.tab";
@@ -57,14 +66,19 @@ include("../common/institutional_info.php");
 		$var=trim($var);
 		$v=explode('|',$var);
 		$var=urlencode($var);
-		echo "<div class=\"btn-group btn-group-justified\">
-		<a class=\"btn btn-primary\" href=order_new.php?base=purchaseorder&cipar=purchaseorder.par&mov=$var&Opcion=nuevo&wks=".$v[0].">".$v[1]."</a></div>";
+		echo "<li><a target=\"configura\" href=order_new.php?base=purchaseorder&cipar=purchaseorder.par&mov=$var&Opcion=nuevo&wks=".$v[0].">".$v[1]."</a></li>";
 	}
 
 ?>
 	</ul>
 	</div>
-</div>
+	</div>
+
+
+</nav>
+<iframe src="" name="configura" width="100%" height="3000px" frameborder="0"></iframe>
+
+
 <?php include("../common/footer.php");
 echo "</body></html>" ;
 ?>

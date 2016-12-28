@@ -1,0 +1,588 @@
+!ID 000001
+!v001!43771
+!v005!201604251458.18
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106486^cCompra Saraiva R$24,70^y20160409
+!v090!^aS.E./S.I.^b028.5^cD229mp
+!v100!1#^aDashner, James
+!v245!00^aMaze runner^bprova de fogo
+!v260!^aSão Paulo^bVergara & Riba^c2011
+!v300!^a397p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v500!^aFita rosa
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160425 02:57:27^oprotec3t
+!v980!^d20160425 02:58:18^oprotec3t
+!ID 000002
+!v006!a
+!v001!43772
+!v005!201604261517.09
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106484^cCompra Saraiva R$24,70^y20160609
+!v090!^aS.E./S.I.^b028.5^cD229mo
+!v100!1#^aDashner, James
+!v245!00^aMaze runner^bordem de extermínio
+!v260!^aSão Paulo^bVergara & Riba^c2013
+!v300!^a381p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v500!^aFita rosa
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160425 03:25:30^oprotec3t
+!v980!^d20160426 03:17:09^oanelise
+!ID 000003
+!v005!201604251535.21
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106488^cCompra Saraiva R$24,70^y20160409
+!v090!^aS.E./S.I.^b028.5^cD229mo
+!v100!1#^aDashner, James
+!v245!00^aMaze runner^barquivos
+!v260!^aSão Paulo^bVergara & Riba^c2014
+!v300!^a72p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v500!^aFita rosa
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160425 03:35:21^oprotec3t
+!v001!43773
+!ID 000004
+!v005!201604251539.46
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106485^cCompra Saraiva R$24,70^y20160409
+!v090!^aS.E./S.I.^b028.5^cD229mc
+!v100!1#^aDashner, James
+!v245!00^aMaze runner^bA cura mortal
+!v260!^aSão Paulo^bVergara & Riba^c2012
+!v300!^a364p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v500!^aFita rosa
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160425 03:39:46^oprotec3t
+!v001!43774
+!ID 000005
+!v001!43775
+!v005!201604251709.26
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106482^cCompra Saraiva R$29,90^y20160409
+!v090!^aS.E.^b813^cR569o^d2.ed.
+!v100!1#^aRiggs, Ransom
+!v245!00^aO orfanato da Srta. Peregrine para crianças peculiares
+!v250!^a2.ed.
+!v260!^aSão Paulo^bVergara & Riba^c2012
+!v300!^a364p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 03:48:20^oprotec3t
+!v980!^d20160425 05:09:26^oluciana
+!ID 000006
+!v005!n
+!v006!s
+!v007!s
+!v017!4
+!v018!a
+!v001!43776
+!v005!201604251613.17
+!v008!160425c        bl w   r  #  #0    0por d
+!v022!##^a00043943
+!v245!^aIsto É
+!v260!^aSão Paulo^bTrês
+!v310!^aSemanal^a1976-
+!v650!^aGeneralidades
+!v650!^aAtualidades^xperiódico
+!v780!00^tIsto é Senhor^g(1988-1992)^x0104-3935
+!v980!^d20160425 03:49:03^oluciana
+!v980!^d20160425 04:01:16^oluciana
+!v980!^d20160425 04:13:17^oluciana
+!ID 000007
+!v005!201604251559.23
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106474^cCompra Submarino R$ 38,00^y20160406
+!v090!^aS.E.^b813^cD687q
+!v100!1#^aDonoghue, Emma
+!v245!00^aO quarto
+!v260!^aSão Paulo^bVerus^c2011
+!v300!^a349p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 03:59:23^oprotec3t
+!v001!43777
+!ID 000008
+!v005!201604251603.46
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106483^cCompra Submarino R$ 29,90^y20160409
+!v090!^aS.E.^b813^cM245c
+!v100!1#^aMalerman, Josh
+!v245!00^aCaixa de pássaros
+!v260!^aRio de Janeiro^bIntrínseca^c2015
+!v300!^a272p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:03:46^oprotec3t
+!v001!43778
+!ID 000009
+!v006!a
+!v001!43779
+!v005!201604261044.41
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106480^cCompra Submarino R$ 12,00^y20160409
+!v090!^aS.E.^b813^cE92f
+!v100!1#^aEvans, Richard Paul
+!v245!00^aA felicidade
+!v260!^aSão Paulo^bLeya^c2013
+!v300!^a253p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aO caminho^vv.3
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:07:26^oprotec3t
+!v980!^d20160426 10:44:41^oluciana
+!ID 000010
+!v005!201604251614.05
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106481^cCompra Saraiva R$ 34,90^y20160409
+!v090!^aS.E.^b869.3^cO58b
+!v100!1#^aOndjaki
+!v245!00^aBom dia, camaradas
+!v260!^aSão Paulo^bCompanhia das Letras^c2014
+!v300!^a135p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura angolana^xficção
+!v980!^d20160425 04:14:05^oprotec3t
+!v001!43780
+!ID 000011
+!v006!a
+!v001!43781
+!v005!201604261046.57
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106473^cCompra Submarino R$ 16,00^y20160406
+!v090!^aS.E.^b813^cK19t^d49.ed.
+!v100!1#^aKate, Lauren
+!v245!00^aTormenta
+!v250!^a49.ed.
+!v260!^aRio de Janeiro^bRecord^c2016
+!v300!^a391p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aFallen^vv.2
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:19:04^oprotec3t
+!v980!^d20160426 10:46:57^oluciana
+!ID 000012
+!v006!a
+!v001!43782
+!v005!201604261042.17
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106470^cCompra Submarino R$ 16,00^y20160406
+!v090!^aS.E.^b813^cK19t^d58.ed.
+!v100!1#^aKate, Lauren
+!v245!00^aFallen
+!v250!^a58.ed.
+!v260!^aRio de Janeiro^bRecord^c2016
+!v300!^a401p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aFallen^vv.1
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:27:13^oprotec3t
+!v980!^d20160426 10:42:17^oluciana
+!ID 000013
+!v001!43783
+!v005!201604251708.34
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106476^cCompra Submarino R$16,00^y20160604
+!v090!^b813^cK19a^d21.ed.
+!v100!1#^aKate, Lauren
+!v245!00^aApaixonados^bhistórias de amor de Fallen
+!v250!^a21.ed.
+!v260!^aRio de Janeiro^bRecord^c2016
+!v300!^a181p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:30:47^oprotec3t
+!v980!^d20160425 04:49:30^oprotec3t
+!v980!^d20160425 05:08:34^oluciana
+!ID 000014
+!v001!43784
+!v005!201604251708.07
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106471^cCompra Submarino R$16,00^y20160406
+!v090!^b813^cK19p^d32.ed.
+!v100!1#^aKate, Lauren
+!v245!00^aPaixão
+!v250!^a32.ed.
+!v260!^aRio de Janeiro^bRecord^c2016
+!v300!^a377p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aFallen^vv.3
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:34:11^oprotec3t
+!v980!^d20160425 04:48:14^oprotec3t
+!v980!^d20160425 04:48:33^oprotec3t
+!v980!^d20160425 05:08:07^oluciana
+!ID 000015
+!v001!43785
+!v005!201604251707.41
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106472^cCompra Submarino R$16,00^y20160406
+!v090!^b813^cK19e^d20.ed.
+!v100!1#^aKate, Lauren
+!v245!00^aÊxtase
+!v250!^a20.ed.
+!v260!^aRio de Janeiro^bRecord^c2016
+!v300!^a346p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aFallen^vv.4
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:38:35^oprotec3t
+!v980!^d20160425 04:48:57^oprotec3t
+!v980!^d20160425 05:07:41^oluciana
+!ID 000016
+!v001!43786
+!v005!201604251647.06
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106478^cCompra Submarino R$12,30^y20160406
+!v090!^b813^cR459i
+!v100!1#^aReynard, Sylvain
+!v245!00^aO julgamento de Gabriel
+!v260!^aSão Paulo^bArqueiro^c2013
+!v300!^a384p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:40:58^oprotec3t
+!v980!^d20160425 04:47:06^oprotec3t
+!ID 000017
+!v001!43787
+!v005!201604251646.28
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106477^cCompra Submarino R$12,30^y20160406
+!v090!^b813^cR459r
+!v100!1#^aReynard, Sylvain
+!v245!00^aA redenção de Gabriel
+!v260!^aSão Paulo^bArqueiro^c2013
+!v300!^a432p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:43:13^oprotec3t
+!v980!^d20160425 04:46:28^oprotec3t
+!ID 000018
+!v005!201604251645.08
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106479^cCompra Submarino R$16,00^y20160406
+!v090!^b813^cR459i
+!v100!1#^aReynard, Sylvain
+!v245!00^aO inferno de Gabriel
+!v260!^aSão Paulo^bArqueiro^c2013
+!v300!^a512p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura norte-americana^xficção
+!v980!^d20160425 04:45:08^oprotec3t
+!v001!43788
+!ID 000019
+!v001!43789
+!v005!201604251727.02
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a000822^y2002/05/13
+!v090!^aR^b398.03^cC336d^d3.ed.
+!v100!1#^aCascudo, Luís da Câmara
+!v245!00^aDicionário do Folclore Brasileiro
+!v250!^a3.ed.
+!v260!^aRio de Janeiro^b[S.N.]^c1954
+!v300!^a660p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aFolclore^xdicionário
+!v980!^d20160425 05:25:14^oluciana
+!v980!^d20160425 05:25:29^oluciana
+!v980!^d20160425 05:27:02^oluciana
+!ID 000020
+!v001!43790
+!v005!201604261441.03
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106327^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392n
+!v245!00^aNem sorte nem azar
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 02:19:58^oprotec3t
+!v980!^d20160426 02:39:39^oprotec3t
+!v980!^d20160426 02:40:25^oprotec3t
+!v980!^d20160426 02:41:03^oprotec3t
+!ID 000021
+!v005!201604261442.06
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106325^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392b
+!v245!00^aBonzinho mas nem tanto
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 02:42:06^oprotec3t
+!v001!43791
+!ID 000022
+!v005!201604261454.17
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106326^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392bc
+!v245!00^aO burrinho que queria ser cocheiro
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 02:54:17^oprotec3t
+!v001!43792
+!ID 000023
+!v005!201604261456.21
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106327^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392d
+!v245!00^aDá a bolsa e segura a alça
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 02:56:21^oprotec3t
+!v001!43793
+!ID 000024
+!v005!201604261457.36
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106322^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392l
+!v245!00^aLembranças são como o vento
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 02:57:36^oprotec3t
+!v001!43794
+!ID 000025
+!v005!201604261458.34
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106323^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392c
+!v245!00^aCada macaco tem o galho que merece
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 02:58:34^oprotec3t
+!v001!43795
+!ID 000026
+!v005!201604261459.27
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106320^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392a
+!v245!00^aAmizade
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 02:59:27^oprotec3t
+!v001!43796
+!ID 000027
+!v005!201604261500.06
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106321^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392r
+!v245!00^aRejeitado é aquele que abusa
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 03:00:06^oprotec3t
+!v001!43797
+!ID 000028
+!v005!201604261500.57
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106319^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392ba
+!v245!00^aBagunça é bom, mas tem hora!
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 03:00:57^oprotec3t
+!v001!43798
+!ID 000029
+!v005!201604261501.55
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106318^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392i
+!v245!00^aIrmão podia ser a pilha
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 03:01:55^oprotec3t
+!v001!43799
+!ID 000030
+!v005!201604261502.48
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106317^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392q
+!v245!00^aQuem parte reparte
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 03:02:48^oprotec3t
+!v001!43800
+!ID 000031
+!v005!201604261504.21
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106316^cDoação Amanda Szafarsky^y20160411
+!v090!^aS.E./S.I.^b028.5^cP392p
+!v245!00^aPaulinho quantas horas da silva
+!v260!^a[Brasil]^bTodo Livro ^c[200--]
+!v300!^a15p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v490!^aPelo Avesso
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 03:04:21^oprotec3t
+!v001!43801
+!ID 000032
+!v001!43802
+!v005!201604261529.22
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106328^cDoação Vilma Avila Vianna^y20160412
+!v090!^aS.E.^b869.93^cV617t
+!v100!1#^aVianna, Vilma Avila
+!v245!00^aTia Loló, a lixa de unhas e outras histórias
+!v260!^aPelotas^bEditora Cópias Santa Cruz^c2015
+!v300!^a107p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura Brasileira^xContos
+!v980!^d20160426 03:27:29^oprotec3t
+!v980!^d20160426 03:29:22^oprotec3t
+!ID 000033
+!v001!43803
+!v005!201604261534.40
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106329^cDoação Vilma Avila Vianna^y20160412
+!v090!^aS.E.^b869.93^cC759
+!v245!00^aContando Pelotas^b200 anos
+!v260!^aPelotas^bEditora Cópias Santa Cruz^c2012
+!v300!^a150p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura Brasileira^xContos
+!v700!^aDuarte, Lia Rosa Bachettini
+!v980!^d20160426 03:33:06^oprotec3t
+!v980!^d20160426 03:34:40^oprotec3t
+!ID 000034
+!v005!201604261539.46
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106332^cDoação Vilma Avila Vianna^y20160412
+!v090!^aS.E.^b869.93^cC695
+!v110!^aGrupo Oficina de Criação Literária
+!v245!00^aColheita
+!v260!^aPelotas^bLivraria Mundial^c2006
+!v300!^a333p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura Brasileira^xContos
+!v700!^aLopes, Hilda Simões
+!v980!^d20160426 03:39:46^oprotec3t
+!v001!43804
+!ID 000035
+!v005!201604261545.33
+!v008!160411s        bl #   #r#   #001 0#por d
+!v949!^a106475^cDoação Anelise Rosa^y20160415
+!v090!^aS.E./S.I.^b028.5^cS623b
+!v100!^aSisto, Celso
+!v245!00^aBatu, o filho do rei
+!v260!^aSão Paulo^bDCL^c2015
+!v300!^a47p.
+!v3005!n
+!v3006!a
+!v3007!m
+!v650!^aLiteratura infantojuvenil
+!v980!^d20160426 03:45:33^oprotec3t
+!v001!43805
+!ID 000036
+!v006!z
+!v001!43806
+!v005!201604271454.50
+!v949!^a64928^b2011/10/26
+!v090!^aS.E.^b843^cC451c
+!v100!^aChantepleure, Guy
+!v245!00^aComédia Nupcial
+!v260!^a[s.n]^b[S.I.]^c[19--]
+!v300!^a249p.
+!v600!^aLiteratura francesa
+!v980!^d20160427 02:36:26^oluis
+!v980!^d20160427 02:43:56^oluis
+!v980!^d20160427 02:44:38^oluis
+!v980!^d20160427 02:50:55^oluis
+!v980!^d20160427 02:54:50^oluis

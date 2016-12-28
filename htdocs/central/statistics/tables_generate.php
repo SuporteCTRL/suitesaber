@@ -273,16 +273,17 @@ if (isset($arrHttp["encabezado"])){
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo $msgstr["exist_tb"]; ?> <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><?php echo $msgstr["exist_tb"];?>
+           <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse in">
-        <div class="panel-body"><?php echo $msgstr["tab_list"]; ?>  
+        <div class="panel-body">  
           	 
-		<select class="form control" name="tables" >
-    		<option value=""></option>
+		<select class="form control" name="tables" ><?php echo $msgstr["tab_list"]; ?>
+    		<option value=''>
   <?php 
-    unset($fp);
+   unset($fp);
 	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/tabs.cfg";
 	if (!file_exists($file)) $file=$db_path.$arrHttp["base"]."/def/".$lang_db."/tabs.cfg";
 	if (!file_exists($file)){
@@ -299,11 +300,12 @@ if (isset($arrHttp["encabezado"])){
 		}
 	}
 ?>
+</option>
 			</select>
-
          </div>
       </div>
     </div>
+
 <div class="panel panel-default">
   <div class="panel-heading">
    <h4 class="panel-title">
@@ -314,8 +316,8 @@ if (isset($arrHttp["encabezado"])){
  <div class="panel-body">
 
    <div class="col-md-6">
-    <select class="form-control" name="rows" >
-    <option value= <?php echo $msgstr["rows"]; ?></option>
+    <select class="form-control" name="rows">
+    <option value=""> <?php echo $msgstr["rows"]; ?></option>
 <?php
  	unset($fp);
 	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
@@ -377,25 +379,25 @@ if (isset($arrHttp["encabezado"])){
    <label class="control-label" for="textinput"><?php echo $msgstr["to"]; ?></label>
     <input name="to" placeholder="<?php echo $tag["MAXMFN"]; ?>" value="<?php echo $tag["MAXMFN"];?>" type="text" class="input-medium" required="">
     
-    <a href="javascript:BorrarRango()" class="btn btn-default campo" ><i class="fa fa-trash" aria-hidden="true" alt="<?php echo $msgstr["clear"]; ?>"></i>
+    <a href="javascript:BorrarRango()" class="btn btn-default campo" ><i class="fa fa-trash" aria-hidden="true" value="<?php echo $msgstr["clear"];?>"></i>
+      
     </a> 
 
    </div>
 </div>
-  <h5><?php echo $msgstr["bysearch"]?></h5>
+  <h5><?php echo $msgstr["bysearch"];?></h5>
   <a href="javascript:Buscar()" class="btn btn-default campo">
   	<i class="fa fa-search" aria-hidden="true" alt="<?php echo $msgstr["bysearch"]; ?>"></i>
   </a>    
 
 
     <div class="form-group"> 
-		<textarea class="form-control input-lg" rows="2" name="Expresion"><?php if (isset($Expresion )) echo $Expresion?></textarea>
+		<textarea class="form-control input-lg" rows="2" name="Expresion"><?php if (isset($Expresion )) echo $Expresion ;?></textarea>
  	
     </div>
+     <a href=javascript:BorrarExpresion() class="btn btn-default"><i class="fa fa-trash" aria-hidden="true" value="<?php echo $msgstr["clear"]?>"></i></a> 
 
-    <button class="btn btn-default campo"><i class="fa fa-trash" aria-hidden="true"></i></button> 
-
-     <button type="submit" class="btn btn-default campo" onclick="EnviarForma()"><i class="fa fa-check" aria-hidden="true"></i> <?php echo $msgstr["send"]?></button>
+   <a class="btn btn-default" onclick='EnviarForma()'><i class="fa fa-check" value="<?php echo $msgstr["send"]?>"></i></a>
      
 
 </div> <!--div container-->
