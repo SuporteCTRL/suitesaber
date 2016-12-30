@@ -73,57 +73,71 @@ if (isset($arrHttp["encabezado"])){
 	$encabezado="";
 }
 ?>
-<div class="sectionInfo">
-	<div class="breadcrumb">
-<label><?php echo $msgstr["z3950"]." (".$db.")" ?></label>
-	</div>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><?php echo $msgstr["z3950"]." (".$db.")" ?></a>
+    </div>
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estrutura de campos<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+			    <li>
+    				<a target="configura" href=z3950_conversion.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["new"];?>
+					<?php
+					if (file_exists($db_path.$db."/def/z3950.cnv")){
+						echo  "<a href=javascript:Edit()>".$msgstr["edit"]."</a> 
+							<a href=javascript:Delete()>".$msgstr["delete"]."</a>";
+								$fp=file($db_path.$db."/def/z3950.cnv");
+									echo "<select name=cnv>
+							<option value=''>\n";
+					foreach ($fp as $var=>$value){
+						$o=explode('|',$value);
+						echo "<option value='".$o[0]."'>".$o[1]."\n";
+						}
+						echo "</select>";
+					}
+					?>
+                   </a>
+				</li>
+
+				<li><a target="configura" href=z3950_diacritics_edit.php?base=<?php echo $db.$encabezado;?>>
+    				 <?php echo $msgstr["z3950_diacritics"]?>
+				</a></li>
+			</li>
+        </ul>
+<li> 
+	<a target="configura"  href=../dataentry/browse.php?base=servers&return=../dbadmin/z3950_conf.php|base=^a<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_servers"]?></a>
+</li>
+
+<li>
+	<a target="configura" href=../dataentry/z3950.php?base=<?php echo $db.$encabezado?>&test=Y target=_blank><?php echo $msgstr["test"]?></a>
+</li>
+
 </div>
 
+</nav>
 
-	<a class="btn btn-primary" href=../dataentry/browse.php?base=servers&return=../dbadmin/z3950_conf.php|base=^a<?php echo $db.$encabezado?>><?php echo $msgstr["z3950_servers"]?></a></label></a>
+<iframe src="" name="configura" width="100%" height="3000px" frameborder="0"></iframe>
 
 
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $msgstr["z3950_cnv"];?>
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li>
-    <a href=z3950_conversion.php?base=<?php echo $db.$encabezado?>><?php echo $msgstr["new"];?>
-<?php
-if (file_exists($db_path.$db."/def/z3950.cnv")){
-	echo  "<a href=javascript:Edit()>".$msgstr["edit"]."</a> 
-	<a href=javascript:Delete()>".$msgstr["delete"]."</a>";
-	$fp=file($db_path.$db."/def/z3950.cnv");
-	echo "<select name=cnv>
-	<option value=''>\n";
-	foreach ($fp as $var=>$value){
-		$o=explode('|',$value);
-		echo "<option value='".$o[0]."'>".$o[1]."\n";
-	}
-	echo "</select>";
-}
-?>
-</li></a>
-<li><a href=z3950_diacritics_edit.php?base=<?php echo $db.$encabezado;?>>
-     <?php echo $msgstr["z3950_diacritics"]?>
-</a></li>
-  </ul>
- </div>
 
-	
-	<br><br>
-	<a class="btn btn-success" href=../dataentry/z3950.php?base=<?php echo $db.$encabezado?>&test=Y target=_blank><?php echo $msgstr["test"]?></a></li>
-	</ul>
-	</td>
-	
+
 	</form>
  	</div>
 </div>
-<form name=enviar method=post>
-<input type=hidden name=base value=<?php echo $db?>>
-<input type=hidden name=Opcion>
-<input type=hidden name=Table>
-<input type=hidden name=descr>
+<form name="enviar" method="post">
+<input type="hidden" name="base" value="<?php echo $db?>">
+<input type="hidden" name="Opcion">
+<input type="hidden" name="Table">
+<input type="hidden" name="descr">
 <?php if ($encabezado!="")
 echo "<input type=hidden name=encabezado value=s>\n";
 ?>

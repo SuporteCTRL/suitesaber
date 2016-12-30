@@ -27,7 +27,8 @@ if (strpos($arrHttp["picklist"],"%path_database%")===false){
 	if (!file_exists($archivo)) $archivo=$db_path.$arrHttp["base"]."/def/".$lang_db."/".$arrHttp["picklist"];
 }else{
 	$archivo=str_replace("%path_database%",$db_path,$arrHttp["picklist"]);
-}?>
+}
+?>
 <script>
 
 	function AgregarFila(ixfila,Option){
@@ -52,13 +53,16 @@ if (strpos($arrHttp["picklist"],"%path_database%")===false){
 
 	}
 
-	function Cancelar(){		document.cancelar.submit()	}
+	function Cancelar(){
+		document.cancelar.submit()
+	}
 
 	function Enviar(){
 		cols=mygrid.getColumnCount()
 		rows=mygrid.getRowsNum()
 		VC=""
-		for (i=0;i<rows;i++){			lineat=""
+		for (i=0;i<rows;i++){
+			lineat=""
 			for (j=0;j<cols;j++){
 				cell=mygrid.cells2(i,j).getValue()
 				if (cell.indexOf('|')!=-1){
@@ -103,7 +107,12 @@ echo "
 	";
 if (isset($arrHttp["desde"]) and $arrHttp["desde"]=="fixed_marc"){
 	echo "<a href=\"fixed_marc.php?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">";
-}else{	if (isset($arrHttp["desde"]) and $arrHttp["desde"]=="dataentry"){       echo "<a href=javascript:self.close() class=\"defaultButton cancelButton\">";	}else	 	echo "<a href=\"javascript:Cancelar()\" class=\"defaultButton cancelButton\">";}
+}else{
+	if (isset($arrHttp["desde"]) and $arrHttp["desde"]=="dataentry"){
+       echo "<a href=javascript:self.close() class=\"defaultButton cancelButton\">";
+	}else
+	 	echo "<a href=\"javascript:Cancelar()\" class=\"defaultButton cancelButton\">";
+}
 
 echo "
 					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
@@ -130,7 +139,7 @@ echo "<font color=white>&nbsp; &nbsp; Script: picklist_edit.php" ;
 	</div>
  <div class="middle form">
 			<div class="formContent">
-	<table width="100%">
+	<table class="table table-striped">
 
         <tr>
         	<td>
@@ -139,15 +148,15 @@ echo "<font color=white>&nbsp; &nbsp; Script: picklist_edit.php" ;
         <tr>
 		<td>
 			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
-			&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
-			&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
+			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
+			<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
 			<br><strong><font color=darkred><?php echo $msgstr["dragdrop"];?></font>
             <br><strong><font color=darkred><?php echo $msgstr["multiselect"];?></font>
 		<br>
 		</td>
 		<tr>
 			<td>
-				<div id="gridbox" xwidth="780px" height="200px" style="background-color:white;overflow:hidden"></div>
+				<div id="gridbox"></div>
 			</td>
 
 		</tr>
@@ -208,7 +217,8 @@ echo "<font color=white>&nbsp; &nbsp; Script: picklist_edit.php" ;
 				echo "mygrid.addRow((new Date()).valueOf(),['".trim($t[0])."','".trim($t[1])."','".trim($t[2])."'],i)\n";
 			}
 		}
-	}else{
+	}else{
+
  	}
 ?>
 
@@ -219,23 +229,23 @@ echo "<font color=white>&nbsp; &nbsp; Script: picklist_edit.php" ;
     </script>
 <br><br>
 </form>
-<form name=forma2 action=picklist_save.php method=post onsubmit="return false">
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=picklist value=<?php echo $arrHttp["picklist"]?>>
-<input type=hidden name=row value=<?php echo $arrHttp["row"]?>>
+<form name="forma2" action="picklist_save.php" method="post" onsubmit="return false">
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="picklist" value="<?php echo $arrHttp["picklist"]?>">
+<input type="hidden" name="row" value="<?php echo $arrHttp["row"]?>">
 <?php if (isset($arrHttp["desde"])) echo "<input type=hidden name=desde value=".$arrHttp["desde"].">\n";
 if (isset($arrHttp["encabezado"]))  echo "<input type=hidden name=encabezado value=".$arrHttp["encabezado"].">\n";
 if (isset($arrHttp["Ctrl"])) echo "<input type=hidden name=Ctrl value=".$arrHttp["Ctrl"].">\n";
 ?>
 </form>
-<form name=cancelar method=post target=PL action=picklist.php>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=pl_type value=<?php if (isset($arrHttp["pl_type"])) echo $arrHttp["pl_type"]?>>
-<input type=hidden name=picklist value="<?php echo $arrHttp["picklist"]?>">
-<input type=hidden name=row value=<?php if (isset($arrHttp["row"])) echo $arrHttp["row"]?>>
-<input type=hidden name=type value=<?php if (isset($arrHttp["type"])) echo $arrHttp["type"]?>>
-<input type=hidden name=desde vallue=<?php if (isset($arrHttp["desde"])) echo $arrHttp["desde"]?>>
+<form name="cancelar" method="post" target="PL" action="picklist.php">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="pl_type" value="<?php if (isset($arrHttp["pl_type"])) echo $arrHttp["pl_type"]?>">
+<input type="hidden" name="picklist" value="<?php echo $arrHttp["picklist"]?>">
+<input type="hidden" name="row" value="<?php if (isset($arrHttp["row"])) echo $arrHttp["row"]?>">
+<input type="hidden" name="type" value="<?php if (isset($arrHttp["type"])) echo $arrHttp["type"]?>">
+<input type="hidden" name="desde" vallue="<?php if (isset($arrHttp["desde"])) echo $arrHttp["desde"]?>">
 </form>
 </div>
 </div>

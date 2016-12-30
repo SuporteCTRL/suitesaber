@@ -1,0 +1,118 @@
+**Friday 30th of December 2016 09:23:10 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/acces/pfts/pt/tbacces&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:39:17 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=servers&cipar=/var/www/suitesaber.git/bases/par/servers.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/servers/pfts/pt/tbservers&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:39:18 AM Operador: abcd
+/central/dataentry/z3950.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=servers&cipar=/var/www/suitesaber.git/bases/par/servers.par&from=1&Formato=v1'|'v2'|'v3'|'v4'|'v5/&Opcion=rango&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:18 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=users&cipar=/var/www/suitesaber.git/bases/par/users.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/users/pfts/pt/tbusers&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:19 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=trans&cipar=/var/www/suitesaber.git/bases/par/trans.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/trans/pfts/pt/tbtrans&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:20 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=suspml&cipar=/var/www/suitesaber.git/bases/par/suspml.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/suspml/pfts/pt/tbsuspml&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:21 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=reserve&cipar=/var/www/suitesaber.git/bases/par/reserve.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/reserve/pfts/pt/tbreserve&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:24 AM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=users&cipar=/var/www/suitesaber.git/bases/par/users.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:25 AM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=trans&cipar=/var/www/suitesaber.git/bases/par/trans.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:27 AM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=suspml&cipar=/var/www/suitesaber.git/bases/par/suspml.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:30 AM Operador: abcd
+/central/acquisitions/overview.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=suggestions&cipar=/var/www/suitesaber.git/bases/par/suggestions.par&prefijo=STA_&Opcion=diccionario&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:31 AM Operador: abcd
+/central/acquisitions/suggestions_status.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=suggestions&cipar=/var/www/suitesaber.git/bases/par/suggestions.par&Expresion=STA_0 &Formato=@/var/www/suitesaber.git/bases/suggestions/pfts/pt/ti.pft,/&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:34 AM Operador: abcd
+/central/acquisitions/suggestions_status.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=suggestions&cipar=/var/www/suitesaber.git/bases/par/suggestions.par&Expresion=STA_0 &Formato=@/var/www/suitesaber.git/bases/suggestions/pfts/pt/ti.pft,/&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:37 AM Operador: abcd
+/central/acquisitions/bidding.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=suggestions&cipar=/var/www/suitesaber.git/bases/par/suggestions.par&Expresion=(STA_1 or STA_3)&Formato=@/var/www/suitesaber.git/bases/suggestions/pfts/pt/da_bidding.pft,/&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:38 AM Operador: abcd
+/central/acquisitions/decision.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=suggestions&cipar=/var/www/suitesaber.git/bases/par/suggestions.par&Expresion=(STA_1 or STA_3 or STA_4)&Formato=@/var/www/suitesaber.git/bases/suggestions/pfts/pt/da_decision.pft,/&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:42 AM Operador: abcd
+/central/acquisitions/order.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=suggestions&cipar=/var/www/suitesaber.git/bases/par/suggestions.par&Expresion=STA_4&Formato=@/var/www/suitesaber.git/bases/suggestions/pfts/pt/pv_order.pft,/&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:44 AM Operador: abcd
+/central/acquisitions/pending_order.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=purchaseorder&cipar=/var/www/suitesaber.git/bases/par/purchaseorder.par&from=1&Formato=@/var/www/suitesaber.git/bases/purchaseorder/pfts/pt/pv_order.pft,/&Opcion=buscar&Expresion=PO_$&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:48 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=suggestions&cipar=/var/www/suitesaber.git/bases/par/suggestions.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/suggestions/pfts/pt/tbsuggestions&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:50 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=providers&cipar=/var/www/suitesaber.git/bases/par/providers.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/providers/pfts/pt/tbproviders&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:53 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=purchaseorder&cipar=/var/www/suitesaber.git/bases/par/purchaseorder.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/purchaseorder/pfts/pt/tbpurchaseorder&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:51:56 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=copies&cipar=/var/www/suitesaber.git/bases/par/copies.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/copies/pfts/pt/tbcopies&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:52:04 AM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 09:52:15 AM Operador: abcd
+/central/dataentry/browse.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=acces&cipar=/var/www/suitesaber.git/bases/par/acces.par&from=1&to=10&Formato=/var/www/suitesaber.git/bases/acces/pfts/pt/tbacces&Opcion=buscar&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:01:56 AM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=trans&cipar=/var/www/suitesaber.git/bases/par/trans.par&Opcion=autoridades&prefijo=TR_P_&pref=TR_P_&postings=1&formato_e=v10,`$$$`,v10&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:19:34 AM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=trans&cipar=/var/www/suitesaber.git/bases/par/trans.par&Opcion=autoridades&prefijo=TR_P_&pref=TR_P_&postings=1&formato_e=v10,`$$$`,v10&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:46:55 AM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=trans&cipar=/var/www/suitesaber.git/bases/par/trans.par&Opcion=diccionario&prefijo=TR_P_&pref=TR_P_&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:47:04 AM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=users&cipar=/var/www/suitesaber.git/bases/par/users.par&Opcion=autoridades&prefijo=NO_&pref=NO_&postings=1&formato_e=v30,`$$$`,if P(v20) then v20 else v35 fi&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:49:27 AM Operador: abcd
+/central/dataentry/diccionario.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=marc&Opcion=diccionario&prefijo=FIX18_&campo=P18(FIX)&Diccio=6&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:50:13 AM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=marc&Opcion=diccionario&prefijo=IN_&pref=IN_&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:50:18 AM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=marc&Opcion=diccionario&prefijo=IN_&pref=IN_&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:50:24 AM Operador: abcd
+/central/circulation/capturaclaves.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/ifp.xis &base=trans&cipar=/var/www/suitesaber.git/bases/par/trans.par&Opcion=autoridades&prefijo=TR_P&pref=TR_P&postings=1&formato_e=v10,`$$$`,v10&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:54:15 AM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:56:24 AM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:58:26 AM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:58:32 AM Operador: abcd
+/central/statistics/tables_generate_ex.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/imprime.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=rango&from=1&to=114&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 10:58:43 AM Operador: abcd
+/central/statistics/tables_generate.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 11:29:49 AM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 11:40:22 AM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 11:40:59 AM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 11:41:08 AM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 11:41:40 AM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 11:45:43 AM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 11:46:55 AM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 12:37:04 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:08:56 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:09:12 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:09:38 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:12:57 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:22:52 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:23:07 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:23:30 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:24:35 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:26:49 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:26:59 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:27:08 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:27:27 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:28:16 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:28:38 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par
+**Friday 30th of December 2016 01:29:28 PM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/suitesaber.git/htdocs/central/dataentry/wxis/administrar.xis &base=title&cipar=/var/www/suitesaber.git/bases/par/title.par&Opcion=status&path_db=/var/www/suitesaber.git/bases/&syspar=/var/www/suitesaber.git/bases/par/syspar.par

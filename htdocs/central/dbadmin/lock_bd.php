@@ -90,10 +90,28 @@ if (!isset($_SESSION["permiso"]["CENTRAL_ALL"])){
 	echo "<h4>".$msgstr["invalidright"]."</h4>";
 }else{
 	if (!isset($arrHttp["action"])){
+
+
+
+
+
 		echo "<form name=protect onsubmit='return false'><table align=center class=listTable>";
+
+
+
+
+
+
+
+
+		
 		echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";
+		
 		echo "<ul><input type=radio name=action value=protect_db>".$msgstr["protect_db"]."</ul>\n";
+
+		
 		echo "<ul><input type=radio name=action value=unprotect_db>".$msgstr["unprotect_db"]."</ul>\n";
+		
 		echo "<ul><input class=\"btn btn-default\" type=submit name=send value=".$msgstr["send"]." onclick=EnviarForma()></ul>\n";
 		
 	}else{

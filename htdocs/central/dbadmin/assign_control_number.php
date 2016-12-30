@@ -149,21 +149,21 @@ if (isset($arrHttp["encabezado"])){
 
 </font>
 	</div>
-<form name=forma1 method=post action=assign_control_number_ex.php onsubmit="Javascript:return false">
-<input type=hidden name=encabezado value=s>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["base"]?>.par>
+<form name="forma1" method="post" action="assign_control_number_ex.php" onsubmit="Javascript:return false">
+<input type="hidden" name="encabezado" value="s">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="cipar" value="<?php echo $arrHttp["base"]?>.par">
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>\n";
 ?>
-<center>
+
 <div class="middle form">
 	<div class="formContent">
-	<table width=600 cellpadding=5>
-	<tr>
-		<td colspan=2 align=center height=1 bgcolor=#eeeeee><?php echo $msgstr["r_recsel"]?></td>
-	<tr>
-		<td  align=center colspan=2><label><?php echo $msgstr["r_mfnr"]?></label>: 
-		<?php echo $msgstr["r_desde"].": <input type=text name=Mfn size=10 value=";
+
+	
+		<label><?php echo $msgstr["r_recsel"]?></label>
+			
+		<label><?php echo $msgstr["r_mfnr"]?></label>: 
+		<?php echo $msgstr["r_desde"].": <input type=text name=Mfn class=\"form-control\" value=";
 		if (isset($arrHttp["to"]))
 			echo $arrHttp["to"];
 		else
@@ -172,7 +172,7 @@ if (isset($arrHttp["encabezado"])){
 		?>
 		<label><?php echo $msgstr["r_hasta"]?></label>
 
-		<input value="
+		<input value=""
 		<?php 
 		if (isset($arrHttp["to"])){
 			$count=$arrHttp["to"]-$arrHttp["from"]-1;
@@ -184,23 +184,29 @@ if (isset($arrHttp["encabezado"])){
 		}
 	
 		?>" type="text" name="to" class="form-control">
-		<hl><?php echo  $msgstr["maxmfn"]. " " .$tag["MAXMFN"];?></hl>
+		<label><?php echo  $msgstr["maxmfn"]. ": " .$tag["MAXMFN"];?></label>
+		<br>
 
-		 <a href="javascript:BorrarRango()" class="btn btn-default"><?php echo $msgstr["borrar"]?></a>
-	</td>
-	<tr>
-		<td colspan=2 align=center>
+		
+	
+
+		
 		<?php
-		echo "Last control number: ".$last_cn." <a href=Javascript:Reset ()>".$msgstr["resetcn"]."</a>";?><p><input class="btn btn-default" type=submit name=enviar value="<?php echo $msgstr["send"]?>" onClick=javascript:EnviarForma()></td>
+		echo "Last control number: ".$last_cn." 
+		<a href=Javascript:Reset ()>".$msgstr["resetcn"]."</a>";?>
+		<br>
+		<input class="btn btn-primary" type="submit" name="enviar" value="<?php echo $msgstr["send"]?>" onClick=javascript:EnviarForma()>
+		
+		 <a href="javascript:BorrarRango()" class="btn btn-warning"><?php echo $msgstr["borrar"]?></a>
+		
 </table>
 </form>
-</center>
+
 </div>
 </div>
-</center>
-<form name=reset_nc method=post action=reset_control_number.php>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=encabezado value=s>
+<form name="reset_nc" method="post" action="reset_control_number.php">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="encabezado" value="s">
 </form>
 <script>function Reset(){
 	document.reset_nc.submit()

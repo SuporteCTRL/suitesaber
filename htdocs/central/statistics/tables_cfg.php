@@ -233,22 +233,23 @@ if (isset($arrHttp["from"]) and $arrHttp["from"]=="statistics"){
 }else{
 	$script="../dbadmin/menu_modificardb.php";
 }
-	echo "<a href=\"$script?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton backButton\">";
-echo "<img src=\"../images/defaultButton_iconBorder.gif\" />
-	<span><strong>".$msgstr["back"]."</strong></span></a>";
+	
+
 if ($error==""){
 	echo "
-	<a href=\"javascript:Guardar()\" class=\"btn btn-primary\">
-	<i class=\"fa fa-check\" >
-	<span><strong>".$msgstr["save"]."</strong></span></i></a>";
+	<a href=javascript:Guardar() class=\"btn btn-primary\">
+	<i class=\"fa fa-check\" alt=\"".$msgstr["save"]."\" text=\"".$msgstr["save"]."\" >
+	</i></a>";
+
+   
 }
 ?>
-</div><div class="spacer">&#160;</div></div>
+</div></div>
 <div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/stats/stats_config_tabs.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
+
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/stats/stats_config_tabs.html target=_blank>".$msgstr["edhlp"]."</a>";
+	
 echo "<font color=white>&nbsp; &nbsp; Script: tables_cfg.php";
 ?>
 </font>
@@ -278,30 +279,42 @@ foreach ($fp as $value) {
 		$t=explode('|',$value);
 	
 		
-		echo "<div class=\"col-md-4\"><label>".$msgstr["title"]."</label>";
-		echo "<input type=text name=tit class=\"form-control\" value=\"".$t[0]."\"></div>";
-   		echo "<div class=\"col-md-4\"><label>".$msgstr["rows"]."</label><select class=\"form-control\" name=rows><option></option>";
+		echo "<div class=\"col-md-4\">
+		<label>".$msgstr["title"]."</label>
+		<input type=text name=tit class=\"form-control\" value=\"".$t[0]."\"></div>";
+
+   		echo "<div class=\"col-md-4\"><label>".$msgstr["rows"]."</label>
+   		<select class=\"form-control\" name=rows><option></option>";
    		$f=explode('||',$fields);
    		foreach ($f as $opt) {
    			$selected="";
    			if ($opt==$t[1]) $selected=" selected";
    			echo "<option value=\"$opt\" $selected>$opt</option>\n";
    		}
+   		
    		echo "</select></div>";
-   		echo "<div class=\"col-md-2\"><label>".$msgstr["cols"]."</label><select class=\"form-control\" name=cols><option></option>";
+   		
+   		echo "<div class=\"col-md-2\">
+   		<label>".$msgstr["cols"]."</label>
+   		<select class=\"form-control\" name=cols>
+   		<option></option>";
    		$f=explode('||',$fields);
    		foreach ($f as $opt) {
    			$selected="";
    			if ($opt==$t[2]) $selected=" selected";
    			echo "<option value=\"$opt\" $selected>$opt</option>\n";
    		}
+
            echo "</select></div>";
            echo "
            <script>MarcarSeleccion(document.stats.rows,$total,'".$t[1]."')
            MarcarSeleccion(document.stats.cols,$total,'".$t[2]."')
            </script>\n";
 
-           echo "<div class=\"col-md-2\"><a class=\"btn btn-danger\" href=javascript:DeleteElement(".$total.")><i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\"></i></a></div>\n";
+           echo "<div class=\"col-md-2\">
+           <a class=\"btn btn-danger\" href=javascript:DeleteElement(".$total.")>
+           <i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\">
+           </i></a></div>";
 
 	}
 
@@ -315,6 +328,7 @@ echo "<script>total=$total</script>\n";
         </div>
 
         <div class="col-md-4">
+        <br><br>
         <a class="btn btn-primary" href='javascript:AddElement()'><?php echo $msgstr["add"]?></a>
 	</div>
 </div>

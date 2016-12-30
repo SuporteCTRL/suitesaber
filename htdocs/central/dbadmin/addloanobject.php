@@ -47,13 +47,18 @@ echo $base;
 ?>
 
 </label>
-  <label> From: <input class="form-control"  type="text" name="from" id="from" /> </label>
+  <label> From: 
+    <input class="form-control"  type="text" name="from" id="from" /> 
+  </label>
   <script language="javascript">//estableciendo el foco en el 1mer textbox
    document.form1.from.value="1";
   document.form1.from.focus();
   </script>
-  <label>To: <input class="form-control"  type="text" name="to" id="to" /> <label>
-    last MFN=<?php 
+  <label>To:
+   <input class="form-control"  type="text" name="to" id="to" />
+    <label>
+    last MFN=
+<?php 
   include("../common/get_post.php");
 $base=$_POST['base'];
   $mx_max_mfn="$mx_path"."mx.exe ".$db_path.$base."/data/".$base;
@@ -141,7 +146,7 @@ while(!feof($fp))
  
   echo " <input type=\"hidden\" value=\"$base\" name=\"base\"/>";
   ?>
-      <input class="btn btn-default" type="submit" name="sub" id="sub" value="Submit"
+      <input class="btn btn-success" type="submit" name="sub" id="sub" value="Submit"
   onClick="javascript:validar();" />
       </label>
 

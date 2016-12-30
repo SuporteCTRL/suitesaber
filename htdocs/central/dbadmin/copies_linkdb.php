@@ -117,7 +117,7 @@ echo "<form name=forma1 action=resetautoinc_update.php method=post>
 if (isset($arrHttp["encabezado"]))  echo "<input type=hidden name=encabezado value=s>\n";
 echo "<h5>".$msgstr["database"]." ".$base."<p>";
 echo "<br><input type=checkbox name=copies value=on $copies_link>".$msgstr["incopies"].".<br>".$msgstr["copiesreq"]."</h5>";
-echo "<input class=\"btn btn-default\" type=submit name=mark value=".$msgstr["update"].">";
+echo "<input class=\"btn btn-primary\" type=submit name=mark value=".$msgstr["update"].">";
 
 echo "<form></div></div>";
 include("../common/footer.php");
