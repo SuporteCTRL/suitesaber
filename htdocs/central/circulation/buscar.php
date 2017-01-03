@@ -71,7 +71,7 @@ global $arrHttp,$db_path,$lang_db;
 function LocalizarTransacciones($control_number,$prefijo){
 global $db_path,$Wxis,$xWxis,$wxisUrl,$arrHttp;
 	$formato_obj="v10'$$$',v98'$$$',v20'$$$',v40'$$$',v300/";
-	//N˙mero de inventario
+	//N√∫mero de inventario
 	//base de datos
 	//Fecha de devolucion
 	//comentarios
@@ -84,7 +84,7 @@ global $db_path,$Wxis,$xWxis,$wxisUrl,$arrHttp;
 		if (trim($linea)!=""){
 			$lp=explode('$$$',$linea);
 			if ($arrHttp["base"]==$lp[1]){
-				//Se determina si el prÈstamo corresponde a la base de datos desde la cual se busca
+				//Se determina si el pr√©stamo corresponde a la base de datos desde la cual se busca
 				$prestamos[$lp[0]]=$linea;
 			}
 
@@ -93,7 +93,7 @@ global $db_path,$Wxis,$xWxis,$wxisUrl,$arrHttp;
 	return $prestamos;
 }
 
-// Se localiza el n˙mero de inventario en la base de datos de objetos  de prÈstamo
+// Se localiza el n√∫mero de inventario en la base de datos de objetos  de pr√©stamo
 function LocalizarCopiasLoanObjects($control_number){
 global $db_path,$Wxis,$xWxis,$wxisUrl,$arrHttp,$politica,$msgstr;
     $Expresion="CN_".$arrHttp["base"]."_".$control_number;
@@ -103,7 +103,7 @@ global $db_path,$Wxis,$xWxis,$wxisUrl,$arrHttp,$politica,$msgstr;
 
 	$formato_ex="v1'||'v10'||'v30'||',v200^a,|-|v200^b/";
 	$formato_obj=urlencode($formato_ex);
-	//se ubican las copias del tÌtulo
+	//se ubican las copias del t√≠tulo
 	$Expresion=urlencode($Expresion);
 	$query = "&Opcion=disponibilidad&base=copies&cipar=$db_path"."par/copies.par&Expresion=".$Expresion."&Pft=$formato_ex";
 	include("../common/wxis_llamar.php");
@@ -128,7 +128,7 @@ global $db_path,$Wxis,$xWxis,$wxisUrl,$arrHttp,$politica,$msgstr;
     		if (isset($copies[$ninv][0])){
     			$copies[$ninv][1]=$linea;
     		}else{
-    			$copies[$ninv][0]=$ninv.'||||||No est· en copias';
+    			$copies[$ninv][0]=$ninv.'||||||No est√° en copias';
     			$copies[$ninv][1]=$linea;
     		}
 		}
@@ -229,7 +229,7 @@ global $msgstr;
 			$items=LocalizarCopiasLoanobjects($control_n);
 			break;
 		case "N":
-			// SE DETERMINA LA DISPONIBILIDAD DE LOS EJEMPLARES DESDE EL CAT¡LOGO
+			// SE DETERMINA LA DISPONIBILIDAD DE LOS EJEMPLARES DESDE EL CAT√ÅLOGO
 			$items=LocalizarCopias($control_n);
 			break;
 	}
@@ -240,7 +240,7 @@ global $msgstr;
 
 function Reservas($cn,$base){
 global $msgstr,$arrHttp,$db_path,$xWxis,$tagisis,$Wxis,$wxisUrl,$lang_db,$config_date_format,$reservas_u_cn;
-    //Se determina si el usuario no tiene prestado un ejemplar del tÌtulo que desea reservar
+    //Se determina si el usuario no tiene prestado un ejemplar del t√≠tulo que desea reservar
 	$reserves_arr=ReservesRead("CN_".$base."_".$cn);
 	$output=$reserves_arr[0];
 
@@ -333,7 +333,7 @@ global $config_date_format,$arrHttp;
 	    if (isset($item[0])){
 	    	$l=explode('||',$item[0]);
 	    	$inv=$l[2];
-	    	echo "<tr><td bgcolor=white>".$l[2]."</td>";
+	    	echo "<tr><td >".$l[2]."</td>";
 	    	echo "<td></td>";
 	    	echo "<td></td>";
 	    	echo "<td></td>";
@@ -417,7 +417,7 @@ global $arrHttp,$db_path,$xWxis,$tagisis,$Wxis,$wxisUrl,$lang_db,$Expresion;
 }
 
 
-// Prepara la fÛrmula de b˙squeda cuando viene de la b˙squeda avanzada
+// Prepara la f√≥rmula de b√∫squeda cuando viene de la b√∫squeda avanzada
 
 function PrepararBusqueda(){
 global $arrHttp,$matriz_c,$camposbusqueda;
@@ -431,7 +431,7 @@ global $arrHttp,$matriz_c,$camposbusqueda;
 	if (isset($arrHttp["Prefijos"])){
 		$prefijos=explode(" ~~~ ",$arrHttp["Prefijos"]);
 	}
-	// se analiza cada sub-expresion para preparar la fÛrmula de b˙squeda
+	// se analiza cada sub-expresion para preparar la f√≥rmula de b√∫squeda
 	$nse=-1;
 	for ($i=0;$i<count($expresion);$i++){
 		$expresion[$i]=trim(stripslashes($expresion[$i]));
@@ -454,8 +454,8 @@ global $arrHttp,$matriz_c,$camposbusqueda;
 			}else{
 				$id="";
 			}
-			$xor="¨or¨$pref";
-			$xand="¨and¨$pref";
+			$xor="¬¨or¬¨$pref";
+			$xand="¬¨and¬¨$pref";
 
 			$formula=stripslashes($formula);
 			while (is_integer(strpos($formula,'"'))){
@@ -489,7 +489,7 @@ global $arrHttp,$matriz_c,$camposbusqueda;
 				}
 			}
 
-			$formula=str_replace ("¨", " ", $formula);
+			$formula=str_replace ("¬¨", " ", $formula);
 //			if (substr($formula,0,strlen($pref))!=$pref) $formula=$pref.$formula;
 			$expresion[$i]=trim($formula);
 		}
@@ -516,7 +516,7 @@ function AbrirIndice(xI){
 	Ctrl_activo=xI
 	lang="<?php echo $_SESSION["lang"]?>"
 <?php
-# Se lee el prefijo y el formato para extraer el cÛdigo de usuario
+# Se lee el prefijo y el formato para extraer el c√≥digo de usuario
 $us_tab=LeerPft("loans_uskey.tab","users");
 $t=explode("\n",$us_tab);
 $codigo=LeerPft("loans_uskey.pft","users");

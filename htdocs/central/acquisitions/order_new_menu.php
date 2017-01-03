@@ -71,6 +71,11 @@ include("../common/institutional_info.php");
 
 ?>
 	</ul>
+
+	 <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configurar sistema<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          
 	</div>
 	</div>
 

@@ -298,18 +298,16 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
 	</div>
-	
+
 </div>
-
+<div class="helper">
 <?php 
-
-
+if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 	
-echo "<font Script: prestar.php </font>";
-
+echo "<font color=white>&nbsp; &nbsp; Script: prestar.php </font>
+	</div>";
+// prestar, reservar o renovar
 ?>
-
-
 
 
 <form name="inventorysearch" action="usuario_prestamos_presentar.php" method="post" onsubmit="javascript:return false">
@@ -327,11 +325,11 @@ if (file_exists($db_path."loans.dat")){
 ?>
 	
 		<label for="dataBases">
-			<?php echo $msgstr["basedatos"];?>
+			<strong><?php echo $msgstr["basedatos"]?></strong>
 		</label>
 		
-		<select class="form-control" name="db_inven" onchange="CambiarBase()">
-		
+		<select name="db_inven" class="form-control" onchange="CambiarBase()">
+		<option></option>
 <?php
 	$xselected=" selected";
 	$cuenta=0;
@@ -353,13 +351,7 @@ if (file_exists($db_path."loans.dat")){
 				$value.=$v[2];
 			}
 
-
 			if (isset($_SESSION["loans_dbinven"])){
-
-
-
-			if (isset($_SESSION["loans_dbinven"])){
-
 
 				if ($_SESSION["loans_dbinven"]==$v[0])
 					$xselected=" selected";
@@ -376,71 +368,40 @@ if (file_exists($db_path."loans.dat")){
 		
 	</div>
 
-
-<?php
- }
- ?>
-
 <?php }?>
-
-	<div class="searchBox">
-	 <?php echo $msgstr["inventory"]?>
-		</label>
-
-		<?php if (isset($LOAN_POLICY) and $LOAN_POLICY=="BY_USER"  ){
-
-			?>
-			<input class="form-control" type="text" name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';">
-<?php 
-}
-	else{
-?>
-
-		<textarea class="form-control" name="inventory_sel" id="inventory_sel" value="" ></textarea>
-	<?php 
-}
-
-	?>
 	<br>
-
-	    <input class="btn btn-primary" type="button"  name="list"  value="<?php 
-	     echo $msgstr["list"];?>"  onclick="javascript:AbrirIndice('<?php 
-	     	if ($sel_base=="S") { 
-	     		echo "S"; 
-	     	    } 
-	     	    else { 
-	     	    	echo "I" 
-	     	    	;?>'
-	    document.inventorysearch.inventory_sel);
-	    return false"/>
-
-
+		<label for="searchExpr">
+			<strong><?php echo $msgstr["inventory"]?></strong>
+		</label>
+		</td><td>
+		<?php if (isset($LOAN_POLICY) and $LOAN_POLICY=="BY_USER"  ){
 			?>
-			<br>
-
-	<input class="form-control" type="text" name="inventory_sel" id="inventory_sel" value="" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';">
-
-		<textarea class="form-control" name="inventory_sel" id="inventory_sel" value="" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" ></textarea>
+			<input type=text name="inventory_sel" id="inventory_sel" value="" class="form-control">
+	<?php }else{
+			?>
+		<textarea name="inventory_sel" id="inventory_sel" value="" class="form-control" ></textarea>
 	<?php }
 
 	?>
-	    <input class="btn btn-warning"  name="list" value="<?php echo $msgstr["list"];?>"  onclick="javascript:AbrirIndice('<?php if ($sel_base=="S") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
-
+	<br>
+	    <input type="button" name="list" value="<?php echo $msgstr["list"];?>" class="btn btn-primary" onclick="javascript:AbrirIndice('<?php if ($sel_base=="S") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
         <div id="kardex" style="display:none;">
             <br>
-			Ano: <input type="text" name="year" class="form-control">
-			Volume: <input type="text" name="volumen" class="form-control">
-			Número:<input type="text" name="numero"  class="form-control">
+			Año: <input type=text name=year size=4>
+			Volumen:<input type=text name=volumen size=8>
+			Número:<input type=text name=numero size=8>
 		</div>
-		
+		</td>
 <?php
 if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 			echo "
-			<label for=date>".$msgstr["date"]. "<!-- calendar attaches to existing form element -->
-					<input class=\"form-control\" type=\"text\" name=\"date\" id=\"date"."_c Xreadonly=\"1\"  value=\"\" ";
+			<label for=date>".$msgstr["date"]. "
+			 <!-- calendar attaches to existing form element -->
+					<input type=text name=date id=date"."_c Xreadonly=\"1\"  value=\"\" size=10";
 			echo " onChange='Javascript:DateToIso(this.value,document.inventorysearch.date)'";
 			echo "/>
-				<i class=\"fa fa-calendar\" aria-hidden=\"true\"></i>
+				<img src=\"../dataentry/img/calendar.gif\" id=\"f_date\" style=\"cursor: pointer;\" title=\"Date selector\"
+			 	 / valign=bottom>
 				<script type=\"text/javascript\">
 				   Calendar.setup({
        					inputField     :    \"date"."_c\",     // id of the input field
@@ -458,49 +419,46 @@ if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 			    echo" &nbsp;&nbsp; <strong> or </strong>
 					<label for=lappso><strong>".$msgstr["days"]."</strong><input type=text name=lpn size=4>\n";
 
-            echo  "</td></tr>";
+           
 		}
 ?>
 
 	</div>
 
 
-	<div class="searchBox">
+	
+		<label for="searchExpr"><?php echo $msgstr["usercode"]?></label>
 		
-		<label for="searchExpr">
-			<?php echo $msgstr["usercode"];?>
-		</label>
-		
-		<input type="text" name="usuario" id="usuario" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry'; "
+		<input type="text" name="usuario" id="usuario" class="form-control"
 <?php
 if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="")
 	echo "value=\"".$arrHttp["usuario"]."\"";
 ?>
  onclick="document.inventorysearch.usuario.value=''"
 />
-
-		<input class="btn btn-warning" type="button" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndice('U',document.inventorysearch.usuario)"/></td>
-
-		<br>
-		<label for="searchExpr"><?php echo $msgstr["comments"];?></label>
-		<input class="form-control" type="text" name="comments"   size=100 maxlength=100>
-		<br>
-		<input class="btn btn-success" type="submit" name="prestar" value="<?php echo $msgstr["loan"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
 <br>
-    <?php echo $msgstr["clic_en"]." <i>[".$msgstr["loan"]."]</i> ".$msgstr["para_c"];?>
+		<input type="button" name="list" value="<?php echo $msgstr["list"]?>" class="btn btn-primary" onclick="javascript:AbrirIndice('U',document.inventorysearch.usuario)"/></td>
+
+		<br>
+		<label for="searchExpr"><?php echo $msgstr["comments"]?></label>
+		<br>
+		<input type=text name=comments class="form-control">
+		<input type="submit" name="prestar" value="<?php echo $msgstr["loan"]?>" class="btn btn-primary" onclick="javascript:EnviarForma()"/>
+<br>
+		
+        <label><?php echo $msgstr["clic_en"]." [".$msgstr["loan"]."] ".$msgstr["para_c"];?></label>
 
 	</div>
 	</div>
 </div>
 
 </form>
-<?php 
-include("../common/footer.php");
-echo "</body></html>";
+<?php include("../common/footer.php");
+echo "</body></html>" ;
 if (isset($cuenta) and $cuenta==1){
 	echo "<script>
 	        document.inventorysearch.db_inven.selectedIndex=2
 	     </script";
 }
 ?>
-<script> CambiarBase() </script>
+<script>CambiarBase()</script>

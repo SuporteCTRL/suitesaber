@@ -254,7 +254,7 @@ echo "<font color=white>&nbsp; &nbsp; Script: reports_menu.php";
 <a href="print_add.php" class="btn btn-info"><?php echo $msgstr["new"]?></a>
 
 </form>
-<p>
+
 </div>
 </div>
 <?php
