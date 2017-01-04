@@ -28,10 +28,10 @@ $log="N";
 
 
 //$db_path="/bases_abcd/bases/";
-$db_path="/var/www/suitesaber.git/bases/";   //*************************************
+$db_path="/var/www/suitesaber/bases/";   //*************************************
 
 //path where the lang file and help page are to be located
-$msg_path="/var/www/suitesaber.git/bases/";
+$msg_path="/var/www/suitesaber/bases/";
 
 if (isset($_SESSION["DATABASE_DIR"])) {
 	$db_path=$_SESSION["DATABASE_DIR"];
@@ -53,21 +53,21 @@ if (isset($arrHttp["base"])){
 }
 
 //Path to the folder where the uploaded images are to be stored (the database name will be added to this path)
-$img_path="/var/www/suitesaber.git/htdocs/bases/";
+$img_path="/var/www/suitesaber/htdocs/bases/";
 
 //Path to the wwwisis executable (include the name of the program)
-$Wxis="/var/www/suitesaber.git/cgi-bin/$cisis_ver"."wxis.exe";
+$Wxis="/var/www/suitesaber/cgi-bin/$cisis_ver"."wxis.exe";
 //$Wxis="";
 
 //Path to the wxis scripts
-$xWxis="/var/www/suitesaber.git/htdocs/$app_path/dataentry/wxis/";
+$xWxis="/var/www/suitesaber/htdocs/$app_path/dataentry/wxis/";
 
 //Url for the execution of WXis, when using GGI in place of exec
 //$wxisUrl="http://localhost:9090/cgi-bin/$cisis_ver"."wxis.exe";
 $wxisUrl="";   //SI NO SE VA A UTILIZAR EL METODO POST PARA VER LOS REGISTROS
 
 //path to the mx  program (include the name of the program)
-$mx_path="/var/www/suitesaber.git/cgi-bin/$cisis_ver"."mx";
+$mx_path="/var/www/suitesaber/cgi-bin/$cisis_ver"."mx";
 
 //default language
 $lang="pt";

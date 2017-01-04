@@ -2,9 +2,9 @@
 [PATH]
 
 PATH_DATA=/iah/
-PATH_CGI-BIN=/var/www/suitesaber.git/htdocs/iah/scripts/
-PATH_DATABASE=/var/www/suitesaber.git/bases/
-PATH_DEF=/var/www/suitesaber.git/bases/par/
+PATH_CGI-BIN=/var/www/suitesaber/htdocs/iah/scripts/
+PATH_DATABASE=/var/www/suitesaber/bases/
+PATH_DEF=/var/www/suitesaber/bases/par/
 
 [APPEARANCE]
 

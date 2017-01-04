@@ -12,16 +12,16 @@ DIRECTORY=/site/
 ; Full path to folder 'htdocs' in BVS-Site
 ; installation. Windows users must NOT put
 ; letter unit in path
-SITE_PATH=/var/www/suitesaber16/htdocs/site/
+SITE_PATH=/var/www/suitesaber/htdocs/site/
 
 ; Full path to folder 'site' in folder bases.
 ; Windows users must NOT put letter unit in path
-DATABASE_PATH=/var/www/suitesaber16/bases/site/
+DATABASE_PATH=/var/www/suitesaber/bases/site/
 
 
 ; Full path where is the 'local' folder (destination of upload files)
 ; UPLOAD_FILES_PATH=/home/bvs-site/bases/site/
-  UPLOAD_FILES_PATH=/var/www/suitesaber16/bases/site/
+  UPLOAD_FILES_PATH=/var/www/suitesaber/bases/site/
 
 
 ; Servername
