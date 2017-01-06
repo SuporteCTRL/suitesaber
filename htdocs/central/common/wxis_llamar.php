@@ -1,6 +1,8 @@
 <?php
 //CHANGED
-	if (isset($arrHttp["lock"]) and $arrHttp["lock"]=="S"){		$query.="&lock=S";	}
+	if (isset($arrHttp["lock"]) and $arrHttp["lock"]=="S"){
+		$query.="&lock=S";
+	}
     $contenido="";
     $content="";
     $err_wxis="";
@@ -37,9 +39,12 @@
         	    $a=fgets($fp, 4096);
                 //ECho "$a<br>";
                 $content.=$a;
-                if (trim($a)=="Content-Type: text/html"){                  	$inicio_content="SI";
-                   	continue;                }
-                if ($inicio_content=="SI"){                  	if (trim($a)!="")
+                if (trim($a)=="Content-Type: text/html"){
+                  	$inicio_content="SI";
+                   	continue;
+                }
+                if ($inicio_content=="SI"){
+                  	if (trim($a)!="")
 						$result .=$a ;
 				}
 			}
@@ -50,7 +55,10 @@
         $ix=0;
         $contenido=array();
         foreach ($con as $value) {
-           	if (substr($value,0,4)=="WXIS"){           		$err_wxis.=$value."<br>";           	}           	//echo "***$value<br>";
+           	if (substr($value,0,4)=="WXIS"){
+           		$err_wxis.=$value."<br>";
+           	}
+           	//echo "***$value<br>";
         	$contenido[]=$value;
         }
        if ($err_wxis!="") echo "<font color=red size=+1>$err_wxis</font>";
@@ -62,13 +70,21 @@
 		$query="";
 
 		foreach ($q as $value){
-			if (trim($value!="")){				$ix=strpos($value,"=");
-				if ($ix>0){					$key=substr($value,0,$ix);
+			if (trim($value!="")){
+				$ix=strpos($value,"=");
+				if ($ix>0){
+					$key=substr($value,0,$ix);
 					$par=substr($value,$ix+1);
-					if ($key=="cipar"){						if (!file_exists($par)){							$par="";						}					}
+					if ($key=="cipar"){
+						if (!file_exists($par)){
+							$par="";
+						}
+					}
 					if ($par!="")
-						$query.="&".$key."=".$par;				}
-			}		}
+						$query.="&".$key."=".$par;
+				}
+			}
+		}
         if (file_exists($db_path."par/syspar.par"))
         	$query.="&syspar=$db_path"."par/syspar.par";
 		putenv('QUERY_STRING='."?xx=".$query);
@@ -81,14 +97,18 @@
            	//echo "***$value<br>";
 
         }
-       if ($err_wxis!="") {       		echo "<font color=red size=+1>$err_wxis</font>";
+       if ($err_wxis!="") {
+       		echo "<font color=red size=+1>$err_wxis</font>";
        		//die;
        	}
  }
  //if (isset($log) and $log=="Y"){
- 	if (is_dir($db_path."log") and isset($_SESSION['login'])){	 	$fp=fopen($db_path."log/log_".date("Ymd").".log","a");
-		fwrite($fp,"**".date('l jS \of F Y h:i:s A')." Operador: ".$_SESSION['login']."\n");
-		fwrite($fp,$_SERVER["PHP_SELF"]." ".$IsisScript." ".urldecode($query)."\n");
-		fclose($fp);
-	} //}
+ 	if (is_dir($db_path."log") and isset($_SESSION['login'])){
+
+@	 	$fp=fopen($db_path."log/log_".date("Ymd").".log","1");
+@		fwrite($fp,"**".date('l jS \of F Y h:i:s 1')." Operador: ".$_SESSION['login']."\n");
+@		fwrite($fp,$_SERVER["PHP_SELF"]." ".$IsisScript." ".urldecode($query)."\n");
+@		fclose($fp);
+	}
+ //}
 ?>

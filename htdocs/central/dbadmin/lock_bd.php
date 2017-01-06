@@ -112,7 +112,7 @@ if (!isset($_SESSION["permiso"]["CENTRAL_ALL"])){
 		
 		echo "<ul><input type=radio name=action value=unprotect_db>".$msgstr["unprotect_db"]."</ul>\n";
 		
-		echo "<ul><input class=\"btn btn-default\" type=submit name=send value=".$msgstr["send"]." onclick=EnviarForma()></ul>\n";
+		echo "<ul><input class=\"btn btn-primary\" type=submit name=send value=".$msgstr["send"]." onclick=EnviarForma()></ul>\n";
 		
 	}else{
 		$res=Ejecutar($arrHttp["base"],$arrHttp["action"],$db_path);

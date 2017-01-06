@@ -218,7 +218,9 @@ if (!isset($arrHttp["Opcion"])){
 	}
 }
 
-
+?>
+<iframe src="" name="configura" width="100%" height="3000px" frameborder="0"></iframe>
+<?php
 echo "</form></div>
 </div>
 </center>";
@@ -229,21 +231,24 @@ echo "</body></html>\n";
 
 function DisplayProfiles(){
 global $db_path,$msgstr,$encabezado;
-	echo "<table>";
+	echo "<table class=\"table table-bordered\">";
 	$fp=file($db_path."par/profiles/profiles.lst");
 	foreach ($fp as $val){
 		$val=trim($val);
 		if ($val!=""){
 			$p=explode('|',$val);
             if ($p[0]!="adm"){
-				echo "<tr><td>".$p[1]." (".$p[0].")</td><td>
-					<a class=\"btn btn-warning\" href=profile_edit.php?profile=".$p[0]."$encabezado&Opcion=edit>".$msgstr["EDIT"]."</a>  ";
-				echo "<a class=\"btn btn-danger\" href=javascript:DeleteProfile(\"".$p[0]."\")>".$msgstr["delete"]."</A></td>";
+				echo "<tr><td>".$p[1]." (".$p[0].")</td><td><center>
+					<a class=\"btn btn-warning\" href=profile_edit.php?profile=".$p[0]."$encabezado&Opcion=edit>".$msgstr["EDIT"]."</a> ";
+				echo "<a class=\"btn btn-danger\" href=javascript:DeleteProfile(\"".$p[0]."\")>".$msgstr["delete"]."</a></td>";
 			}
 		}
 	}
+
+	echo "
+	<a class=\"btn btn-primary\" href=profile_edit.php?Opcion=new&encabezado=s>".$msgstr["new"]."</a>";
 	echo "</table>\n";
-	echo "<a class=\"btn btn-primary\" href=profile_edit.php?Opcion=new&encabezado=s>".$msgstr["new"]."</a>";
+	
 }
 
 function DeleteProfile(){
@@ -320,8 +325,11 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 //	echo "<xmp>";
 //	print_r($profile_usr);
 //	echo "</xmp>";//die;
-	echo "<table>";
-	echo "<tr><td>".$msgstr["PROFILENAME"]."</td><td><input type=text name=profilename size=15 value=\"";
+	echo "<table class=\"table table-bordered\">";
+	echo "<thead>
+	<tr>
+		<td>".$msgstr["PROFILENAME"]."</td>
+		<td><input type=text name=profilename size=15 value=\"";
 	if (isset($profile_usr["profilename"])) echo $profile_usr["profilename"];
 	echo "\"></td>";
 	echo "<tr><td>".$msgstr["PROFILEDESC"]."</td><td><input type=text name=profiledesc size=80 value=\"";
@@ -349,18 +357,18 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 			$dd=explode('|',$dbs);
 			$dbn=$dd[0];
 			if ($dd[0]!="acces" ){
-				echo "<a name=$dbn><table bgcolor=#cccccc class=listTable>";
-				echo "<th width=33%>".$msgstr["DATABASES"]." ".$select_db."</th><th width=33%>".$msgstr["DISPLAYFORMAT"]."</th><th width=33%>".$msgstr["WORKSHEET"]."</TH>";
+				echo "<a name=$dbn><table class=\"table table-bordered\">";
+				echo "<th width=33%>".$msgstr["DATABASES"]." ".$select_db."</th><th>".$msgstr["DISPLAYFORMAT"]."</th><th>".$msgstr["WORKSHEET"]."</th>";
 				if ($inicio=="S"){
 					$inicio="N";
 
-					echo "<tr><td bgcolor=white colspan=3><input type=checkbox name=db_ALL value=ALL onclick=AllDatabases()><strong><font color=darkred size=+1>".$msgstr["ALL"]."</font></strong></td>";
+					echo "<tr><td><input type=checkbox name=db_ALL value=ALL onclick=AllDatabases()><strong><font>".$msgstr["ALL"]."</font></td>";
 				}
                 $bases_dat[$dbn]=$dbn;
-				echo "<tr><td valign=top bgcolor=white><input type=checkbox name=db_".$dbn." value=".$dbn;
+				echo "<tr><td><input type=checkbox name=db_".$dbn." value=".$dbn;
 				if (isset($profile_usr["db_".$dbn])) echo " checked";
-				echo "><strong><font color=darkred>".$dd[1]." (".$dbn.")</font></strong></td>\n";
-				echo "<td bgcolor=white valign=top>";
+				echo "><font>".$dd[1]." (".$dbn.")</font></td>\n";
+				echo "<td>";
 				$file=$db_path.$dbn."/pfts/".$_SESSION["lang"]."/formatos.dat";
 				if (!file_exists($file)){
 					$file=$db_path.$dbn."/pfts/".$lang_db."/formatos.dat";
@@ -385,7 +393,7 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 					echo "&nbsp;";
 				}
 				echo "</td>";
-				echo "<td bgcolor=white valign=top>";
+				echo "<td>";
 				$file=$db_path.$dd[0]."/def/".$_SESSION["lang"]."/formatos.wks";
 				if (!file_exists($file)){
 					$file=$db_path.$dd[0]."/def/".$lang_db."/formatos.wks";
@@ -408,12 +416,12 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 						}
 					}
 				}else{
-					echo   "&nbsp";
+			
 				}
 				echo "</td>";
 				echo "</table>";
-				echo "<table width=100%><td valign=top colspan=3 align=left>\n";
-				echo "<strong>".$msgstr["PERMISSIONS"].": ".$msgstr["DATAENTRY"]." ($dbn)</strong>\n";
+				echo "<table class=\"table table-bordered\">\n";
+				echo "<label>".$msgstr["PERMISSIONS"].": ".$msgstr["DATAENTRY"]." ($dbn)</label>\n";
 		        $i=3;
 		        $j=0;
 				foreach ($profile_usr as $key=>$value){
@@ -431,7 +439,7 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 
 						$perm=$k[1];
 						$i++;
-						echo "<td width=33%>";
+						echo "<td>";
 						echo "<input type=checkbox name=$dbn"."_".$key." value=Y";
 						if (isset($profile_usr[$dbn."_".$key])) echo " checked";
 						if ($j!=0){
@@ -457,10 +465,10 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 		if (isset($msgstr[$key])) {
 			$bgcolor=" bgcolor=darkred";
 			echo "<br><br>";
-			echo "<table width=100%><tr height=5><th valign=top colspan=3 $bgcolor >\n";
-			echo "<font color=white size=3>".$msgstr["PERMISSIONS"].": ".$msgstr[$key];
+			echo "<table class=\"table table-bordered\"><tr><th $bgcolor >\n";
+			echo "<font>".$msgstr["PERMISSIONS"].": ".$msgstr[$key];
 		}else{
-			echo "<table width=100%>";
+			echo "<table class=\"table table-bordered\">";
 		}
 		$modulo="ADM";
 		switch($key){
@@ -502,7 +510,7 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 				$j=1;
 				$checked="";
 				if (isset($profile_usr[$mod."_".$usr_p]) and $profile_usr[$mod."_".$usr_p]=="Y") $checked=" checked";
-				echo "<td width=33%><input type=checkbox name=$mod"."_".$usr_p." $checked $onclick value=Y>".$msgstr[$usr_p]."</td>\n";
+				echo "<td><input type=checkbox name=$mod"."_".$usr_p." $checked $onclick value=Y>".$msgstr[$usr_p]."</td>\n";
 				$onclick="";
 				if ($i>2){
 					$i=0;

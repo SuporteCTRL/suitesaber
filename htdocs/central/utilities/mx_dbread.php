@@ -50,12 +50,11 @@ global $msgstr;
 	foreach ($_REQUEST as $var=>$value){
 		echo "<input type=hidden name=$var value=\"$value\">\n";
 	}
-	echo "
-	<table><tr><td valign=top>
-	";
-	echo $msgstr["mx_folder"];
-	echo "</td><td>
+	
+	echo  $msgstr["mx_folder"];
+	echo ":</td><td>
     <input type=\"text\" name=\"storein\" size=\"30\" class=\"form-control\"> 
+    <br>
     <a class=\"btn btn-primary\" href=javascript:Explorar()>";
 	echo $msgstr["explore"];
 	echo "</a><br>";

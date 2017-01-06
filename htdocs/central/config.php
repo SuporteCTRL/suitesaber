@@ -24,7 +24,7 @@ $max_cn_length=1;
 
 //Colocar Y en esta variable si se quiere llevar un log de todas las transacciones realizadas sobre la base de datos.
 //Para que funcione en la carpeta de la base de datos debe existir una subcarpeta llamada log
-$log="N";
+$log="Y";
 
 
 //$db_path="/bases_abcd/bases/";

@@ -36,73 +36,99 @@ if (isset($arrHttp["encabezado"])) {
 
 ?>
 
-<div class="middle form">
-	<div class="formContent">
-<form action="" method="post" name="form1" target="_self" id="form1">
-<label>
-<strong> Base:</strong>
-<?php include("../common/get_post.php");
-$base=$_POST['base'];
-echo $base;
-?>
+ <div class="form-group row">
+  <form action="" method="post" name="form1" target="_self" id="form1">
 
-</label>
-  <label> From: 
-    <input class="form-control"  type="text" name="from" id="from" /> 
-  </label>
-  <script language="javascript">//estableciendo el foco en el 1mer textbox
-   document.form1.from.value="1";
-  document.form1.from.focus();
-  </script>
-  <label>To:
-   <input class="form-control"  type="text" name="to" id="to" />
-    <label>
-    last MFN=
-<?php 
-  include("../common/get_post.php");
-$base=$_POST['base'];
-  $mx_max_mfn="$mx_path"."mx.exe ".$db_path.$base."/data/".$base;
-exec($mx_max_mfn,$outmx_max_mfn,$banderamx_max_mfn);
-for($i=0;$i<count($outmx_max_mfn);$i++)
-{
-$datosMFN.=$outmx_max_mfn[$i];
-}
-$split_mfn=explode('mfn=',$datosMFN);
-$max_mfn=count($split_mfn);
-$max_mfnM1=$max_mfn-1;
-  echo "
-  <script language=\"javascript\">
-   document.form1.to.value=\"$max_mfnM1\";
-   </script> ";
-  echo $max_mfnM1 ;
-  ?>
-  </label>
-  <label>Field for barcode</label>
-  <input class="form-control" type="text" name="field" id="field" value="82"/>
-  <script>
-   document.form1.field.value="82";
-    </script>
-       Sub-field
-  <input class="form-control"  type="text" name="tag" id="tag" value="a"/>
-   <label></label><label>
+<label class="col-sm-2 col-form-label"> Base:</label>
+  <div class="col-sm-10">
+    <?php include("../common/get_post.php");
+      $base=$_POST['base'];
+      echo $base;
+    ?>
+  </div>
+  <br><br>
+
+  <label class="col-sm-2 col-form-label"> From: </label>
+    <div class="col-sm-10">
+    <div class="col-md-3">
+      <input class="form-control"  type="text" name="from" id="from"> 
+       <script language="javascript">//estableciendo el foco en el 1mer textbox
+        document.form1.from.value="1";
+        document.form1.from.focus();
+       </script>
+
+    </div>  
+  <label class="col-sm-1 col-form-label">To:</label>
+    <div class="col-md-3">
+      <input class="form-control"  type="text" name="to" id="to"><label>last MFN=</label>
+      <?php 
+        include("../common/get_post.php");
+        $base=$_POST['base'];
+        $mx_max_mfn="$mx_path"."mx.exe ".$db_path.$base."/data/".$base;
+        exec($mx_max_mfn,$outmx_max_mfn,$banderamx_max_mfn);
+        for($i=0;$i<count($outmx_max_mfn);$i++)
+        {
+        $datosMFN.=$outmx_max_mfn[$i];
+        }
+        $split_mfn=explode('mfn=','$datosMFN');
+        $max_mfn=count($split_mfn);
+        $max_mfnM1=$max_mfn-1;
+        echo "<script language=\"javascript\">document.form1.to.value=\"$max_mfnM1\";</script> ";
+        echo $max_mfnM1 ;
+      ?>
+  </div>
+<br>
+ <br>
+ </div> 
+ </div>
+<div class="form-group row">
+
+  <label class="col-sm-2 col-form-label">Field for barcode:</label>
+   <div class="col-sm-10">
+    <div class="col-md-3">
+      <input class="form-control" type="text" name="field" id="field" value="82">
+        <script>document.form1.field.value="82";</script> 
+    </div>    
+  <label class="col-sm-1 col-form-label"> Sub-field: </label>
+    <div class="col-md-3">
+      <input class="form-control"  type="text" name="tag" id="tag" value="a">
+    </div>
+  </div>
+ </div> 
+
  
-  
-  Control number field
-  <input class="form-control"  name="cnf" type="text" id="cnf" value="1" />
-  <br />
-  <br />
-  Number of copies
-  <input class="form-control"  name="nc" type="text" id="nc" value="3" />
-   or take the number
-    
-   of copies from field 
-   <input class="form-control"  name="fnc" type="text" id="fnc" />
-    and sub-field 
-    <input class="form-control"  type="text" name="ncsf" id="ncsf" />
-    <br />
-    <br />
-    Type of object
-     <select name="type" id="type">
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Control number field:</label>
+    <div class="col-sm-10">
+      <div class="col-md-3">
+        <input class="form-control"  name="cnf" type="text" id="cnf" value="1" >
+  </div>
+  </div>
+</div>
+
+
+
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label">Number of copies:</label>
+    <div class="col-sm-10">
+      <div class="col-md-3">
+        <input class="form-control"  name="nc" type="text" id="nc" value="3" >
+      </div>
+ <label class="col-sm-1 col-form-label">or take the number of copies from field</label>
+    <div class="col-sm-3">
+     <input class="form-control"  name="fnc" type="text" id="fnc" >
+   </div>
+
+  <label class="col-sm-1 col-form-label"> and sub-field </label>
+  <div class="col-sm-3">
+    <input class="form-control"  type="text" name="ncsf" id="ncsf" >
+  </div>
+</div>   
+
+ <label class="col-sm-2 col-form-label"> Type of object: </label>
+     <div class="col-sm-10">
+     <div class="col-md-3">
+     <select class="form-control" name="type" id="type">
     <?php
 	@ $fp = fopen($db_path."circulation/def/$lang/items.tab", "r");
  flock($fp, 1);
@@ -124,36 +150,45 @@ while(!feof($fp))
   fclose($fp);
 	?>
     </select>
-    <br />
-  </label>
-  <label><br />
-  </label>
-  <p> 
-    <label>Main Library
-    <input class="form-control"  type="text" name="ml" id="ml" />
-    </label>
-</p>
-  <p>
-    <label>Secundary Library
+    </div>
+    </div>
+    </div>    
+
+
+<div class="form-group row">
+ <label class="col-sm-2 col-form-label">Main Library</label>
+  <div class="col-sm-10">
+     <div class="col-md-3">
+    <input class="form-control"  type="text" name="ml" id="ml">
+    </div>
+  </div>  
+ </div> 
+   
+
+<div class="form-group row">
+   <label class="col-sm-2 col-form-label">Secundary Library</label>
+ <div class="col-sm-10">
+    <div class="col-md-3">
     <input class="form-control"  type="text" name="sl" id="sl" />
-    </label>
-    </p>
-  <p>
-    <label></label>
+    </div>
+  </div>
+</div>
+
+  
     <?php
  include("../common/get_post.php");
   $base=$arrHttp["base"];
  
   echo " <input type=\"hidden\" value=\"$base\" name=\"base\"/>";
   ?>
-      <input class="btn btn-success" type="submit" name="sub" id="sub" value="Submit"
-  onClick="javascript:validar();" />
-      </label>
+      <input class="btn btn-primary" type="submit" name="sub" id="sub" value="Submit"
+  onClick="javascript:validar();">
+      
 
 
   
 </form>
-</div>
+
 <?php
 include("../common/get_post.php");
 $base=$_POST["base"];
@@ -174,8 +209,8 @@ $numcopiassubcampo=(isset($_POST['ncsf']));
 $type=(isset($_POST['type']));
 exec($mx,$outmx,$banderamx);
 exec($queryNro,$outNro,$banderaNro);
-$dospuntos = explode('..', $outmx[0]);
-$dospuntosNro = explode('..', $outNro[0]);
+$dospuntos = explode('..', '$outmx[0]');
+$dospuntosNro = explode('..', '$outNro[0]');
 $cantReg=0;
 
 if($from<=$to && $to>0 && $from>0&&$to<=$max_mfn-1)

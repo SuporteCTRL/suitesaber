@@ -283,7 +283,7 @@ win=window.open(mypage,myname,settings);}
 
   </script>
 
-  <label> Last MFN= </label>
+  <label> Last MFN:</label>
 <?php
 $IsisScript=$xWxis."administrar.xis";
 $query = "&base=".$base_ant."&cipar=$db_path"."par/".$base_ant.".par&Opcion=status";
@@ -329,8 +329,8 @@ echo $total;
   ?>" 
   size="5"/>
   
-
-  <select name="agregar" id="atunique" onChange="AlterEntry(1)" >
+<div class="col-md-5">
+  <select class="form-control" name="agregar" id="atunique" onChange="AlterEntry(1)" >
 	<option value="">adicionar</option>
 	<option value="ml">Main Library</option>
 	<option value="bl">Branch Library</option>
@@ -346,25 +346,25 @@ echo $total;
 	<option value="cond">Conditions</option>
 	<option value="exchange">In exchange of</option>
 	</select>
-  <a href=javascript:AlterEntry(0) class="btn btn-default"><i class="fa fa-times" aria hidden="true"></a></i>
-	
-  <label>Inventory Number Field</label>
+  <a href=javascript:AlterEntry(0) class="btn btn-danger"><i class="fa fa-times" aria hidden="true"></a></i>
+	</div>
+
+
+  <label>Inventory Number Field:</label>
   <input name="inf" class="form-control" type="text" id="inf" value="">
   <?php 
   if (isset($_POST["inf"])) 
-    echo $_POST["inf"];
-  ?>" 
-  size="5"/>
+    echo $_POST['inf'];
+  ?>
 
 
 
-    <label>SubField</label>
+    <label>SubField:</label>
   <input name="insf" class="form-control" type="text" id="insf" value="
   <?php 
   if (isset($_POST["insf"])) 
     echo $_POST["insf"];
-  ?> "
-  size="5"/>
+  ?> ">
   
 
 
