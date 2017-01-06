@@ -259,13 +259,22 @@ echo  $msgstr["addcopiesdatabase"];
   echo " <input type=\"hidden\" value=\"$base_ant\" name=\"base\"/>";
   echo "".$msgstr["database"]." ".$base_ant."<p>";
   ?>
-  <ul>
-  <label>From </label>
+
+
+
+<div class="form-group row">
+  <label  class="col-sm-1 col-form-label">From: </label>
+   <div class="col-sm-2">
    <input class="form-control" type="text" name="from" id="from" onchange="ComprobarNum('from')"/>
   
-   <label>To </label>
+</div>   
+    <label  class="col-sm-1 col-form-label">To :</label>
+     <div class="col-sm-2">
   <input class="form-control" type="text" name="to" id="to" onchange="ComprobarNum('to')"/>
-</ul>
+  </div>
+  </div>
+
+
       
 	<script language="javascript">//estableciendo el foco en el 2do textbox
    document.form1.from.value="1";
@@ -283,11 +292,12 @@ win=window.open(mypage,myname,settings);}
 
   </script>
 
-  <label> Last MFN:</label>
+
+  <label  class="col-sm-1 col-form-label"> Last MFN:</label>
 <?php
 $IsisScript=$xWxis."administrar.xis";
 $query = "&base=".$base_ant."&cipar=$db_path"."par/".$base_ant.".par&Opcion=status";
-include("../common/wxis_llamar.php");
+include("../common/wxis_llamar.php"); 
 $ix=-1;
 foreach($contenido as $linea) {
 	//echo "$linea<br>";
@@ -306,29 +316,34 @@ echo '<script language="javascript">
    </script>';
 echo $total;
   ?>
-  </label>
 
-  <ul>
- <label>Control Number Field</label>
 
-  <input name="cnf" type="text" id="cnf" value="
+<div class="form-group row">
+  <label  class="col-sm-2 col-form-label">Control Number Field:</label>
+    <div class="col-sm-2">
+      <input name="cnf" type="text" id="cnf" value="
   <?php 
   if (isset($_POST["cnf"])) 
     echo $_POST["cnf"]; 
   else 
     echo "v1";?>" 
+>
+ </div>
+ </div>
 
-  size="5"/>
- 
-  <label>SubField</label>
-  
+ <div class="form-group row">
+  <label  class="col-sm-2 col-form-label">SubField:</label>
+  <div class="col-sm-2">
   <input name="cnsf" type="text" id="cnsf" value="
   <?php 
   if (isset($_POST["cnsf"])) 
     echo $_POST["cnsf"];
-  ?>" 
-  size="5"/>
+  ?>">
   
+</div>
+</div>
+
+  <div class="form-group row">
 <div class="col-md-5">
   <select class="form-control" name="agregar" id="atunique" onChange="AlterEntry(1)" >
 	<option value="">adicionar</option>
@@ -346,10 +361,11 @@ echo $total;
 	<option value="cond">Conditions</option>
 	<option value="exchange">In exchange of</option>
 	</select>
-  <a href=javascript:AlterEntry(0) class="btn btn-danger"><i class="fa fa-times" aria hidden="true"></a></i>
+  <a href=javascript:AlterEntry(0) class="btn btn-danger"><i class="fa fa-times" aria hidden="true"></i></a>
 	</div>
 
-
+</div>
+  <div class="form-group row">
   <label>Inventory Number Field:</label>
   <input name="inf" class="form-control" type="text" id="inf" value="">
   <?php 
@@ -534,7 +550,7 @@ $field=trim($field);
 if ($field[0]=='^') return str_replace( '^','',$field);
 return $field;
 }
-if ($_POST["submit"])
+if (isset($_POST['submit']))
 {
 $from=$_POST['from'];
 $to=$_POST['to'];
