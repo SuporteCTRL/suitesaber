@@ -308,7 +308,7 @@ foreach ($fp as $value) {
            echo "</select></div>";
            echo "
            <script>MarcarSeleccion(document.stats.rows,$total,'".$t[1]."')
-           MarcarSeleccion(document.stats.cols,$total,'".$t[2]."')
+           MarcarSeleccion(document.stats.cols,$total,'".$t[1]."')
            </script>\n";
 
            echo "<div class=\"col-md-2\">

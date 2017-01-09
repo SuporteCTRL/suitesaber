@@ -1,4 +1,4 @@
-<?php
+tables_generate.php<?php
 // ==================================================================================================
 // GENERA LOS CUADROS ESTADÍSTICOS
 // ==================================================================================================
@@ -336,12 +336,13 @@ if (isset($arrHttp["encabezado"])){
 		}
 	}
 ?>
+
    </select>
    </div>
 
 <div class="col-md-6">
  <select class="form-control" name="cols">
-  <option value=""><?php echo $msgstr["cols"]; ?></option>
+  <option value=""><?php echo $msgstr["cols"];?></option>
  
  <?php
 		foreach ($fp as $value) {
@@ -371,7 +372,7 @@ if (isset($arrHttp["encabezado"])){
 <div class="container conteudo">
 
 
- <h5><?php echo $msgstr["bymfn"]; ?></h5>
+ <label><?php echo $msgstr["bymfn"]; ?></label>
   <div class="control-group">
    <label class="control-label" for="textinput"><?php echo $msgstr["from"]; ?></label>
     <input id="textinput" name="Mfn" type="text" class="input-medium" value="1" required="">
@@ -379,15 +380,15 @@ if (isset($arrHttp["encabezado"])){
    <label class="control-label" for="textinput"><?php echo $msgstr["to"]; ?></label>
     <input name="to" placeholder="<?php echo $tag["MAXMFN"]; ?>" value="<?php echo $tag["MAXMFN"];?>" type="text" class="input-medium" required="">
     
-    <a href="javascript:BorrarRango()" class="btn btn-default campo" ><i class="fa fa-trash" aria-hidden="true" value="<?php echo $msgstr["clear"];?>"></i>
+    <a href="javascript:BorrarRango()" class="btn btn-danger campo" ><i class="fa fa-trash" aria-hidden="true" value="<?php echo $msgstr["clear"];?>"></i>
       
     </a> 
 
    </div>
 </div>
-  <h5><?php echo $msgstr["bysearch"];?></h5>
-  <a href="javascript:Buscar()" class="btn btn-default campo">
-  	<i class="fa fa-search" aria-hidden="true" alt="<?php echo $msgstr["bysearch"]; ?>"></i>
+  <label><?php echo $msgstr["bysearch"];?></label>
+  <a href="javascript:Buscar()" class="btn btn-warning campo">
+  	<i class="fa fa-search" aria-hidden="true" alt="<?php echo $msgstr["bysearch"];?>"></i>
   </a>    
 
 
@@ -395,9 +396,9 @@ if (isset($arrHttp["encabezado"])){
 		<textarea class="form-control input-lg" rows="2" name="Expresion"><?php if (isset($Expresion )) echo $Expresion ;?></textarea>
  	
     </div>
-     <a href=javascript:BorrarExpresion() class="btn btn-default"><i class="fa fa-trash" aria-hidden="true" value="<?php echo $msgstr["clear"]?>"></i></a> 
+     <a href=javascript:BorrarExpresion() class="btn btn-primary"><i class="fa fa-trash" aria-hidden="true" value="<?php echo $msgstr["clear"]?>"></i></a> 
 
-   <a class="btn btn-default" onclick='EnviarForma()'><i class="fa fa-check" value="<?php echo $msgstr["send"]?>"></i></a>
+   <a class="btn btn-primary" onclick='EnviarForma()'><i class="fa fa-check" value="<?php echo $msgstr["send"]?>"></i></a>
      
 
 </div> <!--div container-->
@@ -413,8 +414,8 @@ if (isset($arrHttp["encabezado"])){
       <div id="collapse4" class="panel-collapse collapse">
         <div class="panel-body">
 
-    		<a href="javascript:Configure('stats_var')" class="btn btn-default"><?php echo $msgstr["var_list"]?></a>
-            <a href="javascript:Configure('stats_tab')" class="btn btn-default"><?php echo $msgstr["tab_list"]?></a>
+    		<a href="javascript:Configure('stats_var')" class="btn btn-primary"><?php echo $msgstr["var_list"]?></a>
+            <a href="javascript:Configure('stats_tab')" class="btn btn-primary"><?php echo $msgstr["tab_list"]?></a>
 
         </div>
       </div>
