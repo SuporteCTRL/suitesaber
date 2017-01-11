@@ -14,18 +14,21 @@ if (!isset($arrHttp["Opcion"])) $arrHttp["Opcion"]="";
 <html>
 <link rel="STYLESHEET" type="text/css" href="../css/styles.css">
 <style>
-	td{		font-family:arial;
-		font-size:10px;	}
+	td{
+		font-family:arial;
+		font-size:10px;
+	}
 </style>
-<?php echo "<font size=1 face=arial color=white>Script: fdt_leer.php</font><br>"?>
- <b><font face=arial size=1 color=white><?php echo $msgstr["fdt"].". ".$msgstr["database"]?>: <?php echo $arrHttp["base"]?>
- <font color=black>
-		<table bgcolor=#EEEEEE width=100%>
+<?php echo "<font>Script: fdt_leer.php</font><br>"?>
+ <font ><?php echo $msgstr["fdt"].". ".$msgstr["database"]?>: <?php echo $arrHttp["base"]?>
+ <font >
+		<table  width=100%>
 			<td>Tag</td><td><?php echo $msgstr["fn"]?></td><td><?php echo $msgstr["subfields"]?></td><td><?php echo $msgstr["rep"]?></td><td><?php echo $msgstr["prefix"]?></td>
 <?php
 if ($arrHttp["Opcion"]!="new"){
 	$archivo=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["base"].".fdt";
-	if (file_exists($archivo)){		$fp=file($archivo);
+	if (file_exists($archivo)){
+		$fp=file($archivo);
 	}else{
 		$archivo=$db_path.$arrHttp["base"]."/def/".$lang_db."/".$arrHttp["base"].".fdt";
 		if (file_exists($archivo)){
@@ -35,7 +38,9 @@ if ($arrHttp["Opcion"]!="new"){
 	    	die;
 	  	}
 	}
-}else{	$fp=explode("\n",$_SESSION["FDT"]);}
+}else{
+	$fp=explode("\n",$_SESSION["FDT"]);
+}
 foreach ($fp as $value){
 	$t=explode('|',$value);
 	echo "<tr><td bgcolor=white>$t[1]</td><td bgcolor=white>".$t[2]."</td><td bgcolor=white>".$t[5]."</td><td bgcolor=white>";

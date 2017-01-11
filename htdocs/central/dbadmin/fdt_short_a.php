@@ -301,7 +301,7 @@ function Validate(Opcion){
     msgwin.document.writeln("<style>BODY{font-family: 'Trebuchet MS', Arial, Verdana, Helvetica; font-size: 8pt;}")
     msgwin.document.writeln("TD{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
-	msgwin.document.writeln("<body><table bgcolor=#CCCCCC>")
+	msgwin.document.writeln("<body><<table class=\"table table-striped\">")
 	EncabezarFilas("row")
 	cols=mygrid.getColumnCount()
 	rows=mygrid.getRowsNum()
@@ -562,7 +562,7 @@ function List(){
     msgwin.document.writeln("TD{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
     msgwin.document.writeln("<body>")
-	msgwin.document.writeln("<table bgcolor=#CCCCCC>")
+	msgwin.document.writeln("<table class=\"table table-striped\">")
 	EncabezarFilas("")
 	cols=mygrid.getColumnCount()
 	rows=mygrid.getRowsNum()
@@ -802,14 +802,17 @@ if (!isset($arrHttp["Subc"])){
 				</a>
 			</div>
 			
-	</div>";
+	</div>
+
+fdt_shot_a.php
+
+	";
 }else{
 	$fp=explode('<=>',urldecode($arrHttp["Subc"]));
 }
 ?>
-
-  <font color=darkred size=1><strong><?php echo $msgstr['double_click']?></strong></font>
-	<table  style="width:100%; height:200" id=tblToGrid class="dhtmlxGrid">
+  <label><?php echo $msgstr['double_click']?></label>
+	<table class="table table-striped" id="tblToGrid" class="dhtmlxGrid">
 <?php
 echo "<tr>";
 $tope=0;
@@ -862,7 +865,7 @@ if (isset($fp)){
 	      		echo "\n<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\">\n";
 				$i=$i+1;
 				$irow=$i+1;
-				$linkr="<a href=javascript:EditarFila(\"".$irow."\",$i)><font size=1>$irow</a>";
+				$linkr="<a href=javascript:EditarFila(\"".$irow."\",$i)><font>$irow</a>";
 				echo "<td>$linkr</td>";
 				if ($t[0]=="F" or $t[0]=="S"){
 					if (trim($t[7])=="") $t[7]="X";
@@ -871,12 +874,12 @@ if (isset($fp)){
 				for ($ix=0;$ix<21;$ix++) if (!isset($t[$ix])) $t[$ix]="";
 				if (trim($t[0])!="H" and trim($t[0])!="L"){
 					if ($t[10]=="")
-						$pick="<a href=javascript:Picklist(\"".$t[1].".tab\",$i)><font size=1>browse</a>";
+						$pick="<a href=javascript:Picklist(\"".$t[1].".tab\",$i)>browse</a>";
 					else
-			    		$pick="<a href=javascript:Picklist(\"".$t[10]."\",$i)><font size=1>browse</a>";
+			    		$pick="<a href=javascript:Picklist(\"".$t[10]."\",$i)>browse</a>";
 				}
 				$irow=$i+1;
-				$linkr="<a href=javascript:EditarFila(\"".$irow."\",$i)><font size=1>$irow</a>";
+				$linkr="<a href=javascript:EditarFila(\"".$irow."\",$i)>$irow</a>";
 				if (!isset($t[16])) $t[16]="";
 				$ixt=-1;
 				foreach ($t as $fila) {
@@ -952,10 +955,10 @@ if (isset($fp)){
 	</table>
 <?php
 if (!isset($arrHttp["Subc"])){
-	echo"<a class=\"btn btn-default\" href=javascript:Test()>".$msgstr["test"]."</a>&nbsp;
-	<a class=\"btn btn-default\" href=javascript:List()>". $msgstr["list"]."</a>&nbsp;
-	<a class=\"btn btn-default\" href=javascript:Validate()>". $msgstr["validate"]."</a>&nbsp;
-	<a class=\"btn btn-default\" href=javascript:Enviar()>". $msgstr["update"]."</a>&nbsp;
+	echo"<a class=\"btn btn-default\" href='javascript:Test()'>".$msgstr["test"]."</a>&nbsp;
+	<a class=\"btn btn-default\" href='javascript:List()''>". $msgstr["list"]."</a>&nbsp;
+	<a class=\"btn btn-default\" href='javascript:Validate()''>". $msgstr["validate"]."</a>&nbsp;
+	<a class=\"btn btn-default\" href='javascript:Enviar()''>". $msgstr["update"]."</a>&nbsp;
 	";
 }else{
 	echo "<a href=javascript:List()>". $msgstr["list"]."</a>&nbsp; &nbsp; &nbsp; &nbsp;

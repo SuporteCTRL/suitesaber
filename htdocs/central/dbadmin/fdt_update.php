@@ -10,9 +10,9 @@ $lang=$_SESSION["lang"];
 include("../lang/dbadmin.php");
 //foreach ($arrHttp as $var=>$value)  echo "$var=$value<br>";
 //die;
-$archivo=$arrHttp['archivo'];
-$t=explode("\n",$arrHttp['ValorCapturado']);
-$fp=fopen($db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$archivo,"w");
+@$archivo=$arrHttp['archivo'];
+@$t=explode("\n",$arrHttp['ValorCapturado']);
+@$fp=fopen($db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$archivo,"w");
 if (!$fp){
 	echo $arrHttp["base"]."/def/".$_SESSION["lang"]."/".$archivo." cannot be opened for writing";
 	die;
@@ -62,6 +62,7 @@ include("../common/header.php");
 <body>
 <?php
 $encabezado="";
+
 if (isset($arrHttp["encabezado"])){
 	include("../common/institutional_info.php");
 }
@@ -104,8 +105,8 @@ echo "
 ?>
 
 <?php
-$volta = $script.'?base='.$arrHttp['base'].$encabezado;
-	header('Refresh: 1; url='.$volta.'');
+ @$volta = $script.'?base='.$arrHttp['base'].$encabezado;
+	header('refresh: 1; url='.$volta.'');
 ?>
 <?php
 include ("../common/footer.php");

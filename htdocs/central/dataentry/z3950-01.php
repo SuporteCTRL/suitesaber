@@ -138,7 +138,7 @@ $host=Array();
 <div class="middle form">
 		<div class="formContent">
 Host: <?php echo $host[0]?>
-<form method="get" name=z3950>
+<form method="get" name="z3950">
 
 
 <?php
@@ -384,7 +384,7 @@ echo '</td></tr></table></td></tr>';
 </table>
 </td></tr>
 </table>
-<input type=hidden name=marc>
+<input type="hidden" name="marc">
 </form>
 </div></div>
 </body>

@@ -130,16 +130,16 @@ function GetLength()
 	</head>
 	<body>
     <a href=http://docs.fckeditor.net/FCKeditor_2.x/Users_Guide/Quick_Reference target=_blank><?php echo $msgstr["fckeditor"]?></a>
-		<form action="procesar.php" method="post"  name=FCKfrm onSubmit="Enviar();return false">
+		<form action="procesar.php" method="post"  name="FCKfrm" onSubmit="Enviar();return false">
 		<?php echo $msgstr["edhlp"]?>:<input type=hidden name=archivo value='<?php echo $arrHttp["archivo"]. "'>".$arrHttp["archivo"]?>
 			<textarea cols="100%" id="editor1" name=FCK rows="20" ><?php echo str_replace('php',$app_path,$texto)?></textarea>
 			<input type=hidden name=Opcion>
 			<input type=hidden name=archivo_o value="<?php echo $arrHttp["archivo"]?>">
 			<br>
-			<input type="submit" value="<?php echo $msgstr["save"]?>" onClick=javascript:document.FCKfrm.Opcion.value="Revisar">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+			<input type="submit" value="<?php echo $msgstr["save"]?>" onClick=javascript:document.FCKfrm.Opcion.value="Revisar"> 
 			<input type="submit" value="<?php echo $msgstr["close"]?>" onclick=javascript:self.close()>
 		</form>
-		<div>&nbsp;</div>
+		
 	</body>
 </html>
 <script>
