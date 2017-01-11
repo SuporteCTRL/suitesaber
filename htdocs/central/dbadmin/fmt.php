@@ -344,7 +344,7 @@ if (file_exists($archivo)){
 
 			<div class="col-md-1">
 				<button type="button" class="btn btn-primary"  onClick="moveOptionUp(this.form['list21'])"><i class="fa fa-angle-up" value="<?php echo $msgstr['up'];?>"></i></button>
-				<BR><BR>
+				<br><br>
 
 				<button type="button" class="btn btn-primary" onClick="moveOptionDown(this.form['list21'])">
 				<i class="fa fa-angle-down" value="<?php echo $msgstr['down'];?>"></i></button>
@@ -382,23 +382,23 @@ if (file_exists($archivo)){
 </script>
 </table>
 </form>
-<form name=preview action=../dataentry/fmt_test.php target=test_fmt method=post>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=fmt>
+<form name="preview" action="../dataentry/fmt_test.php" target="test_fmt" method="post">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="fmt">
 </form>
 
-<form name=frmdelete action=fmt_delete.php method=post>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=path>
-<input type=hidden name=fmt>
+<form name="frmdelete" action="fmt_delete.php" method="post">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="path">
+<input type="hidden" name="fmt">
 <?php if (isset($arrHttp["encabezado"]))
 	echo "<input type=hidden name=encabezado value=s>\n"?>
 </form>
-<form name=assignto action=fmt_update.php>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=path>
-<input type=hidden name=sel_oper>
-<input type=hidden name=fmt>
+<form name="assignto" action="fmt_update.php">
+<input type="hidden" name="base" value="<?php echo $arrHttp['base'];?>">
+<input type="hidden" name="path">
+<input type="hidden" name="sel_oper">
+<input type="hidden" name="fmt">
 <?php if (isset($arrHttp["encabezado"]))
 	echo "<input type=hidden name=encabezado value=s>\n"?>
 </form>
