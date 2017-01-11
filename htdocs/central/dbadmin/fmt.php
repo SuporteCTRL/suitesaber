@@ -186,7 +186,11 @@ function EliminarFormato(){
 }
 
 </script>
+<body>
+<div id="loading">
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
 
+</div>
 <?php
 if (isset($arrHttp["encabezado"])){
 	include("../common/institutional_info.php");
@@ -200,20 +204,20 @@ if (isset($arrHttp["encabezado"])){
 
 			<div class="actions">
 <?php if ($arrHttp["Opcion"]=="new"){
-				
+				echo "<a href=\"../common/inicio.php?reinicio=s\" class=\"defaultButton cancelButton\">";
 	}else{
-		       
+		       echo "<a href=\"menu_modificardb.php?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">";
 	}
 ?>
-				
+					
 				</a>
 			</div>
-		
+			
 </div>
 <form name="forma1" method="post" action="fmt_update.php" onsubmit="Javascript:return false" >
 <input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
 <input type="hidden" name="cipar" value="<?php echo $arrHttp["cipar"];?>">
-<input type="hidden name="tagsel">
+<input type="hidden" name="tagsel">
 <input type="hidden" name="Opcion">
 <input type="hidden" name="wks">
 <input type="hidden" name="fmt_name">
@@ -226,15 +230,20 @@ if (isset($arrHttp["encabezado"])){
 
 </script>
 
+<div class="helper">
 
+<?php
+if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
+	
+echo "<font> Script: fmt.php";
+unset($fp);
+$archivo=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/"."formatos.wks";
+?></font>
+	</div>
 <div class="middle form">
-			<div class="formContent">
-
-
-<table border="0 ">
-    <td valign="top">
-    <?php echo $msgstr["selfmt"];?></td>
-    <td><select class="btn btn-default" name="fmt">
+		
+  <label> <?php echo $msgstr["selfmt"];?></label>
+   <select class="form-control" name="fmt">
     <option value=""> </option>
 <?php
 
@@ -243,7 +252,7 @@ if (file_exists($archivo)){
 	$fp=file($archivo);
 	if (isset($fp)) {
 		foreach($fp as $linea){
-			//echo $linea<br>";
+			//echo "***$linea<br>";
 			if (trim($linea)!="") {
 				$linea=trim($linea);
 				$l=explode('|',$linea);
@@ -258,20 +267,19 @@ if (file_exists($archivo)){
 	}
 }
 ?>
-    </select> <a class="btn btn-default" href=javascript:EditarFormato()><?php echo $msgstr["edit"]?></a>  <a class="btn btn-default" href=javascript:EliminarFormato()><?php echo $msgstr["delete"]?></a>  <a class="btn btn-default" href=javascript:CopiarFormato()><?php echo $msgstr["saveas"]?></a>
-    </td>
+    </select> 
+    <br>
+  <a class="btn btn-warning" href=javascript:EditarFormato()><i class="fa fa-pencil" value="<?php echo $msgstr['edit'];?>"></i></a><a class="btn btn-danger" href=javascript:EliminarFormato()><i class="fa fa-trash" value="<?php echo $msgstr['delete']?>"></i></a> 
+  <a class="btn btn-success" href=javascript:CopiarFormato()><i class="fa fa-check" value="<?php echo $msgstr['saveas']?>"></i></a>
 
-</table>
-<p>
-<table border=1>
-    <tr>
-    <td valign=top colspan=4>
-    	<div id=generateformat>
-    	<table>
-			<td valign=top colspan=4><?php echo $msgstr["selfields"];?></td><tr>
-			<td colspan=4>
-			<table><td>
-				<Select name=list11 style="width:350px" multiple size=20 onDblClick="moveSelectedOptions(this.form['list11'],this.form['list21'],false)">
+
+
+
+<div id=generateformat>
+  <h4><label><?php echo $msgstr["selfields"];?>:</label></h4>
+	
+<div class="col-md-5">
+	<select name="list11" class="form-control" multiple size="20" onDblClick="moveSelectedOptions(this.form['list11'],this.form['list21'],false)">
 
 <?php  $t=array();
  	foreach ($Fdt as $linea){
@@ -294,21 +302,27 @@ if (file_exists($archivo)){
 		}
   	}
 ?>
-				</select>
-			</td>
-			<td valign="MIDDLE" align="center">
-				<a class="btn btn-default" href="#" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-				<br><br>
-				<a class="btn btn-default" href="#" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-				<br><br>
-				<a  class="btn btn-default" href="#" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-				<br><br>
-				<a  class="btn btn-default" href="#" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
- 
+	</select>
+</div>
+<div class="col-md-1">
+<center>
+<br><br><br>
+				<a href="#" class="btn btn-primary" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"><i class="fa fa-angle-right"></i></a><br>
 
-			</td>
-			<td>
-				<select name="list21" multiple size="20" style="width:350px" onDblClick="moveSelectedOptions(this.form['list21'],this.form['list11'],false)">
+				<a href="#" class="btn btn-primary" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><i class="fa fa-angle-double-right"></i></a><br>
+
+				<a href="#" class="btn btn-primary" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-double-left"></i></a><br>
+
+				<a href="#" class="btn btn-primary" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-left"></i></a>
+
+
+</div>
+
+
+
+
+			<div class="col-md-5">
+				<select name="list21" class="form-control" MULTIPLE SIZE="20" onDblClick="moveSelectedOptions(this.form['list21'],this.form['list11'],false)">
 <?php  $t=array();
  	foreach ($tag_s as $linea){
 
@@ -324,31 +338,41 @@ if (file_exists($archivo)){
   	}
 ?>
 				</select>
-			</td>
-			<td align="center" valign="middle">
-				<button value="<?php echo $msgstr['up']?>" onClick="moveOptionUp(this.form['list21'])"><i class="fa fa-chevron-up" aria-hidden="true"></i>
-                </button>
-                <button value="<?php echo $msgstr['down']?>" onClick="moveOptionDown(this.form['list21'])"><i class="fa fa-chevron-down" aria-hidden="true"></i>
-                </button>
-				
-				<br><br><a class="btn btn-default" href=javascript:Preview()><i class="fa fa-eye" aria-hidden="true"></i></a>
-				<br><br>
-			</td>
-		</table>
-	</td>
-	<tr><td colspan=4><input type="checkbox" name="link_fdt"><?php echo $msgstr["link_fdt_msg"]?></td></tr>
-	<tr><td colspan=4><?php echo $msgstr["whendone"]?></td></tr>
-	<tr><td valign=top colspan=4 >
-		<label><?php echo $msgstr["name"];?></label>
-		 <input type="text" name="nombre"  size="8" maxlength="12"> 
-		 <br>
-		<label><?php echo $msgstr["description"];?></label>
-		 <input type="text " size="50" maxlength="50" name="descripcion"> 
-		<br>
-		<a class="btn btn-default" href=javascript:GenerarFormato()><i class="fa fa-check" aria-hidden="true"></i></a>
-		</td>
+			</div>
+
+
+
+			<div class="col-md-1">
+				<button type="button" class="btn btn-primary"  onClick="moveOptionUp(this.form['list21'])"><i class="fa fa-angle-up" value="<?php echo $msgstr['up'];?>"></i></button>
+				<BR><BR>
+
+				<button type="button" class="btn btn-primary" onClick="moveOptionDown(this.form['list21'])">
+				<i class="fa fa-angle-down" value="<?php echo $msgstr['down'];?>"></i></button>
+
+<br><br>
+				<a class="btn btn-primary" href=javascript:Preview()><i class="fa fa-eye"></i></a>
 </div>
-</table>
+
+
+				
+		
+</div>	
+<div class="col-md-6">
+<br><br>
+	<input type="checkbox" name="link_fdt">   <?php echo $msgstr["link_fdt_msg"];?>
+	<br>
+	<label><?php echo $msgstr["whendone"];?></label>
+	<br><br>
+		<label><?php echo $msgstr["name"]?>:</label> <input class="form-control" type="text"  name="nombre"> 
+		<label><?php echo $msgstr["description"];?>:</label>
+		 <input type="text" class="form-control" name="descripcion"> 
+<br>
+		<a class="btn btn-success" href=javascript:GenerarFormato()><i class="fa fa-floppy-o" title="Salvar"></i></a>
+		
+</div>
+
+
+
 <script>
 <?php if ((isset($arrHttp["fmt_name"]))) {
        echo "document.forma1.nombre.value=\"".$arrHttp['fmt_name']."\"\n";
@@ -359,24 +383,24 @@ if (file_exists($archivo)){
 </table>
 </form>
 <form name=preview action=../dataentry/fmt_test.php target=test_fmt method=post>
-<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
-<input type="hidden" name="fmt">
+<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<input type=hidden name=fmt>
 </form>
 
-<form name="frmdelete" action="fmt_delete.php method=post">
-<input type="hidden" name="base value=<?php echo $arrHttp["base"]?>">
-<input type="hidden" name="path">
-<input type="hidden" name="fmt">
+<form name=frmdelete action=fmt_delete.php method=post>
+<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<input type=hidden name=path>
+<input type=hidden name=fmt>
 <?php if (isset($arrHttp["encabezado"]))
 	echo "<input type=hidden name=encabezado value=s>\n"?>
 </form>
 <form name=assignto action=fmt_update.php>
-<input type="hidden" name="base" value=<?php echo $arrHttp["base"]?>>
-<input type="hidden" name="path>"
-<input type="hidden" name="sel_oper>"
-<input type="hidden" name="fmt>"
+<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<input type=hidden name=path>
+<input type=hidden name=sel_oper>
+<input type=hidden name=fmt>
 <?php if (isset($arrHttp["encabezado"]))
-	echo "<input type=hidden name=encabezado value=s>";?>
+	echo "<input type=hidden name=encabezado value=s>\n"?>
 </form>
 </center>
 </div>

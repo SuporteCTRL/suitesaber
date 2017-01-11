@@ -85,10 +85,10 @@ if (isset($arrHttp["encabezado"])){
 
 <div class="middle form">
 	<div class="formContent">
-<form name=cnv  method=post onsubmit="javascript:return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=fn value=z3950.cnv>
-<input type=hidden name=encabezado value=s>
+<form name="cnv"  method="post" onsubmit="javascript:return false">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
+<input type="hidden" name="fn" value="z3950.cnv">
+<input type="hidden" name="encabezado" value="s">
 <?php
 if (isset($arrHttp["Opcion"]) and $arrHttp["Opcion"]=="edit" ){
 	$archivo=$db_path.$arrHttp["base"]."/def/".$arrHttp["Table"];
@@ -112,8 +112,12 @@ $Dir=$db_path.$arrHttp["base"]."/def/";
 $archivo=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["base"].".fdt";
 if (!file_exists($archivo)) $archivo=$db_path.$arrHttp["base"]."/def/".$lang_db."/".$arrHttp["base"].".fdt";
 $fp=file($archivo);
-echo "<dd><table cellpadding=3 cellspacing=1 class=td width=95%>";
-echo "<tr><td>".$msgstr["ft_f"]."</td><td>".$msgstr["tag"]."</td><td>".$msgstr["ft_s"]."</td><td nowrap>".$msgstr["z3950_cnv"]."</td>";
+echo "<table class=\"table table-striped\">";
+echo "
+<tr><td><label>".$msgstr["ft_f"]."</label></td> 
+<td><label>".$msgstr["tag"]."</label></td>
+<td><label>".$msgstr["ft_s"]."</label></td>
+<td nowrap><label>".$msgstr["z3950_cnv"]."</label></td>";
 $ix=-1;
 
 foreach ($fp as $value){
@@ -137,16 +141,16 @@ foreach ($fp as $value){
 }
 
 
-echo "</table><p><dd>";
-echo $msgstr["namecnvtb"].":";
+echo "</table><label><dd>";
+echo $msgstr["namecnvtb"].":</label>";
 if (!isset($arrHttp["table"])){
-	echo  "<input class=\"form-control\" type=text name=namecnvtb size=30> &nbsp &nbsp;";
+	echo  "<input class=\"form-control\" type=text name=namecnvtb >";
 	echo $msgstr["description"].": ";
-	echo "<input type=text name=descr size=30>\n";
+	echo "<input class=\"form-control\" type=text name=descr>\n";
 }else{
-	echo "<input class=\"form-control\" type=text name=namecnvtb size=30 value='".$arrHttp["Table"]."'>\n";
+	echo "<input class=\"form-control\" type=text name=namecnvtb  value='".$arrHttp["Table"]."'>\n";
 	echo $msgstr["description"].": ";
-	echo "<input class=\"form-control\" type=text name=descr size=30 value='".$arrHttp["descr"]."'>\n";
+	echo "<input class=\"form-control\" type=text name=descr  value='".$arrHttp["descr"]."'>\n";
 }
 echo "<a class=\"btn btn-success\" href=javascript:Enviar()>".$msgstr["update"]."</a>";
 if (!isset($arrHttp["encabezado"])) echo "<a href=menu_modificardb.php?base=". $arrHttp["base"].">".$msgstr["cancel"]."</a>";
@@ -154,6 +158,6 @@ echo "</form>";
 ?>
 	</div>
 </div>
-<?php include("../common/footer.php");?>
+
 </body>
 </html>

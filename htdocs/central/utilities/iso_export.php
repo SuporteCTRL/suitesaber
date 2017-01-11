@@ -76,15 +76,17 @@ echo "
 	";
 ?>
 
-<?php echo $msgstr["exportiso_mx"].": ".$arrHttp["base"]?>
+<label><?php echo $msgstr["exportiso_mx"].": ".$arrHttp["base"]?></label>
 <form name=upload method=post action=iso_export_ex.php onsubmit="EnviarForma();return false;">
-<table cellpadding=10><tr><td>
-<?php echo $msgstr["export_folder"];?></td><td>
-<input type=text name=storein size=30 onclick=javascript:blur()> <a class="btn btn-default" href=javascript:Explorar()><?php echo $msgstr["explore"]?></a><br>
-<tr><td><?php echo $msgstr["iso_name"];?></td><td><input type=text name=isoname></td>
-</table>
+
+<label><?php echo $msgstr["export_folder"];?></label>
+<input type=text name=storein size=30 onclick=javascript:blur()> <a class="btn btn-primary" href=javascript:Explorar()><?php echo $msgstr["explore"]?></a><br>
+
+<label><?php echo $msgstr["iso_name"];?></label>
+<input type=text name=isoname>
+
 <input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<p><input type=submit class="btn btn-default" value=<?php echo $msgstr["procesar"]?>>
+<p><input type=submit class="btn btn-primary" value=<?php echo $msgstr["procesar"]?>>
 </form>
 </div>
 </div>
