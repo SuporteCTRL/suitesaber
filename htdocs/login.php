@@ -158,7 +158,7 @@ else
 
  
                 <div class="clearfix"></div>
-                <br />
+              
 
 
 

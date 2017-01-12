@@ -72,13 +72,13 @@ function Agregar(IdSec){
 	nuevo=""
 	LeerValores()
 	for (i=0;i<valores_ac.length;i++){
-		nuevo+="\n<br><input type=text name=\"ac"+i+"\" id=\"iac"+i+"\" value=\""+valores_ac[i]+"\" size=20>&nbsp; &nbsp; &nbsp;<input type=text name=\"nac"+i+"\" id=\"inac"+i+"\" value=\""+valores_nac[i]+"\" size=80>";
+		nuevo+="<table class=\"table table-striped\"><td><input type=text name=\"ac"+i+"\" id=\"iac"+i+"\" value=\""+valores_ac[i]+"\" class=\"form-control\"></td><td><input type=text name=\"nac"+i+"\" id=\"inac"+i+"\" value=\""+valores_nac[i]+"\" class=\"form-control\"></td>";
 		ix=i
 	}
 	if (agregar>0){
 		for (i=1;i<=agregar;i++){
 			ix++
-			nuevo+="\n<br><input type=text name=\"ac"+ix+"\" id=\"iac"+ix+"\" value=\"\" size=20>&nbsp; &nbsp; &nbsp;<input type=text name=\"nac"+ix+"\" id=\"inac"+ix+"\" value=\"\" size=80>";
+			nuevo+="<td><input type=text name=\"ac"+ix+"\" id=\"iac"+ix+"\" value=\"\" class=\"form-control\"></td><td><input type=text name=\"nac"+ix+"\" id=\"inac"+ix+"\" value=\"\" class=\"form-control\"></td>";
 		}
 	}
 	seccion=returnObjById( IdSec )
@@ -131,27 +131,13 @@ if (isset($arrHttp["encabezado"])){
 <?php echo $msgstr["sortkeycreate"]." (".$arrHttp["base"].")" ?>
 	</div>
 
-	<div class="actions">
-<?php
-	if ($encabezado!="") echo "<a href=javascript:self.close() class=\"defaultButton cancelButton\">";
-?>
-<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-<span><strong><?php echo $msgstr["close"]?></strong></span>
-</a>
-			</div>
-			<div class="spacer">&#160;</div>
+
+			
 </div>
-<div class="helper">
-<a href=../documentacion/ayuda.php?help=<?php echo $_SESSION["lang"]?>/sortkey.html target=_blank><?php echo $msgstr["help"]?></a>&nbsp &nbsp;
-<?php
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/sortkey.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: sortkey_edit.php </font>";
-?>
-	</div>
+
 <div class="middle form">
 			<div class="formContent">
-<form name=eacfrm method=post action=sortkey_update.php onsubmit="javascript:return false">
+<form name="eacfrm" method="post" action="sortkey_update.php" onsubmit="javascript:return false">
 <?php
 unset($fp);
 $file=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/sort.tab";
@@ -161,35 +147,41 @@ if (file_exists($file))
 else
 	$fp[]="  ";
 $ix=-1;
-echo "<center>";
-echo $msgstr["r_desc"]." &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;
- &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;   ".$msgstr["pftex"]."
- &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; ";
-echo "<div id=accent>";
-foreach ($fp as $value){	if (trim($value)!=""){
+echo "<table class=\"table table-striped\"><label><thead>";
+echo "<th> ".$msgstr['r_desc']." </th> 
+ 	 <th> ".$msgstr['pftex']."</th></thead>";
+
+echo "</label><div id=accent>";
+foreach ($fp as $value){
+	if (trim($value)!=""){
 		$ix=$ix+1;
 		$v=explode('|',$value);
-		echo "<br>";
-		echo "<input type=text size=20 name=ac$ix id=iac$ix value=\"".$v[0]."\">&nbsp; &nbsp; &nbsp;";
-		echo "<input type=text size=60 name=nac$ix id=inac$ix value=\"".$v[1]."\">";
-	}}
+		echo "<br><tbody>";
+		echo "<td><input type=text size=20 name=ac$ix id=iac$ix value=\"".$v[0]."\"></td>";
+		echo "<td><input type=text size=60 name=nac$ix id=inac$ix value=\"".$v[1]."\"></td>";
+	}
+}
 $ix=$ix+1;
-for ($i=$ix;$i<$ix+5;$i++){	echo "<br>";
-	echo "<input type=text size=20 name=ac$i id=iac$i value=\"\">&nbsp; &nbsp; &nbsp;";
-	echo "<input type=text size=60 name=nac$i id=inac$i value=\"\">";
+for ($i=$ix;$i<$ix+5;$i++){
+	echo "<br>";
+	echo "<td><input type=text size=20 name=ac$i id=iac$i value=\"\"></td>";
+	echo "<td><input type=text size=60 name=nac$i id=inac$i value=\"\"></td></tbody>";
 }
 
 echo "</div><br>";
-echo "<font face=arial size=2>";
-echo $msgstr["add"]." <input type=text name=agregar size=3> ".$msgstr["lines"];
+
+
+echo $msgstr["add"]." 
+<input type=text name=agregar class=\"form-control\"> ".$msgstr["lines"];
 echo " &nbsp; <a href='javascript:Agregar(\"accent\")'>".$msgstr["add"]."</a>";
 
 if (isset($arrHttp["encabezado"]))
 	echo "<input type=hidden name=encabezado value=s>\n";
 ?>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<p><br><input type=submit value=<?php echo $msgstr["update"]?> onclick=javascript:Enviar()>
-<input type=hidden name=ValorCapturado>
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="submit" value="<?php echo $msgstr["update"];?>" onclick='javascript:Enviar()''>
+<input type="hidden" name="ValorCapturado">
+</table>
 </form>
 
 </body>

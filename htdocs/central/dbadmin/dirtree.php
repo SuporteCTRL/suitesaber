@@ -226,7 +226,7 @@ if ($_REQUEST["ACTION"]!="downloadfile1"){
 		$encabezado="&encabezado=s";
 	}
 	EncabezadoPagina();
-	echo "<link rel=\"STYLESHEET\" type=\"text/css\" href=\"../css/".$css_name."template.css\">";
+	echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/".$css_name."template.css\">";
 }
 
 function EncabezadoPagina(){
@@ -246,16 +246,12 @@ global $arrHttp,$msgstr,$institution_name,$logo;
 			else
 				$retorno="menu_mantenimiento.php?base=".$_REQUEST["activa"];
 			
-	echo "
-		</div>
-			<div class=\"spacer\">&#160;</div>
-		</div>";
 
 	 echo "
 	 	<div class=\"helper\">
-	<a href=../documentacion/ayuda.php?help=".$_SESSION["lang"]."/dirtree.html target=_blank>".$msgstr["help"]."</a>&nbsp &nbsp;
+	<a href=../documentacion/ayuda.php?help=".$_SESSION["lang"]."/dirtree.html target=_blank>".$msgstr["help"]."</a>
     ";
-    echo "<font color=white>&nbsp; &nbsp; Script: dirtree.php</font></div>";
+    echo "<font color=white> Script: dirtree.php</font></div>";
 
      echo "<div class=\"middle form\">
 			<div class=\"formContent\">";
