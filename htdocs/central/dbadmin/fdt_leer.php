@@ -22,7 +22,7 @@ if (!isset($arrHttp["Opcion"])) $arrHttp["Opcion"]="";
 <?php echo "<font>Script: fdt_leer.php</font><br>"?>
  <font ><?php echo $msgstr["fdt"].". ".$msgstr["database"]?>: <?php echo $arrHttp["base"]?>
  <font >
-		<table  width=100%>
+		<table class="table table-striped">
 			<td>Tag</td><td><?php echo $msgstr["fn"]?></td><td><?php echo $msgstr["subfields"]?></td><td><?php echo $msgstr["rep"]?></td><td><?php echo $msgstr["prefix"]?></td>
 <?php
 if ($arrHttp["Opcion"]!="new"){

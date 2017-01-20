@@ -121,9 +121,8 @@ if (isset($arrHttp["encabezado"])){
 	
 <div class="middle form">
 	<div class="formContent">
-<form name=edithlp method=post>
-<dd><table border=0>
-<td>
+<form name="edithlp" method="post">
+
 <?php
 $archivo=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["base"].".fdt";
 if (!file_exists($archivo)) $archivo=$db_path.$arrHttp["base"]."/def/".$lang_db."/".$arrHttp["base"].".fdt";
@@ -145,10 +144,10 @@ foreach ($fp as $value){
 		echo "fdt[$ixFdt]=\"$value\"\n";
 	}
 }
-echo "</script>\n";
+echo "</script><label>\n";
 echo $msgstr["selfields"].": ";
-echo "<select name=FDT onchange=Edit()>
-	<option></option>\n";
+echo "<select class=\"form-control\" name=FDT onchange=Edit()>
+	</label><option></option>\n";
 $ixFdt=0;
 foreach ($fdt as $key=>$value){
 	$t=explode('|',$value);
@@ -156,17 +155,18 @@ foreach ($fdt as $key=>$value){
 	echo "<option value=$ixFdt>".$t[1]." ".$t[2]."</option>\n";
 
 }
-echo "</select>";
-echo " ".$msgstr["subfields"].": <input type=text name=subc size=1 maxlength=1><br>";
+echo "</select><label>";
+echo " ".$msgstr["subfields"].": </label>
+<input type=text name=subc class=\"form-control\"><br>";
 $encabezado="";
 if (isset($arrHttp["encabezado"])) $encabezado="&encabezado=s"
 
 ?>
 
-<textarea name=campo rows=15 cols=60></textarea><p>
-
-<a class="btn btn-default" href=javascript:VerAyuda() name="<?php echo $msgstr["preview"];?>"> <i class="fa fa-eye" aria hidden="true"></i></a> 
-<a href=javascript:EditarAyuda() class="btn btn-default" name="<?php echo $msgstr["edhlp"];?>"><i class="fa fa-pencil-square-o" aria hidden="true"></a></i>
+<textarea name="campo" class="form-control"></textarea>
+<br>
+<a class="btn btn-primary" href='javascript:VerAyuda()'><i class="fa fa-eye" value="<?php echo $msgstr['preview'];?>"></i></a> 
+<a href=javascript:EditarAyuda() class="btn btn-warning" ><i class="fa fa-pencil-square-o" value="<?php echo $msgstr['edhlp'];?>"></a></i>
 </td>
 </table>
 </form>

@@ -64,7 +64,7 @@ if (file_exists($file)){
 
 
 // OPEN iah.def.php AND GET THE AVAILABLE LANGUAGES
-$iah_def=parse_ini_file("../../iah/scripts/iah.def.php");
+@ $iah_def=parse_ini_file("../../iah/scripts/iah.def.php");
 $iah_lang=explode(',',$iah_def["AVAILABLE LANGUAGES"]);
 $ix=0;
 foreach ($iah_lang as $value){
@@ -77,7 +77,7 @@ unset($fp);
 ?>
 
 
-<script language=Javascript src="../dataentry/js/lr_trim.js"></script>
+<script language=Javascript src=../dataentry/js/lr_trim.js></script>
 <script>
 //NUMBER OF LANGUAGES DEFINED IN IAH.DEF.PHP
 n_lang=<?php echo count($lan_iah)."\n"?>
@@ -219,8 +219,8 @@ function EditIndex(Id){
 	msgwin.document.writeln("a {  font-family:  Arial, Helvetica, sans-serif; font-size: 8pt; color: #00626C }")
     msgwin.document.writeln("</style>")
     msgwin.document.writeln("<body>")
-	msgwin.document.writeln("<h1>"+Tit+"</h1>")
-	msgwin.document.writeln("<font class=td><?php echo $msgstr["see"]?>: <a href=\"javascript:window.opener.Ver('fdt')\">FDT</a> | <a href=javascript:window.opener.Ver('fst')>FST</a><p>")
+	msgwin.document.writeln("<H1>"+Tit+"</h1>")
+	msgwin.document.writeln("<FONT class=td><?php echo $msgstr["see"]?>: <a href=\"javascript:window.opener.Ver('fdt')\">FDT</a> | <a href=javascript:window.opener.Ver('fst')>FST</a><p>")
 	msgwin.document.writeln("<form name=index>\n<table width=100% bgcolor=#eeeeff>");
 	msgwin.document.writeln("<tr><td colspan=2 bgcolor=white><?php echo $msgstr["iah_lang"]?></td>")
 	ele=new Array()
@@ -378,12 +378,12 @@ function DrawElement(Val_1,Val_2,ixE,ixSec,Name){
 	xhtml ="<br><input type=text name=\""+Name+"_tag\"  value=\""+Val_1+"\" id="+Name+"_tag_"+ixE+">: "
     xhtml+="<input type=text name=\""+Name+"_cont\" value=\""+Val_2+"\" size=90 id="+Name+"_cont_"+ixE+"> "
     if (ixSec==2){
-    	xhtml+="<a class=\"btn btn-default\" href='javascript:EditIndex("+ixE+")'><?php echo$msgstr["edit"]?></a>&nbsp;|";
+    	xhtml+="<a href='javascript:EditIndex("+ixE+")'><?php echo$msgstr["edit"]?></a>&nbsp;|";
     }
     if (ixSec==1 && ixE==0){
 
     }else{
-    	xhtml+=" <a class=\"btn btn-danger\"  href=javascript:DeleteElement("+ixE+","+ixSec+")><?php echo $msgstr["delete"]?></a>\n";
+    	xhtml+=" <a href=javascript:DeleteElement("+ixE+","+ixSec+")><?php echo $msgstr["delete"]?></a>\n";
     }
 
     return xhtml
@@ -395,19 +395,19 @@ function DrawElementHelp(Val_1,Val_2,Val_3,ixE,ixSec,Name){
 	if (Val_1=="HELP FORM") {
 		xhtml+= " selected";
 	}
-	xhtml+=">HELP FORM</OPTION>"
+	xhtml+=">HELP FORM</option>"
 	xhtml+="<option value='NOTE FORM'";
 	if (Val_1=="NOTE FORM")
 		xhtml+= " selected";
-	xhtml+=">NOTE FORM</OPTION>";
+	xhtml+=">NOTE FORM</option>";
 	xhtml+="<option value='HELP INDEX'";
 	if (Val_1=="HELP INDEX")
 		xhtml+= " selected";
-	xhtml+=">HELP INDEX</OPTION>";
+	xhtml+=">HELP INDEX</option>";
 	xhtml+="<option value='NOTE INDEX'";
 	if (Val_1=="NOTE INDEX")
 		xhtml+= " selected";
-	xhtml+=">NOTE INDEX</OPTION>";
+	xhtml+=">NOTE INDEX</option>";
 	xhtml+="</select>";
 	xhtml+="<input type=text name=\"lang_form\"  value=\""+Val_2+"\" id="+Name+"_tag_"+ixE+" size=2>= "
     xhtml+="<input type=text name=\""+Name+"_cont\" value=\""+Val_3+"\" size=90 id="+Name+"_cont_"+ixE+"> "
@@ -769,8 +769,10 @@ function SubirOpcion(){
 }
 </script>
 </head>
+
 <body>
-<a name=inicio>
+
+
 <?php
 if (isset($arrHttp["encabezado"])){
 	include("../common/institutional_info.php");
@@ -779,29 +781,35 @@ if (isset($arrHttp["encabezado"])){
 	$encabezado="";
 }
 ?>
-<div class="sectionInfo">
-	<div class="breadcrumb">
-<?php echo $msgstr["iah-conf"].": ".strtoupper($arrHttp["base"]).".def"?>
-	</div>
+
+
+
+<label><h2><?php echo $msgstr["iah-conf"].": ".strtoupper($arrHttp["base"]).".def"?></h2></label>
+
 	<div class="actions">
 
-		
 		
 <?php if (isset($fst)){
 ?>
 
-		<a href="javascript:Guardar()" class="btn btn-default" ><i class="fa fa-chek" aria hidden="true">
-		<?php echo $msgstr["save"]?></a></i>
-<?php 
-}
-?>
-	</div>
-	
-</div>
+		<a href="javascript:Guardar()" class="btn btn-primary">
+		<i class="fa fa-check" title="Salvar" value="<?php echo $msgstr["save"];?>"></i></a>
 
-<div class="middle form">
-	<div class="formContent">
-	<form name=iah_edit method=post action=iah_save.php onsubmit="javascript:return false">
+<?php }?>
+	
+	</div>
+
+
+
+<?php
+if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
+ 	
+echo "<label> iah_edit_db.php</label>";
+?>
+
+
+
+	<form name="iah_edit" method="post" action="iah_save.php" onsubmit="javascript:return false">
 
 <?php
 	if (!isset($fst)) {
@@ -816,7 +824,7 @@ if (isset($arrHttp["encabezado"])){
 		$db_def=parse_ini_file ($db_path."par/".strtoupper($arrHttp["base"]).".def",true,INI_SCANNER_RAW);
 		$msg="";
 	}else{         //CONFIGURE A NEW DATABASE
-		$msg="<font color=red><strong>".$msgstr["newfile"]." bases/par/".$arrHttp["base"].".def. ".$msgstr["reminder"]."</strong></font><p>";
+		$msg="<label>".$msgstr["newfile"]." bases/par/".$arrHttp["base"].".def. ".$msgstr["reminder"]."</label>";
 	}
 //	echo $db_path."par/".strtoupper($arrHttp["base"]).".def" ;
 //	echo "<pre>"; echo print_r($db_def); echo "</pre>";
@@ -869,175 +877,365 @@ if (isset($arrHttp["encabezado"])){
 	if (!isset($db_def["PREFERENCES"])){
 		$db_def["PREFERENCES"][]="";
 	}
-	echo "<a name=inicio>";
+	
+
+	echo "<A NAME=INICIO>";
 //    echo "<a href=iah_def_edit_txt.php?base=".$arrHttp["base"].$encabezado.">".$msgstr["edit_txt"]."</a> | ";
 
-	echo $msg."<div class=\"pagination\">
-	<a class=\"btn btn-default\" href=#file_location>Localização do arquivo</a> 
-	<a class=\"btn btn-default\" href=#index_definition>Definição de Índice</a>
-	<a class=\"btn btn-default\" href=#apply_gizmo>Aplicar Gizmo</a> 
-	<a class=\"btn btn-default\" href=#format_name>Nome do formato</a> 
-	<a class=\"btn btn-default\" href=#help_form>Formulário de ajuda</a>
-	<a class=\"btn btn-default\" href=#preferences>Preferências</a>
-	</div>";
+	echo $msg."
+	
+	 <div class=\"btn-group\" role=\"group\">
+		
+		<a href=#INDEX_DEFINITION class=\"btn btn-primary\"> INDEX DEFINITION </a>
+	    <a href=#APPLY_GIZMO class=\"btn btn-primary\"> APPLY GIZMO </a>	
+		<a href=#FORMAT_NAME class=\"btn btn-primary\"> FORMAT NAME </a>	
+		<a href=#HELP_FORM class=\"btn btn-primary\"> HELP FORM </a>	
+		<a href=#PREFERENCES class=\"btn btn-primary\"> PREFERENCES </a>
 
-	echo "<a class=\"btn btn-default\" href=javascript:ValidateForm()>".$msgstr["validate"]."</a>";
+	 </div>";
+	?>
+
+   <!--<a href=#INICIO>".$msgstr["top"]."</a>
+	<!--<a class=\"btn btn-default\" href="javascript:ValidateForm()"> <?php echo $msgstr['validate'];?> </a>-->
+
+
+<div class="clearfix">
+
+	<?php
 
 	foreach ($db_def as $var=>$value){
         $var=trim($var);
-		echo "<br><a name=$var><p><strong>[$var]</strong> <a class=\"btn btn-default\" href=#inicio>".$msgstr["top"]."</a>";
+		
+
+
+
+		echo "<h2><label> $var :</label></h2>";
+		
+?>
+
+	<div class="container-fluid">	
+
+<?php
 		switch ($var){
 			case "FILE_LOCATION":
 				$id=-1;
-				echo "<div id=1 style='line-height:200%'>\n";
+				
 				foreach ($value as $v1=>$v2){
 					$id=$id+1;
-			    	echo "<br><input type=text name=\"file_tag\"  value=\"$v1\" id=file_tag_$id>=<input type=text name=\"file_cont\" value=\"$v2\" size=90 id=file_cont_$id>";
-			    	if ($id!=0) echo "&nbsp;<a href=javascript:DeleteElement($id,1)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text class=\"form-control\" name=\"file_tag\"  value=\"$v1\" id=file_tag_$id >
+			    		</div>
+			    		<div class=\"col-md-5\">
+			    			<input type=text class=\"form-control\" name=\"file_cont\" value=\"$v2\"  id=file_cont_$id>
+			    		</div>";
+			    	
+			    if ($id!=0) 
+				    echo "<div class=\"col-md-3\">
+							 <a href='javascript:DeleteElement($id,1)' class=\"btn btn-danger\">
+						 		<i class=\"fa fa-trash\" value=".$msgstr['delete']."></i></a>
+						  </div> ";
 
 //			    	if ($v1=="FILE SHORTCUT.IAH") echo "edit";
 			    }
 			    if ($id==-1){ // si se creó solo una casilla de ingreso, se fuerza un arreglo agregando otra casilla
                 	$id=$id+1;
-			    	echo "<br><input type=text name=\"file_tag\"  value=\"\" id=file_tag_$id>=<input type=text name=\"file_cont\" value=\"\" size=90 id=file_cont_$id>";
-			    	if ($id!=0) echo "&nbsp;<a href=javascript:DeleteElement($id,1)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input class=\"form-control\" type=text name=\"file_tag\"  value=\"\" id=file_tag_$id>
+			    		</div>
+                     	<div class=\"col-md-5\">
+			    			<input class=\"form-control\" type=text name=\"file_cont\" value=\"\" id=file_cont_$id>
+			    		</div>";
+			    	
+			    if ($id!=0) 
+			    	echo "<div class=\"col-md-3\">
+			    			<a href='javascript:DeleteElement($id,1)'><i class=\"fa fa-trash\" value=".$msgstr["delete"]."></i></a>
+			    		 </div>";
 				}
 			    if ($id==0){ // si se creó solo una casilla de ingreso, se fuerza un arreglo agregando otra casilla
                 	$id=$id+1;
-			    	echo "<br><input type=text name=\"file_tag\"  value=\"\" id=file_tag_$id>=<input type=text name=\"file_cont\" value=\"\" size=90 id=file_cont_$id>";
-			    	if ($id!=0) echo "&nbsp;<a href=javascript:DeleteElement($id,1)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text class=\"form-control\" name=\"file_tag\"  value=\"\" id=file_tag_$id>
+			    	 	  </div>
+			    	     <div class=\"col-md-5\">
+			    			<input type=text class=\"form-control\" name=\"file_cont\" value=\"\" id=file_cont_$id>
+			    		</div>";
+			    	if ($id!=0) 
+			    		echo "<div class=\"col-md-3\">
+			    				<a href='javascript:DeleteElement($id,1)'><i class=\"fa fa-trash\" value=".$msgstr["delete"]."></i></a>
+			    			</div>";
 				}
 			    echo "</div>\n";
-			    echo "<a href=javascript:AddElement(1)>".$msgstr["add"]."</a>\n<br>";
+
+			    echo "<a class=\"btn btn-primary\" href='javascript:AddElement(1)'><i class=\"fa fa-plus\" value=".$msgstr['add']."></i></a>";
+			    
 			    break;
+			
+
 			case "INDEX_DEFINITION":
 				$id=-1;
-				echo "<div id=2 style='line-height:200%'>\n";
+				
 				$ix=0;
-				echo "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;";
+			
 				foreach ($iah_lang as $l){
 					$ix=$ix+1;
-					echo '^'.$ix."<font color=red><i>".$msgstr[trim($l)]."</i></font>";
+					echo '^'.$ix."<label>".$m=sgstr[trim($l)]."</label>";
 				}
 				foreach ($value as $v1=>$v2){
 					$id=$id+1;
-			   		echo "<br><input type=text name=\"index_tag\" value=\"$v1\" id=index_tag_$id>= <input type=text name=\"index_cont\" value=\"$v2\" size=90 id=index_cont_$id> <a href='javascript:EditIndex($id)'>".$msgstr["edit"]."</a> | <a href=javascript:DeleteElement($id,2)>".$msgstr["delete"]."</a>\n";
-			   		echo "&nbsp;<a href=\"javascript:seeElement('$v2')\">".$msgstr["see"]."</a>\n";
+			   		echo "
+                    <div class=\"col-md-4\">
+			   			<input type=text name=\"index_tag\" class=\"form-control\" value=\"$v1\" id=index_tag_$id>
+			   		</div>
+			   		<div class=\"col-md-5\">
+			   			<input type=text name=\"index_cont\" class=\"form-control\" value=\"$v2\" id=index_cont_$id>
+			   		</div> 
+			   			
+			   		<div class=\"col-md-3\">
+			   			<a class=\"btn btn-warning\" href='javascript:EditIndex($id)'>
+			   				<i class=\"fa fa-pencil-square-o\" value=".$msgstr["edit"]."></i></a> 
+			   		
+			   			<a class=\"btn btn-danger\" href='javascript:DeleteElement($id,2)'>
+			   				<i class=\"fa fa-trash\" value=".$msgstr["delete"]."></i></a>
+			   		
+
+			   			<a class=\"btn btn-primary\" href=\"javascript:seeElement('$v2')\">
+			   				<i class=\"fa fa-eye\" value=".$msgstr["see"]."></i></a>
+			   		</div>";
 			    }
 			    if ($id==-1){
 			    	$id=$id+1;
-			    	echo "<br><input type=text name=\"index_tag\" value=\"$v1\" id=index_tag_$id>= <input type=text name=\"index_cont\" value=\"$v2\" size=90 id=index_cont_$id> <a href='javascript:EditIndex($id)'>".$msgstr["edit"]."</a> | <a href=javascript:DeleteElement($id,2)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text class=\"form-control\" name=\"index_tag\" value=\"$v1\" id=index_tag_$id>
+			    		 </div>
+                    
+                    <div class=\"col-md-5\">
+			    		<input type=text name=\"index_cont\" class=\"form-control\" value=\"$v2\" id=index_cont_$id>
+			    	 </div>
+
+                    <div class=\"col-md-3\">
+			    		<a href='javascript:EditIndex($id)' class=\"btn btn-warning\">
+			    			<i class=\"fa fa-pencil-square-o\" value=".$msgstr["edit"]."></i></a>
+
+			    		<a href=javascript:DeleteElement($id,2) class=\"btn btn-danger\">
+			    			<i class=\"fa fa-trash\" value=".$msgstr["delete"]."></i></a>
+			    	</div>";
 			    }
 			    if ($id==0){
 			    	$id=$id+1;
-			    	echo "<br><input type=text name=\"index_tag\" value=\"$v1\" id=index_tag_$id>= <input type=text name=\"index_cont\" value=\"$v2\" size=90 id=index_cont_$id> <a href='javascript:EditIndex($id)'>".$msgstr["edit"]."</a> | <a href=javascript:DeleteElement($id,2)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text name=\"index_tag\" class=\"form-control\" value=\"$v1\" id=index_tag_$id>
+			    		 </div>
+                           
+                          <div class=\"col-md-5\">
+			    			<input type=text name=\"index_cont\" class=\"form-control\" value=\"$v2\" id=index_cont_$id> 
+			    		 </div>
+			    			 
+			    		  <div class=\"col-md-3\">
+			    			<a href='javascript:EditIndex($id)' class=\"btn btn-warning\">
+			    				<i class=\"fa fa-pencil-square-o\" value=".$msgstr["edit"]."></i></a> 
+			    			
+			    			<a href='javascript:DeleteElement($id,2)' class=\"btn btn-danger\">
+			    				<i class=\"fa fa-trash\" value=".$msgstr["delete"]."></i></a>
+			    		 </div>";
 			    }
-			    echo "</div>\n";
-			    echo "<a href=javascript:AddElement(2)>".$msgstr["add"]."</a>\n<br>";
+			    echo "</div>";
+			    
+			    echo "<a href='javascript:AddElement(2)' class=\"btn btn-primary\">
+			    		<i class=\"fa fa-plus\" value=".$msgstr["add"]."></i></a>";
 			    break;
+			
+
 			case "APPLY_GIZMO":
 				$id=-1;
-				echo "<div id=3 style='line-height:200%'>\n";
+			
 				foreach ($value as $v1=>$v2){
 					if ($v1=="0" or $v1=="1") $v1="";
 					$id=$id+1;
-			    	echo "<br><input type=text name=\"gizmo_tag\" value=\"$v1\" id=gizmo_tag_$id>= <input type=text name=\"gizmo_cont\" value=\"$v2\" id=gizmo_cont_$id size=90> &nbsp;<a href=javascript:DeleteElement($id,3)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text name=\"gizmo_tag\" class=\"form-control\" value=\"$v1\" id=gizmo_tag_$id>
+			    		 </div>
+			    	      <div class=\"col-md-5\">
+			    			<input type=text class=\"form-control\" name=\"gizmo_cont\" value=\"$v2\" id=gizmo_cont_$id>
+			    		 </div>
+			    	     <div class=\"col-md-3\">
+			    			<a href=javascript:DeleteElement($id,3) class=\"btn btn-danger\">
+			    				<i class=\"fa fa-trash\" value=".$msgstr["delete"]."></i></a>
+			    		 </div>";
 			    }
 			    if ($id==-1){
 			    	$id=$id+1;
-			    	echo "<br><input type=text name=\"gizmo_tag\" value=\"\" id=gizmo_tag_$id>= <input type=text name=\"gizmo_cont\" value=\"\" id=gizmo_cont_$id size=90> &nbsp;<a href=javascript:DeleteElement($id,3)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text class=\"form-control\" name=\"gizmo_tag\" value=\"\" id=gizmo_tag_$id>
+			    		</div>
+			    		  <div class=\"col-md-5\">
+			    			<input type=text class=\"form-control\" name=\"gizmo_cont\" value=\"\" id=gizmo_cont_$id>
+			    		</div>
+			    	    <div class=\"col-md-3\">
+			    			<a href='javascript:DeleteElement($id,3)' class=\"btn btn-danger\">
+			    				<i class=\"fa fa-trash\" value=".$msgstr["delete"]."></i></a>
+			    		</div>";
 			    }
 			    if ($id==0){
 			    	$id=$id+1;
-			    	echo "<br><input type=text name=\"gizmo_tag\" value=\"\" id=gizmo_tag_$id>= <input type=text name=\"gizmo_cont\" value=\"\" id=gizmo_cont_$id size=90>&nbsp;<a href=javascript:DeleteElement($id,3)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text name=\"gizmo_tag\" value=\"\" class=\"form-control\" id=gizmo_tag_$id>
+			    		 </div> 
+                          <div class=\"col-md-5\">
+			    		 	<input type=text name=\"gizmo_cont\" value=\"\" class=\"form-control\" id=gizmo_cont_$id>
+                          </div>
+                          <div class=\"col-md-3\">
+			    		 	<a href='javascript:DeleteElement($id,3)' class=\"btn btn-danger\">
+			    		 		<i class=\"fa fa-trash\" value=".$msgstr["delete"]."></i></a>
+			    		  </div>";
 			    }
 			    echo "</div>";
-			    echo "<a href=javascript:AddElement(3)>".$msgstr["add"]."</a>\n<br>";
+			    echo "<a href='javascript:AddElement(3)' class=\"btn btn-primary\">
+			    		<i class=\"fa fa-plus\"  value=".$msgstr["add"]."></i></a>";
 			    break;
+			
+
 			case "FORMAT_NAME":
 				$id=-1;
 //				echo "<a href=pft.php?base=".$arrHttp["base"]."&encabezado=$encabezado target=_blank>Crear/editar formato</a>";
-				echo "<div id=4 style='line-height:200%'>\n";
+				
 				$ix=0;
-				echo "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;";
+				
 				foreach ($iah_lang as $l){
 					$ix=$ix+1;
-					echo '^'.$ix."<font color=red><i>".$msgstr[trim($l)]."</i></font>";
+					echo '^'.$ix."<label>".$msgstr[trim($l)]."</label>";
 				}
 				foreach ($value as $v1=>$v2){
                     if ($v1=="0" or $v1=="1") $v1="";
                     $id=$id+1;
-			    	echo "<br><input type=text name=\"format_tag\" value=\"$v1\" id=format_tag_$id>= <input type=text name=\"format_cont\" value=\"$v2\" size=90 id=format_cont_$id> &nbsp;<a href=javascript:DeleteElement($id,4)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text name=\"format_tag\" value=\"$v1\" class=\"form-control\" id=format_tag_$id>
+			    		  </div>
+                          <div class=\"col-md-5\">
+			    		  	<input type=text name=\"format_cont\" value=\"$v2\" class=\"form-control\" id=format_cont_$id>
+			    		  </div>
+                          <div class=\"col-md-3\">
+			    		  	<a href='javascript:DeleteElement($id,4)' class=\"btn btn-danger\">
+			    		  		<i class=\"fa fa-trash\" value=".$msgstr["delete"]."></i></a>
+			    		  </div>";
 			    }
                 if ($id==-1){
                 	$id=$id+1;
-			    	echo "<br><input type=text name=\"format_tag\" value=\"\" id=format_tag_$id>: <input type=text name=\"format_cont\" value=\"\" size=90 id=format_cont_$id> &nbsp;<a href=javascript:DeleteElement($id,4)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text name=\"format_tag\" value=\"\" id=format_tag_$id class=\"form-control\">
+			    		  </div> 
+                          <div class=\"col-md-5\">
+			    		  	<input type=text name=\"format_cont\" value=\"\" class=\"form-control\" id=format_cont_$id>
+			    		  		<a href='javascript:DeleteElement($id,4)' class=\"btn btn-danger\">
+			    		  			<i class=\"fa fa-trash\"  value=".$msgstr["delete"]."></i></a>
+			    		  </div>";
                 }
                 if ($id==0){
                 	$id=$id+1;
-			    	echo "<br><input type=text name=\"format_tag\" value=\"\" id=format_tag_$id>: <input type=text name=\"format_cont\" value=\"\" size=90 id=format_cont_$id> &nbsp;<a href=javascript:DeleteElement($id,4)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">
+			    			<input type=text name=\"format_tag\" value=\"\" id=format_tag_$id class=\"form-control\"> 
+			    		  </div>
+                          <div class=\"col-md-5\">
+			    			<input type=text name=\"format_cont\" value=\"\" class=\"form-control\" id=format_cont_$id> 
+                          </div>
+			    		  <div class=\"col-md-3\">
+			    			<a href='javascript:DeleteElement($id,4)' class=\"btn btn-danger\">
+			    				<i class=\"fa fa-trash\"  value=".$msgstr["delete"]."></i></a>
+			    		  </div>";
                 }
 			    echo "</div>";
-			    echo "<a href=javascript:AddElement(4)>".$msgstr["add"]."</a>\n<br>";
+			    echo "<a href='javascript:AddElement(4)' class=\"btn btn-primary\">
+			    		<i class=\"fa fa-plus\" value=".$msgstr["add"]."></i></a>";
 			    break;
 			case "HELP_FORM":
-				echo "<div id=5 style='line-height:200%'>\n";
+				
 				$id=-1;
                 $lang_form="";
 				foreach ($value as $v1=>$v2){
 					if ($v1=="0" or $v1=="1") $v1="";
 					$id=$id+1;
-					echo "<br>";
-					echo "<select name=help_tag><option value=''</option>";
+				         
+					echo " <div class=\"col-md-4\">
+							<select class=\"form-control\" name=help_tag>
+							<option value=''</option>";
 					echo "<option value='HELP FORM'";
 					if (substr($v1,0,9)=="HELP FORM") {
 						echo " selected";
 						$lang_form=trim(substr($v1,10));
 					}
-					echo ">HELP FORM</OPTION>";
+					echo ">HELP FORM</option>";
 					echo "<option value='NOTE FORM'";
 					if (substr($v1,0,9)=="NOTE FORM") {
 						echo " selected";
 						$lang_form=trim(substr($v1,10));
 					}
-					echo ">NOTE FORM</OPTION>";
+					echo ">NOTE FORM</option>";
 					echo "<option value='HELP INDEX'";
 					if (substr($v1,0,10)=="HELP INDEX") {
 						echo " selected";
 						$lang_form=trim(substr($v1,10));
 					}
-					echo ">HELP INDEX</OPTION>";
+					echo ">HELP INDEX</option>";
 					echo "<option value='NOTE INDEX'";
 					if (substr($v1,0,10)=="NOTE INDEX") {
 						echo " selected";
 						$lang_form=trim(substr($v1,10));
 					}
-					echo ">NOTE INDEX</OPTION>";
-					echo "</select>";
-			    	echo "<input type=text name=\"lang_form\" value=\"$lang_form\" id=lan_form_$id size=2>= <input type=text name=\"help_cont\" value=\"$v2\" size=90 id=help_cont_$id> &nbsp;<a href=javascript:DeleteElement($id,5)>".$msgstr["delete"]."</a>\n";
+					echo ">NOTE INDEX</option>";
+					echo "</select></div>";
+			    	echo "<div class=\"col-md-2\"> 	
+			    			<input type=text name=\"lang_form\" value=\"$lang_form\" id=lan_form_$id class=\"form-control\">
+						 </div>
+						 <div class=\"col-md-5\">
+			    			<input type=text name=\"help_cont\" value=\"$v2\" class=\"form-control\" id=help_cont_$id>
+			    	    </div>
+                         <div class=\"col-md-1\">
+			    			 <a href=javascript:DeleteElement($id,5)>".$msgstr["delete"]."</a>
+			        	</div>";
+
 			    	$lang_form="";
 			    }
 			    if ($id==-1){
 			    	$id=$id+1;
-			    	echo "<br>";
-					echo "<select name=help_tag><option value=''</option>";
-					echo "<option value='HELP FORM'>HELP FORM</OPTION>";
-					echo "<option value='NOTE FORM'>NOTE FORM</OPTION>";
-					echo "<option value='HELP INDEX'>HELP INDEX</OPTION>";
-					echo "<option value='NOTE INDEX'>NOTE INDEX</OPTION>";
-					echo "</select>";
-			    	echo "<input type=text name=\"lang_form\" value=\"\" id=lang_form_$id size=2>= <input type=text name=\"help_cont\" value=\"\" size=90 id=help_cont_$id> &nbsp;<a href=javascript:DeleteElement($id,5)>".$msgstr["delete"]."</a>\n";
+			
+					echo "<div class=\"col-md-4\">
+					<select class=\"form-control\" name=help_tag><option value=''</option>";
+					echo "<option value='HELP FORM'>HELP FORM</option>";
+					echo "<option value='NOTE FORM'>NOTE FORM</option>";
+					echo "<option value='HELP INDEX'>HELP INDEX</option>";
+					echo "<option value='NOTE INDEX'>NOTE INDEX</option>";
+					echo "</select></div>";
+			    	echo "<div class=\"col-md-2\">
+			    			<input type=text name=\"lang_form\" class=\"form-control\" value=\"\" id=lang_form_$id size=2>
+			    	     </div>
+			    	     <div class=\"col-md-5\">
+			    			<input type=text name=\"help_cont\" value=\"\" class=\"form-control\" id=help_cont_$id> 
+                         </div>
+                         <div class=\"col-md-1\">
+			    			<a href='javascript:DeleteElement($id,5)' class=\"btn btn-danger\">
+			    				<i class=\"fa fa-trash\" value= ".$msgstr["delete"]."></i></a>
+			    		</div>";
+			             
 			    }
 			    if ($id==0){
 			    	$id=$id+1;
-			    	echo "<br>";
-					echo "<select name=help_tag><option value=''</option>";
-					echo "<option value='HELP FORM'>HELP FORM</OPTION>";
-					echo "<option value='NOTE FORM'>NOTE FORM</OPTION>";
-					echo "<option value='HELP INDEX'>HELP INDEX</OPTION>";
-					echo "<option value='NOTE INDEX'>NOTE INDEX</OPTION>";
-					echo "</select>";
-			    	echo "<input type=text name=\"lang_form\" value=\"\" id=lang_form_$id size=2>= <input type=text name=\"help_cont\" value=\"\" size=90 id=help_cont_$id> &nbsp;<a href=javascript:DeleteElement($id,5,)>".$msgstr["delete"]."</a>\n";
+			    	echo "<div class=\"col-md-4\">";
+					echo "<select class=\"form-control\" name=help_tag><option value=''</option>";
+					echo "<option value='HELP FORM'>HELP FORM</option>";
+					echo "<option value='NOTE FORM'>NOTE FORM</option>";
+					echo "<option value='HELP INDEX'>HELP INDEX</option>";
+					echo "<option value='NOTE INDEX'>NOTE INDEX</option>";
+					echo "</select></div>";
+			    	echo "<div class=\"col-md-2\">
+			    			<input type=text name=\"lang_form\" value=\"\" id=lang_form_$id class=\"form-control\">
+                          </div>
+                          <div class=\"col-md-5\">
+			    			 <input type=text name=\"help_cont\" value=\"\" class=\"form-control\" id=help_cont_$id> 
+                          </div>
+                          <div class=\"col-md-1\">
+			    			 <a href='javascript:DeleteElement($id,5,)' class=\"btn btn-danger\">
+			    			 	<i class=\"fa fa-trash\"  value=".$msgstr["delete"]."></i></a>
+			    	      </div>";
+			              
 			    }
 				echo "</div>";
 			    echo "<a href=javascript:AddHelp(5)>".$msgstr["add"]."</a>\n<br>";
@@ -1104,9 +1302,16 @@ if (isset($arrHttp["encabezado"])){
                 		}
                 	}
                 }
-				echo "<table border=0 cellspacing=5>";
-				echo "<tr><td valign=top>Available Forms: </td>";
-				echo "              <td valign=middle><a href=javascript:SubirOpcion()>".$msgstr["up"]."</a>  | <a href=javascript:BajarOpcion()>".$msgstr["down"]."</a><br><select name=preferences size=3 multiple>";
+			
+				echo "<div class=\"col-md-4\">
+				<label>Available Forms: </label>";
+				echo "<a href='javascript:SubirOpcion()' class=\"btn btn-primary\">
+						<i class=\"fa fa-angle-up\"  value=".$msgstr["up"]."></i></a> 
+					  <a href='javascript:BajarOpcion()' class=\"btn btn-primary\">
+					  	<i class=\"fa fa-angle-down\" value=".$msgstr["down"]."></i></a>
+
+              
+				<select class=\"form-control\" name=preferences  multiple>";
 				$pref=array();
 				$sel=array();
 				$pref["F"]="free";
@@ -1130,23 +1335,35 @@ if (isset($arrHttp["encabezado"])){
 					echo ">".$msgstr[$value]."</option>\n";
 				}
 				echo "</select>";
-				echo "</td>";
-				echo "<tr><td valign=top>Send result by Email</td><td><input type=checkbox name=email value=ON $email> ON</td>";
-				echo "<tr><td valign=top>Navigation Bar</td><td><input type=checkbox name=bar value=ON $bar> ON</td>";
-				echo "<tr><td valign=top>".$msgstr["dpp"]."</td><td><input type=text name=dpp size=5 value=\"$dpp\"></td>";
-				echo "<tr><td valign=top>".$msgstr["features"].": </td>";
-				echo "              <td><input type=checkbox name=features_xml value=\"XML\" $features> XML</td></tr>";
-				echo "<tr><td valign=top>UNICODE</td><td><input type=checkbox name=UNICODE value=\"ON\" ";
+			    
+				echo "<div class=\"col-md-5\">
+				<label>Send result by Email</label>
+						<input type=checkbox name=email value=ON $email>";
+				
+				echo "<label>Navigation Bar</label>
+						<input type=checkbox name=bar value=ON $bar>";
+
+				echo "<label>".$msgstr["dpp"]."</label>
+					<input type=text name=dpp class=\"form-control\" value=\"$dpp\">";
+
+				echo "<label>".$msgstr["features"].": </label>
+               
+                <label>XML</label>
+				 <input type=checkbox name=features_xml value=\"XML\" $features>";
+
+				echo "<label>UNICODE</label>
+				<input type=checkbox name=UNICODE value=\"ON\" ";
 				if ($unicode!="")  echo " checked";
-				echo "> ON</td>";
-				echo "<tr><td valign=top>SEARCH UCTAB</td><td><input type=text name=uctab size=100 value=\"$uctab\"></td></TR>";
-				echo "</table>";
+				echo ">";
+				echo "<label>SEARCH UCTAB</label>
+						<input class=\"form-control\" type=text name=uctab value=\"$uctab\"></div>";
+		
 		}
 
 	}
 ?>
 </form>
-</div></div>
+
 <?php include("../common/footer.php");?>
 </body>
 </html>

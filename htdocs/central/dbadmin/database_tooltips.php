@@ -145,53 +145,38 @@ function VerificarUpload(){
 	document.upload.submit()
 }
 </script>
+<body>
 <?php
 include("../common/institutional_info.php");
-echo " <body>
-	<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">".
-				$msgstr["tradyudas"]."
-			</div>
-			<div class=\"actions\">
+?>
 
-	";
+<h1><?php echo $msgstr["tradyudas"];?></h1>
+
+<?php
 if (!isset($arrHttp["Opcion"]) or isset($arrHttp["Opcion"]) and $arrHttp["Opcion"]!="Importar"){
-	echo "<a href=\"javascript:Guardar()\" class=\"defaultButton saveButton\">
-			<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-			<span><strong>".$msgstr["save"]."</strong></span></a>";
+	echo "<a href=\"javascript:Guardar()\" class=\"btn btn-primary\">
+			<i class=\"fa fa-check\" value=".$msgstr["save"]."></i></a>";
 }
-echo "<a href=\"menu_modificardb.php?encabezado=s&base=".$arrHttp["base"]."\" class=\"defaultButton backButton\">";
-echo "
-						<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-						<span><strong>". $msgstr["back"]."</strong></span>
-					</a>";
-
-echo "			</div>
-			<div class=\"spacer\">&#160;</div>
-	</div>";
 
  ?>
-
- <div class="middle form">
-			<div class="formContent">
 
 
 <?php
 if (isset($arrHttp["Opcion"]) and $arrHttp["Opcion"]=="Importar"){
 	if (!isset($_FILES["archivo"])){
-	ECHO "<h2>".$msgstr["import_ods"]."</H2>";
+	echo "<h2>".$msgstr["import_ods"]."</h2>";
 ?>
-<form action="" method="post" enctype="multipart/form-data" name=upload_form onsubmit="javascript:VerificarUpload();return false">
- <br> <label for="archivo"><?php echo $msgstr["selfile"]?>:</label>
+<form action="" method="post" enctype="multipart/form-data" name="upload_form" onsubmit="javascript:VerificarUpload();return false">
+ <label for="archivo"><?php echo $msgstr["selfile"];?>:</label>
   <input type="file" name="archivo" id="archivo" />
-  <br><br>
+
  <?php
   $base=$arrHttp["base"];
 
   echo " <input type=\"hidden\" value=\"$base\" name=\"base\"/>";
   ?>
   <input type="submit" value="<?php echo $msgstr["send"]?>"/>
-  <input type="hidden" name=Opcion value=importado>
+  <input type="hidden" name="Opcion" value="importado">
   </form>
 <?
 	die;
@@ -209,35 +194,54 @@ if (isset($arrHttp["Opcion"]) and $arrHttp["Opcion"]=="Importar"){
 }
 if (!isset($arrHttp["Opcion"]) or isset($arrHttp["Opcion"]) and $arrHttp["Opcion"]!="importado"){
 ?>
-<a href=database_tooltips.php?Opcion=xls&base=<?php echo $arrHttp["base"]?>><?php echo $msgstr["sendto"]." ".$msgstr["wks"]?></a>
-&nbsp; &nbsp;
-<? } ?>
-<a href=database_tooltips.php?Opcion=Importar&base=<?php echo $arrHttp["base"]?>><?php echo $msgstr["import_ods"]?></a><br>
-<br>
+
+<!--não funciona-->
+<a class="btn btn-primary" href="database_tooltips.php?Opcion=xls&base=<?php echo $arrHttp["base"];?>" title="<?php echo $msgstr["sendto"]." ".$msgstr["wks"];?>">
+<i class="fa fa-cloud-upload"></i> 
+</a>
+
+<?php 
+} 
+?>
+
+<a class="btn btn-primary" href="database_tooltips.php?Opcion=Importar&base=<?php echo $arrHttp["base"];?>" title="<?php echo $msgstr["import_ods"];?>">
+<i class="fa fa-cloud-download"></i> 
+</a>
+
+<div class="container">
+
 <form name="update" action="database_tooltips_ex.php" method="post">
-<input type="hidden" name="base" value=<?php echo $arrHttp["base"]?>>
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+
+
+<?php
+	foreach ($fdt as $key=>$value){
+?>
+    <div class="form-group row">
+	<label class="col-sm-2 col-form-label"><?php echo $key."-".$value;?> </label>
+	<div class="col-sm-10">
+	
+	<input type="text" class="form-control" name="tag<?php echo $key; ?>">
 <?php
 
-
-
-echo "<table>";
-foreach ($fdt as $key=>$value){
-	echo "<tr><td valign=top>$key</td><td><strong>$value</strong><br><Textarea rows=3 cols=200 name=tag$key>";
 	if (isset($tooltip[$key])) {
 		echo $tooltip[$key];
 	}
-	echo "</textarea>";
-	if (isset($tooltip[$key])) {
-		echo "<br><font color=darkblue>".$tooltip[$key]."</font>";
-	}
-	echo "</td>";
-}
-echo "</table></center></div></div>";
-echo "</form>";
-include("../common/footer.php");
+
 ?>
+
+</div>
+
+</div>
+
+<?php
+}
+?>
+
+</div>
 </form>
+
 </div>
-</div>
+
 </body>
 </html>
