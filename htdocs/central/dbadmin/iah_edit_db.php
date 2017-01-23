@@ -1354,9 +1354,9 @@ echo "<label> iah_edit_db.php</label>";
 				echo "<label>UNICODE</label>
 				<input type=checkbox name=UNICODE value=\"ON\" ";
 				if ($unicode!="")  echo " checked";
-				echo ">";
+	
 				echo "<label>SEARCH UCTAB</label>
-						<input class=\"form-control\" type=text name=uctab value=\"$uctab\"></div>";
+						<input class=\"form-control\" type=text name=uctab value=\"$uctab\"></div></div>";
 		
 		}
 
@@ -1364,6 +1364,8 @@ echo "<label> iah_edit_db.php</label>";
 ?>
 </form>
 
-<?php include("../common/footer.php");?>
+<?php 
+include("../common/footer.php")
+;?>
 </body>
 </html>

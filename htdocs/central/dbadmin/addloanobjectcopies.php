@@ -1,4 +1,4 @@
-<?php
+"<?php
 session_start();
 if (!isset($_SESSION["permiso"])){
 	header("Location: ../common/error_page.php") ;
@@ -187,52 +187,52 @@ win=window.open(mypage,myname,settings);}
          echo $_POST['cnf'];
         else echo "v1";
        ?>">
+
     </div>
       
 
 
 
 <label class="col-sm-1 col-form-label">SubField:</label>
-     <div class="col-md-3">
+ <a class="btn btn-danger" href='javascript:AlterEntry(0)'><i class="fa fa-times" aria hidden="true"></i></a> 
+     <div class="col-sm-2">
       <input name="cnsf" class="form-control" type="text" id="cnsf" value="<?php 
       if (isset($_POST['cnsf']))
       echo $_POST['cnsf'];
       ?>">
- 
+
+
+  
    </div>
 
 
 <div class="col-md-3">
-  <select name=agregar id=atunique onChange=AlterEntry(1) class="form-control">
+  <select name="agregar" id="atunique" onChange='AlterEntry(1)' class="form-control">
    <option value=''>add</option>
     <option value="ml">Main Library</option>
     <option value="bl">Branch Library</option>
     <option value="tome">Tome</option>
    <option value="volume">Volume/Part</option>
   </select>
-  <a href=javascript:AlterEntry(0)></a>
+  <a href="javascript:AlterEntry(0)"></a>
 
 	</select>
 
-<a class="btn btn-danger" href=javascript:AlterEntry(0)><i class="fa fa-times" aria hidden="true"></i></a>  
 
 </div>
 </div>
-</form>
+<form class="form-horizontal">
+  <div class="form-group">
+<div class="col-md-3">
 
-
-
-<div class="form-group row">
-  <label class="col-sm-2 col-form-label">Inventory Number Field:</label>
+  <label>Inventory Number Field:</label>
     <div class="col-sm-10">
-      <input name="inf" type="text" id="inf" value="<?php if (isset($_POST['inf'])) echo $_POST['inf'];?>"/>
-   
-<label>SubField:</label>
-  <input name="insf" type="text" id="insf" value="<?php if (isset($_POST['insf'])) echo $_POST['insf'];?>"/>
+      <input name="inf" type="text" id="inf" class="form-control" value="<?php if (isset($_POST['inf'])) echo $_POST['inf'];?>"/>
+   </div>
+<label >SubField:</label>
+  <input name="insf" type="text" class="form-control" id="insf" value="<?php if (isset($_POST['insf'])) echo $_POST['insf'];?>"/>
 
-    </div>
 </div>
-
 
 
 

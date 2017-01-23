@@ -33,9 +33,9 @@ $par="";
 $fp=file($db_path."par/".$arrHttp["base"].".par");
 foreach ($fp as $value) $par.=trim($value)."\n";
 echo "<form name=db action=editpar_update.php method=post>";
-echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";
-if (isset($arrHttp["encabezado"]))  echo "<input type=hidden name=encabezado value=s>\n";
-echo "<center><b>".$arrHttp["base"].".par</b><br><textarea class=\"form-control\" cols=100 rows=20 name=par>".$par."</textarea>
+echo "<input type=hidden name=base value=".$arrHttp["base"].">";
+if (isset($arrHttp["encabezado"]))  echo "<input type=hidden name=encabezado value=s>";
+echo "<label>".$arrHttp["base"].".par</label><textarea class=\"form-control\"  name=par>".$par."</textarea>
 <br><br>
 <input class=\"btn btn-primary\" type=submit value=\"". $msgstr["update"]."\">
 </form>
