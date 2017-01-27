@@ -145,10 +145,10 @@ echo "
 <label> 2. ".$msgstr["usname"]." (loans_uskey.tab)</label>
 <input  class=\"form-control\" type=\"text\" name=\"usname\" value=\"".$usname."\">
 
-<label> 3. ".$msgstr["uspft"]." (loans_uskey.tab)</label>
+<label> 3. ".$msgstr["uspft"]." (loans_uskey.tab) </label>
 <input  class=\"form-control\" type=\"text\" name=\"uspft\" value=\"".$uspft."\">
 
-<label> 4. ".$msgstr["pft_uskey"]." (loans_uskey.pft)</label>
+<label> 4. ".$msgstr["pft_uskey"]." (loans_uskey.pft) </label>
 <input  class=\"form-control\" type=\"text\" name=\"pft_uskey\" value=\"".$pft_uskey."\">
 
 <label> 5. ".$msgstr["pft_ustype"] ." (loans_ustype.pft)</label>

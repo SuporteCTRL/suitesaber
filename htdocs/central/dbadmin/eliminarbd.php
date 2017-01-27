@@ -200,7 +200,7 @@ echo "
 <?php
 
 
-$volta = $script.'?base='.$arrHttp['base'].$encabezado;
+@ $volta = $script.'?base='.$arrHttp['base'].$encabezado;
 	header('Refresh: 1; url='.$volta.'');
 
 

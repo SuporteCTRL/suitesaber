@@ -106,13 +106,13 @@ if (isset($arrHttp["encabezado"])){
 	<div class="sectionInfo">
 
 		<div class="breadcrumb">
-				<?php echo $msgstr["createdb"]?>
+				<h2><?php echo $msgstr["createdb"];?></h2>
 		</div>
 
 		
-	<form method=post name=forma1 onsubmit="javascript:return false">
-		<input type=hidden name=Opcion>
-		<input type=hidden name=base>
+	<form method="post" name="forma1" onsubmit="javascript:return false">
+		<input type="hidden" name="Opcion">
+		<input type="hidden" name="base">
 		<?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>\n"?>
 		<div class="middle form">
 			<div class="formContent">
@@ -121,7 +121,7 @@ if (isset($arrHttp["encabezado"])){
 				<div id="formRow01" class="formRow">
 					<label for="field01"><?php echo $msgstr["dbn"];?></label>
 					<div class="frDataFields">
-						<input class="form-control" type="text" name="nombre"  id="field01" value="" class="textEntry singleTextEntry" onfocus="this.className = 'textEntry singleTextEntry textEntryFocus';document.getElementById('formRow01').className = 'formRow formRowFocus';" onblur="this.className = 'textEntry singleTextEntry';document.getElementById('formRow01').className = 'formRow';" />
+						<input class="form-control" type="text" name="nombre"  id="field01" value="">
 					
 					</div>
 					
@@ -129,7 +129,7 @@ if (isset($arrHttp["encabezado"])){
 				<div id="formRow02" class="formRow">
 					<label for="field02"><?php echo $msgstr["descripcion"];?></label>
 					<div class="frDataFields">
-						<input class="form-control" type=text name="desc" id="field02" class="textEntry singleTextEntry" onfocus="this.className = 'textEntry singleTextEntry textEntryFocus';document.getElementById('formRow02').className = 'formRow formRowFocus';" onblur="this.className = 'textEntry singleTextEntry';document.getElementById('formRow02').className = 'formRow';">
+						<input class="form-control" type=text name="desc" id="field02">
 						<p>
 					</div>
 			
@@ -138,7 +138,7 @@ if (isset($arrHttp["encabezado"])){
 				<div id="formRow3" class="formRow formRowFocus">
 					<label for="field3"><?php echo $msgstr["createfrom"];?>:</label>
 					<div class="frDataFields">
-						<select class="form-control" name="base_sel" id="field3"  onchange=VerificarTipo() class="textEntry singleTextEntry">
+						<select class="form-control" name="base_sel" id="field3"  onchange="VerificarTipo()" class="textEntry singleTextEntry">
 							<option value=""></option>
 							<option value="~~NewDb"><?php echo $msgstr["newdb"];?></option>
 							<option value="~~WinIsis"><?php echo $msgstr["winisisdb"];?></option>
@@ -158,7 +158,7 @@ foreach ($fp as $linea){
 ?>
 						</select>
 					
-<div name=dbtype id=dbtype style="display:none">
+<div name="dbtype" id="dbtype" style="display:none">
 <!--
 CISIS type <select name='cisis'>
 <option value=''>default</option>

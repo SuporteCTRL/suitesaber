@@ -69,21 +69,22 @@ foreach($contenido as $linea) {
 	  	}
 	}
 }
-echo "<script>Maxmfn=".$tag["MAXMFN"]."</script>\n";
+ echo "<script> Maxmfn=".$tag["MAXMFN"]."</script>";
 
 //GET LAST CONTROL NUMBER
 $archivo=$db_path.$arrHttp["base"]."/data/control_number.cn";
 if (!file_exists($archivo)){
-	$fp=fopen($archivo,"w");
-	$res=fwrite($fp,"");
-	fclose($fp);
+@	$fp=fopen($archivo,"w");
+@	$res=fwrite($fp,"");
+@	fclose($fp);
 }else{
 	$fp=file($archivo);
 	$last_cn=implode("",$fp);
 }
 
 include("../common/header.php");
-?>
+;?>
+
 <script language="javascript1.2" src="../dataentry/js/lr_trim.js"></script>
 <script language=Javascript src=../dataentry/js/selectbox.js></script>
 
@@ -183,17 +184,19 @@ if (isset($arrHttp["encabezado"])){
 				echo $count;
 		}
 	
-		?>" type="text" name="to" class="form-control">
-		<label><?php echo  $msgstr["maxmfn"]. ": " .$tag["MAXMFN"];?></label>
+		?>" 
+		type="text" name="to" class="form-control">
+    	<label><?php echo  $msgstr["maxmfn"]. ": " .$tag["MAXMFN"];?></label>
 		<br>
 
 		
 	
 
 		
-		<?php
-		echo "Last control number: ".$last_cn." 
-		<a href=Javascript:Reset ()>".$msgstr["resetcn"]."</a>";?>
+		
+		<label> Last control number:</label>
+		 <?php echo $last_cn ;?> 
+		<a href='Javascript:Reset()'> <?php echo $msgstr['resetcn'] ;?></a>
 		<br>
 		<input class="btn btn-primary" type="submit" name="enviar" value="<?php echo $msgstr["send"]?>" onClick=javascript:EnviarForma()>
 		

@@ -1,4 +1,0 @@
-(if p(v773^w) then 
-'<a href="/cgi-bin/wxis.exe/iah/scripts/?IsisScript=unico.xis&lang=pt&base=MARC&nextAction=lnk&exprSearch='ref(l(['marc']'SG'v999,v773^w,v260),v1)'
-&indexSearch=MF&format=detailed.pft" class="pftLink" title="Veja o registro do documento principal">'ref(l(['marc']'SG'v999,v773^w,v260),' Documento principal ['v1)']</a>'
-fi,)' '

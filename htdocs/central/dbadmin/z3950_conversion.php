@@ -111,7 +111,7 @@ if (isset($arrHttp["Opcion"]) and $arrHttp["Opcion"]=="edit" ){
 $Dir=$db_path.$arrHttp["base"]."/def/";
 $archivo=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["base"].".fdt";
 if (!file_exists($archivo)) $archivo=$db_path.$arrHttp["base"]."/def/".$lang_db."/".$arrHttp["base"].".fdt";
-$fp=file($archivo);
+@ $fp=file($archivo);
 echo "<table class=\"table table-striped\">";
 echo "
 <tr><td><label>".$msgstr["ft_f"]."</label></td> 
@@ -133,7 +133,7 @@ foreach ($fp as $value){
 			echo "<td  class=td>";
 			echo $t[5];
 			echo "</td>";
-			echo "<td ><textarea class=\"form-control\" cols=100 rows=1 name=formato$tag>";
+			echo "<td ><textarea class=\"form-control\" z3950_conversion.php name=formato$tag>";
 			if (isset($pft[$tag])) echo $pft[$tag];
 			echo "</textarea></td>";
 		}

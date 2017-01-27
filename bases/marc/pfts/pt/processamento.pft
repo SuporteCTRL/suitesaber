@@ -1,7 +1,0 @@
-
-'<tr>',
-'<td>'(if p(v980) then v980^d.8 ' - ' v980^o+|<br>| fi )if a(v980) then '&nbsp;' fi,'</td>'/
-
-'<td>'(if p(v100) then | |v100^1,| |v100^2,| |v100^a,| |v100^b,| |v100^c,| |v100^d,| |v100^q, if iocc<>nocc(v100) then '<br>' fi fi/) if a(v100) then '&nbsp;' fi,'</td>'/
-'<td>'(if p(v245) then | |v245^1,| |v245^2,| |v245^a,| |v245^b,| |v245^c,| |v245^h,| |v245^k,| |v245^n,| |v245^p, if iocc<>nocc(v245) then '<br>' fi fi/) if a(v245) then '&nbsp;' fi,'</td>'/
-'<td>'(if p(v949) then v949^a fi/) if a(v949) then '&nbsp;' fi,'</td>'/

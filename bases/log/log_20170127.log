@@ -1,0 +1,6 @@
+**Friday 27th of January 2017 09:39:36 AM Operador: abcd
+/central/dbadmin/assign_control_number.php /var/www/abcdoriginal/htdocs/central/dataentry/wxis/administrar.xis &base=marc&Opcion=status&path_db=/var/www/suitesaber/bases/&syspar=/var/www/suitesaber/bases/par/syspar.par
+**Friday 27th of January 2017 10:23:40 AM Operador: abcd
+/central/dataentry/inicio_main.php /var/www/abcdoriginal/htdocs/central/dataentry/wxis/login.xis &base=acces&cipar=/var/www/suitesaber/bases/par/acces.par&login=abcd&password=adm&path_db=/var/www/suitesaber/bases/&syspar=/var/www/suitesaber/bases/par/syspar.par
+**Friday 27th of January 2017 10:23:41 AM Operador: abcd
+/central/dataentry/inicio_base.php /var/www/abcdoriginal/htdocs/central/dataentry/wxis/administrar.xis &base=autoridades&cipar=/var/www/suitesaber/bases/par/autoridades.par&Opcion=status&path_db=/var/www/suitesaber/bases/&syspar=/var/www/suitesaber/bases/par/syspar.par

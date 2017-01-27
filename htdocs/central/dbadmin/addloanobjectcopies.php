@@ -33,7 +33,7 @@ if (opcion==1)
 {
 if (document.getElementById("ml").style.display=='none')
 {
-document.getElementById("ml").innerHTML='<table width="750" border="0"><tr><td width="202" align="right"><label>Main Library Field&nbsp;<input name="mlf" type="text" id="mlf" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="mlsf" type="text" id="mlsf" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table>';
+document.getElementById("ml").innerHTML='<label>Main Library Field:</label><input name="mlf" type="text" id="mlf" /><label>SubField:</label><input name="mlsf" type="text" id="mlsf"/>';
 document.getElementById("ml").style.display='block';
 }
 }
@@ -48,7 +48,7 @@ if (opcion==1)
 {
 if (document.getElementById("bl").style.display=='none')
 {
-document.getElementById("bl").innerHTML='<table width="750" border="0"><tr><td width="202" align="right"><label>Branch Library Field&nbsp;<input name="blf" type="text" id="blf" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="blsf" type="text" id="blsf" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table>';
+document.getElementById("bl").innerHTML='<label>Branch Library Field:</label><input name="blf" type="text" id="blf"/><label>SubField:</label><input name="blsf" type="text" id="blsf"/>';
 document.getElementById("bl").style.display='block';
 }
 }
@@ -63,7 +63,7 @@ if (opcion==1)
 {
 if (document.getElementById("tome").style.display=='none')
 {
-document.getElementById("tome").innerHTML='<table width="750" border="0"><tr><td width="202" align="right"><label>Tome Field&nbsp;<input name="tomef" type="text" id="tomef" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="tomesf" type="text" id="tomesf" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="right">&nbsp;</td></tr></table>';
+document.getElementById("tome").innerHTML='<label>Tome Field:</label><input name="tomef" type="text" id="tomef"/><label>SubField:</label><input name="tomesf" type="text" id="tomesf" />';
 document.getElementById("tome").style.display='block';
 }
 }
@@ -78,7 +78,7 @@ if (opcion==1)
 {
 if (document.getElementById("volume").style.display=='none')
 {
-document.getElementById("volume").innerHTML='<table width="750" border="0"><tr><td width="202" align="right"><label>Volume/Part Field&nbsp;<input name="volumef" type="text" id="volumef" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="volumesf" type="text" id="volumesf" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="right">&nbsp;</td></tr></table>';
+document.getElementById("volume").innerHTML='<label>Volume/Part Field</label><input name="volumef" type="text" id="volumef"/><label>SubField:</label><input name="volumesf" type="text" id="volumesf"/></td><td width="121" align="left">';
 document.getElementById("volume").style.display='block';
 }
 }
@@ -114,29 +114,28 @@ document.form1.typef.focus();
 }
 }
 </script>	
-</div>		
 
-<div class="form-group row">
-<form action="" method="post" name="form1" target="_self" id="form1" onsubmit="OpenWindows();">
 
+<h2><?php echo $msgstr["addloanobjectcopies"]; ?></h2>
+
+<form action="" class="form-horizontal" method="post" name="form1" target="_self" id="form1" onsubmit="OpenWindows();">
 <?php
-echo "<p>".$msgstr["addloanobjectcopies"]."</p>";   
   echo " <input type=\"hidden\" value=\"$base_ant\" name=\"base\"/>";
   echo $msgstr["database"]." ".$base_ant."<p>";
   ?>  
-  
 
-  <label class="col-sm-1 col-form-label">From:</label>
-    <div class="col-sm-10">
-      <div class="col-md-3">
-        <input class="form-control" type="text" name="from" id="from" onchange="ComprobarNum('from')"/>
-      </div>
+<div class="form-group col-md-6">
+  <label  class="control-label">From:</label>
+  <input class="form-control" type="text" name="from" id="from" onchange="ComprobarNum('from')"/>
+</div>  
 
- <label class="col-sm-1 col-form-label">To:</label>
-    
-      <div class="col-md-3">
-  <input class="form-control" type="text" name="to" id="to" onchange="ComprobarNum('to')">
-  <label>Last MFN:</label>
+<div class="form-group col-md-6">
+    <label class="control-label" >To:</label>
+    <input class="form-control" type="text" name="to" id="to" onchange="ComprobarNum('to')">
+</div>
+
+
+
 <?php 
 $IsisScript=$xWxis."administrar.xis";
 $query = "&base=".$base_ant."&cipar=$db_path"."par/".$base_ant.".par&Opcion=status";
@@ -158,9 +157,7 @@ echo '<script language="javascript">
    </script>';
 echo $total;  
   ?>
-      </div>
-    </div>
-  </div>    
+      
 <script language="javascript">//estableciendo el foco en el 2do textbox
    document.form1.from.value="1";
   document.form1.to.focus();
@@ -178,36 +175,28 @@ win=window.open(mypage,myname,settings);}
 </script>
 
 
-
-  <label class="col-sm-1 col-form-label">Control Number Field</label>
-    <div class="col-sm-10 col-form-label">
-      <div class="col-md-3">
+<div class="form-group col-md-3">
+  <label> Control Number Field:</label>
+    
       <input name="cnf" class="form-control" type="text" id="cnf" value="<?php 
         if (isset($_POST['cnf']))
          echo $_POST['cnf'];
         else echo "v1";
        ?>">
-
-    </div>
+</div>
       
 
-
-
-<label class="col-sm-1 col-form-label">SubField:</label>
- <a class="btn btn-danger" href='javascript:AlterEntry(0)'><i class="fa fa-times" aria hidden="true"></i></a> 
-     <div class="col-sm-2">
-      <input name="cnsf" class="form-control" type="text" id="cnsf" value="<?php 
+<div class="form-group col-md-3">
+<label> SubField:</label>
+<input name="cnsf" class="form-control" type="text" id="cnsf" value="<?php 
       if (isset($_POST['cnsf']))
       echo $_POST['cnsf'];
       ?>">
+</div>
 
+<div class="form-group col-md-5">
 
-  
-   </div>
-
-
-<div class="col-md-3">
-  <select name="agregar" id="atunique" onChange='AlterEntry(1)' class="form-control">
+ <select name="agregar" id="atunique" onChange='AlterEntry(1)' class="form-control">
    <option value=''>add</option>
     <option value="ml">Main Library</option>
     <option value="bl">Branch Library</option>
@@ -216,44 +205,43 @@ win=window.open(mypage,myname,settings);}
   </select>
   <a href="javascript:AlterEntry(0)"></a>
 
-	</select>
-
-
+<a class="btn btn-danger" href='javascript:AlterEntry(0)'><i class="fa fa-times" aria hidden="true"></i></a> 
 </div>
-</div>
-<form class="form-horizontal">
-  <div class="form-group">
-<div class="col-md-3">
 
-  <label>Inventory Number Field:</label>
-    <div class="col-sm-10">
-      <input name="inf" type="text" id="inf" class="form-control" value="<?php if (isset($_POST['inf'])) echo $_POST['inf'];?>"/>
-   </div>
-<label >SubField:</label>
+
+<div class="form-group col-md-3">
+
+<label>Inventory Number Field:</label>
+  <input name="inf" type="text" id="inf" class="form-control" value="<?php if (isset($_POST['inf'])) echo $_POST['inf'];?>"/>
+</div>
+
+<div class="form-group col-md-3">
+  <label> SubField:</label>
+ 
   <input name="insf" type="text" class="form-control" id="insf" value="<?php if (isset($_POST['insf'])) echo $_POST['insf'];?>"/>
-
 </div>
 
+<div class="form-group col-md-12">
 
 
 <?php 
 if (isset($_POST['mlf']))
-echo '<div id="ml" style="display:block"><table width="750" border="0"><tr><td width="202" align="right"><label>Main Library Field&nbsp;<input name="mlf" type="text" id="mlf" value="'.$_POST["mlf"].'" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="mlsf" type="text" id="mlsf" value="'.$_POST["mlsf"].'" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table></div>'; 
+echo '<div id="ml" style="display:block"><label>Main Library Field:<input name="mlf" type="text" id="mlf" value="'.$_POST["mlf"].'"/></label><label>SubField:<input name="mlsf" type="text" id="mlsf" value="'.$_POST["mlsf"].'" ></label></div>'; 
 else 
 echo '<div id="ml" style="display:none"></div>';
 
 if (isset($_POST['blf']))
-echo '<div id="bl" style="display:block"><table width="750" border="0"><tr><td width="202" align="right"><label>Branch Library Field&nbsp;<input name="blf" type="text" id="blf" value="'.$_POST["blf"].'" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="blsf" type="text" id="blsf" value="'.$_POST["blsf"].'" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table></div>'; 
+echo '<div id="bl" style="display:block"><label>Branch Library Field:<input name="blf" type="text" id="blf" value="'.$_POST["blf"].'"/></label><label>SubField:<input name="blsf" type="text" id="blsf" value="'.$_POST["blsf"].'" /></label></div>'; 
 else 
 echo '<div id="bl" style="display:none"></div>';
 
 if (isset($_POST['tomef']))
-echo '<div id="tome" style="display:block"><table width="750" border="0"><tr><td width="202" align="right"><label>Tome Field&nbsp;<input name="tomef" type="text" id="tomef" value="'.$_POST["tomef"].'" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="tomesf" type="text" id="tomesf" value="'.$_POST["tomesf"].'" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table></div>'; 
+echo '<div id="tome" style="display:block"><label>Tome Field:<input name="tomef" type="text" id="tomef" value="'.$_POST["tomef"].'" /></label><label>SubField:<input name="tomesf" type="text" id="tomesf" value="'.$_POST["tomesf"].'" /></label></div>'; 
 else 
 echo '<div id="tome" style="display:none"></div>';
 
 if (isset($_POST['volumef']))
-echo '<div id="volume" style="display:block"><table width="750" border="0"><tr><td width="202" align="right"><label>Volume Field&nbsp;<input name="volumef" type="text" id="volumef" value="'.$_POST["volumef"].'" size="5"/></label></td><td width="22" align="center">-</td><td width="187"align="left"><label>SubField&nbsp;<input name="volumesf" type="text" id="volumesf" value="'.$_POST["volumesf"].'" size="5"/></label></td><td width="121" align="left"></td><td width="200" align="left">&nbsp;</td></tr></tr><tr><td align="right">&nbsp;</td><td>&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr></table></div>'; 
+echo '<div id="volume" style="display:block"><label>Volume Field:<input name="volumef" type="text" id="volumef" value="'.$_POST["volumef"].'" /></label><label>SubField:<input name="volumesf" type="text" id="volumesf" value="'.$_POST["volumesf"].'" /></label></div>'; 
 else 
 echo '<div id="volume" style="display:none"></div>';
 ?>
@@ -261,21 +249,16 @@ echo '<div id="volume" style="display:none"></div>';
 
 
 
-
-
-<div class="form-group row">
- <label class="col-sm-1 col-form-label">Use the system types:</label>
-<div class="col-md-3">
- <input name="radiobutton" type="radio" value="fieldsel"  onchange="ChangeOption(2)"
+<label>Use the system types:</label>
+  <input name="radiobutton" type="radio" value="fieldsel"  onchange="ChangeOption(2)"
    <?php if (isset($_POST['radiobutton'])) echo 'checked="checked"';?> >
-
-</div>     
-
+    <div id="systype" style="display:<?php if ($_POST["radiobutton"]=="systype") echo "block"; else if (!$_POST["submit"]) echo "block"; else echo "none"; ?>">
 
 
-<div id="systype" style="display:<?php if ($_POST["radiobutton"]=="systype") echo "block"; else if (!$_POST["submit"]) echo "block"; else echo "none"; ?>">
-<label class="col-sm-1 col-form-label">Type of object:</label>
-  <div class="col-md-3">
+
+
+<label>Type of object:</label>
+
     <select class="form-control" name="type" id="type">
    <?php
   @ $fp = fopen($db_path."circulation/def/$lang/items.tab", "r");
@@ -296,40 +279,37 @@ while(!feof($fp))
    ?>
     </select>
 
- </div>
- </div>
-
-</div>
 
 
-<div class="form-group row">
-<label class="col-sm-3 col-form-label"> Use a field-subfield combination:</label>
-<div class="col-sm-03">
+
+<label> Use a field-subfield combination:</label>
+
       <input name="radiobutton" type="radio" value="fieldsel" <?php if (isset($_POST['radiobutton'])) echo "checked";?> onchange="ChangeOption(2)">
+
+
 <div id="systype" style="display:<?php if ($_POST["radiobutton"]=="systype") echo "block"; else if (!$_POST["submit"]) echo "block"; else echo "none"; ?>">
-  <label class="col-sm-1 col-form-label">Type Field:</label>
-    <input name="typef" type="text" id="typef" value="<?php if (isset($_POST['typef'])) echo $_POST['typef'];?>">
 
- <label class="col-sm-1 col-form-label">SubField:</label>
-     <input name="typesf" type="text" id="typesf" value="<?php if (isset($_POST['typesf'])) echo $_POST['typesf'];?>">
-</div>
-</div>
-</div>
-</div>
+
+  <label>Type Field:</label>
+    <input name="typef" class="form-control" type="text" id="typef" value="<?php if (isset($_POST['typef'])) echo $_POST['typef'];?>">
 
 
 
+ <label>SubField:</label>
+     <input name="typesf" class="form-control" type="text" id="typesf" value="<?php if (isset($_POST['typesf'])) echo $_POST['typesf'];?>">
 
 
 
+<br><br>
 
 <?php 
   echo "<input class=\"btn btn-primary\"  type=\"submit\" name=\"submit\" value=".$msgstr["update"].">"; 
   if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";
  ?>
- 
+ </div>
 </form>
-</div>
+
+
 <?php
 function Vfield($field)
 {
@@ -465,6 +445,3 @@ echo '<br /><span style="color: blue"><b>&nbsp;&nbsp;'.$cantadd.' loanobjects re
 }//if ($_POST["submit"])
 ?>
 </div>
-<?
-include("../common/footer.php");
-?>

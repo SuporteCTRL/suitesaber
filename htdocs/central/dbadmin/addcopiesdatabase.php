@@ -254,11 +254,11 @@ document.form1.typef.focus();
 <div class="middle form">
 	<div class="formContent">
 <form action="" method="post" name="form1" target="_self" id="form1" onsubmit="OpenWindows();">
-<?php
-echo  $msgstr["addcopiesdatabase"];
-  echo " <input type=\"hidden\" value=\"$base_ant\" name=\"base\"/>";
-  echo "".$msgstr["database"]." ".$base_ant."<p>";
-  ?>
+
+ <h2><?php echo $msgstr['addcopiesdatabase'];?> <h2>
+   <input type=\"hidden\" value=\"$base_ant\" name=\"base\"/>";
+ <?php echo "".$msgstr["database"]." ".$base_ant."<p>";?>
+  
 
 
 
