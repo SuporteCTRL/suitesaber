@@ -43,7 +43,7 @@ include("../common/institutional_info.php");
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-<?php echo $msgstr["dblist"] ?>
+<h2><label><?php echo $msgstr["dblist"] ?></label></h2>
 	</div>
 
 

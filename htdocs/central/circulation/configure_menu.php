@@ -44,9 +44,9 @@ echo "<body>\n";
 $encabezado="&encabezado=s";
 include("../common/institutional_info.php");
 echo "<div class=\"sectionInfo\">
-	<div class=\"breadcrumb\">".
+	<div class=\"breadcrumb\"><h2><label>".
 		$msgstr["configure"]."
-	</div>
+	</div></label></h2>
 	<div class=\"actions\">";
 	include("submenu_prestamo.php");
 echo "</div>

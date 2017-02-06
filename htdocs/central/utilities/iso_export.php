@@ -76,24 +76,22 @@ echo "
 	";
 ?>
 
-<label><?php echo $msgstr["exportiso_mx"].": ".$arrHttp["base"]?></label>
-<form name=upload method=post action=iso_export_ex.php onsubmit="EnviarForma();return false;">
+<h2><label><?php echo $msgstr["exportiso_mx"].": ".$arrHttp["base"]?></label></h2>
+<form name="upload" method="post" action="iso_export_ex.php" onsubmit="EnviarForma();return false;">
 
 <label><?php echo $msgstr["export_folder"];?></label>
-<input type=text name=storein size=30 onclick=javascript:blur()> <a class="btn btn-primary" href=javascript:Explorar()><?php echo $msgstr["explore"]?></a><br>
-
+<input type="text" name="storein" onclick='javascript:blur()'> <a class="btn btn-primary" href="javascript:Explorar()"><?php echo $msgstr["explore"];?></a>
+<br>
 <label><?php echo $msgstr["iso_name"];?></label>
-<input type=text name=isoname>
+<input type="text" name="isoname">
 
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<p><input type=submit class="btn btn-primary" value=<?php echo $msgstr["procesar"]?>>
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="submit" class="btn btn-primary" value="<?php echo $msgstr["procesar"];?>">
 </form>
 </div>
 </div>
 </center>
-<?php
-include("../common/footer.php");
-?>
+
 
 </body>
 </html>

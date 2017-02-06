@@ -202,7 +202,6 @@ if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 	mygrid.clearSelection()
 	mygrid.setSizes();
     </script>
-<br><br>
 </form>
 <form name="forma2" action="picklist_save.php" method="post" onsubmit="return false">
 <input type="hidden" name="ValorCapturado">

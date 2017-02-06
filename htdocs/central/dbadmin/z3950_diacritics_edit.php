@@ -123,7 +123,7 @@ if (isset($arrHttp["encabezado"])){
 }
 ?>
 
-<?php echo $msgstr["z3950"].". ".$msgstr["z3950_diacritics"] ?>
+<h2><label><?php echo $msgstr["z3950"].". ".$msgstr["z3950_diacritics"] ;?></label></h2>
 
 
 	

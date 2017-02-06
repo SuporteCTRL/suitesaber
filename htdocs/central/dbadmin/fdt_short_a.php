@@ -16,7 +16,7 @@ if (!isset($arrHttp["Subc"])){
 			echo "<h1>".$msgstr["dbexists"]."</h1>";
 			die;
 		}
-		//OJO ARREGLAR ESTO PARA QUE SALGA LA DESCRIPCIÓN
+		//OJO ARREGLAR ESTO PARA QUE SALGA LA DESCRIPCIÃ“N
 		if (isset($arrHttp["desc"])) $_SESSION["DESC"]=$arrHttp["desc"];
 		echo "<script>Opcion='new'</script>\n";
 	}
@@ -299,7 +299,7 @@ function Validate(Opcion){
 	msgwin=window.open("","Fdt","width="+width+", height="+height+" resizable=yes, scrollbars=yes, menu=yes")
     msgwin.document.writeln("<html>")
     msgwin.document.writeln("<style>BODY{font-family: 'Trebuchet MS', Arial, Verdana, Helvetica; font-size: 8pt;}")
-    msgwin.document.writeln("TD{font-family:arial; font-size:8pt;}")
+    msgwin.document.writeln("tdTD{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
 	msgwin.document.writeln("<body><table class=\"table table-striped\">")
 	EncabezarFilas("row")
@@ -317,7 +317,7 @@ function Validate(Opcion){
 		pl_format=""
 		pl_display=""
 		cell=""
-		for (j=1;j<cols;j++){   // Se verifica que la línea no esté en blanco
+		for (j=1;j<cols;j++){   // Se verifica que la lÃ­nea no estÃ© en blanco
 			cell=""
 			if (j!=14) {
 				cell=Trim(mygrid.cells2(i,j).getValue())
@@ -460,7 +460,7 @@ function Validate(Opcion){
 					}
               	}
 			}
-			if (cell_type=="S"){    // se determina que el subcampo esté precedido por un tipo T o por TB  o por M
+			if (cell_type=="S"){    // se determina que el subcampo estÃ© precedido por un tipo T o por TB  o por M
 				res=false
     			for (ix=i-1;ix>=0;ix--){
 					type=mygrid.cells2(ix,1).getValue()
@@ -618,7 +618,7 @@ function List(){
 
 							break
 					}
-					msgwin.document.write("<td bgcolor=white>"+cell+"&nbsp;</td>")
+					msgwin.document.write("<td >"+cell+"&nbsp;</td>")
 				}
 			}
 		}

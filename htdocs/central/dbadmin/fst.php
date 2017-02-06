@@ -39,7 +39,7 @@ include("../common/header.php");
 	<script  src="../dataentry/js/dhtml_grid/dhtmlxgridCell.js"></script-->
 	<script  src="../dataentry/js/dhtml_grid/dhtmlx.js"></script>
 <script  src="../dataentry/js/lr_trim.js"></script>
-<script languaje=javascript>
+<script languaje="javascript">
 		pl_type=""
 		Opcion="<?php echo $arrHttp["Opcion"]?>"
 		valor=""
@@ -160,7 +160,7 @@ if ($arrHttp["Opcion"]=="new"){
 			</td>
 			<tr>
 				<td valign=top>
-					<div id="gridbox" width="650px" height="250px" style="left:0;top:0;background-color:white;overflow:hidden"></div>
+					<div id="gridbox" width="650px" height="250px" style="left:0;top:0;;overflow:hidden"></div>
 				</td>
 
 			</tr>

@@ -86,7 +86,7 @@ include("../common/header.php");
 
 		<div class="formContent">
 		
-	<?php echo $msgstr["catz3950"]?>
+	<h2><label><?php echo $msgstr["catz3950"];?></label></h2>
 	<form method="post" action=z3950-01.php
 	<?php if (!isset($arrHttp["desde"])) echo "  target=z3950 "?> onSubmit="javascript:return false" name=z39 >
 	<input class="form-control" type=hidden name=base value=<?php echo $arrHttp["base"]?>>

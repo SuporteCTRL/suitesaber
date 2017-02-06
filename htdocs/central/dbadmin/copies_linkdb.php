@@ -91,18 +91,10 @@ if (isset($arrHttp["encabezado"])) {
 }
 
 ?>
-<div class="sectionInfo">
-	<div class="breadcrumb">
-		<?php echo $msgstr["linkcopies"].": $base"?>
-	</div>
-	<div class="actions">
 
-				</a>
-	</div>
-	
-</div>
-<div class="helper">
-</div>
+	<h2><label>	<?php echo $msgstr["linkcopies"].": $base"?></label></h2>
+
+
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 	
@@ -115,8 +107,8 @@ echo "<form name=forma1 action=resetautoinc_update.php method=post>
  <input type=hidden name=base value=$base>
  <input type=hidden name=Opcion value=copies>\n";
 if (isset($arrHttp["encabezado"]))  echo "<input type=hidden name=encabezado value=s>\n";
-echo "<h5>".$msgstr["database"]." ".$base."<p>";
-echo "<br><input type=checkbox name=copies value=on $copies_link>".$msgstr["incopies"].".<br>".$msgstr["copiesreq"]."</h5>";
+echo "<label>".$msgstr["database"]." ".$base."<p>";
+echo "<br><input type=checkbox name=copies value=on $copies_link>".$msgstr["incopies"].".<br>".$msgstr["copiesreq"]."</label><br>";
 echo "<input class=\"btn btn-primary\" type=submit name=mark value=".$msgstr["update"].">";
 
 echo "<form></div></div>";

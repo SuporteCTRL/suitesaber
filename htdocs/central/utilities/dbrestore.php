@@ -162,10 +162,8 @@ function FullInv(){
 
 
 
-<div class="sectionInfo">
-	<div class="breadcrumb">
-	<?php echo $msgstr["db_restore"].": ".$arrHttp["base"]?>
-	</div>
+<h2><label>	<?php echo $msgstr["db_restore"].": ".$arrHttp["base"]?></label></h2>
+	
 
 <?php
 echo "

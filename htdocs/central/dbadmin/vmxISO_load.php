@@ -22,16 +22,20 @@ $base=$arrHttp["base"];
 </div>
 <div class="middle form">
 <form action="" method="post" enctype="multipart/form-data">
- <br> <label for="archivo">Choose File:</label>
+
+
+
+<label for="archivo">Choose File:</label>
   <input type="file" name="archivo" id="archivo" />
   <br><br>
-  <label>Select the operation</label>
+  <label>Select the operation:</label>
   <select name="OpISO">
   <option>append</option>
   <option>create</option>
   </select>
+
   <br><br>
-  <input type=checkbox name=tolinux value=Y>From windows to linux <br><br>
+  <input type="checkbox" name="tolinux" value="Y">From windows to linux: <br><br>
  <?php
  include("../common/get_post.php");
   $base=$arrHttp["base"];

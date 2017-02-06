@@ -103,12 +103,8 @@ if (isset($arrHttp["encabezado"])){
 	$encabezado="";
 }
 ?>
-	<div class="sectionInfo">
-
-		<div class="breadcrumb">
-				<h2><?php echo $msgstr["createdb"];?></h2>
-		</div>
-
+				<h2><label><?php echo $msgstr["createdb"];?></label></h2>
+	
 		
 	<form method="post" name="forma1" onsubmit="javascript:return false">
 		<input type="hidden" name="Opcion">

@@ -140,12 +140,12 @@ else
 </div>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php if (!isset($arrHttp["reserve"]))
+		<h2><label><?php if (!isset($arrHttp["reserve"]))
 				echo $msgstr["statment"];
 			  else
 			  	echo $msgstr["reservas"];
 		?>
-	</div>
+	</div></label></h2>
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
 	</div>

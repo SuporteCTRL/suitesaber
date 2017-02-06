@@ -675,9 +675,9 @@ $encabezado="";
 include("../common/institutional_info.php");
 echo "
 		<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">".
+			<div class=\"breadcrumb\"><h2><label>".
 				$msgstr["typeofitems"]."
-			</div>
+			</div></label></h2>
 			<div class=\"actions\">\n";
 
 				echo "

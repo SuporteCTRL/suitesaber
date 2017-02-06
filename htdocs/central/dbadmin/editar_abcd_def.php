@@ -129,7 +129,7 @@ switch ($arrHttp["Opcion"]){
 	include("../common/institutional_info.php");
 echo "
 	<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">$help
+			<div class=\"breadcrumb\"><label><h2>$help</label></h2>
 			</div>
 			<div class=\"actions\">
 

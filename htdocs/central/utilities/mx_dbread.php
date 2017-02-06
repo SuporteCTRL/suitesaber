@@ -144,14 +144,8 @@ function EnviarFormaMX(){
 <body>
 
 
+<h2><label><?php echo $msgstr["mx_dbread"];?></label></h2>
 
-<div class="sectionInfo">
-	<div class="breadcrumb">
-<?php echo $msgstr["mx_dbread"]?>
-	</div>
-	
-
-</div>
 <?php
 echo "
 	

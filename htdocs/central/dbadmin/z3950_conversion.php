@@ -68,7 +68,7 @@ if (isset($arrHttp["encabezado"])){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-<h2><?php echo $msgstr["z3950"].": ".$msgstr["z3950_cnv"]." (".$arrHttp["base"].")" ?></h2>
+<h2><label><?php echo $msgstr["z3950"].": ".$msgstr["z3950_cnv"]." (".$arrHttp["base"].")" ?></label></h2>
 	</div>
 
 	<div class="actions">

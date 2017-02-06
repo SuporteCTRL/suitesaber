@@ -123,7 +123,7 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["statment"]?>
+		<h2><label><?php echo $msgstr["statment"];?></label></h2>
 	</div>
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
@@ -139,10 +139,10 @@ echo "<font Script: sanctions.php</font>\n";
 	</div>
 <div class="middle list">
 	<div class="searchBox">
-	<form name=usersearch action="" method=post onsubmit="javascript:return false">
-	<input type=hidden name=Indice>
+	<form name="usersearch" action="" method="post" onsubmit="javascript:return false">
+	<input type="hidden" name="Indice">
 	
-		<label for="searchExpr"><?php echo $msgstr["usercode"]?> </label>
+		<label for="searchExpr"><?php echo $msgstr["usercode"];?> </label>
 
 		<input class="form-control" type="text" name="usuario" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
 

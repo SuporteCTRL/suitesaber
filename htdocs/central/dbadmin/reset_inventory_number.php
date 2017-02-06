@@ -52,7 +52,7 @@ if (isset($arrHttp["encabezado"])) {
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["resetinv"];?>
+		<h2><label><?php echo $msgstr["resetinv"];?></label></h2>
 	</div>
 	<div class="actions">
 

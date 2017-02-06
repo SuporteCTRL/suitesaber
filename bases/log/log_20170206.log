@@ -1,0 +1,6 @@
+**Monday 6th of February 2017 02:37:38 PM Operador: abcd
+/central/dataentry/browse.php /var/www/abcdoriginal/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=servers&cipar=/var/www/suitesaber/bases/par/servers.par&from=1&to=10&Formato=/var/www/suitesaber/bases/servers/pfts/pt/tbservers&Opcion=buscar&path_db=/var/www/suitesaber/bases/&syspar=/var/www/suitesaber/bases/par/syspar.par
+**Monday 6th of February 2017 02:38:46 PM Operador: abcd
+/central/dataentry/z3950.php /var/www/abcdoriginal/htdocs/central/dataentry/wxis/imprime.xis &base=servers&cipar=/var/www/suitesaber/bases/par/servers.par&from=1&Formato=v1'|'v2'|'v3'|'v4'|'v5/&Opcion=rango&path_db=/var/www/suitesaber/bases/&syspar=/var/www/suitesaber/bases/par/syspar.par
+**Monday 6th of February 2017 02:43:16 PM Operador: abcd
+/central/dataentry/browse.php /var/www/abcdoriginal/htdocs/central/dataentry/wxis/leer_mfnrange.xis &base=acces&cipar=/var/www/suitesaber/bases/par/acces.par&from=1&to=10&Formato=/var/www/suitesaber/bases/acces/pfts/pt/tbacces&Opcion=buscar&path_db=/var/www/suitesaber/bases/&syspar=/var/www/suitesaber/bases/par/syspar.par

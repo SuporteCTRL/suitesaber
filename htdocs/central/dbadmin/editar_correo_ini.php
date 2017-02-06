@@ -33,7 +33,7 @@ function Enviar(){
 	include("../common/institutional_info.php");
 echo "
 	<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">Distribución
+			<div class=\"breadcrumb\"><h2><label>Distribuição</label></h2>
 			</div>
 			<div class=\"actions\">
 

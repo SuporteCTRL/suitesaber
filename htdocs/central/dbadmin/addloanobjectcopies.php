@@ -116,7 +116,7 @@ document.form1.typef.focus();
 </script>	
 
 
-<h2><?php echo $msgstr["addloanobjectcopies"]; ?></h2>
+<label><?php echo $msgstr["addloanobjectcopies"]; ?></label>
 
 <form action="" class="form-horizontal" method="post" name="form1" target="_self" id="form1" onsubmit="OpenWindows();">
 <?php

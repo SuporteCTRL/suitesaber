@@ -73,7 +73,7 @@ include("../common/institutional_info.php");
 <div class="sectionInfo">
 
 			<div class="breadcrumb">
-				<?php echo "<h4>".$msgstr["protect_db"]." " .$msgstr["database"].": ".$arrHttp["base"]."</h4>"?>
+				<?php echo "<label><h4>".$msgstr["protect_db"]." " .$msgstr["database"].": ".$arrHttp["base"]."</label></h4>"?>
 			</div>
 
 			
@@ -87,7 +87,7 @@ echo "<div class=helper>
 
 ";
 if (!isset($_SESSION["permiso"]["CENTRAL_ALL"])){
-	echo "<h4>".$msgstr["invalidright"]."</h4>";
+	echo "<label><h4>".$msgstr["invalidright"]."</label></h4>";
 }else{
 	if (!isset($arrHttp["action"])){
 

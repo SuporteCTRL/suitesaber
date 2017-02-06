@@ -192,7 +192,7 @@ function SendForm(){
 
 <div class="sectionInfo">
 	<div class="breadcrumb">
-<?php echo $msgstr["PROFILES"]?>
+<h2><label><?php echo $msgstr["PROFILES"]?></label></h2>
 	</div>
 	
 <div class="middle form">

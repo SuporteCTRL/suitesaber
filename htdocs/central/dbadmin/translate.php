@@ -38,13 +38,13 @@ function Enviar(){
 if (isset($arrHttp["encabezado"]))include("../common/institutional_info.php");
 
 ?>
-<div class="sectionInfo">
 
-			<div class="breadcrumb">
-				<?php echo "<h5>".$msgstr["traducir"].": ".$rotulo."</h5>"?>
-			</div>
 
-			<div class="actions">
+			<label>
+				<?php echo "<h5>".$msgstr["traducir"].": ".$rotulo."</h5>";?></label>
+			
+
+			
 				
 					
 					

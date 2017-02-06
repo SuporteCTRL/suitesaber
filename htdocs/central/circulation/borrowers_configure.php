@@ -123,8 +123,8 @@ $encabezado="";
 include("../common/institutional_info.php");
 echo "
 		<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">".$msgstr["bconf"]." (".$arrHttp["base"].")
-			</div>
+			<div class=\"breadcrumb\"><h2><label>".$msgstr["bconf"]." (".$arrHttp["base"].")
+			</div></label></h2>
 			<div class=\"actions\">\n";
 
 				

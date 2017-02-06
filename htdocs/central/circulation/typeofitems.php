@@ -86,9 +86,9 @@ $encabezado="";
 include("../common/institutional_info.php");
 echo "
 		<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\">".
+			<div class=\"breadcrumb\"><h2><label>".
 				$msgstr["typeofitems"]."
-			</div>
+			</div></h2></label>
 			
 			
 		<div class=\"middle form\">
