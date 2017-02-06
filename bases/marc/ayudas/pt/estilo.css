@@ -1,0 +1,52 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	font-family:"Arial","Verdana",sans-serif;
+	font-size:12px;
+	color:#000;
+	background-color:#FFF;
+	padding:20px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	line-height:1em;
+}
+/* Nome do campo, igual ao <title> */
+h1 {
+	font-size:2em;
+	text-align:center;
+}
+/* Indicadores e subcampos (etiqueta) */
+h2 {
+	font-size:1.3em;
+	font-weight:bold;
+}
+/* Texto explicativo do campo e de cada subcampo */
+p {
+	font-size:1.1em;
+	text-align:justify;
+	line-height:18px;
+	padding-left:40px;
+}
+/* Destaques */
+.destaque {
+	font-weight:bold;
+	color:#080;
+}
+/* Nome de cada subcampo e de cada indicado */
+.subcampo {
+	font-weight:bold;
+}
+/* Indicação de texto padrão */
+.default {
+	color:#800;
+}
+/* Listas. Utilizar também para exemplos, quando precisarem de mais indentação.  */
+ul li {
+	list-style-type:none;
+	padding-left:80px;
+}
+

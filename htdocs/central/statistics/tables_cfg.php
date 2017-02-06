@@ -312,7 +312,7 @@ foreach ($fp as $value) {
            </script>\n";
 
            echo "<div class=\"col-md-2\">
-           <a class=\"btn btn-danger\" href=javascript:DeleteElement(".$total.")>
+           <a  class=\"btn btn-danger\" href=javascript:DeleteElement(".$total.")>
            <i class=\"fa fa-times\" alt=\"".$msgstr["delete"]."\" text=\"".$msgstr["delete"]."\">
            </i></a></div>";
 

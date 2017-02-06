@@ -301,7 +301,7 @@ function Validate(Opcion){
     msgwin.document.writeln("<style>BODY{font-family: 'Trebuchet MS', Arial, Verdana, Helvetica; font-size: 8pt;}")
     msgwin.document.writeln("TD{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
-	msgwin.document.writeln("<body><<table class=\"table table-striped\">")
+	msgwin.document.writeln("<body><table class=\"table table-striped\">")
 	EncabezarFilas("row")
 	cols=mygrid.getColumnCount()
 	rows=mygrid.getRowsNum()

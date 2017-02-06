@@ -1,0 +1,20 @@
+CAMPO 045 - CÓDIGO DE PERÍODO CRONOLÓGICO (NR) (PODE SER REPETITIVO?)
+A codificação é feita por 4 (quatro) caracteres alfanuméricos que são determinados de acordo com a tabela
+auxiliar de período cronológico. Esta informação será retirada do campo assunto. Caso a obra apresente mais
+de uma área cronológica, todas devem ser transcritas, separando-se cada uma pelo delimitador \acódigo do
+período cronológico.
+Para as datas relativas ao período antes de Cristo (a.C.), um caractere alfabético representa o milênio e um
+dígito representa o século.
+Para as datas relativas ao período depois de Cristo (d.C.), um caractere alfabético representa o século e um
+digito representa a década. Quando se deseja codificar um número, ano ou um período específico dentro de
+uma década, o código precisa ser repetido.
+Indicador 1 - Tipo de período de tempo no subcampo \b ou \c
+branco subcampo \b ou \c não estão presentes
+0 única data / período de tempo
+1 múltiplas datas / períodos de tempo
+2 abrangência de datas / períodos de tempo
+Indicador 2 - Indefinido; contém branco (#)
+Códigos de subcampo
+\a código do período de tempo
+\b formatada abrangendo per. de 9999 D.C. em diante
+\c formatada pré-9999 A. C.

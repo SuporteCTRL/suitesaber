@@ -1,0 +1,34 @@
+'<style>
+table, td.lista, tr.lista, th.lista {
+		border: 1px #3A89AF solid;
+		border-collapse: collapse;
+		text-align: center;
+	}
+tr.lista:first-child  {
+	font-size: 12px;
+}
+
+tr.lista:last-child {
+
+}
+tr.lista:hover.result {
+
+}
+</style>'
+'<tr class="lista"><td class="lista">',
+	if p(v100^a) then v100^a, fi,
+		if p(v100^a) and s(v110^a,v111^a,v700^a,v710^a,v711^a)<>'' then ' ; ' fi,
+	if p(v110^a) then v110^a, fi,
+		if p(v110^a) and s(v111^a,v700^a,v710^a,v711^a)<>'' then ' ; ' fi,
+	if p(v111^a) then v111^a, fi,
+		if p(v111^a) and s(v700^a,v710^a,v711^a)<>'' then ' ; ' fi,
+	if p(v700^a) then v700^a+|; |, fi,
+		if p(v700^a) and s(v710^a,v711^a)<>'' then ' ; ' fi,
+	if p(v710^a) then v710^a+|; |,, fi,
+		if p(v710^a) and s(v711^a)<>'' then ' ; ' fi,
+	if p(v711^a) then v711^a+|; |,fi,
+
+'</td>
+<td class="lista">',v245^a," : "v245^b,'</td>
+<td class="lista">',v260^c,'</td>
+<td class="lista">'v90[1]^d"<br />",v90[1]^a"&nbsp;&nbsp;&nbsp;",v90[1]^b"&nbsp;&nbsp;&nbsp;",v90[1]^c"&nbsp;&nbsp;&nbsp;",v90[1]^g,'</td></tr>'

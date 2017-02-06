@@ -1,0 +1,6 @@
+if v3006:'a' and v3007:'m'  then 'L' fi,
+if v3006:'a' and v3007:'a' then 'L' fi,
+if v3006:'s' and v3007:'s' then 'P' fi,
+if v3006:'e' and v3007:'m' then 'MC' fi,
+if v3006:'o' and v3007:'m' then 'CD' fi,
+if v3006:'o' and v3007:'m' then 'DVD' fi,

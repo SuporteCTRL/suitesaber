@@ -1,0 +1,33 @@
+CAMPO 780 - ENTRADA DE LIGAÇÃO ANTERIOR (R)
+Transcrever as entradas para publicações seriadas que precederam a que está sendo catalogada.
+Pontuação: Para separar a entrada principal e/ou título da área de imprenta use ponto final-espaço.
+Para separar a entrada principal e/ou título do número de edição use ponto final-espaço.
+Para separar a área de edição da imprenta use ponto final-espaço.
+No subcampo \d para separar o local de publicação do editor use espaço-dois pontos-espaço.Para
+separar o editor da data de publicação use vírgula-espaço.
+Para separar todos subcampos do subcampo \w utilize ponto final-espaço.
+Indicador 1 - Controle de nota
+0 exibir nota
+1 não exibir nota
+Indicador 2 - Tipo de relação
+0 Continua
+1 Continua em parte
+2 Substitui
+3 Substitui em parte
+4 Formado pela união de ..... e ......
+5 Absorvido
+6 Absorvido em parte
+7 Separado de
+Códigos de subcampo
+\a entrada principal
+\b edição
+\d local, editor e data de publicação
+\k dados relacionados
+\t título
+\w número da obra no sistema
+\x ISSN
+Exemplos:
+780 |0 1| \tEconomia em Perspectiva. \dSão Paulo, 1965.\w317
+780 |0 2| \tRevista de Direito Público e Ciência Política. \dRio de Janeiro, Jan.1961. \w683
+780 |0 3| \tRevista do Agricultor. \dBrasília, 1980.\w691
+780 |0 5| \tEducador. \w128

@@ -395,13 +395,13 @@ foreach  ($type_items as $var=>$value){
     				html+="</select></td>"
     				break
     			case "2":
-    				html+="<input type=text name=np_p value=\""+cell[c]+"\"></td>"
+    				html+="<input class=\"form-control\" type=text name=np_p value=\""+cell[c]+"\"></td>"
     				break
     			case "3":
-    				html+="<input type=text name=lapsop_n value=\""+cell[c]+"\"></td>"
+    				html+="<input class=\"form-control\" type=text name=lapsop_n value=\""+cell[c]+"\"></td>"
     				break
     			case "4":
-    				html+="<input type=text name=lapsop_r value=\""+cell[c]+"\"></td>"
+    				html+="<input class=\"form-control\" type=text name=lapsop_r value=\""+cell[c]+"\"></td>"
     				break
 				case "5":
 					Dias=""
@@ -411,24 +411,24 @@ foreach  ($type_items as $var=>$value){
 					html+="<input type=radio name=unidad value=D"+Dias+">"+"<?php echo $msgstr["days"]?>"+"<input type=radio name=unidad value=H"+Horas+"><?php echo $msgstr["hours"]?></td>"
 					break;
 				case "6":
-    				html+="<input type=text name=renov_n value=\""+cell[c]+"\"></td>"
+    				html+="<input class=\"form-control\" type=text name=renov_n value=\""+cell[c]+"\"></td>"
     				break
     			case "7":
-    				html+="<input type=text name=multa_n value=\""+cell[c]+"\"></td>"
+    				html+="<input class=\"form-control\" type=text name=multa_n value=\""+cell[c]+"\"></td>"
     				break
     			case "8":
-    				html+="<input type=text name=multa_r value=\""+cell[c]+"\"></td>"
+    				html+="<input class=\"form-control\" type=text name=multa_r value=\""+cell[c]+"\"></td>"
     				break
     			case "9":
-    				html+="<input type=text name=susp_n value=\""+cell[c]+"\"></td>"
+    				html+="<input class=\"form-control\" type=text name=susp_n value=\""+cell[c]+"\"></td>"
     				break
     			case "10":
-    				html+="<input type=text name=susp_r value=\""+cell[c]+"\"></td>"
+    				html+="<input class=\"form-control\" type=text name=susp_r value=\""+cell[c]+"\"></td>"
     				break
     			case "11":
     				chk=""
 					if (cell[c]=="Y") chk=" checked"
-    				html+="<input type=checkbox name=reserva value=\"Y\" "+chk+"></td>"
+    				html+="<input  type=checkbox name=reserva value=\"Y\" "+chk+"></td>"
     				break
 				case "12":
 					chk=""
@@ -464,7 +464,7 @@ foreach  ($type_items as $var=>$value){
     	}
     	elem.innerHTML = html+"</table>"
     	elem = document.getElementById("acciones")
-    	elem.innerHTML = "<a href=javascript:Aceptar_Item("+index+")><img src=../dataentry/img/aceptar.gif height=15 align=middle><?php echo $msgstr["acc_changes"]?></a>&nbsp &nbsp; <a href=javascript:Cancelar()><img src=../dataentry/img/toolbarCancelEdit.png align=middle><?php echo $msgstr["can_changes"]?></a>"
+    	elem.innerHTML = "<a href=javascript:Aceptar_Item("+index+")><img src=../dataentry/img/aceptar.gif height=15 align=middle><?php echo $msgstr["acc_changes"]?></a><a href=javascript:Cancelar()><img src=../dataentry/img/toolbarCancelEdit.png align=middle><?php echo $msgstr["can_changes"]?></a>"
 
 	}
 
@@ -486,7 +486,7 @@ foreach  ($type_items as $var=>$value){
 
 		    		switch (c){
 		    			case "0":
-		    				html+="<td width=100><a class=\"btn btn-danger\" href=javascript:Eliminar("+i+")><i class=\"fa fa-times\" alt='<?php echo $msgstr["delete"]?>' title='<?PHP echo $msgstr["delete"]?>'></a></i>"
+		    				html+="[<a class=\"btn btn-danger\" href=javascript:Eliminar("+i+")><i class=\"fa fa-times\" alt='<?php echo $msgstr["delete"]?>' title='<?PHP echo $msgstr["delete"]?>'></a></i>"
 		    				html+=" <a class=\"btn btn-primary\" href=javascript:Agregar("+i+")><i class=\"fa fa-plus\" alt='<?php echo $msgstr["crear"];?>' title='<?php echo $msgstr["crear"]?>'></i><a href=javascript:Editar_Tabla("+i+")>"+TI[cell[c]]+" ("+cell[c]+")</a></td>\n"
 		    				break
 		    			case "1":
@@ -683,7 +683,7 @@ echo "
 				echo "
 				
 			</div>
-			<div class=\"spacer\">&#160;</div>
+
 		</div>
 		
 		<div class=\"middle form\">
@@ -691,13 +691,12 @@ echo "
 
 ?>
 
-    <form name=forma1>
+    <form name="forma1">
   	<a class="btn btn-primary" href="javascript:NuevoTipo()" ><i class="fa fa-plus" value="<?php echo $msgstr["crear"];?>"></i></a>
-    <div id=type_e class="middle list"> </div>
-    <p>
-    <div id=acciones>
-    <a href=javascript:Enviar()><?php echo $msgstr["update"]?></a>&nbsp; &nbsp; &nbsp; &nbsp;
-    <a href=configure_menu.php?encabezado=s><?php echo $msgstr["cancel"]?></a>
+    <div id="type_e" class="middle list"> </div>
+    <div id="acciones">
+    <a href="javascript:Enviar()"><?php echo $msgstr['update']?></a>
+    <a href="configure_menu.php?encabezado=s"><?php echo $msgstr['cancel']?></a>
     </div>
 
 

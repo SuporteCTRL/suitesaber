@@ -135,15 +135,13 @@ if (isset($arrHttp["encabezado"])){
 			<div class="formContent">
 
 
-<form name=advancedsearch>
-<table width=100% border=0>
-   	<td width=40% valign=top border=0>
-   		<table width=100%>
+<form name="advancedsearch">
+<div class="table">
 	        <tr>
 			<td>
-				<a href="javascript:void(0)" class="btn btn-default" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
-			<a href="javascript:void(0)" class="btn btn-default" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
-				<a href="javascript:void(0)" class="btn btn-default" onclick="mygrid.deleteSelectedItem()">Remover linha selecionada</a>
+				<a href='javascript:void(0)' class="btn btn-default" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"];?></a>
+			<a href='javascript:void(0)' class="btn btn-default" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"];?></a>
+				<a href='javascript:void(0)' class="btn btn-default" onclick="mygrid.deleteSelectedItem()">Remover linha selecionada</a>
 			<!--	&nbsp; &nbsp; &nbsp;<a href="javascript:void(0)" onclick=Organize()>Organize FST</a><br> -->
 			</td>
 			<td></td>
@@ -163,8 +161,8 @@ if (isset($arrHttp["encabezado"])){
 			</tr>
 		</table>
 	</td>
-	<td valign=top width=60%>
-<iframe id="cframe" src="fst_leer.php?base=<?php echo $arrHttp["base"]?>" width=100% height=450 scrolling=yes name=fdt></iframe>
+	
+<iframe id="cframe" src="fst_leer.php?base=<?php echo $arrHttp["base"]?>" width="100%" height="450" scrolling="yes" name="fdt></iframe>
 	</td>
 </table>
 <script>

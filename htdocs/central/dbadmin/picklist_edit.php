@@ -68,7 +68,7 @@ if (strpos($arrHttp["picklist"],"%path_database%")===false){
 				if (cell.indexOf('|')!=-1){
 					fila=i+1
 					columna=j+1
-					alert("caracter inv·lido | en la fila "+fila+" columna "+columna)
+					alert("caracter inv√°lido | en la fila "+fila+" columna "+columna)
 					return
 				}
 				if (j==0)
@@ -105,66 +105,41 @@ echo "
 			<div class=\"actions\">
 
 	";
-if (isset($arrHttp["desde"]) and $arrHttp["desde"]=="fixed_marc"){
-	echo "<a href=\"fixed_marc.php?base=".$arrHttp["base"]."$encabezado\" class=\"defaultButton cancelButton\">";
-}else{
-	if (isset($arrHttp["desde"]) and $arrHttp["desde"]=="dataentry"){
-       echo "<a href=javascript:self.close() class=\"defaultButton cancelButton\">";
-	}else
-	 	echo "<a href=\"javascript:Cancelar()\" class=\"defaultButton cancelButton\">";
-}
 
-echo "
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["cancel"]."</strong></span>
-				</a>";
-echo "<a href=\"javascript:Enviar()\" class=\"defaultButton saveButton\">";
-echo "
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["save"]."</strong></span>
+echo "<a href=\"javascript:Enviar()\" class=\"btn btn-primary\">
+				<i class=\"fa fa-check\"	value=\"  ". $msgstr["save"]." \"></i>
 				</a>";
 echo "			</div>
-			<div class=\"spacer\">&#160;</div>
+			
 	</div>
 
 <div class=\"helper\">
-<a href=../documentacion/ayuda.php?help=".$_SESSION["lang"]."/picklist_tab.html target=_blank>".$msgstr["help"]."</a>&nbsp &nbsp;";
+";
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
-	echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/picklist_tab.html target=_blank>".$msgstr["edhlp"]."</a>";
-echo "<font color=white>&nbsp; &nbsp; Script: picklist_edit.php" ;
+	
+
 
 
 ?>
 </font>
 	</div>
+	
  <div class="middle form">
 			<div class="formContent">
-	<table class="table table-striped">
 
-        <tr>
-        	<td>
-        		<b><?php echo $msgstr["picklistname"].": " .$arrHttp["picklist"]?></b> &nbsp; &nbsp;
-        </td>
-        <tr>
-		<td>
-			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
-			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
-			<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
-			<br><strong><font color=darkred><?php echo $msgstr["dragdrop"];?></font>
-            <br><strong><font color=darkred><?php echo $msgstr["multiselect"];?></font>
-		<br>
-		</td>
-		<tr>
-			<td>
+        
+        	
+        	<font color="white"><?php echo $msgstr["picklistname"].": " .$arrHttp["picklist"];?></font>
+      
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
+			<br>
+			<label><?php echo $msgstr["dragdrop"];?></label>
+            <label><?php echo $msgstr["multiselect"];?></label>
+		
 				<div id="gridbox"></div>
-			</td>
-
-		</tr>
-		<tr>
-			<td>
- 			</td>
-		</tr>
-	</table>
+	
 <script>
 	<?php echo "type=\"".$arrHttp["picklist"]."\"\n"?>
 	mygrid = new dhtmlXGridObject('gridbox');

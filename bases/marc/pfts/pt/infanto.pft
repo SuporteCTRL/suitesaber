@@ -1,0 +1,69 @@
+if v90^a='BI' and  v90^b='82-93' or v90^b='087.5' then
+
+
+'<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+<link rel="stylesheet" type="text/css" href="/bases/etiquetas/infanto/infanto.css" media="all" />
+</head>'
+
+
+
+
+'<div  class="tudo">'
+
+'<dl class="barcodebox
+ 
+'if v90^c.1='A' or v90^c.1='B' or v90^c.1='C' then 'abc' fi'
+'if v90^c.1='D' or v90^c.1='E' or v90^c.1='F' then 'def' fi'
+'if v90^c.1='G' or v90^c.1='H' or v90^c.1='I' then 'ghi' fi'
+'if v90^c.1='J' or v90^c.1='K' or v90^c.1='L' then 'jkl' fi'
+'if v90^c.1='M' or v90^c.1='N' or v90^c.1='O' then 'mno' fi'
+'if v90^c.1='P' or v90^c.1='Q' or v90^c.1='R' then 'pqr' fi'
+'if v90^c.1='S' or v90^c.1='T' or v90^c.1='U' then 'stu' fi'
+'if v90^c.1='V' or v90^c.1='W' or v90^c.1='X' then 'vwx' fi'
+'if v90^c.1='Y' or v90^c.1='Z' then 'yz' fi'
+ 
+ 'if v90^b='82-93' then'
+'if v650^x='Poesia' then 'poesia' fi'
+'if v650^x='Conto' or v650^x='Crônicas' or v650^x='Crônica' then 'conto' fi'
+'if v650^x='Ficção' then 'ficcao' fi'
+'if v650^x='Teatro' then 'teatro' fi'
+'if v650^x='Romance' then 'romance' fi'
+'if v650^x='Conto Clássico' or v650^x='Fábula' then 'contoclassico' fi'
+'if v650^x='Paradidático' then 'paredidatico' fi'
+'if v650^x='Novela' then 'novela' fi'
+'if v650^x='Folclore' or v650^x='Mitologia' or v650^x='Lenda' then 'folclores' fi'
+'if v650^x='Religião' then 'religiao' fi'
+'if v650^x='Memórias' then 'memorias' fi'
+'if v650^x='Literatura Afro' then 'litafro' fi'
+'if v650^x='Coleção' then 'colecao' fi'
+'fi'
+
+">
+'if v90^b='087.5' then 
+	if v650^x='Animais' then '<img src="/bases/etiquetas/infanto/animaiseInsetos.jpg">' fi
+	if v650^x='Conto Clássico' or v650^x='Contos de fadas' then '<img src="/bases/etiquetas/infanto/contoclassico.jpg">' fi
+	if v650^x.6='Fábula' then '<img src="/bases/etiquetas/infanto/fabulas.jpg">' fi
+	if v650^x='Flora' then '<img src="/bases/etiquetas/infanto/flora.jpg">' fi
+	if v650^x='Folclore' or v650^x='Mitologia' or v650^x.5='Lenda'  then '<img src="/bases/etiquetas/infanto/folclore.jpg">' fi
+	if v650^x='Histórias variadas' or v650^x='Histórias Variadas' then '<img src="/bases/etiquetas/infanto/historiasvariadas.jpg">' fi
+	if v650^x.6='Paradi' then '<img src="/bases/etiquetas/infanto/paradidatico.jpg">' fi
+	if v650^x.6='Poesia' then '<img src="/bases/etiquetas/infanto/poesia.jpg">' fi
+	if v650^x='Religião' then '<img src="/bases/etiquetas/infanto/religiao.jpg">' fi
+	if v650^x='Sem Texto' then '<img src="/bases/etiquetas/infanto/semtexto.jpg">' fi
+fi'
+    <dd>'v90[1]^a'</dd>
+    <dd>'v90[1]^b'</dd>
+    <dd>'v90[1]^c'</dd>
+    <dd>'v949^a[1]'</dd>
+    <dd>'
+    if v993='n1' then 'Educação Infantil' fi, 
+    if v993='n2' then 'Séries Iniciais' fi 
+    '</dd>
+
+</dl>'
+'</div>'
+
+
+
+fi

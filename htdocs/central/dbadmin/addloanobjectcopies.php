@@ -78,7 +78,7 @@ if (opcion==1)
 {
 if (document.getElementById("volume").style.display=='none')
 {
-document.getElementById("volume").innerHTML='<label>Volume/Part Field</label><input name="volumef" type="text" id="volumef"/><label>SubField:</label><input name="volumesf" type="text" id="volumesf"/></td><td width="121" align="left">';
+document.getElementById("volume").innerHTML='<label>Volume/Part Field</label><input name="volumef" type="text" id="volumef"/><label>SubField:</label><input name="volumesf" type="text" id="volumesf"/>';
 document.getElementById("volume").style.display='block';
 }
 }

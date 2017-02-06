@@ -122,7 +122,7 @@ else
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 	
-echo "<font color=white>&nbsp; &nbsp; Script: typeofrecs_marc_edit.php";
+echo "<font color=white> Script: typeofrecs_marc_edit.php</font>";
 ?>
 </font>
 	</div>
@@ -136,7 +136,7 @@ if (!file_exists($db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/formatos.
 	if (!file_exists($db_path.$arrHttp["base"]."/def/".$lang_db."/formatos.wks")){
 		echo "<p><span class=title>".$msgstr["typeofrecnowks"];
 		if (!isset($arrHttp["encabezado"]))
-			echo "<p><a href=menu_modificardb.php?base=".$arrHttp["base"].">".$msgstr["back"]."</a><p>";
+			echo "<a href=menu_modificardb.php?base=".$arrHttp["base"].">".$msgstr["back"]."</a>";
 		die;
 	}else{
 		$fp=file($db_path.$arrHttp["base"]."/def/".$lang_db."/formatos.wks");
@@ -181,37 +181,35 @@ echo "</script>";
 if (!isset($fpType)){
 ?>
 
-	<form name="tipordef" method="post" action="typeofrecs_update.php" onsubmit="javascript:return false">
+	<form name="tipordef"  method="post" action="typeofrecs_update.php" onsubmit="javascript:return false">
 	<input type="hidden" name="Opcion" value="tipom">
 	<input type="hidden" name="base" value="<?php echo $arrHttp["base"]; ?>">
 
 <?php
 
 	if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";
-    echo "<center>
-<table class=\"table table-striped\">
-	<tr>
-		<td>" . $msgstr["typeofrecords_new"]."</td>
-	</tr>
-	<tr>
-		<td >".$msgstr["tag"]." 1</td><td><input type=text name=tipom value='' size=4></td>
-	</tr>
-	<tr>
-		<td>".$msgstr["tag"]." 2</td><td><input type=text name=nivelr value='' size=4></td>
-	</tr>
+    echo "
 
-</table>
-<br><br>
-	<input  type=submit value=' &nbsp; &nbsp; ".$msgstr["send"]." &nbsp; &nbsp; ' onClick=javascript:EnviarTipoR()>
-</form>\n";
-echo "</div></div></center>";
-include("../common/footer.php");
+	
+		<label>" . $msgstr["typeofrecords_new"]."</label>
+
+		<label>".$msgstr["tag"]." 1</label><td><input class=\"form-control\" type=text name=tipom value=''></td>
+	
+		<label>".$msgstr["tag"]." 2</label><td><input class=\"form-control\" type=text name=nivelr value=''></td>
+
+
+
+	<input  type=submit value='  ".$msgstr["send"]."  ' onClick=javascript:EnviarTipoR()>
+</form>";
+
+
 echo "</body></html>";
 	die;
 }
 echo "<form name=tor method=post action=typeofrecs_update.php onsubmit='return false'>
-<input type=hidden name=base value=".$arrHttp["base"].">\n";
-if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>\n";
+
+<input type=hidden name=base value=".$arrHttp["base"].">";
+if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>";
 $ix=0;
 
 $j=0;
@@ -229,26 +227,27 @@ if (isset($fpType)) {
 					$nivelr=trim(substr($linea,$ixpos+1));
 				}
 				echo "
-<table class=\"table table-striped\">
-	<tr>
-		<td colspan=2>" .$msgstr["typeofrecords_new"]." ". $msgstr["typeofrecords_tags"]."</td>
-	</tr>
-	<tr>
-		<td>".$msgstr["tag"]." 1</td><td><input type=text name=tipom value='$tipom' size=3></td>
-	</tr>
-	<tr>
-		<td align=left>".$msgstr["tag"]." 2</td><td><input type=text name=nivelr value='$nivelr' size=3></td>
-	</tr>
 
-</table><p>\n";
+	<h2><label>" .$msgstr["typeofrecords_new"]." ". $msgstr["typeofrecords_tags"]."</label></h2>
+	
+		    <label>".$msgstr["tag"]." 1</label>
+		    <td><input class=\"form-control\" type=text name=tipom value='$tipom'><td>
+	
+		    <label>".$msgstr["tag"]." 2</label>
+		    <td><input class=\"form-control\" type=text name=nivelr value='$nivelr'></td>
+	
+
+";
 				$ix=1;
-				echo "<table class=\"table table-striped\">";
-				echo "<tr><td>".$msgstr["fmt"]."</td><td>".$msgstr["tag"]." 1<br>".$msgstr["value"]."</td><td>".$msgstr["tag"]." 2<br>".$msgstr["value"]."</td><td align=center>".$msgstr["typeofrecords"]." ".$msgstr["description"]."</td></tr>\n";
+				
+				echo "<br><div class=\"col-md-6\"><label>".$msgstr["fmt"]."</label></div>
+				<div class=\"col-md-3\"><label>".$msgstr["tag"]." 1<br>".$msgstr["value"]."</label></div>
+				<div class=\"col-md-2\"><label>".$msgstr["tag"]." 2<br>".$msgstr["value"]."</label></div>
+				<div class=\"col-md-1\"><label>".$msgstr["typeofrecords"]." ".$msgstr["description"]."</label></div>";
 			}else{
 				$j=$j+1;
 				$i=0;
 				$l=explode('|',$linea);
-				echo "<tr>";
 				foreach ($l as $value) {
 					$value=trim($value);
 					$i=$i+1;
@@ -257,8 +256,9 @@ if (isset($fpType)) {
 					switch ($i){
 
 						case 1:
-							$link="<td><div class=\"input-group\"><div class=\"input-group-btn\"><a class=\"btn btn-danger\" href='javascript:VerFdt(\"cell$j"."_".$i."\")'>Editar</a></div></div>";
-							echo "$link <select class=\"form-control\" name=cell$j"."_".$i.">
+							$link="<div class=\"col-md-6\">
+							<a class=\"btn btn-warning\" href='javascript:VerFdt(\"cell$j"."_".$i."\")'><i class=\"fa fa-pencil-square-o\"></i></a>";
+							echo " <select class=\"form-control\" name=cell$j"."_".$i.">
 								<option value=\"\"></option> ";
 							foreach ($fmt as $f){
 								$xxtm=explode('|',$f);
@@ -266,11 +266,13 @@ if (isset($fpType)) {
 								if ($xxtm[0].".fmt"==$l[0]) $xselected=" selected";
 								echo "<option value=\"".$xxtm[0].".fmt\"$xselected>".trim($xxtm[1])." (".$xxtm[0].")\n";
 							}
-							echo "</td></select>";
+							echo "</select>$link";
 							$xsize= "";
 							break;
 						case 2:
-							echo "<td>$link<select name=cell$j"."_".$i." onchange=SelectFixedFormat(this,$j)>
+							echo "</div>
+							<div class=\"col-md-3\">
+									<select name=cell$j"."_".$i." onchange=SelectFixedFormat(this,$j)>
 								<option value=\"\"></option> ";
 							foreach ($ldr_06 as $f){
 								$lead=explode('|',$f);
@@ -278,7 +280,7 @@ if (isset($fpType)) {
 								if ($lead[0]==$l[1]) $xselected=" selected";
 								echo "<option value=\"".$lead[0]."\"$xselected>".$lead[0]."\n";
 							}
-							echo "</td></select>";
+							echo "</select></div>";
 							$xsize= "";
                             break;
 						case 3:
@@ -291,7 +293,8 @@ if (isset($fpType)) {
 							$link="<a href='javascript:VerFdt(\"cell$j"."_".$i."\")'>edit</a>";
 							$xsize="size=20";
 					}
-					if ($i!=1 and $i!=2)echo "<td><input type=text name=cell$j"."_".$i." value=\"$value\" $xsize>$link</td>\n";
+					if ($i!=1 and $i!=2)echo "
+						<input type=text name=cell$j"."_".$i." value=\"$value\" $xsize>";
 				}
 			}
 		}
@@ -303,24 +306,24 @@ for ($k=$j+1;$k<$j+8;$k++){
 	$i=0;
 	$linea="|||";
 	$l=explode('|',$linea);
-	echo "<tr>";
+	
 	foreach ($l as $value) {
 		$i=$i+1;
 		$link="";
 		switch ($i){
 			case 1:
-				$link="<a href='javascript:VerFdt(\"cell$k"."_".$i."\")'>edit</a>";
-				echo "<td>$link<select name=cell$k"."_".$i.">
+			
+				echo "$link<select class=\"form-control\" name=cell$k"."_".$i.">
 					<option value=\"\"></option> ";
 				foreach ($fmt as $f){
 					$xxtm=explode('|',$f);
 					echo "<option value=\"".$xxtm[0].".fmt\">".trim($xxtm[1])." (".$xxtm[0].")\n";
 				}
-				echo "</td></select>";
+				echo "</select>";
 				$xsize= "";
 				break;
 			case 2:
-				echo "<td>$link<select name=cell$k"."_".$i." onchange=SelectFixedFormat(this,$k)>
+				echo "$link<select name=cell$k"."_".$i." onchange=SelectFixedFormat(this,$k)>
 					<option value=\"\"></option> ";
 				foreach ($ldr_06 as $f){
 					$lead=explode('|',$f);
@@ -328,7 +331,7 @@ for ($k=$j+1;$k<$j+8;$k++){
 					if ($lead[0]==$l[1]) $xselected=" selected";
 					echo "<option value=\"".$lead[0]."\"$xselected>".$lead[0]."\n";
 				}
-				echo "</td></select>";
+				echo "</select>";
 				$xsize= "";
                 break;
 			case 3:
@@ -342,13 +345,13 @@ for ($k=$j+1;$k<$j+8;$k++){
 	//			$xsize="size=20";
 		}
 		$value=trim($value);
-		if ($i!=1 and $i!=2)echo "<td><input type=text name=cell$k"."_".$i." value=\"$value\" $xsize>$link</td>";
+		if ($i!=1 and $i!=2)echo "
+			<input type=text name=cell$k"."_".$i." value=\"$value\" $xsize>";
 	}
 
 }
-echo "</table>
-<p>
-<a class=\"btn btn-default\" href=javascript:Enviar($k)>".$msgstr["update"]."</a> &nbsp; &nbsp;";
+echo "
+<a class=\"btn btn-primary\" href=javascript:Enviar($k)>".$msgstr["update"]."</a>";
 if (!isset($arrHttp["encabezado"]))
  echo "<a href=menu_modificardb.php?base=".$arrHttp["base"].">".$msgstr["cancel"]."</a>";
 ?>
@@ -359,8 +362,7 @@ if (!isset($arrHttp["encabezado"]))
 <input type="hidden" name="base" value="<?php echo $arrHttp['base'];?>">
 <input type="hidden" name="ventana" value="s">
 </form>
-<p>
-</center>
+
 </div></div>
 <?php include("../common/footer.php");?>
 </body>

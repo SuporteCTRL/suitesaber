@@ -1,0 +1,18 @@
+CAMPO 255 - DADO CARTOGRÁFICO MATEMÁTICO (REPETITIVO)
+Este campo contém dados matemáticos associados ao material cartográfico, incluindo informação de escala,
+projeção e/ou de coordenadas. Para cartas celestes, pode também conter informação de zona, dados de
+declinação, e/ou dados de ascensão, e/ou equinócio. O dado neste campo pode também ser registrado, de
+forma codificada, no campo 034 (Dado matemático cartográfico codificado)
+Pontuação: Insira coordenadas e equinócio dentro de parêntes, separando os dados por ponto e
+vírgula-espaço.
+Indicadores – Indefinidos; cada um contém branco (#)
+Códigos de subcampo
+\a informação de escala
+\b informação de projeção
+\c informação de coordenadas
+\d informação de zona
+\e informação de equinócio
+\f Other G-ring coordinate pairs
+\g Exclusion G-ring coordinate pairs
+Exemplo:
+255 |# #| \aScale 1:22,000,000;\bConic proj.\c(E72o---148o/N 13o-N8o).

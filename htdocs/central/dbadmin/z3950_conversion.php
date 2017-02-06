@@ -68,7 +68,7 @@ if (isset($arrHttp["encabezado"])){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-<?php echo $msgstr["z3950"].": ".$msgstr["z3950_cnv"]." (".$arrHttp["base"].")" ?>
+<h2><?php echo $msgstr["z3950"].": ".$msgstr["z3950_cnv"]." (".$arrHttp["base"].")" ?></h2>
 	</div>
 
 	<div class="actions">
@@ -129,7 +129,7 @@ foreach ($fp as $value){
 			echo "<tr><td  class=td>";
 			echo $t[2];
 			echo "</td>";
-			echo "<td class=td>".$tag."<input type=hidden name=tag$tag value=".$tag."></td>";
+			echo "<td class=td>".$tag."<input class=\"form-control\" type=hidden name=tag$tag value=".$tag."></td>";
 			echo "<td  class=td>";
 			echo $t[5];
 			echo "</td>";
