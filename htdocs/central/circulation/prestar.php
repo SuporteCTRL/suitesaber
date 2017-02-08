@@ -291,7 +291,7 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<h2><label><?php echo $msgstr["loan"];
+		<h2><i class="fa fa-share fa-2x"></i>   <label><?php echo $msgstr["loan"];
 		  if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") echo " - ".$msgstr["users"].": ".$arrHttp["usuario"];
 		?></label></h2>
 	</div>

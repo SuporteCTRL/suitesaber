@@ -192,7 +192,7 @@ function SendForm(){
 
 <div class="sectionInfo">
 	<div class="breadcrumb">
-<h2><label><?php echo $msgstr["PROFILES"]?></label></h2>
+<h2>  <i class="fa fa-users fa-2x" aria-hidden="true"></i>   <label><?php echo $msgstr["PROFILES"]?></label></h2>
 	</div>
 	
 <div class="middle form">

@@ -121,7 +121,7 @@ if (isset($arrHttp["db_inven"])){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<h2><label><?php echo $msgstr["return"]?></label></h2>
+		<h2><i class="fa fa-reply fa-2x" aria-hidden="true"></i>  <label><?php echo $msgstr["return"]?></label></h2>
 	</div>
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>
@@ -148,7 +148,7 @@ if (file_exists($db_path."loans.dat")){
 ?>
 
 		<br><br>
-		<label for="dataBases"><?php echo $msgstr["basedatos"]?></label>
+		<label for="dataBases"><?php echo $msgstr["basedatos"];?></label>
 				<select class="form-control" name="db_inven" onchange="CambiarBase()"">
 		<option></option>
 <?php
@@ -191,9 +191,7 @@ echo "
 ?>
 <br><br>
 		
-		<label for="searchExpr">
-			<?php echo $msgstr["inventory"]?>
-		</label>
+		<label for="searchExpr"><?php echo $msgstr["inventory"];?></label>
 		
 		<textarea class="form-control" name="inventory" id="inventory" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" /></textarea>
 <br>

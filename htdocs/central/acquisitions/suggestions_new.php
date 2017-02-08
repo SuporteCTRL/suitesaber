@@ -75,59 +75,9 @@ function Validar(){
 echo "<body>\n";
 include("../common/institutional_info.php");
 ?>
-<style>
-	#headerDiv, #contentDiv {
-	float: right;
-	width: 510px;
-	}
-	#titleText {
-	float: right;
-	font-size: 1.2em;
-	font-weight: bold;
-	margin: 5px 10px;
-	}
-	headerDiv {
-	background-color: #ffffff;
-	color: #000000;
-	}
-	contentDiv {
-	background-color: #FFE694;
-	}
-	myContent {
-	margin: 5px 10px;
-	}
-	headerDiv a {
-	float: left;
-	margin: 10px 10px 5px 5px;
-	}
-	headerDiv a:hover {
-	color: #;
-	}
-</style>
-
-<style type="text/css">
-#wrapper {
-	text-align:left;
-	margin:0 auto;
-	width:100%;
-	xmin-height:10px;
-	xborder:1px solid #ccc;
-	padding:0px;
-}
 
 
-a {
-	color:blue;
-	cursor:pointer;
-}
 
-
-#myvar {
-	border:1px solid #ccc;
-	background:#ffffff;
-	padding:2px;
-}
-</style>
 <script>
 function switchMenu(obj) {
 	var el = document.getElementById(obj);
@@ -152,7 +102,7 @@ function switchMenu(obj) {
  </script>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["suggestions"].": ".$msgstr["new"];?>
+		<h2><i class="fa fa-plus-square-o fa-2x"></i>   <label><?php echo $msgstr["suggestions"].": ".$msgstr["new"];?></label></h2>
 	</div>
 	
 <div class="middle form">

@@ -122,7 +122,7 @@ function Enviar(sort){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["suggestions"].": ".$msgstr["bidding"]?>
+		<h2><i class="fa fa-search fa-2x" aria-hidden="true"></i> <label><?php echo $msgstr["suggestions"].": ".$msgstr["bidding"]?></label></h2>
 	</div>
 	<div class="actions">
 		<?php include("suggestions_menu.php");?>

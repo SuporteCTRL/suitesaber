@@ -43,10 +43,7 @@ $encabezado="";
 echo "<body>\n";
 $encabezado="&encabezado=s";
 include("../common/institutional_info.php");
-echo "<div class=\"sectionInfo\">
-	<div class=\"breadcrumb\"><h2><label>".
-		$msgstr["configure"]."
-	</div></label></h2>
+echo "
 	<div class=\"actions\">";
 	include("submenu_prestamo.php");
 echo "</div>
@@ -61,6 +58,7 @@ echo "</div>
     <div class="navbar-header">
       <a class="navbar-brand"> Configuração</a>
     </div>
+
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">

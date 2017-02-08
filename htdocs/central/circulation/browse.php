@@ -144,7 +144,7 @@ echo "<body>";
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<h2><label><?php echo $msgstr["usuarios"]?></label></h2>
+		<h2><label><?php echo $msgstr["usuarios"];?></label></h2>
 	</div>
 	
 	

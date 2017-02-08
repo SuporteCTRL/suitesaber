@@ -33,7 +33,7 @@ include("../common/institutional_info.php");
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["suggestions"]?>
+		<h2><i class="fa fa-pencil-square-o fa-2x"></i> <label><?php echo $msgstr["suggestions"];?></label>   </h2> 
 	</div>
 	<div class=actions>
 		<?php include("suggestions_menu.php");?>

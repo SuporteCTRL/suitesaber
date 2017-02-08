@@ -288,7 +288,7 @@ include("../lang/acquisitions.php");
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/user.png" alt=""><?php echo $_SESSION["nombre"]?>, <?php echo $_SESSION["profile"]?>
+                    <img src="images/user.png" alt=""><?php echo $_SESSION["nombre"];?>, <?php echo $_SESSION["profile"];?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

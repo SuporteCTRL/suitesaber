@@ -103,7 +103,7 @@ if (isset($arrHttp["encabezado"])){
 	$encabezado="";
 }
 ?>
-				<h2><label><?php echo $msgstr["createdb"];?></label></h2>
+				<h2><i class="fa fa-database fa-2x" aria-hidden="true"></i>  <label><?php echo $msgstr["createdb"];?></label></h2>
 	
 		
 	<form method="post" name="forma1" onsubmit="javascript:return false">

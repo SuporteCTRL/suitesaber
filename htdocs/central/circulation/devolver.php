@@ -139,7 +139,7 @@ include("../common/institutional_info.php");
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<h2><label><?php echo $msgstr["return"];?></label></h2>
+		<h2><i class="fa fa-reply fa-2x"></i>   <label><?php echo $msgstr["return"];?></label></h2>
 	</div>
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>

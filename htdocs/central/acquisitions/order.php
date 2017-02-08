@@ -143,7 +143,7 @@ function EnviarForma(){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["purchase"].": ".$msgstr["createorder"]?>
+		<h2><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>  <label><?php echo $msgstr["purchase"].": ".$msgstr["createorder"]?></label></h2>
 	</div>
 	<div class="actions">
 		<?php include("order_menu.php");?>
@@ -154,17 +154,17 @@ function EnviarForma(){
 
 <div class="middle form">
 	<div class="formContent">
-	<form name=order method=post action=order_ex.php onsubmit='return false'>
-		<input type=hidden name=Mfn_sel>
-		<input type=hidden name=sort value=<?php echo $arrHttp["sort"]?>>
+	<form name="order" method="post" action="order_ex.php" onsubmit='return false'>
+		<input type="hidden" name="Mfn_sel">
+		<input type="hidden" name="sort" value="<?php echo $arrHttp["sort"];?>">
 		<?php echo $msgstr["approvacq"]." ".$msgstr["sorted"]?>
 		<div class="pagination">
 
-			<a href=javascript:Enviar("PV") class="btn btn-primary"><?php echo $msgstr["provider"];?></a>
+			<a href='javascript:Enviar("PV")' class="btn btn-primary"><?php echo $msgstr["provider"];?></a>
 			
-			<a href=javascript:Enviar("TI") class="btn btn-warning"><?php echo $msgstr["title"];?></a>
+			<a href='javascript:Enviar("TI")' class="btn btn-warning"><?php echo $msgstr["title"];?></a>
 
-			<a href=javascript:Enviar("DA") class="btn btn-info"><?php echo $msgstr["date_app"];?></a>
+			<a 'href=javascript:Enviar("DA")' class="btn btn-info"><?php echo $msgstr["date_app"];?></a>
 
 			<a href=javascript:Enviar("SN") class="btn btn-danger"><?php echo $msgstr["suggestno"];?></a>
 

@@ -4,7 +4,7 @@
 // ==================================================================================================
 //
 session_start();
-include("../common/get_post.php");
+@ include("../common/get_post.php");
 include ("../config.php");
 include ("../lang/statistics.php");
 
@@ -36,7 +36,7 @@ else
 
 //SE LEE LA LISTA DE VARIABLES
 unset($fp);
-$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
+@ $file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/stat.cfg";
 if (!file_exists($file)) $file=$db_path.$arrHttp["base"]."/def/".$lang_db."/stat.cfg";
 if (!file_exists($file)){
 	$error="S";
@@ -162,7 +162,7 @@ function SendTo(Opcion){
 
 <div class="sectionInfo">
 	<div class="breadcrumb">
-<?php echo $msgstr["stats"].": ".$arrHttp["base"]?>
+<h2><label><?php echo $msgstr["stats"].": ".$arrHttp["base"]?></label></h2>
 	</div>
 
 	
@@ -170,11 +170,11 @@ function SendTo(Opcion){
 	<div class="formContent">
 <?php
 
-echo "<dd>".$msgstr["sendto"].": ";
-echo "<a href=javascript:SendTo(\"W\")>".$msgstr["wks"]."</a> &nbsp; | &nbsp; ";
-echo "<a href=javascript:SendTo(\"D\")>".$msgstr["doc"]."</a> &nbsp; | &nbsp; ";
-echo "<a href=javascript:SendTo(\"P\")>".$msgstr["prn"]."</a> &nbsp; | &nbsp; ";
-echo "<a href=javascript:SendTo(\"AG\")>".$msgstr["ag"]."</a> &nbsp; | &nbsp; ";
+echo "<dd><label>".$msgstr["sendto"].": </label>";
+echo "<a class=\"btn btn-primary\" href=javascript:SendTo(\"W\")>".$msgstr["wks"]."</a>";
+echo "<a class=\"btn btn-primary\" href=javascript:SendTo(\"D\")>".$msgstr["doc"]."</a>";
+echo "<a class=\"btn btn-primary\" href=javascript:SendTo(\"P\")>".$msgstr["prn"]."</a>";
+echo "<a class=\"btn btn-primary\" href=javascript:SendTo(\"AG\")>".$msgstr["ag"]."</a>";
 //echo "<a href=javascript:SendTo(\"NAG\")>".$msgstr["nag"]."</a> &nbsp; | &nbsp; ";
 echo "<div id=results>";
 //echo "<h4>$ttit</h4>";
@@ -213,8 +213,8 @@ if (isset($arrHttp["tables"]) or isset($arrHttp["cols"]) and isset($arrHttp["row
 	echo "<table border class=statTable cellpadding=5>";
 	echo "<tr><th>&nbsp;</th><th colspan=$ix align=center>$tcol_tit</th><th>&nbsp;</th>";
 	echo "<tr><th>$trow_tit</th>";
-	ksort($col);
-	ksort($row);
+@	ksort($col);
+@	ksort($row);
 
 	foreach ($col as $y){
 		if (trim($y)=="") $y=$msgstr["nodata"];

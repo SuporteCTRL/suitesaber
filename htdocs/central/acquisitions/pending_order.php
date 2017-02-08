@@ -130,7 +130,7 @@ function EnviarForma(){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["purchase"].": ".$msgstr["pending"];?>
+		<h2><i class="fa fa-inbox fa-2x" aria-hidden="true"></i>   <label><?php echo $msgstr["purchase"].": ".$msgstr["pending"];?></label></h2>
 	</div>
 	<div class="actions">
 	<?php include("order_menu.php");?>

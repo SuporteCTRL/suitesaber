@@ -111,7 +111,7 @@ function SelectFixedFormat(Ctrl,i){
 <?php if (isset($arrHttp["encabezado"])){
     	include("../common/institutional_info.php");
 }
-echo "<div class=\"sectionInfo\"><div class=\"breadcrumb\">".$msgstr["typeofrecords"].": ". $arrHttp["base"]."</div><div class=\"actions\">\n";
+echo "<div class=\"sectionInfo\"><div class=\"breadcrumb\"><h2><label>".$msgstr["typeofrecords"].": ". $arrHttp["base"]."</label></h2></div><div class=\"actions\">\n";
 if (isset($arrHttp["encabezado"]))
 	$encabezado="&encabezado=s";
 else
@@ -228,7 +228,7 @@ if (isset($fpType)) {
 				}
 				echo "
 
-	<h2><label>" .$msgstr["typeofrecords_new"]." ". $msgstr["typeofrecords_tags"]."</label></h2>
+	<h2><label>" .$msgstr["typeofrecords_new"]."<p> ". $msgstr["typeofrecords_tags"]."</label></h2>
 	
 		    <label>".$msgstr["tag"]." 1</label>
 		    <td><input class=\"form-control\" type=text name=tipom value='$tipom'><td>
@@ -240,7 +240,8 @@ if (isset($fpType)) {
 ";
 				$ix=1;
 				
-				echo "<br><div class=\"col-md-6\"><label>".$msgstr["fmt"]."</label></div>
+				echo "<br>
+				<div class=\"col-md-6\"><label>".$msgstr["fmt"]."</label></div>
 				<div class=\"col-md-3\"><label>".$msgstr["tag"]." 1<br>".$msgstr["value"]."</label></div>
 				<div class=\"col-md-2\"><label>".$msgstr["tag"]." 2<br>".$msgstr["value"]."</label></div>
 				<div class=\"col-md-1\"><label>".$msgstr["typeofrecords"]." ".$msgstr["description"]."</label></div>";
@@ -351,7 +352,7 @@ for ($k=$j+1;$k<$j+8;$k++){
 
 }
 echo "
-<a class=\"btn btn-primary\" href=javascript:Enviar($k)>".$msgstr["update"]."</a>";
+<a class=\"btn btn-primary\" href=javascript:Enviar($k)><i class=\"fa fa-refresh\" value=".$msgstr['update']."></i></a>";
 if (!isset($arrHttp["encabezado"]))
  echo "<a href=menu_modificardb.php?base=".$arrHttp["base"].">".$msgstr["cancel"]."</a>";
 ?>

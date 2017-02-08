@@ -140,7 +140,7 @@ else
 </div>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<h2><label><?php if (!isset($arrHttp["reserve"]))
+		<h2><i class="fa fa-folder-open-o fa-2x"></i>  <label><?php if (!isset($arrHttp["reserve"]))
 				echo $msgstr["statment"];
 			  else
 			  	echo $msgstr["reservas"];

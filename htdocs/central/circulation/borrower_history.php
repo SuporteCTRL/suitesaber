@@ -127,7 +127,7 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<h2><label><?php echo $msgstr["statment"]?></label></h2>
+		<h2><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>   <label><?php echo $msgstr["statment"]?></label></h2>
 	</div>
 	<div class="actions">
 		<?php include("submenu_prestamo.php");?>

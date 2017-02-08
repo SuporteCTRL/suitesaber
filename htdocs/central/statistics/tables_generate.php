@@ -284,7 +284,7 @@ if (isset($arrHttp["encabezado"])){
     		<option value=''>
   <?php 
    unset($fp);
-	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/tabs.cfg";
+@	$file=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/tabs.cfg";
 	if (!file_exists($file)) $file=$db_path.$arrHttp["base"]."/def/".$lang_db."/tabs.cfg";
 	if (!file_exists($file)){
 		$error="S";

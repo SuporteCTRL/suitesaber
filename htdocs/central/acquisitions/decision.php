@@ -118,7 +118,7 @@ function Enviar(sort){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["suggestions"].": ".$msgstr["decision"]?>
+		<h2><i class="fa fa-check-square-o fa-2x" aria-hidden="true"></i>   <label><?php echo $msgstr["suggestions"].": ".$msgstr["decision"]?></label></h2>
 	</div>
 	<div class="actions">
 		<?php include("suggestions_menu.php");?>

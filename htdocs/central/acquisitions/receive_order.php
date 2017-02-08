@@ -104,7 +104,7 @@ function EnviarForma(){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php echo $msgstr["purchase"].": ".$msgstr["receiving"];?>
+		<h2><i class="fa fa-check-square fa-2x" aria-hidden="true"></i> <label><?php echo $msgstr["purchase"].": ".$msgstr["receiving"];?></label></h2>
 	</div>
 	<div class="actions">
 	<?php include("order_menu.php");?>
@@ -116,16 +116,12 @@ function EnviarForma(){
 
 	<div class="searchBox">
 	<form name=forma1 action=receive_order_ex.php method=post onsubmit="javascript:return false">
-	<table width=100%>
-		<td width=200>
-		<label for="searchExpr">
-			<strong><?php echo $msgstr["date_receival"];?></strong>
-		</label>
-		</td><td>
+	
+					<label><?php echo $msgstr["date_receival"];?></label>
 <!-- calendar attaches to existing form element -->
 		<input type="text" name="date" id="date" size="12" maxlength="10"   onChange='Javascript:DateToIso(this.value,document.forma1.isodate)' value="<?php echo date("d/m/Y")?>"/>
 
- 		<i class="fa fa-calendar" id="f_date" style="cursor: pointer;" title="Date selector"/>
+ 		<i class="fa fa-calendar" id="f_date" title="Date selector"/>
 		<script type="text/javascript">
 	  	Calendar.setup({
 	      inputField     :    "date",     // id of the input field
@@ -140,27 +136,21 @@ function EnviarForma(){
 		});
 		
 		</script>
-		</td>
-		<tr>
-		<td width=200>
-		<label for="searchExpr">
-			<?php echo $msgstr["isodate_receival"];?>
-		</label>
-		</td><td>
+		
+		<br>
+		<label for="searchExpr"><?php echo $msgstr["isodate_receival"];?></label>
+		
 		<input type="text" size=11 maxlength=8 name="isodate" id="isodate" value="<?php echo date("Ymd");?>" xclass="textEntry" xonfocus="this.className = 'textEntry';"  xonblur="this.className = 'textEntry';" />
 
-		</td>
-		<tr>
-		<td width=200>
+		<br>
 		<label for="searchExpr"><?php echo $msgstr["order_no"];?></label>
 
-		</td><td>
+		
 		<input type="text" name="searchExpr" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
         <input type="hidden" name="base" value="">
 		<input class="btn btn-primary" type="submit" name="list" value="<?php echo $msgstr["search"];?>" onclick="javascript:EnviarForma();return false"/>
 		<input class="btn btn-warning" type="submit" name="list" value="<?php echo $msgstr["listorders"];?>"  onclick="javascript:AbrirIndiceAlfabetico();return false"/>
-		</td>
-		</table>		<?php //echo $msgstr["clic_en"]." <i>[".$msgstr["return"]."]</i> ".$msgstr["para_c"]?>
+			<?php //echo $msgstr["clic_en"]." <i>[".$msgstr["return"]."]</i> ".$msgstr["para_c"]?>
 	</form>
 	</div>
 </div>

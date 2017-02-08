@@ -122,69 +122,17 @@ function switchMenu(obj) {
 		}
 	}
  </script>
- <style>
-	#headerDiv, #contentDiv {
-	float: right;
-	width: 510px;
-	}
-	#titleText {
-	float: right;
-	font-size: 1.2em;
-	font-weight: bold;
-	margin: 5px 10px;
-	}
-	headerDiv {
-	background-color: #ffffff;
-	color: #000000;
-	}
-	contentDiv {
-	background-color: #FFE694;
-	}
-	myContent {
-	margin: 5px 10px;
-	}
-	headerDiv a {
-	float: left;
-	margin: 10px 10px 5px 5px;
-	}
-	headerDiv a:hover {
-	color: #;
-	}
-</style>
 
-<style type="text/css">
-#wrapper {
-	text-align:left;
-	margin:0 auto;
-	width:100%;
-	xmin-height:10px;
-	xborder:1px solid #ccc;
-	padding:0px;
-}
-
-
-a {
-	color:blue;
-	cursor:pointer;
-}
-
-
-#myvar {
-	border:1px solid #ccc;
-	background:#ffffff;
-	padding:2px;
-}
-</style>
 <?php                                                                                                                                      $encabezado="";
 echo "<body>\n";
 include("../common/institutional_info.php");
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<?php
+		<h2><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i> <label><?php
 		$m=explode('|',$arrHttp["mov"]);
 		echo $m[1].": ".$msgstr["new"]?>
-	</div>
+	</label></h2></div>
 	
 	
 </div>
