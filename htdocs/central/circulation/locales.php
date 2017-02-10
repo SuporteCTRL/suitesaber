@@ -35,7 +35,7 @@ $arrHttp["base"]="users";
 include("../common/header.php");
 
 ?>
-<script language=javascript src=../dataentry/js/lr_trim.js></script>
+<script language="javascript" src="../dataentry/js/lr_trim.js"></script>
 <script>
 function LimpiarHorario(Ctrl){
 	switch (Ctrl.name){
@@ -236,134 +236,193 @@ if (file_exists($archivo)){
 }
 
 echo "<br>
-<table cellspacing=8>
-<tr><td valign=top>1. ".$msgstr["currency"]."</td><td valign=top><input type=text name=currency  size=4 value=\"".$locales["currency"]."\"></td>
-<tr><td valign=top>2. ".$msgstr["fine"]."</td><td valign=top><input type=text name=fine  size=10 value=\"".$locales["fine"]."\"></td>
-<tr><td valign=top>3. ".$msgstr["dateformat"]."</td><td valign=top>".$config_date_format."</td>
-<tr><td valign=top>4. ".$msgstr["workingdays"] ."<br> &nbsp; &nbsp; ".$msgstr["workinghours"]."</td>
-<td valign=top>
-	<table border=0 bgcolor=#cccccc cellpadding=5>
-	<td bgcolor=white align=center>
+<table class=\"table\">
+<tr><td><label>1. ".$msgstr["currency"]."</label></td>
+	<td><input class=\"form-control\" type=text name=currency value=\"".$locales["currency"]."\"></td>
+
+<tr><td><label>2. ".$msgstr["fine"]."</label></td>
+	<td><input class=\"form-control\" type=text name=fine value=\"".$locales["fine"]."\"></td>
+
+<tr><td><label>3. ".$msgstr["dateformat"]."</label></td>
+	<td>".$config_date_format."</td>
+
+<tr><td><label>4. ".$msgstr["workingdays"] ."<br> ".$msgstr["workinghours"]."</label></td>
+
+
+
+
+	<table class=\"table\">
+	
+<!--segunda feira-->
+
 		<input type=checkbox name=mon value=mon";
 		if (trim($locales[1]["from"])!="" and trim($locales[1]["to"]!="")) echo " checked";
-		echo " onclick=LimpiarHorario(this)><b>".$msgstr["mon"]."</b>&nbsp;
-		<br>".$msgstr["from"].":<input type=text name=mon_from size=4 value=\"".$locales[1]["from"]."\"><select name=smon_from><option value=am";
+		echo " onclick=LimpiarHorario(this)>
+		<label>".$msgstr["mon"]."</label>
+		<br>
+		<label>".$msgstr["from"].":</label>
+			<input type=text class=\"form-control\" name=mon_from size=4 value=\"".$locales[1]["from"]."\"><select class=\"form-control\" name=smon_from><option value=am";
+		
 		if ($locales["1"]["f_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[1]["f_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
-		&nbsp;".$msgstr["to"].":<input type=text name=mon_to size=4 value=\"".$locales[1]["to"]."\"><select name=smon_to>
+		
+		echo "<label> pm </label></option></select>
+		
+		<label>".$msgstr["to"].":</label>
+		<input type=text name=mon_to class=\"form-control\" value=\"".$locales[1]["to"]."\"><select class=\"form-control\" name=smon_to>
 		<option value=am";
 		if ($locales[1]["t_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
+
 		if ($locales[1]["t_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
-	</td>
-	<td bgcolor=white align=center>
+		echo "<label> pm </label></option></select>
+	
+<br><br>
+<!--terça-->
+	
 		<input type=checkbox name=tue value=tue";
 		if (trim($locales[2]["from"])!="" and trim($locales[2]["to"]!="")) echo " checked";
-		echo " onclick=LimpiarHorario(this)><b>".$msgstr["tue"]."</b>&nbsp;
-		<br>".$msgstr["from"].":<input type=text name=tue_from size=4 value=\"".$locales[2]["from"]."\"><select name=stue_from><option value=am";
+		echo " onclick=LimpiarHorario(this)>
+		
+		<label>".$msgstr["tue"]."</label>
+		<br>
+		<label>".$msgstr["from"].":</label>
+			<input type=text class=\"form-control\" name=tue_from size=4 value=\"".$locales[2]["from"]."\">
+			<select class=\"form-control\" name=stue_from><option value=am";
 		if ($locales[2]["f_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[2]["f_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
-		&nbsp;".$msgstr["to"].":<input type=text name=tue_to size=4 value=\"".$locales[2]["to"]."\"><select name=stue_to>
+		echo "<label> pm </label></option></select>
+		<label>".$msgstr["to"].":</label>
+			<input type=text class=\"form-control\" name=tue_to size=4 value=\"".$locales[2]["to"]."\">
+			<select class=\"form-control\" name=stue_to>
 		<option value=am";
 		if ($locales[2]["t_ampm"]=="am") echo " selected";
 		echo ">am</option><option value=pm";
 		if ($locales[2]["t_ampm"]=="pm") echo " selected";
 		echo ">pm</option></select>
-	</td>
-	<tr>
-	<td bgcolor=white align=center>
+
+<br><br>
+<!--quarta-->
+	
 		<input type=checkbox name=wed value=wed";
 		if (trim($locales[3]["from"])!="" and trim($locales[3]["to"]!="")) echo " checked";
-		echo " onclick=LimpiarHorario(this)><b>".$msgstr["wed"]."</b>&nbsp;
-		<br> ".$msgstr["from"].":<input type=text name=wed_from size=4 value=\"".$locales[3]["from"]."\"><select name=swed_from><option value=am";
+		echo " onclick=LimpiarHorario(this)><label>".$msgstr["wed"]."</label>
+<br>
+		<label> ".$msgstr["from"].":</label>
+		<input type=text class=\"form-control\" name=wed_from size=4 value=\"".$locales[3]["from"]."\">
+		<select class=\"form-control\" name=swed_from><option value=am";
 		if ($locales[3]["f_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[3]["f_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
-		&nbsp;".$msgstr["to"].":<input type=text name=wed_to size=4 value=\"".$locales[3]["to"]."\"><select name=swed_to>
+		echo "<label> pm </label></option></select>
+		<label>".$msgstr["to"].":</label>
+		<input type=text class=\"form-control\" name=wed_to size=4 value=\"".$locales[3]["to"]."\">
+		<select class=\"form-control\" name=swed_to>
 		<option value=am";
 		if ($locales[3]["t_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[3]["t_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
-	</td>
-	<td bgcolor=white align=center>
+		echo "<label> pm </label></option></select>
+	
+
+<br><br>
+<!--quinta-->
+	
 		<input type=checkbox name=thu value=thu";
 		if (trim($locales[4]["from"])!="" and trim($locales[4]["to"]!="")) echo " checked";
-		echo " onclick=LimpiarHorario(this)><b>".$msgstr["thu"]."</b>&nbsp;
-		<br> ".$msgstr["from"].":<input type=text name=thu_from size=4 value=\"".$locales[4]["from"]."\"><select name=sthu_from><option value=am";
+		echo " onclick=LimpiarHorario(this)><label>".$msgstr["thu"]."</label>
+		<br>
+		<label> ".$msgstr["from"].":</label>
+		<input type=text class=\"form-control\" name=thu_from  value=\"".$locales[4]["from"]."\">
+		<select class=\"form-control\" name=sthu_from><option value=am";
 		if ($locales[4]["f_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[4]["f_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
-		&nbsp;".$msgstr["to"].":<input type=text name=thu_to size=4 value=\"".$locales[4]["to"]."\"><select name=sthu_to>
+		echo "<label> pm </label></option></select>
+		<label>".$msgstr["to"].":</label>
+		<input type=text class=\"form-control\" name=thu_to value=\"".$locales[4]["to"]."\">
+		<select class=\"form-control\" name=sthu_to>
 		<option value=am";
 		if ($locales[4]["t_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[4]["t_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
+		echo "<label> pm </label></option></select>
 
-	</td>
-	<tr>
-	<td bgcolor=white align=center>
+<br><br>
+<!--sexta-->
+
 		<input type=checkbox name=fri value=fri";
 		if (trim($locales[5]["from"])!="" and trim($locales[5]["to"]!="")) echo " checked";
-		echo " onclick=LimpiarHorario(this)><b>".$msgstr["fri"]."</b>&nbsp;
-		<br> ".$msgstr["from"].":<input type=text name=fri_from size=4 value=\"".$locales[5]["from"]."\"><select name=sfri_from>
+		echo " onclick=LimpiarHorario(this)><label>".$msgstr["fri"]."</label>
+		<br>
+		<label> ".$msgstr["from"].":</label>
+		<input type=text class=\"form-control\" name=fri_from  value=\"".$locales[5]["from"]."\">
+		<select class=\"form-control\" name=sfri_from>
 		<option value=am";
 		if ($locales[5]["f_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[5]["f_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
-		&nbsp;".$msgstr["to"].":<input type=text name=fri_to size=4 value=\"".$locales[5]["to"]."\"><select name=sfri_to>
+		echo "<label> pm </label></option></select>
+		<label>".$msgstr["to"].":</label>
+		<input type=text class=\"form-control\" name=fri_to value=\"".$locales[5]["to"]."\">
+		<select class=\"form-control\" name=sfri_to>
 		<option value=am";
 		if ($locales[5]["t_ampm"]=="am") echo " selected";
 		echo ">am</option><option value=pm";
 		if ($locales[5]["t_ampm"]=="pm") echo " selected";
 		echo ">pm</option></select>
 
-	</td>
-	<td bgcolor=white align=center>
+
+<br><br>
+<!--sabado-->
+
+
 		<input type=checkbox name=sat value=sat";
 		if (trim($locales[6]["from"])!="" and trim($locales[6]["to"]!="")) echo " checked";
-		echo " onclick=LimpiarHorario(this)><b>".$msgstr["sat"]."</b>&nbsp;
-		<br> ".$msgstr["from"].":<input type=text name=sat_from size=4 value=\"".$locales[6]["from"]."\"><select name=ssat_from><option value=am";
+		echo " onclick=LimpiarHorario(this)><label>".$msgstr["sat"]."</label>
+		
+		<br>
+		<label> ".$msgstr["from"].":</label>
+		<input type=text class=\"form-control\" name=sat_from  value=\"".$locales[6]["from"]."\">
+		<select class=\"form-control\" name=ssat_from><option value=am";
 		if ($locales[6]["f_ampm"]=="am") echo " selected";
 		echo " onclick=LimpiarHorario(this)>am</option><option value=pm";
 		if ($locales[6]["f_ampm"]=="pm") echo " selected";
-		echo ">pm</option><option value=pm>pm</option></select>
-		&nbsp;".$msgstr["to"].":<input type=text name=sat_to size=4 value=\"".$locales[6]["to"]."\"><select name=ssat_to><option value=am";
+		echo "<label> pm </label></option><option value=pm>pm</option></select>
+		<label>".$msgstr["to"].":</label>
+		<input type=text class=\"form-control\" name=sat_to  value=\"".$locales[6]["to"]."\">
+		<select class=\"form-control\" name=ssat_to><option value=am";
 		if ($locales[6]["t_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[6]["t_ampm"]=="pm") echo " selected";
-		echo ">pm</option><option value=pm>pm</option></select>
+		echo "<label> pm </label></option><option value=pm>pm</option></select>
 
-	</td>
-	<tr>
-	<td bgcolor=white align=center>
+	<br><br>
+<!--domingo-->
+
+
 		<input type=checkbox name=sun value=sun";
 		if (trim($locales[0]["from"])!="" and trim($locales[0]["to"]!="")) echo " checked";
-		echo " onclick=LimpiarHorario(this)><b>".$msgstr["sun"]."</b>;
-		<br> ".$msgstr["from"].":<input type=text name=sun_from size=4 value=\"".$locales[0]["from"]."\">
-		<select name=ssun_from><option value=am";
+		echo " onclick=LimpiarHorario(this)><label>".$msgstr["sun"]."</label>;
+		<br>
+		<label> ".$msgstr["from"].": </label>
+		<input type=text class=\"form-control\" name=sun_from  value=".$locales[0]["from"].">
+		<select class=\"form-control\" name=ssun_from><option value=am";
 		if ($locales[0]["f_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[0]["f_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
-		&nbsp;".$msgstr["to"].":<input type=text name=sun_to size=4 value=\"".$locales[0]["to"]."\">
-		<select name=ssun_to><option value=am";
+		echo "<label> pm </label></option></select>
+		<label>".$msgstr["to"].":</label>
+		<input type=text class=\"form-control\" name=sun_to  value=".$locales[0]["to"].">
+		<select class=\"form-control\" name=ssun_to><option value=am";
 		if ($locales[0]["t_ampm"]=="am") echo " selected";
-		echo ">am</option><option value=pm";
+		echo "<label> am </label></option><option value=pm";
 		if ($locales[0]["t_ampm"]=="pm") echo " selected";
-		echo ">pm</option></select>
+		echo "<label> pm </label></option></select>
 
-	</td>
-	<td bgcolor=white><font color=darkred>".$msgstr["ejem"].": ".$msgstr["from"]." 8:30 am &nbsp;".$msgstr["to"]." 6:30 pm</td>
+	<font color=darkred>".$msgstr["ejem"].": ".$msgstr["from"]." 8:30 am &nbsp;".$msgstr["to"]." 6:30 pm</td>
 	</table>
 </td>
 </table>
