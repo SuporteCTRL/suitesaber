@@ -301,7 +301,7 @@ function Validate(Opcion){
     msgwin.document.writeln("<style>BODY{font-family: 'Trebuchet MS', Arial, Verdana, Helvetica; font-size: 8pt;}")
     msgwin.document.writeln("tdTD{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
-	msgwin.document.writeln("<body><table class=\"table table-striped\">")
+	msgwin.document.writeln("<body><table class=\"table\">")
 	EncabezarFilas("row")
 	cols=mygrid.getColumnCount()
 	rows=mygrid.getRowsNum()
@@ -562,7 +562,7 @@ function List(){
     msgwin.document.writeln("TD{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
     msgwin.document.writeln("<body>")
-	msgwin.document.writeln("<table class=\"table table-striped\">")
+	msgwin.document.writeln("<table class=\"table\">")
 	EncabezarFilas("")
 	cols=mygrid.getColumnCount()
 	rows=mygrid.getRowsNum()
@@ -812,7 +812,7 @@ fdt_shot_a.php
 }
 ?>
   <label><?php echo $msgstr['double_click']?></label>
-	<table class="table table-striped" id="tblToGrid" class="dhtmlxGrid">
+	<table class="table" id="tblToGrid" class="dhtmlxGrid">
 <?php
 echo "<tr>";
 $tope=0;
@@ -1056,46 +1056,46 @@ var mygrid = new dhtmlXGridFromTable('tblToGrid');
 </script>
 <br><br>
 </form>
-<form name=forma1 action=fdt_update.php method=post>
+<form name="forma1" action="fdt_update.php" method="post">
 <?php if (isset($arrHttp["fmt_name"])){
 	echo "<input type=hidden name=fmt_name value=".$arrHttp["fmt_name"].">\n";
 }
 	if (isset($arrHttp["fmt_desc"])) echo "<input type=hidden name=fmt_desc value=".$arrHttp["fmt_desc"].">\n";
 
 ?>
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=desc>
-<input type=hidden name=Opcion value=<?php echo $arrHttp["Opcion"]?>>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=archivo value=<?php echo $xarch?>>
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="desc">
+<input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>"">
+<input type="hidden" name="archivo" value="<?php echo $xarch ;?>">
 <?php if (isset( $arrHttp["ventana"])) echo "<input type=hidden name=ventana value=". $arrHttp["ventana"].">"?>
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>"; ?>
 <?php if (isset($arrHttp["Fixed_field"]))  echo "<input type=hidden name=Fixed_field value=".$arrHttp["Fixed_field"].">"; ?>
 </form>
-<form name=rowedit action=fdt_rowedit.php method=post target=WinRow>
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=row>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=Opcion value=<?php echo $arrHttp["Opcion"]?>>
+<form name="rowedit" action="fdt_rowedit.php" method="post" target="WinRow">
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="row">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
 </form>
-<form name=MFedit action=fdt.php method=post target=WinRow>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=tag>
+<form name="MFedit" action="fdt.php" method="post" target="WinRow">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="tag">
 </form>
-<form name=edit_picklist method=post target=PL action=picklist.php>
-<input type=hidden name=base>
-<input type=hidden name=pl_type>
-<input type=hidden name=picklist>
-<input type=hidden name=row>
-<input type=hidden name=type>
+<form name="edit_picklist" method="post" target="PL" action="picklist.php">
+<input type="hidden" name="base">
+<input type="hidden" name="pl_type">
+<input type="hidden" name="picklist">
+<input type="hidden" name="row">
+<input type="hidden" name="type">
 </form>
-<form name=SCedit action=fdt_short_a.php method=post target=WinSc>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=row>
-<input type=hidden name=tag>
-<input type=hidden name=Subc>
-<input type=hidden name=SubcEditor value=S>
-<input type=hidden name=Opcion value=<?php echo $arrHttp["Opcion"]?>>
+<form name="SCedit" action="fdt_short_a.php" method="post" target="WinSc">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="row">
+<input type="hidden" name="tag">
+<input type="hidden" name="Subc">
+<input type="hidden" name="SubcEditor" value="S">
+<input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
 </form>
 </div>
 </div>

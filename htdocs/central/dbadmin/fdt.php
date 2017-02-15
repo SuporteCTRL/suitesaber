@@ -43,7 +43,7 @@ if ($arrHttp["Opcion"]=="new"){
 	<link rel="STYLESHEET" type="text/css" href="../dataentry/js/dhtml_grid/dhtmlXGrid.css">
 	<script  src="../dataentry/js/dhtml_grid/dhtmlx.js"></script>
  	<script  src="../dataentry/js/lr_trim.js"></script>
-	<script languaje=javascript>
+	<script languaje="javascript">
 	field_type=Array()
 	input_type=Array()
 	pick_type=Array()
@@ -242,17 +242,17 @@ function IsNumeric(sText){
 
 function EncabezarFilas(Rows){
    	msgwin.document.writeln("<tr>")
-   	if (Rows!="") msgwin.document.writeln("<td rowspan=2></td>")
-  	msgwin.document.writeln("<td rowspan=2 align=center bgcolor=white><?php echo $msgstr["type"]?></td><td rowspan=2 align=center bgcolor=white><?php echo $msgstr["tag"]?></td>")
-  	msgwin.document.writeln("<td rowspan=2 align=center bgcolor=white><?php echo $msgstr["title"]?></td><td rowspan=2 align=center bgcolor=white>I</td><td rowspan=2 align=center bgcolor=white>R</td><td rowspan=2 align=center  bgcolor=white><?php echo $msgstr["subfields"]?></td><td rowspan=2 align=center bgcolor=white><?php echo $msgstr["preliteral"]?></td>")
-  	msgwin.document.writeln("<td rowspan=2 align=center bgcolor=white><?php echo $msgstr["inputtype"]?></td><td rowspan=2 align=center bgcolor=white><?php echo $msgstr["rows"]?></td><td rowspan=2 align=center bgcolor=white><?php echo $msgstr["cols"]?></td>")
-  	msgwin.document.writeln("<td colspan=6 align=center bgcolor=white><?php echo $msgstr["picklist"]?></td>")
+   	if (Rows!="") msgwin.document.writeln("<td></td>")
+  	msgwin.document.writeln("<td><?php echo $msgstr["type"]?></td><td><?php echo $msgstr["tag"]?></td>")
+  	msgwin.document.writeln("<td><?php echo $msgstr["title"]?></td><td>I</td><td>R</td><td><?php echo $msgstr["subfields"]?></td><td><?php echo $msgstr["preliteral"]?></td>")
+  	msgwin.document.writeln("<td><?php echo $msgstr["inputtype"]?></td><td><?php echo $msgstr["rows"]?></td><td><?php echo $msgstr["cols"]?></td>")
+  	msgwin.document.writeln("<td><?php echo $msgstr["picklist"]?></td>")
 
-	msgwin.document.writeln("<td bgcolor=white rowspan=2><?php echo $msgstr["help"]?></td>")
-	msgwin.document.writeln("<td bgcolor=white rowspan=2><?php echo $msgstr["url_help"]?></td><td bgcolor=white rowspan=2><?php echo $msgstr["link_fdt"]?></td><td bgcolor=white rowspan=2><?php echo $msgstr["mandatory"]?></td><td bgcolor=white rowspan=2><?php echo $msgstr["field_validation"]?></td><td bgcolor=white rowspan=2><?php echo $msgstr["pattern"]?></td>")
+	msgwin.document.writeln("<td><?php echo $msgstr["help"]?></td>")
+	msgwin.document.writeln("<td><?php echo $msgstr["url_help"]?></td><td><?php echo $msgstr["link_fdt"]?></td><td><?php echo $msgstr["mandatory"]?></td><td><?php echo $msgstr["field_validation"]?></td><td><?php echo $msgstr["pattern"]?></td>")
 	msgwin.document.writeln("<tr>")
-	msgwin.document.writeln("<td align=center bgcolor=white><?php echo $msgstr["type"]?></td><td bgcolor=white><?php echo $msgstr["name"]?></td><td bgcolor=white><?php echo $msgstr["prefix"]?></td><td bgcolor=white><?php echo $msgstr["pft"]?></td>")
-	msgwin.document.writeln("<td bgcolor=white><?php echo $msgstr["listas"]?></td><td bgcolor=white><?php echo $msgstr["extractas"]?></td>")
+	msgwin.document.writeln("<td><?php echo $msgstr["type"]?></td><td><?php echo $msgstr["name"]?></td><td><?php echo $msgstr["prefix"]?></td><td><?php echo $msgstr["pft"]?></td>")
+	msgwin.document.writeln("<td><?php echo $msgstr["listas"]?></td><td><?php echo $msgstr["extractas"]?></td>")
 }
 
 function Validate(Opcion){
@@ -260,10 +260,10 @@ function Validate(Opcion){
     var height = screen.availHeight
 	msgwin=window.open("","Fdt","width="+width+", height="+height+" resizable=yes, scrollbars=yes, menu=yes")
     msgwin.document.writeln("<html>")
-    msgwin.document.writeln("<style>BODY{font-family: 'Trebuchet MS', Arial, Verdana, Helvetica; font-size: 8pt;}")
-    msgwin.document.writeln("TD{font-family:arial; font-size:8pt;}")
+   
+    msgwin.document.writeln("td{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
-	msgwin.document.writeln("<body><table bgcolor=#CCCCCC>")
+	msgwin.document.writeln("<body><table class=\"table table-bordered\">")
 	EncabezarFilas("row")
 	cols=mygrid.getColumnCount()
 	rows=mygrid.getRowsNum()
@@ -393,7 +393,7 @@ function Validate(Opcion){
 							cell_pattern=cell
 							break
 					}
-					msgwin.document.write("<td bgcolor=white>"+ cell+"&nbsp;</td>")
+					msgwin.document.write("<td>"+ cell+"&nbsp;</td>")
 				}
 			}
 			if (cell_type!="L" && cell_type!="MF" && cell_type!="LDR"){       //Todos los campos deben poseer descripcion menos el tipo L y el tipo MF
@@ -536,11 +536,11 @@ function List(){
 	msgwin=window.open("","Fdt","width="+width+", height="+height+" resizable=yes, scrollbars=yes, menu=yes")
 	msgwin.document.close()
     msgwin.document.writeln("<html>")
-	msgwin.document.writeln("<style>BODY{font-family: 'Trebuchet MS', Arial, Verdana, Helvetica; font-size: 8pt;}")
-    msgwin.document.writeln("TD{font-family:arial; font-size:8pt;}")
+	msgwin.document.writeln("<style>body{font-family: 'Trebuchet MS', Arial, Verdana, Helvetica; font-size: 8pt;}")
+    msgwin.document.writeln("td{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
     msgwin.document.writeln("<body>")
-	msgwin.document.writeln("<table bgcolor=#CCCCCC>")
+	msgwin.document.writeln("<table class=\"table table-bordered\">")
 	EncabezarFilas("")
 	cols=mygrid.getColumnCount()
 	rows=mygrid.getRowsNum()
@@ -602,7 +602,7 @@ function List(){
 
 							break
 					}
-					msgwin.document.write("<td >"+cell+"&nbsp;</td>")
+					msgwin.document.write("<td>"+cell+"&nbsp;</td>")
 				}
 			}
 		}
@@ -668,8 +668,7 @@ function doOnCellEdit(stage,rowId,cellInd){
 
 <body>
 <div id="loading">
-  <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-<span class="sr-only">Loading...</span>
+ <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
 </div>
 <script>
 document.getElementById('loading').style.display='block';
@@ -728,27 +727,53 @@ if (isset($arrHttp["encabezado"])){
 	if (isset($arrHttp["fmt_desc"])) {
       	echo $msgstr["fmt"];
     }else{
-       	echo $msgstr["fdt"];
+       	echo "<h2><label>"  .$msgstr["fdt"]. "";
     }
 
-	echo ": ".$xarch;
+	echo ": ".$xarch. "</label></h2>";
 	if (isset($arrHttp["fmt_desc"])) echo " (".$arrHttp["fmt_desc"].")";
 
-	?>
+	echo "</div><div class=\"actions\">";
+	if (!isset($arrHttp["moodle"])){
+		if ($arrHttp["Opcion"]=="new"){
+			if (isset($arrHttp["encabezado"])){
+			
+			}else{
+				 
+			}
+		}else{
+			if (isset($arrHttp["encabezado"]))
+				$encabezado="&encabezado=s";
+			else
+				$encabezado="";
+			if (isset($arrHttp["Fixed_field"])){
+				echo "<a href=fixed_marc.php?base=". $arrHttp["base"].$encabezado." class=\"defaultButton cancelButton\">";
+			}else{
+				if (!isset($arrHttp["ventana"]))
+					echo "<a href=menu_modificardb.php?base=". $arrHttp["base"].$encabezado." class=\"defaultButton cancelButton\">";
+				else
+					echo "<a href=\"javascript:self.close()\" class=\"defaultButton cancelButton\">";
+			}
+		}
+	
+	}else{
+		
+	}
 
+?>
 
-
+	</div>
 	<div class="middle form">
 		<div class="formContent">
-			<a href='javascript:void(0)' class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr['addrowbef'];?></a>
-            
-			<a href='javascript:void(0)' class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr['addrowaf'];?></a>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
+
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
 			
-			<a href='javascript:void(0)' class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"];?></a>
- <label><?php echo $msgstr['double_click'];?></label>
- <br>
-	<table  class="table table-striped">
-	<br>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
+
+            <label><?php echo $msgstr['double_click'];?></label>
+
+	<table class="table table-bordered" id="tblToGrid">
 <?php
 echo "<tr>";
 $tope=0;
@@ -795,7 +820,7 @@ if (isset($fp)){
       		}
 			$i=$i+1;
 			$irow=$i+1;
-			$linkr="<a href=javascript:EditarFila(\"".$irow."\",$i)><font size=1>$irow</a>";
+			$linkr="<a href=javascript:EditarFila(\"".$irow."\",$i)><label>$irow</label></a>";
 			echo "<td type=\"link\">$linkr</td>";
 			if ($t[0]=="F" or $t[0]=="S"){
 				if (trim($t[7])=="") $t[7]="X";
@@ -804,12 +829,12 @@ if (isset($fp)){
 			for ($ix=0;$ix<21;$ix++) if (!isset($t[$ix])) $t[$ix]="";
 			if (trim($t[0])!="H" and trim($t[0])!="L"){
 				if ($t[10]=="")
-					$pick="<a href=javascript:Picklist(\"".$t[1].".tab\",$i)><font size=1>browse</a>";
+					$pick="<a href=javascript:Picklist(\"".$t[1].".tab\",$i)><label>browse</label></a>";
 				else
-		    		$pick="<a href=javascript:Picklist(\"".$t[10]."\",$i)><font size=1>browse</a>";
+		    		$pick="<a href=javascript:Picklist(\"".$t[10]."\",$i)><label>browse</label></a>";
 			}
 			$irow=$i+1;
-			$linkr="<a href=javascript:EditarFila(\"".$irow."\",$i)><font size=1>$irow</a>";
+			$linkr="<a href=javascript:EditarFila(\"".$irow."\",$i)><label>$irow</label></a>";
 			if (!isset($t[16])) $t[16]="";
 			$ixt=-1;
 			//"link,coro,ed,ed,ch,ch,ed,ed,coro,ed,ed,coro,ed,ed,link,ed,ed,ed,ch,ed,ch,ch,coro,ed"
@@ -889,7 +914,12 @@ if (isset($fp)){
 ?>
 
 	</table>
-	
+	<a href=javascript:Test() class="btn btn-primary"><?php echo $msgstr["test"]?></a>
+	<a href=javascript:List() class="btn btn-primary"><?php echo $msgstr["list"]?></a>
+	<a href=javascript:Validate() class="btn btn-primary"><?php echo $msgstr["validate"]?></a>
+	<?php
+	if (!isset($arrHttp["moodle"]))
+		echo "<a href=javascript:Enviar() class=\"btn btn-success\"   >". $msgstr["update"]."</a>";?>
 
 <script>
 	var mygrid = new dhtmlXGridFromTable('tblToGrid');
@@ -988,19 +1018,18 @@ if (isset($fp)){
 </script>
 <br><br>
 </form>
-
-<form name=forma1 action=fdt_update.php method=post>
+<form name="forma1" action="fdt_update.php" method="post">
 <?php if (isset($arrHttp["fmt_name"])){
 	echo "<input type=hidden name=fmt_name value=".$arrHttp["fmt_name"].">\n";
 }
 	if (isset($arrHttp["fmt_desc"])) echo "<input type=hidden name=fmt_desc value=".$arrHttp["fmt_desc"].">\n";
 
 ?>
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=desc>
-<input type=hidden name=Opcion value=<?php echo $arrHttp["Opcion"]?>>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=archivo value=<?php echo $xarch?>>
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="desc">
+<input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="archivo" value="<?php echo $xarch ;?>">
 <?php if (isset( $arrHttp["ventana"])) echo "<input type=hidden name=ventana value=". $arrHttp["ventana"].">\n";
       if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>\n";
 	  if (isset($arrHttp["Fixed_field"]))  echo "<input type=hidden name=Fixed_field value=".$arrHttp["Fixed_field"].">\n";
@@ -1009,35 +1038,26 @@ if (isset($fp)){
 ?>
 
 </form>
-
-
-<form name=rowedit action=fdt_rowedit.php method=post target=WinRow>
-<input type=hidden name=ValorCapturado>
-<input type=hidden name=row>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=Opcion value=<?php echo $arrHttp["Opcion"]?>>
+<form name="rowedit" action="fdt_rowedit.php" method="post" target="WinRow">
+<input type="hidden" name="ValorCapturado">
+<input type="hidden" name="row">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
 </form>
-<form name=MFedit action=fdt.php method=post target=WinRow>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=tag>
+<form name="MFedit" action="fdt.php" method="post" target="WinRow">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="tag">
 </form>
-<form name=edit_picklist method=post target=PL action=picklist.php>
-<input type=hidden name=base>
-<input type=hidden name=pl_type>
-<input type=hidden name=picklist>
-<input type=hidden name=row>
-<input type=hidden name=type>
+<form name="edit_picklist" method="post" target="PL" action="picklist.php">
+<input type="hidden" name="base">
+<input type="hidden" name="pl_type">
+<input type="hidden" name="picklist">
+<input type="hidden" name="row">
+<input type="hidden" name="type">
 </form>
-
 </div>
 </div>
-<a class="btn btn-primary" href=javascript:Test()><?php echo $msgstr["test"]?></a>&nbsp; 
-	<a class="btn btn-warning" href=javascript:List()><?php echo $msgstr["list"]?></a>&nbsp;
-	<a class="btn btn-danger" href=javascript:Validate()><?php echo $msgstr["validate"]?></a>&nbsp;
-	<?php
-	if (!isset($arrHttp["moodle"]))
-		echo "<a class=\"btn btn-success\" href=javascript:Enviar()>". $msgstr["update"]."</a>";?>&nbsp; &nbsp; &nbsp; &nbsp;
-
+<?php include ("../common/footer.php");?>
 </body>
 </html>
 <script>

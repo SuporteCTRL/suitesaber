@@ -18,7 +18,8 @@ include("../common/header.php");
 include("javascript.php");
 ?>
 <script>
-function Validar(){	res=""
+function Validar(){
+	res=""
 	if (document.forma1.tag2[1].checked || document.forma1.tag2[2].checked) res="Y"
 	if (res==""){
 		alert ("<?php echo $msgstr["err2_1"]?>")
@@ -81,15 +82,15 @@ echo "<font color=white>&nbsp; &nbsp; Script: suggestions_status_ex.php</font>\n
 <div class="middle form">
 			<div class="formContent">
 
-<form method=post name=forma1 action=suggestions_status_update.php onSubmit="javascript:return false">
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=cipar value=<?php echo $arrHttp["base"].".par"?>>
-<input type=hidden name=sort value=<?php echo $arrHttp["sort"]?>>
-<input type=hidden name=ValorCapturado value="">
-<input type=hidden name=check_select value="">
-<input type=hidden name=Indice value="">
-<input type=hidden name=Mfn value="<?php echo $arrHttp["Mfn"]?>">
-<input type=hidden name=valor value="">
+<form method="post" name="forma1" action="suggestions_status_update.php" onSubmit="javascript:return false">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="cipar" value="<?php echo $arrHttp["base"].".par"?>">
+<input type="hidden" name="sort" value="<?php echo $arrHttp["sort"];?>">
+<input type="hidden" name="ValorCapturado" value="">
+<input type="hidden" name="check_select" value="">
+<input type="hidden" name="Indice" value="">
+<input type="hidden" name="Mfn" value="<?php echo $arrHttp["Mfn"];?>">
+<input type="hidden" name="valor" value="">
 <?php
 if (isset($arrHttp["see_all"])) echo "<input type=hidden name=see_all value=\"S\"> ";
 $fmt_test="S";

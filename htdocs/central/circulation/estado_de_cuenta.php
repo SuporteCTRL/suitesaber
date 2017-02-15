@@ -207,10 +207,14 @@ else
 			echo "&nbsp; &nbsp;<input type=radio name=sort value=date_reservation >".$msgstr["reserve_date"];
 			echo "&nbsp; &nbsp;<input type=radio name=sort value=date_assigned>".$msgstr["assigned_date"];
 			echo "&nbsp; &nbsp;<input type=radio name=sort value=date_attended>".$msgstr["loandate"];
+			
+
 			echo "<br><br>";
             echo "<div class=\"btn-group\">";
+
 			echo "<input class=\"btn btn-primary\" name=rs00 value=\"".$msgstr["rs00"]."\" onClick=\"javascript:Output('today','rs00')\" >";
 			echo "<input type=\"button\" class=\"btn btn-primary\" name=rs01 value=\"".$msgstr["rs01"]."\" onClick=\"javascript:Output('actives','rs01')\" >";
+
 			echo "<input type=\"button\" class=\"btn btn-primary\" name=rs02 value=\"".$msgstr["rs02"]."\" onClick=\"javascript:Output('assigned','rs02')\" >";
 			echo "<input type=\"button\" class=\"btn btn-primary\" name=rs03 value=\"".$msgstr["rs03"]."\" onClick=\"javascript:Output('overdued','rs03')\" >";
 			echo "<input type=\"button\" class=\"btn btn-primary\" name=rs04 value=\"".$msgstr["rs04"]."\" onClick=\"javascript:Output('attended','rs04')\" >";

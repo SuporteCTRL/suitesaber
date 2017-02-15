@@ -547,18 +547,16 @@ function Enviar(){
 </script>
 <body>
 <div class="sectionInfo">
-	<div class="breadcrumb">
+	<div class="breadcrumb"><h2><label>
 		<?php echo $msgstr["ecobj"];
 		if (isset($arrHttp["base"]))
 			echo " - ".$arrHttp["base"];
 		else
 			echo " - ".$base_sel;
 		?>
-	</div>
-	<div class="actions">
-<?php include("../circulation/submenu_prestamo.php");?>
+	</label></h2></div>
 
-	</div>
+
 	
 </div>
 <?php if (!isset($arrHttp["base"])){

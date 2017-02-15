@@ -128,44 +128,36 @@ echo "
 			<div class=\"actions\">\n";
 
 				
-if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/circulation/loans_borrowers_configure.html target=_blank>".$msgstr["edhlp"]."</a>";
+if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) 
 echo "<font Script: borrowers_configure.php </font>";
 echo "</div>
 		<div class=\"middle form\">
 			<div class=\"formContent\"> ";
-echo "<p><h5>".$msgstr["database"].": ".$arrHttp["base"]." &nbsp; &nbsp;[<a href=../dbadmin/fst_leer.php?base=".$arrHttp["base"]." target=_blank>Open FST</a>]"."  &nbsp; &nbsp;[<a href=../dbadmin/fdt_leer.php?base=".$arrHttp["base"]." target=_blank>Open FDT</a>]"."</h5>";
+echo "<p><h5>".$msgstr["database"].": ".$arrHttp["base"]." &nbsp; &nbsp;[<a href=../dbadmin/fst_leer.php?base=".$arrHttp["base"]." target=_blank>Open FST</a>]"."  [<a href=../dbadmin/fdt_leer.php?base=".$arrHttp["base"]." target=_blank>Open FDT</a>]"."</h5>";
 echo "<form name=forma1 action=borrowers_configure.php method=post>\n";
 echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";
 echo "
 
-<label> 1. ".$msgstr["uskey"]." (loans_uskey.tab)</label>
-<br>
-<input class=\"form-control\" type=\"text\" name=\"uskey\" value=\"".$uskey."\">
+<table class=\"table\">
 
-<label> 2. ".$msgstr["usname"]." (loans_uskey.tab)</label>
-<input  class=\"form-control\" type=\"text\" name=\"usname\" value=\"".$usname."\">
+<tr><td><label>1. ".$msgstr["uskey"]." (loans_uskey.tab)</td><td><input type=text name=uskey value=\"".$uskey."\"></td>
+<tr><td><label>2. ".$msgstr["usname"]." (loans_uskey.tab)</td><td><input type=text name=usname value=\"".$usname."\"></td>
+<tr><td><label>3. ".$msgstr["uspft"]." (loans_uskey.tab)</td><td><input type=text name=uspft value=\"".$uspft."\"></td>
+<tr><td><label>4. ".$msgstr["pft_uskey"]." (loans_uskey.pft)</td><td><textarea rows=2 cols=80 name=pft_uskey>".$pft_uskey."</textarea></td>
+<tr><td><label>5. ".$msgstr["pft_ustype"] ." (loans_ustype.pft)</td><td><textarea rows=2 cols=80 name=pft_ustype>".$pft_ustype."</textarea></td>
+<tr><td><label>6. ".$msgstr["pft_usvig"] ." (loans_usvig.pft)</td><td><textarea name=pft_usvig>".$pft_usvig."</textarea></td>
 
-<label> 3. ".$msgstr["uspft"]." (loans_uskey.tab) </label>
-<input  class=\"form-control\" type=\"text\" name=\"uspft\" value=\"".$uspft."\">
-
-<label> 4. ".$msgstr["pft_uskey"]." (loans_uskey.pft) </label>
-<input  class=\"form-control\" type=\"text\" name=\"pft_uskey\" value=\"".$pft_uskey."\">
-
-<label> 5. ".$msgstr["pft_ustype"] ." (loans_ustype.pft)</label>
-<input  class=\"form-control\" type=\"text\" name=\"pft_ustype\" value=\"".$pft_ustype."\">
-
-<label> 6. ".$msgstr["pft_usvig"] ." (loans_usvig.pft)</label>
-<input  class=\"form-control\" type=\"text\" name=\"pft_usvig\" value=\"".$pft_usvig."\">
-
-<label> 7. ".$msgstr["pft_usdisp"] ." (loans_usdisp.pft)</label>
-<input  class=\"form-control\" type=\"text\" name=\"pft_usdisp\" value=\"".$pft_usdisp."\">
-
-
+<tr><td><label>7. ".$msgstr["pft_usdisp"] ." (loans_usdisp.pft)</td><td><textarea name=pft_usdisp>".$pft_usdisp."</textarea></td>
+</table>
 ";
-echo "&nbsp; &nbsp;<a href=javascript:Test()>".$msgstr["test"]."</a>
-Mfn: <input type=text name=Mfn size=10>&nbsp; &nbsp;
+echo "<label> Mfn: </label> <input class=\"form-control\" type=text name=Mfn size=10>
+
+<br>
+<a class=\"btn btn-primary\" href=javascript:Test()>".$msgstr["test"]."</a>
+
+
 </form></div></div>";
-include("../common/footer.php");
+
 echo "</body></html>" ;
 
 ?>

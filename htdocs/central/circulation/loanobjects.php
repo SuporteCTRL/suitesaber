@@ -190,7 +190,7 @@ foreach  ($type_items as $var=>$value){
 
 	function Cancelar(){
 		elem = document.getElementById("acciones");
-		html="<a href=javascript:Enviar()><?php echo $msgstr["update"]?></a>&nbsp; &nbsp; &nbsp; &nbsp;"
+		html="<a href=javascript:Enviar()><?php echo $msgstr["update"]?></a>"
     	html+="<a href=configure_menu.php?encabezado=s><?php echo $msgstr["cancel"]?></a>"
         elem.innerHTML = html
         elem = document.getElementById("type_e");
@@ -369,15 +369,15 @@ foreach  ($type_items as $var=>$value){
 	function Redraw(sel,index){
 		Editar="Y"
     	elem = document.getElementById("type_e");
-    	
-    	html+="<a href=javascript:Aceptar_Item("+index+")><img src=../dataentry/img/aceptar.gif height=15 align=middle><?php echo $msgstr["acc_changes"]?></a>&nbsp &nbsp; <img src=../dataentry/img/toolbarCancelEdit.png align=middle><a href=javascript:Cancelar()><?php echo $msgstr["can_changes"]?></a>"
+    	html='<table class=\"table\">';
+    	html+="<a class=\"btn btn-primary\" href=javascript:Aceptar_Item("+index+")><i class=\"fa fa-check\" value=<?php echo $msgstr["acc_changes"]?> ></i></a> <a class=\"btn btn-danger\" href=javascript:Cancelar()><i class=\"fa fa-times\" value=<?php echo $msgstr["can_changes"]?></i></a>"
     	html+="</td></tr>"
     	cell=sel.split('|')
     	for (var c in RT){
     		html+="<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\"><td>"+RT[c]+"</td><td>"
     		switch (c){
     			case "0":
-    				html+="<select name=tipo_m>\n"
+    				html+="<select class=\"form-control\" name=tipo_m>\n"
     				for (a in TI){
     					selected=""
     					if (cell[c]==a) selected=" selected"
@@ -386,7 +386,7 @@ foreach  ($type_items as $var=>$value){
     				html+="</select></td>"
     				break
     			case "1":
-    				html+="<select name=tipo_u>\n"
+    				html+="<select class=\"form-control\" name=tipo_u>\n"
     				for (a in TU){
     					selected=""
     					if (cell[c]==a) selected=" selected"
@@ -408,7 +408,7 @@ foreach  ($type_items as $var=>$value){
 					Horas=""
 					if (cell[c]=="D") Dias=" checked"
 					if (cell[c]=="H") Horas=" checked"
-					html+="<input type=radio name=unidad value=D"+Dias+">"+"<?php echo $msgstr["days"]?>"+"<input type=radio name=unidad value=H"+Horas+"><?php echo $msgstr["hours"]?></td>"
+					html+="<input type=radio name=unidad value=D"+Dias+">"+"<label><?php echo $msgstr["days"];?></label>"+"<input type=radio name=unidad value=H"+Horas+"><label><?php echo $msgstr["hours"];?></label></td>"
 					break;
 				case "6":
     				html+="<input class=\"form-control\" type=text name=renov_n value=\""+cell[c]+"\"></td>"
@@ -446,10 +446,10 @@ foreach  ($type_items as $var=>$value){
 				    html+="<input type=checkbox name=copiasmismoitem value=Y"+chk+"></td>"
 				    break
 				case "15":
-    				html+="<input type=text name=fecha_u value=\""+cell[c]+"\" size=8> En formato ISO (YYYYMMAA)</td>"
+    				html+="<input type=text name=fecha_u value=\""+cell[c]+"\" size=8><label> En formato ISO (YYYYMMAA)</label></td>"
     				break
     			case "16":
-    				html+="<input type=text name=fecha_i value=\""+cell[c]+"\" size=8> En formato ISO (YYYYMMAA)</td>"
+    				html+="<input type=text name=fecha_i value=\""+cell[c]+"\" size=8><label> En formato ISO (YYYYMMAA)</label></td>"
     				break
 				case "17":
 					chk=""
@@ -464,14 +464,14 @@ foreach  ($type_items as $var=>$value){
     	}
     	elem.innerHTML = html+"</table>"
     	elem = document.getElementById("acciones")
-    	elem.innerHTML = "<a href=javascript:Aceptar_Item("+index+")><img src=../dataentry/img/aceptar.gif height=15 align=middle><?php echo $msgstr["acc_changes"]?></a><a href=javascript:Cancelar()><img src=../dataentry/img/toolbarCancelEdit.png align=middle><?php echo $msgstr["can_changes"]?></a>"
+    	elem.innerHTML = "<a class=\"btn btn-primary\" href=javascript:Aceptar_Item("+index+")><i class=\"fa fa-check\" value=<?php echo $msgstr["acc_changes"];?>></i></a> <a class=\"btn btn-danger\" href=javascript:Cancelar()><i class=\"fa fa-times\" value=<?php echo $msgstr["can_changes"];?></i></a>"
 
 	}
 
 	function Redraw_Table(){
 		Editar="N"   //PARA DARLE OTRO SENTIDO AL BOTÓN REGRESAR
     	elem = document.getElementById("type_e");
-    	html='<br><table class="listTable" border=0 width=100%>';
+    	html='<br><table class=\"table\">';
     	for (var c in RT_A){
     		html+= "<th>"+RT_A[c]+"</th>"
     	}
@@ -486,7 +486,7 @@ foreach  ($type_items as $var=>$value){
 
 		    		switch (c){
 		    			case "0":
-		    				html+="[<a class=\"btn btn-danger\" href=javascript:Eliminar("+i+")><i class=\"fa fa-times\" alt='<?php echo $msgstr["delete"]?>' title='<?PHP echo $msgstr["delete"]?>'></a></i>"
+		    				html+="[<a class=\"btn btn-danger\" href=javascript:Eliminar("+i+")><i class=\"fa fa-times\" alt='<?php echo $msgstr["delete"]?>' title='<?php echo $msgstr["delete"]?>'></a></i>"
 		    				html+=" <a class=\"btn btn-primary\" href=javascript:Agregar("+i+")><i class=\"fa fa-plus\" alt='<?php echo $msgstr["crear"];?>' title='<?php echo $msgstr["crear"]?>'></i><a href=javascript:Editar_Tabla("+i+")>"+TI[cell[c]]+" ("+cell[c]+")</a></td>\n"
 		    				break
 		    			case "1":
@@ -549,9 +549,9 @@ foreach  ($type_items as $var=>$value){
     	elem.innerHTML = html+"</table>"
     	elem = document.getElementById("acciones");
 
-        html="<a href=javascript:Enviar() class=\"btn btn-success\"><i class=\"fa fa-refresh\" value=\"<?php echo $msgstr["update"];?>\"></i></a>"
+        html="<a href=javascript:Enviar() class=\"btn btn-success\"><i class=\"fa fa-refresh\" value=<?php echo $msgstr["update"];?>> </i></a>"
 
-    	html+="<a href=configure_menu.php?encabezado=s class=\"btn btn-danger\"><i class=\"fa fa-times\" aria hidden=\"true\"<?php echo $msgstr["cancel"];?></a></td></tr>"
+    	html+="<a href=configure_menu.php?encabezado=s class=\"btn btn-danger\"> <i class=\"fa fa-times\" aria hidden=\"true\" value=<?php echo $msgstr["cancel"];?>> </i></a></td></tr>"
         elem.innerHTML = html
 
 	}
@@ -692,7 +692,7 @@ echo "
 ?>
 
     <form name="forma1">
-  	<a class="btn btn-primary" href="javascript:NuevoTipo()" ><i class="fa fa-plus" value="<?php echo $msgstr["crear"];?>"></i></a>
+  	<a class="btn btn-success" href="javascript:NuevoTipo()" ><i class="fa fa-plus" value="<?php echo $msgstr["crear"];?>"></i></a>
     <div id="type_e" class="middle list"> </div>
     <div id="acciones">
     <a href="javascript:Enviar()"><?php echo $msgstr['update']?></a>
@@ -701,7 +701,7 @@ echo "
 
 
 </form>
-<form name="forma2" action="loanobjects_update.php" method=post>
+<form name="forma2" action="loanobjects_update.php" method="post">
 <input type="hidden" name="ValorCapturado">
 <input type="hidden" name="desc">
 <input type="hidden" name="Opcion" value="">

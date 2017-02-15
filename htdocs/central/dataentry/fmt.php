@@ -772,7 +772,7 @@ switch ($arrHttp["Opcion"]) {
 	        	$ver="s";
 	        	//echo "<br><input type=checkbox value=".$arrHttp["Mfn"]." onclick=javascript:SeleccionarRegistro(".$arrHttp["Mfn"].")> ".$msgstr["seleccionar"];
 	        	echo "<table class=\"table table-striped\">
-	        	<td width=20></td><td>";
+	        	<td></td><td>";
 	        	if ($arrHttp["Formato"]!=""){
 	        		echo $registro;
 	        	}else{
@@ -879,7 +879,8 @@ switch ($arrHttp["Opcion"]) {
 		if (isset($arrHttp["Formato"]) and $arrHttp["Formato"]!=""){
         	include("scripts_dataentry.php");
         	include("toolbar_record.php");
-        	echo "<body><div class=\"middle form\">
+        	echo "<body>
+        	<div class=\"middle form\">
 			<div class=\"formContent\">";
 			echo LeerRegistroFormateado($arrHttp["Formato"]);
         	echo "</form></div></div></div>\n";

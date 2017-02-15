@@ -63,12 +63,10 @@ include("../common/institutional_info.php");
 </script>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-	<?php echo $msgstr["new_report"]?>
+	<h2><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i>   <label><?php echo $msgstr["new_report"];?></label></h2>
 	</div>
 	<div class="actions">
-		<a href="menu.php" class="defaultButton backButton">
-		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-		<span><strong><?php echo $msgstr["back"];?></strong></span></a>
+
 		<a href=javascript:Guardar() class="defaultButton saveButton">
 			<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
 			<span><strong><?php echo $msgstr["update"]?></strong></span>

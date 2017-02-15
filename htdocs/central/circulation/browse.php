@@ -153,7 +153,7 @@ echo "<body>";
          <form name=searchBox onsubmit="javascript:return false">
 		<div class="searchBox">
 				<label for="searchExpr">
-					<strong><?php echo $msgstr["buscar"]?></strong>
+					<label><?php echo $msgstr["buscar"];?></label>
 				</label>
 				<input type="text" name="Expresion" id="searchExpr" class="form-control" value="<?php if (isset($arrHttp["Expresion"])) echo trim(stripslashes($arrHttp["Expresion_b"]));;?>" />
 				<select class="form-control" name="indexes" class="textEntry">
@@ -173,9 +173,9 @@ foreach ($fp as $value){
 }
 ?>
 				</select>
-				<input type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="submit" onClick=javascript:document.diccionario.from.value=1;EjecutarBusqueda() />
-				<input type="submit" name="ok" value="<?php echo $msgstr["index"];?>" class="submit" onClick=javascript:PresentarDiccionario() />
-				<input type="submit" name="ok" value="<?php echo $msgstr["browse"];?>" class="submit" onClick=javascript:Browse() />
+				<input type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="submit" onClick="javascript:document.diccionario.from.value=1;EjecutarBusqueda()" />
+				<input type="submit" name="ok" value="<?php echo $msgstr["index"];?>" class="submit" onClick="javascript:PresentarDiccionario() "/>
+				<input type="submit" name="ok" value="<?php echo $msgstr["browse"];?>" class="submit" onClick="javascript:Browse()" />
          </form>
 		</div>
 			<table class="listTable">
@@ -248,19 +248,20 @@ echo "
  <input type=hidden name=Mfn>\n";
  if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>\n";
  $desde=$desde+1;
-echo "</form>
-<form name=diccionario method=post action=diccionario.php target=Diccionario>
-	<input type=hidden name=base value=users>
-	<input type=hidden name=cipar value=users.par>
-	<input type=hidden name=prefijo>
-	<input type=hidden name=Formato>
-	<input type=hidden name=campo>
-	<input type=hidden name=id>
-	<input type=hidden name=Diccio>
-	<input type=hidden name=from value=$desde>
-	<input type=hidden name=Opcion value=diccionario>
-	<input type=hidden name=Target value=s>
-	<input type=hidden name=Expresion>
+?>
+
+<form name="diccionario" method="post" action="diccionario.php" target="Diccionario">
+	<input type="hidden" name="base" value="users">
+	<input type="hidden" name="cipar" value="users.par">
+	<input type="hidden" name="prefijo">
+	<input type="hidden" name="Formato">
+	<input type="hidden" name="campo">
+	<input type="hidden" name="id">
+	<input type="hidden" name="Diccio">
+	<input type="hidden" name="from" value="$desde">
+	<input type="hidden" name="Opcion" value="diccionario">
+	<input type="hidden" name="Target" value="s">
+	<input type="hidden" name="Expresion">
 </form>
 
 

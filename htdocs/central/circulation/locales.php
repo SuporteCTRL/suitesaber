@@ -405,7 +405,7 @@ echo "<br>
 
 		<input type=checkbox name=sun value=sun";
 		if (trim($locales[0]["from"])!="" and trim($locales[0]["to"]!="")) echo " checked";
-		echo " onclick=LimpiarHorario(this)><label>".$msgstr["sun"]."</label>;
+		echo " onclick=LimpiarHorario(this)><label>".$msgstr["sun"]."</label>
 		<br>
 		<label> ".$msgstr["from"].": </label>
 		<input type=text class=\"form-control\" name=sun_from  value=".$locales[0]["from"].">

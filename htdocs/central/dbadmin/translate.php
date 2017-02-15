@@ -114,7 +114,8 @@ foreach ($msg as $key=>$value){
 	$v=explode('=',$value);
 	$nomb=$key;
 	echo "<tr><td width=20%>$ixmsg)";
-	echo " $value <label>".$key."</label></td><td ><input type=text class=\"form-control\" size=100 name=msg_$key value=\"$value\">\n";
+	echo " $value <label>".$key."</label></td>
+	<td>$value \n";
 	echo "</td>";
 
 }

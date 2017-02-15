@@ -82,7 +82,7 @@ if (isset($arrHttp["encabezado"])){
 
 
 <div class="helper">
-<?php echo "<font color=white> Script: fmt_update.php" ?></font>
+<?php echo " Script: fmt_update.php" ;?>
 	</div>
 <div class="middle form">
 			<div class="formContent">

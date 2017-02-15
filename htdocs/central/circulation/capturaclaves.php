@@ -65,11 +65,11 @@ if ($arrHttp["Formato"]=="ifp"){
 $IsisScript=$xWxis."ifp.xis";
 include("../common/wxis_llamar.php");
 $contenido = array_unique ($contenido);
-echo "<HTML>
+echo "<html>
 	<head>
 		<META HTTP-EQUIV=\"Pragma\" CONTENT=\"no-cache\">
 		<META HTTP-EQUIV=\"Cache-Control\" CONTENT=\"no-cache\">
-		<Title>Lista de términos</title>
+		<Title>Lista de tÃ©rminos</title>
 		<script languaje=Javascript>\n";
 echo "subC=\"".$arrHttp["subc"]."\"\n";
 echo "Repetible=\""; if (!isset($arrHttp["repetible"])) echo "0"; else echo $arrHttp["repetible"]; echo "\"\n";
@@ -127,16 +127,15 @@ echo "function AbrirIndice(Termino){
 </script>\n";
 ?>
 	</head>
-	<body LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" >
+	<body  >
 
-	<font color="black" size="1" face="arial"><?php echo $msgstr["ayudaterminos"]?>
-	<center>
-	<table cellpadding="0" cellspacing="0" border="1" width=100%>
-			<form method=post name=Lista onSubmit="javascript:return false">
-	<td  bgcolor=#cccccc align=center><font size=1 face="arial"><?php for ($i=65;$i<91;$i++ ) echo "<a href=javascript:AbrirIndice('".chr($i)."')>".chr($i)."</a>&nbsp; "?></td>
-	<tr>
-	<td width="95%" valign="top">
-	<Select name="autoridades" multiple size="20" style="width:460px" onchange=javascript:ObtenerTerminos()>
+	<label><?php echo $msgstr["ayudaterminos"];?></label>
+	
+	
+	<form method="post" name="Lista" onSubmit="javascript:return false">
+			<label><?php for ($i=65;$i<91;$i++ ) echo "<a href=javascript:AbrirIndice('".chr($i)."')>".chr($i)."</a>&nbsp; "?>
+	
+	<select name="autoridades" class="form-control"  onchange="javascript:ObtenerTerminos()">
 	<option></option>
 <?php
 
@@ -171,9 +170,13 @@ echo "function AbrirIndice(Termino){
 ?>
 	</select></td>
 
-	</table>
-	<table cellpadding=0 cellspacing=0 border=0 width=100% bgcolor=#cccccc>
-		<td><a href=Javascript:Continuar() class=boton><font size=1><?php echo $msgstr["continuar"]?></a></td>
-		<td class=menusec2><font size=1><?php echo $msgstr["avanzara"]?>: <input type=text name=ira size=15 value=""><a href=Javascript:IrA() onKeyPress="codes(event)" ><img src=../dataentry/img/ira.gif border=0 align=ABSBOTTOM></a></td>
-	</table>
+
+
+		<a href="Javascript:Continuar()"" class="btn btn-default">
+		<label><?php echo $msgstr["continuar"];?></label></a>
+		<label><?php echo $msgstr["avanzara"];?>:</label>
+		 <input type="text" class="form-control" name="ira" value="">
+		 <a href="Javascript:IrA()" onKeyPress="codes(event)">
+		 <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+
 	</form></body></html>

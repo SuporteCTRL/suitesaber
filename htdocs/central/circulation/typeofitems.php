@@ -88,23 +88,23 @@ echo "
 		<div class=\"sectionInfo\">
 			<div class=\"breadcrumb\"><h2><label>".
 				$msgstr["typeofitems"]."
-			</div></h2></label>
+			</div></label></h2>
 			
 			
 		<div class=\"middle form\">
 			<div class=\"formContent\">";
 ?>
 		<br>
-			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"];?></a>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"];?></a>
 
-			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"];?></a>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"];?></a>
 			
-			<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
 
-	<table   id=tblToGrid class="dhtmlxGrid">
+	<table id="tblToGrid" class="dhtmlxGrid">
 <?php
 	echo "<tr>";
-	foreach ($rows_title as $cell) echo "<td>$cell</td>\n";
+	foreach ($rows_title as $cell) echo "<td><label>$cell</label></td>\n";
   	echo "</tr>";
 
 	unset($fp);
@@ -168,7 +168,7 @@ echo "
 <form name="forma1" action="typeofitems_update.php" method="post">
 <input type="hidden" name="ValorCapturado">
 <input type="hidden" name="desc">
-<input type="hidden" name="Opcion" value=">
+<input type="hidden" name="Opcion" value="">
 <input type="hidden" name="base" value="users">
 </form>
 

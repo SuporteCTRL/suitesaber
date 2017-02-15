@@ -92,12 +92,12 @@ if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentac
 			<div class=\"formContent\">";
 ?>
 		<br>
-			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"];?></a>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"];?></a>
 
-			<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
-			<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
+			<a href="javascript:void(0)" class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
 
-	<table   id=tblToGrid class="dhtmlxGrid" style="height:400px">
+	<table class="table-striped"  id="tblToGrid" >
 <?php
 	echo "<tr>";
 	foreach ($rows_title as $cell) echo "<td>".str_replace(","," ",$cell)."</td>\n";
@@ -129,7 +129,7 @@ if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentac
 			$i=$i+1;
 			$value.='||||||';
 			$t=explode("|",$value);
-			echo "<td width=200>".$t[0]."</td><td width=300>".$t[1]."</td><td align=center>".$t[2]."</td>";
+			echo "<td>".$t[0]."</td><td>".$t[1]."</td><td>".$t[2]."</td>";
       		echo " </tr>";
 		}
 
@@ -138,8 +138,8 @@ if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentac
 ?>
 
 	</table>
-	<a class="btn btn-primary" href=javascript:Enviar()><?php echo $msgstr["update"];?></a>
-	<a class="btn btn-danger" href=configure_menu.php?encabezado=s><?php echo $msgstr["cancel"]?></a>
+	<a class="btn btn-primary" href="javascript:Enviar()"><?php echo $msgstr["update"];?></a>
+	<a class="btn btn-danger" href="configure_menu.php?encabezado=s"><?php echo $msgstr["cancel"];?></a>
 <script>
 
     nfilas=<?php echo $nfilas."\n"?>

@@ -115,7 +115,7 @@ if (isset($arrHttp["encabezado"])){
 	<!--			<h4>New Database</h4>-->
 
 				<div id="formRow01" class="formRow">
-					<label for="field01"><?php echo $msgstr["dbn"];?></label>
+					<label for="field01"><?php echo $msgstr["dbn"];?>:</label>
 					<div class="frDataFields">
 						<input class="form-control" type="text" name="nombre"  id="field01" value="">
 					
@@ -123,7 +123,7 @@ if (isset($arrHttp["encabezado"])){
 					
 				</div>
 				<div id="formRow02" class="formRow">
-					<label for="field02"><?php echo $msgstr["descripcion"];?></label>
+					<label for="field02"><?php echo $msgstr["descripcion"];?>:</label>
 					<div class="frDataFields">
 						<input class="form-control" type=text name="desc" id="field02">
 						<p>

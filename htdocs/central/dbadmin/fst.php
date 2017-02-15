@@ -122,7 +122,7 @@ if (isset($arrHttp["encabezado"])){
 }
 echo "<form name=fst method=post>";
 echo "<div class=\"sectionInfo\">
-	<div class=\"breadcrumb\">".$msgstr["fst"].": ".$arrHttp["base"]."</div>
+	<div class=\"breadcrumb\"><h2><label>".$msgstr["fst"].": ".$arrHttp["base"]."</label></h2></div>
 	<div class=\"actions\">";
 if ($arrHttp["Opcion"]=="new"){
 	if (isset($arrHttp["encabezado"])){
@@ -150,29 +150,30 @@ if ($arrHttp["Opcion"]=="new"){
 			<div class="formContent">
 
   
-   		<table class="table table-striped">
+   		<table class="table">
 	        <tr>
-			<td>
-				<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
-				<a href="javascript:void(0)" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
-				<a href="javascript:void(0)" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
-				<?php echo $msgstr['double_click']?>
-			</td>
-			<tr>
-				<td valign=top>
-					<div id="gridbox" width="650px" height="250px" style="left:0;top:0;;overflow:hidden"></div>
-				</td>
+			
+				<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"]?></a>
+				<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
+				<a href="javascript:void(0)" class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
+				<label><?php echo $msgstr['double_click'];?></label>
+			
+	
+				
+					<div id="gridbox" width="1000px" height="600px"></div>
+				
 
-			</tr>
-			<tr>
-				<td>
+		
 					<?php if ($arrHttp["Opcion"]!="new"){
-						echo $msgstr["testmfn"];
-						echo "<input type=text size=5 name=Mfn> <a href=javascript:Test()>".$msgstr["test"]."</a>";
+						echo "<label>" .$msgstr["testmfn"]. "</label>"  ;
+						echo "<input type=text class=\"form-control\" size=5 name=Mfn> 
+
+						
+						<a class=\"btn btn-primary\" href=javascript:Test()>".$msgstr["test"]."</a>";
 						}
 
 					?>
-						 <a class="btn btn-default" href='javascript:Enviar()' $msgstr"update"];?> <i class="fa fa-check" aria hidden="true" ></a></i>
+						 <a class="btn btn-success" href='javascript:Enviar()' $msgstr"update"];?> <i class="fa fa-check" aria hidden="true" ></a></i>
 					<?php
 					if ($encabezado=""){
 						if ($arrHttp["Opcion"]!="new")
@@ -185,7 +186,7 @@ if ($arrHttp["Opcion"]=="new"){
 			</tr>
 		</table>
 	</td>
-	<td valign=top>
+	
 	<iframe id="cframe" src="fdt_leer.php?Opcion=<?php echo $arrHttp["Opcion"]?>&base=<?php echo $arrHttp["base"]?>" width='100%' height="400" scrolling="yes" name="fdt"></iframe>
 	</td>
 		</table>
@@ -196,29 +197,13 @@ if ($arrHttp["Opcion"]=="new"){
   // mygrid.setSkin("modern");
    // mygrid.enableMultiline(true);
 
-	mygrid.setImagePath("../dataentry/js/dhtml_grid/imgs/");
+	
 
 	mygrid.setHeader("<?php echo $msgstr["id"]?>,<?php echo $msgstr["intec"]?> ,<?php echo $msgstr["formate"]?>");
-	mygrid.setInitWidths("40,100,500")
-	mygrid.setColAlign("left,left,left")
-	mygrid.setColTypes("ed,coro,ed");
-	mygrid.getCombo(1).put("","");
-	mygrid.getCombo(1).put("0","<?php echo $msgstr["fst_0"]?>");
-	mygrid.getCombo(1).put("1","<?php echo $msgstr["fst_1"]?>");
-	mygrid.getCombo(1).put("2","<?php echo $msgstr["fst_2"]?>");
-	mygrid.getCombo(1).put("3","<?php echo $msgstr["fst_3"]?>");
-	mygrid.getCombo(1).put("4","<?php echo $msgstr["fst_4"]?>");
-	mygrid.getCombo(1).put("5","<?php echo $msgstr["fst_5"]?>");
-	mygrid.getCombo(1).put("6","<?php echo $msgstr["fst_6"]?>");
-	mygrid.getCombo(1).put("7","<?php echo $msgstr["fst_7"]?>");
-	mygrid.getCombo(1).put("8","<?php echo $msgstr["fst_8"]?>");
-	mygrid.setColSorting("int,int")
-    mygrid.enableAutoHeigth(true,400);
 
-    mygrid.enableDragAndDrop(true);
-	//mygrid.enableLightMouseNavigation(true);
-	mygrid.enableMultiselect(true);
-
+	
+	
+   
 	mygrid.init();
     i=-0
 
@@ -247,7 +232,7 @@ if ($arrHttp["Opcion"]=="new"){
 				echo "i=$i\n
 				id=(new Date()).valueOf()
 				mygrid.addRow(id,['".trim($t[0])."','".trim($t[1])."','".trim($t[2])."'],i)\n
-				mygrid.setRowTextStyle( id,\"font-family:courier new;font-size:12px;\")\n ";
+			";
 			}
 		}
    }

@@ -43,9 +43,9 @@ if ($arrHttp["Opcion"]!="new"){
 }
 foreach ($fp as $value){
 	$t=explode('|',$value);
-	echo "<tr><td bgcolor=white>$t[1]</td><td bgcolor=white>".$t[2]."</td><td bgcolor=white>".$t[5]."</td><td bgcolor=white>";
+	echo "<tr><td>$t[1]</td><td>".$t[2]."</td><td>".$t[5]."</td><td>";
 	if ($t[4]==1) echo "R";
-	echo "</td><td bgcolor=white>".$t[12]."</td>";
+	echo "</td><td>".$t[12]."</td>";
 }
 ?>
 </table>

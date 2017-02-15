@@ -24,22 +24,21 @@ echo "
 			</div>
 			<div class=\"actions\">\n";
 
-				echo "<a href=\"loanobjects.php?encabezado=s\" class=\"defaultButton backButton\">
-					<img src=\"../images/defaultButton_iconBorder.gif\" alt=\"\" title=\"\" />
-					<span><strong>". $msgstr["back"]."</strong></span>
-				</a>
+				echo "
 			</div>
-			<div class=\"spacer\">&#160;</div>
+			
 		</div>
 		<div class=\"middle form\">
 			<div class=\"formContent\">\n";
+
 $archivo=$db_path."circulation/def/".$_SESSION["lang"]."/typeofitems.tab";
 if (!file_exists($archivo)) $archivo=$db_path."circulation/def/".$lang_db."/typeofitems.tab";
 $fp=fopen($archivo,"w");
-$ValorCapturado=urldecode($arrHttp["ValorCapturado"]);
+@  $ValorCapturado=urldecode($arrHttp["ValorCapturado"]);
 fwrite($fp,$ValorCapturado);
 fclose($fp);
-echo "<h4>circulation/def/".$_SESSION["lang"]."/typeofitems.tab<strong>". $msgstr["saved"]." </strong></h4>";
+echo "<div class=\"alert alert-success\">
+<strong>". $msgstr["saved"]." </strong> circulation/def/".$_SESSION["lang"]."/typeofitems.tab</div>";
 echo "</div></div>";
 include("../common/footer.php");
 echo "
