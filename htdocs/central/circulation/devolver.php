@@ -141,13 +141,10 @@ include("../common/institutional_info.php");
 	<div class="breadcrumb">
 		<h2><i class="fa fa-reply fa-2x"></i>   <label><?php echo $msgstr["return"];?></label></h2>
 	</div>
-	<div class="actions">
-		<?php include("submenu_prestamo.php");?>
-	</div>
 	
 </div>
 <?php
-echo "<font  Script: devolver.php </font>
+echo "<label> Script: devolver.php </label>
 	</div>";
 // prestar, reservar o renovar
 ?>
@@ -166,9 +163,9 @@ echo "<font  Script: devolver.php </font>
         <input type="hidden" name="searchExpr">
         
 <br><br>
-		<input type="button" class="btn btn-primary" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
+		<button class="btn btn-primary" name="list" onclick="javascript:AbrirIndiceAlfabetico();return false"><i class="fa fa-list" value="<?php echo $msgstr["list"];?>"></i></button>
 
-		<input type="submit" class="btn btn-primary" name="reservar" value="<?php echo $msgstr["return"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+		<button class="btn btn-warning" name="reservar" onclick="javascript:EnviarForma()"><i class="fa fa-reply" value="<?php echo $msgstr["return"];?>"></i></button>
 		
 		<br>
 		<?php echo $msgstr["clic_en"]." <i>[".$msgstr["return"]."]</i> ".$msgstr["para_c"]?>

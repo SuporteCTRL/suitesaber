@@ -29,7 +29,7 @@ $base=$arrHttp["base"];
   <input type="file" name="archivo" id="archivo" />
   <br><br>
   <label>Select the operation:</label>
-  <select name="OpISO">
+  <select class="form-control" name="OpISO">
   <option>append</option>
   <option>create</option>
   </select>
@@ -42,7 +42,7 @@ $base=$arrHttp["base"];
 
   echo " <input type=\"hidden\" value=\"$base\" name=\"base\"/>";
   ?>
-  <input class="btn btn-default" type="submit" value="Send"/>
+  <input class="btn btn-primary" type="submit" value="Send"/>
   </form>
 
 <?php

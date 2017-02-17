@@ -43,22 +43,15 @@ $straux.=$output[$i]."<br>";
 <br>
 <div class="middle form">
 	<div class="formContent">
-<form name=maintenance>
-<table cellspacing=5 width=400 align=center>
-	<tr>
-		<td>
+<form name="maintenance">
 
-		<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+	
+		<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
         
-             <br>
-			<ul>
-			<li>
-          <?  
+          <?php
 		  echo "<h3>Query: $strINV"."</h3><br>"; 
 		  ?>
-            </li>
-           <br>
-            <li>
+           
 			<?php 
 			
 			if($straux!="")
@@ -69,17 +62,13 @@ if($base=="")
 {
 echo"NO database selected";
 }
-?></li>
+?>
 
-            
-			</ul>
-
-		</td>
-</table></form>
-<form name=admin method=post action=administrar_ex.php onSubmit="Javascript:return false">
-<input type=hidden name=base>
-<input type=hidden name=cipar>
-<input type=hidden name=Opcion>
+</form>
+<form name="admin" method="post" action="administrar_ex.php" onSubmit="Javascript:return false">
+<input type="hidden" name="base">
+<input type="hidden" name="cipar">
+<input type="hidden" name="Opcion">
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=s>"?>
 </form>
 </div>

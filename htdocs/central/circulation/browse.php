@@ -173,7 +173,7 @@ foreach ($fp as $value){
 }
 ?>
 				</select>
-				<input type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="submit" onClick="javascript:document.diccionario.from.value=1;EjecutarBusqueda()" />
+				<input type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="btn btn-primary" onClick="javascript:document.diccionario.from.value=1;EjecutarBusqueda()" />
 				<input type="submit" name="ok" value="<?php echo $msgstr["index"];?>" class="submit" onClick="javascript:PresentarDiccionario() "/>
 				<input type="submit" name="ok" value="<?php echo $msgstr["browse"];?>" class="submit" onClick="javascript:Browse()" />
          </form>

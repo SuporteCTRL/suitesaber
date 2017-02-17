@@ -295,16 +295,14 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 		  if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") echo " - ".$msgstr["users"].": ".$arrHttp["usuario"];
 		?></label></h2>
 	</div>
-	<div class="actions">
-		<?php include("submenu_prestamo.php");?>
-	</div>
+	
 
 </div>
 <div class="helper">
 <?php 
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 	
-echo "<font color=white>&nbsp; &nbsp; Script: prestar.php </font>
+echo "<label> Script: prestar.php </label>
 	</div>";
 // prestar, reservar o renovar
 ?>
@@ -376,7 +374,7 @@ if (file_exists($db_path."loans.dat")){
 		</td><td>
 		<?php if (isset($LOAN_POLICY) and $LOAN_POLICY=="BY_USER"  ){
 			?>
-			<input type=text name="inventory_sel" id="inventory_sel" value="" class="form-control">
+			<input name="inventory_sel" id="inventory_sel" value="" class="form-control">
 	<?php }else{
 			?>
 		<textarea name="inventory_sel" id="inventory_sel" value="" class="form-control" ></textarea>
@@ -384,14 +382,15 @@ if (file_exists($db_path."loans.dat")){
 
 	?>
 	<br>
-	    <input type="button" name="list" value="<?php echo $msgstr["list"];?>" class="btn btn-primary" onclick="javascript:AbrirIndice('<?php if ($sel_base=="S") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
+	    <button  name="list"  class="btn btn-primary" onclick="javascript:AbrirIndice('<?php if ($sel_base=="S") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"><i class="fa fa-list" value="<?php echo $msgstr["list"];?>"></i></button>
         <div id="kardex" style="display:none;">
             <br>
-			Año: <input type=text name=year size=4>
-			Volumen:<input type=text name=volumen size=8>
-			Número:<input type=text name=numero size=8>
+
+			Año: <input type="text" name="year" class="form-control">
+			Volumen:<input type="text" name="volumen" class="form-control">
+			Número:<input type="text" name="numero" class="form-control">
 		</div>
-		</td>
+		
 <?php
 if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 			echo "
@@ -427,7 +426,7 @@ if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 
 
 	
-		<label for="searchExpr"><?php echo $msgstr["usercode"]?></label>
+		<label for="searchExpr"><?php echo $msgstr["usercode"];?>:</label>
 		
 		<input type="text" name="usuario" id="usuario" class="form-control"
 <?php
@@ -437,12 +436,14 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="")
  onclick="document.inventorysearch.usuario.value=''"
 />
 <br>
-		<input type="button" name="list" value="<?php echo $msgstr["list"]?>" class="btn btn-primary" onclick="javascript:AbrirIndice('U',document.inventorysearch.usuario)"/></td>
+		<button name="list" class="btn btn-primary" onclick="javascript:AbrirIndice('U',document.inventorysearch.usuario)"/><i class="fa fa-list" value="<?php echo $msgstr["list"];?>"></i></button>
 
 		<br>
 		<label for="searchExpr"><?php echo $msgstr["comments"]?></label>
 		<br>
-		<input type=text name=comments class="form-control">
+		<input type="text" name="comments" class="form-control">
+		<br>
+		
 		<input type="submit" name="prestar" value="<?php echo $msgstr["loan"]?>" class="btn btn-primary" onclick="javascript:EnviarForma()"/>
 <br>
 		

@@ -97,16 +97,16 @@ if (isset($ASK_LPN) AND $ASK_LPN=="Y"){
 		}
 ?>
 		
-		<label for="searchExpr"><?php echo $msgstr["inventory"];?></label>
+		<label for="searchExpr"><?php echo $msgstr["inventory"];?>:</label>
 		
 		<input type="text" class="form-control" name="searchExpr" id="searchExpr" value="" class="textEntry"  />
        
         <input type="hidden" name="base" value="trans">
         <?php if (isset($arrHttp["usuario"])) echo "<input type=\"hidden\" name=usuario value=".$arrHttp["usuario"]."?>"?>
 		<br>
-		<input class="btn btn-primary" type="button" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndiceAlfabetico();return false"/>
+		<button class="btn btn-primary" name="list" onclick="javascript:AbrirIndiceAlfabetico();return false"><i class="fa fa-list" value="<?php echo $msgstr["list"];?>"></i></button>
 		
-		<input class="btn btn-warning" type="submit" name="renovar" value="<?php echo $msgstr["renew"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma()"/>
+		<button class="btn btn-warning" name="renovar" onclick="javascript:EnviarForma()"><i class="fa fa-refresh" value="<?php echo $msgstr["renew"];?>"></i></button>
 		</td>
 
 

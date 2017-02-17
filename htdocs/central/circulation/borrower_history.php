@@ -129,39 +129,35 @@ if (isset($arrHttp["usuario"]) and $arrHttp["usuario"]!="") $link_u="&usuario=".
 	<div class="breadcrumb">
 		<h2><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>   <label><?php echo $msgstr["statment"]?></label></h2>
 	</div>
-	<div class="actions">
-		<?php include("submenu_prestamo.php");?>
-	</div>
+	
 	
 </div>
 
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 	
-echo "<font Script: borrower_history.php</font>\n";
+echo "<label> Script: borrower_history.php</label>\n";
 ?>
 <br>
 	</div>
-<div class="middle list">
-	<div class="searchBox">
+
 	<form name="usersearch" action="" method="post" onsubmit="javascript:return false">
 	<input type="hidden" name="Indice">
 	
 		<label for="searchExpr"><?php echo $msgstr["usercode"];?></label>
 		
-		<input class="form-control" type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="textEntry" onfocus="this.className = 'textEntry textEntryFocus';"  onblur="this.className = 'textEntry';" />
+		<input class="form-control" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>">
 		<br>
 
-		<input class="btn btn-primary" type="button" name="index" value="<?php echo $msgstr["list"];?>" class="submit" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
+		<button class="btn btn-primary" name="index" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)"><i class="fa fa-list" value="<?php echo $msgstr["list"];?>"></i></button>
 
-		<input class="btn btn-warning" type="button" name="buscar" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('U')"/>
-		</td></table>
+		<button class="btn btn-warning" name="buscar" onclick="javascript:EnviarForma('U')"><i class="fa fa-search" value="<?php echo $msgstr["search"];?>"></i></button>
+		
 	</form>
-	</div>
 	
-	<dd>
-		<?php echo $msgstr["clic_en"]." <i>".$msgstr["search"]."</i> ".$msgstr["para_c"]?>
-</div>
+	<label>
+		<?php echo $msgstr["clic_en"]." ".$msgstr["search"]." ".$msgstr["para_c"];?></label>
+
 <form name="EnviarFrm" method="post">
 <input type="hidden" name="base" value="<?php echo $arrHttp["base"]?>">
 <input type="hidden" name="usuario" value="">

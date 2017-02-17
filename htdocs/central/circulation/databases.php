@@ -87,9 +87,9 @@ if (file_exists($db_path."loans.dat")){
 echo "<form name=forma1 action=databases_configure.php >\n";
 echo "<label>".$msgstr["loan_option"].":</label> ";
 
-echo "<input type=radio name=loan_option value=copies>".$msgstr["with_copies"]." ";
+echo "<input type=radio name=loan_option value=copies><label>".$msgstr["with_copies"]." </label>";
 echo "<br>";
-echo "<input type=radio name=loan_option value=nocopies $loans_dat>".$msgstr["no_copies"]." ";
+echo "<input type=radio name=loan_option value=nocopies $loans_dat><label>".$msgstr["no_copies"]." </label>";
 echo "<br><br>";
 echo "<label>".$msgstr["seldbdoc"]."</label>";
 

@@ -708,12 +708,13 @@ switch ($arrHttp["Opcion"]) {
         	echo "	<div class=\"middle form\">
 						<div class=\"formContent\">
 						<table class=\"table table-striped\">
-						<td width=10>
+						<td>
 						</td><td>\n";
 			//if ($wxisUrl!="") echo $wxisUrl."<br>";
 
 			echo "<label>".$msgstr["expresion"]."</label>:
-			<input type=text class=\"form-control\" name=nueva_b  value=\"".stripslashes($arrHttp["Expresion"])."\"><a href=javascript:NuevaBusqueda()>Buscar</a></font>";
+			<input type=text class=\"form-control\" name=nueva_b  value=\"".stripslashes($arrHttp["Expresion"])."\">
+			<a class=\"btn btn-default\" href=javascript:NuevaBusqueda()>Buscar</a></font>";
 			InsertarEnlaces($arrHttp["base"]);
 			echo "<label>Records:".$resultado."</label></div></div>\n";
 			$arrHttp["Mfn"] =1;
@@ -730,7 +731,7 @@ switch ($arrHttp["Opcion"]) {
 	        	$ver="s";
 	        	if ($arrHttp["Formato"]!=""){
 	        		echo "<table class=\"table table-striped\">
-	        		<td width=10></td>
+	        		<td></td>
 	        		<td><label>$registro.</td></label>";
 	        	}else{
 	        		$res=LeerRegistro($base,$cipar,$arrHttp["Mfn"],$maxmfn,"leer",$arrHttp["login"],$password,"");

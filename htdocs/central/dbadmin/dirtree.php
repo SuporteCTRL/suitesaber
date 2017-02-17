@@ -635,7 +635,7 @@ structure from the server to the client computer , can be opened or saved.
     }
     if ($ERROR_FUNCTION == true) {
         PAGE_HEADER("FILE MANAGER - DIRTREEVIEW", "DOWNLOAD FILE", "ORANGE", "BLACK");
-        ?>
+    ?>
         <table widht="100%" border="0" cellpadding="8" cellspacing="0" class="td">
             <tr>
                 <td valign="top" align="left">
@@ -661,7 +661,8 @@ structure from the server to the client computer , can be opened or saved.
                         </tr>
                         <tr>
                             <td><center><input type="Submit" name="downloadfileform3b" value="Accept"></td>
-        <?php }
+        <?php
+         }
         ?>
                         </tr>
                     </table>
@@ -818,7 +819,7 @@ This function show the File functions options, the client must choose between a
 different button options.
 */
     PAGE_HEADER("DIRECTORY MANAGER - DIRTREEVIEW", "FILE FUNCTIONS", "BLACK", "ORANGE");
-    ?>
+ ?>
     <table widht="100%" border="0" cellpadding="8" cellspacing="0" class="td">
         <tr>
             <td valign="top" align="left">
@@ -886,7 +887,7 @@ This function show the Directory functions options, the client must choose
 between a different button options.
 */
     PAGE_HEADER("DIRECTORY MANAGER - DIRTREEVIEW", "DIRECTORY FUNCTIONS", "BLACK", "blue");
-    ?>
+ ?>
    <table widht="100%" border="0" cellpadding="8" cellspacing="0" class="td">
         <tr>
             <td valign="top" align="left">
@@ -912,13 +913,13 @@ between a different button options.
     <?php
     if ($_SESSION['privileges'] == 'all') {
         if ($_SESSION['File_Extension'] == "") {
-            ?>
+    ?>
                                 <tr>
                                 <td></td><td align="left" valign="top"><input type="radio" value="removedir" name="ACTION"> Remove Folder & Subfolders</Td>
                                 </tr>
     <?php
         }
-        ?>
+    ?>
                             <tr>
                                 <td></td><td align="left" valign="top"><input type="radio" value="renamedir" name="ACTION"> Rename Folder</td>
                             </tr>

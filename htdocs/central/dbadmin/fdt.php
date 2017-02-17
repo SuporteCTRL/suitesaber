@@ -263,7 +263,7 @@ function Validate(Opcion){
    
     msgwin.document.writeln("td{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
-	msgwin.document.writeln("<body><table class=\"table table-bordered\">")
+	msgwin.document.writeln("<body><table class=\"table\">")
 	EncabezarFilas("row")
 	cols=mygrid.getColumnCount()
 	rows=mygrid.getRowsNum()
@@ -540,7 +540,7 @@ function List(){
     msgwin.document.writeln("td{font-family:arial; font-size:8pt;}")
     msgwin.document.writeln("</style>")
     msgwin.document.writeln("<body>")
-	msgwin.document.writeln("<table class=\"table table-bordered\">")
+	msgwin.document.writeln("<table class=\"table\">")
 	EncabezarFilas("")
 	cols=mygrid.getColumnCount()
 	rows=mygrid.getRowsNum()
@@ -773,7 +773,7 @@ if (isset($arrHttp["encabezado"])){
 
             <label><?php echo $msgstr['double_click'];?></label>
 
-	<table class="table table-bordered" id="tblToGrid">
+	<table class="table" id="tblToGrid">
 <?php
 echo "<tr>";
 $tope=0;

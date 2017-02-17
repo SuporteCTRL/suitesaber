@@ -310,33 +310,32 @@ if (file_exists($db_path."loans.dat")){
 
 
 
-	<input type="hidden" name="inventory">
+	<input type="hidden" name="inventory"><br>
 
-		<br><br>
 				<label for="searchExpr"><?php echo $msgstr["inventory"];?></label>
 			
-				<textarea class="form-control" name="inventory_sel" id="inventory_sel" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" rows=5 cols=50/></textarea>
+				<input class="form-control" name="inventory_sel" id="inventory_sel" value=""  />
 				<br>
 
-				<input class="btn btn-primary" type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('<?php if ($sel_base=="Y") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"/>
+				<button class="btn btn-primary" name="list" onclick="javascript:AbrirIndice('<?php if ($sel_base=="Y") echo "S"; else echo "I";?>',document.inventorysearch.inventory_sel);return false"><i class="fa fa-list" value="<?php echo $msgstr["list"];?>"></i></button>
 
-				<input class="btn btn-warning" type="submit" name="buscar" value="<?php echo $msgstr["search"]?>" class="submit" onclick="javascript:EnviarForma()"/>
-			</td>
-		</table>
+				<button class="btn btn-warning" name="buscar" onclick="javascript:EnviarForma()"><i class="fa fa-search" value="<?php echo $msgstr["search"];?>"></i></button>
+			
+	
 	</div>
 <br><br><br>
 	<div class="searchBox">
 	
 		<label for="searchExpr"><?php echo $msgstr["controlnum"];?></label>
 		
-		<input class="form-control" type="text" name="control" id="control" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
+		<input class="form-control"  name="control" id="control" >
 		<br>
 
-		<input class="btn btn-primary" type="button" name="list" value="<?php echo $msgstr["list"]?>" class="submit" onclick="javascript:AbrirIndice('<?php if ($sel_base=="Y") echo "SC"; else echo "C";?>',document.inventorysearch.control)"/>
+		<button class="btn btn-primary" name="list" onclick="javascript:AbrirIndice('<?php if ($sel_base=="Y") echo "SC"; else echo "C";?>',document.inventorysearch.control)"><i class="fa fa-list" value="<?php echo $msgstr["list"];?>"></i></button>
 
-		<input class="btn btn-warning" type="submit" name="ok" value="<?php echo $msgstr["search"]?>" class="submit" onClick=EnviarForma() />
-		</td></table>
-	<p>
+		<button class="btn btn-warning" name="ok" onClick="javascript:EnviarForma()"><i class="fa fa-search" value="<?php echo $msgstr["search"]?>"></i></button>
+	
+
 
 	</form>
 	<form name="busqueda" method="post" action="buscar.php" onsubmit="javascript:return false">

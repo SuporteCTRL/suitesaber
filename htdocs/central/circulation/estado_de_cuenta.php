@@ -160,12 +160,11 @@ else
 		<label for="searchExpr"><?php echo $msgstr["usercode"];?></label>
 
 		
-		<input type="text" name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="form-control">
+		<input name="usercode" id="code" value="<?php if (isset($arrHttp["usuario"])) echo $arrHttp["usuario"]?>" class="form-control">
 <br>
-		<input type="button" name="index" value="<?php echo $msgstr["list"]?>" class="btn btn-primary" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)" />
+		<button class="btn btn-primary" name="index" onClick="javascript:AbrirIndice('U',document.usersearch.usercode)"><i class="fa fa-list" value="<?php echo $msgstr["list"];?>"></i></button>
 
-		<input type="button" name="buscar" value="<?php echo $msgstr["search"]?>" class="btn btn-warning" onclick="javascript:EnviarForma('U')"/>
-
+		<button name="buscar" class="btn btn-warning" onclick="javascript:EnviarForma('U')"><i class="fa fa-search" value="<?php echo $msgstr["search"]?>"></i></button>
 	</form>
 	</div>
 	
@@ -174,7 +173,7 @@ else
 <?php if (!isset($arrHttp["reserve"]) and !isset($arrHttp["reserve_ex"])){
 ?>
 
-	<div class="searchBox">
+	
 
 	<label><?php echo $msgstr["ec_inv"];?></label>
 
@@ -182,44 +181,52 @@ else
 			<label><?php echo $msgstr["inventory"];?></label>
 		</label>
 	
-		<input type="text" name="inventory" id="searchExpr" value="" class="textEntry" onfocus="this.className = 'textEntry';"  onblur="this.className = 'textEntry';" />
+		<input class="form-control" name="inventory" id="searchExpr">
+		<br>
 
-		<input type="button" name="list" value="<?php echo $msgstr["list"];?>" class="submit" onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"/>
-		<input type="button" name="buscar" value="<?php echo $msgstr["search"];?>" xclass="submitAdvanced" onclick="javascript:EnviarForma('I')"/>
+		<button class="btn btn-primary" name="list" onclick="javascript:AbrirIndice('I',document.inventorysearch.inventory)"><i class="fa fa-list" value="<?php echo $msgstr["list"];?>" ></i></button> 
+
+		<button class="btn btn-warning" name="buscar"  onclick="javascript:EnviarForma('I')"><i class="fa fa-search" value="<?php echo $msgstr["search"];?>"></i></button>
+
+
+
+
 	
 
-
-	</div>
-
 <?php } ?>
-	<br>
+
+
 		<?php echo $msgstr["clic_en"]." ".$msgstr["search"]." ".$msgstr["para_c"];
 
+
 		if ((isset($arrHttp["reserve"]) and $arrHttp["reserve"]=="S") or (isset($arrHttp["reserve_ex"]) and $arrHttp["reserve_ex"]=="S")) {
-			echo "<p>";
-			echo "<h3>".$msgstr["reports"]."</h3>";
-			echo  $msgstr["orderby"];
-			echo ":<br>";
+			echo "<h3>".$msgstr["reports"].":</h3>
+			".$msgstr["orderby"].":<br>
 			
          	
-         	echo "<input type=radio name=sort value=name>".$msgstr["name"];
+         	
+         	<input type=radio name=sort value=name>".$msgstr["name"]."
          		
-			echo "&nbsp; &nbsp;<input type=radio name=sort value=date_reservation >".$msgstr["reserve_date"];
-			echo "&nbsp; &nbsp;<input type=radio name=sort value=date_assigned>".$msgstr["assigned_date"];
-			echo "&nbsp; &nbsp;<input type=radio name=sort value=date_attended>".$msgstr["loandate"];
+			<input type=radio name=sort value=date_reservation >".$msgstr["reserve_date"]."
+			<input type=radio name=sort value=date_assigned>".$msgstr["assigned_date"]."
+			<input type=radio name=sort value=date_attended>".$msgstr["loandate"]."
 			
 
-			echo "<br><br>";
-            echo "<div class=\"btn-group\">";
+			<br><br>
+            <div class=\"btn-group\">
 
-			echo "<input class=\"btn btn-primary\" name=rs00 value=\"".$msgstr["rs00"]."\" onClick=\"javascript:Output('today','rs00')\" >";
-			echo "<input type=\"button\" class=\"btn btn-primary\" name=rs01 value=\"".$msgstr["rs01"]."\" onClick=\"javascript:Output('actives','rs01')\" >";
+			<button class=\"btn btn-primary\" name=rs00 onClick=\"javascript:Output('today','rs00')\" >".$msgstr["rs00"]."</button>
 
-			echo "<input type=\"button\" class=\"btn btn-primary\" name=rs02 value=\"".$msgstr["rs02"]."\" onClick=\"javascript:Output('assigned','rs02')\" >";
-			echo "<input type=\"button\" class=\"btn btn-primary\" name=rs03 value=\"".$msgstr["rs03"]."\" onClick=\"javascript:Output('overdued','rs03')\" >";
-			echo "<input type=\"button\" class=\"btn btn-primary\" name=rs04 value=\"".$msgstr["rs04"]."\" onClick=\"javascript:Output('attended','rs04')\" >";
-			echo "<input class=\"btn btn-primary\" name=rs05 value=\"".$msgstr["rs05"]."\" onClick=\"javascript:Output('cancelled','rs05')\"  >";
-			echo "<br><br></div>";
+			<button class=\"btn btn-primary\" name=rs01 onClick=\"javascript:Output('actives','rs01')\" >".$msgstr["rs01"]."</button>
+
+			<button class=\"btn btn-primary\" name=rs02 onClick=\"javascript:Output('assigned','rs02')\" >".$msgstr["rs02"]."</button>
+			
+            <button class=\"btn btn-primary\" name=rs03 onClick=\"javascript:Output('overdued','rs03')\" >".$msgstr["rs03"]."</button>
+			
+			<button class=\"btn btn-primary\" name=rs04 onClick=\"javascript:Output('attended','rs04')\" >".$msgstr["rs04"]."</button>
+
+		   <button class=\"btn btn-primary\" name=rs05  onClick=\"javascript:Output('cancelled','rs05')\" >".$msgstr["rs05"]."</button>
+			<br><br></div>";
 		}
 ?>
 </form>
@@ -247,7 +254,7 @@ else
 
 
 
-<?php include("../common/footer.php");
+<?php 
 echo "</body></html>" ;
 if (isset($arrHttp["error"]) and $arrHttp["inventory"]!=""){
 	echo "
