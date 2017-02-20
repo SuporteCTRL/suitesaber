@@ -13,12 +13,7 @@ if (!isset($arrHttp["Opcion"])) $arrHttp["Opcion"]="";
 ?>
 <html>
 <link rel="STYLESHEET" type="text/css" href="../css/styles.css">
-<style>
-	td{
-		font-family:arial;
-		font-size:10px;
-	}
-</style>
+
 <?php echo "<font>Script: fdt_leer.php</font><br>"?>
  <font ><?php echo $msgstr["fdt"].". ".$msgstr["database"]?>: <?php echo $arrHttp["base"]?>
  <font >

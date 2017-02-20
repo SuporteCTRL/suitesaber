@@ -76,7 +76,7 @@ require_once ("../lang/admin.php");
 
 include("../common/header.php");
 ?>
-<script language=Javascript src=../dataentry/js/selectbox.js></script>
+<script language="Javascript" src="../dataentry/js/selectbox.js"></script>
 <?php
 
 function InsertarEnlaces($base){

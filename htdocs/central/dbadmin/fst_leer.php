@@ -12,25 +12,29 @@ include("../lang/dbadmin.php");
 
 ?>
 <xlink rel="STYLESHEET" type="text/css" href="../css/styles.css">
-<style>
-	td{
-		font-family:arial;
-		font-size:12px;
-	}
-</style>
+
 <script>
-function AbrirVentana(){	msgwin=window.open("","Fdt","width=400,height=400,resizable,scrollbars=yes")
-	msgwin.focus()}
+function AbrirVentana(){
+	msgwin=window.open("","Fdt","width=600,height=600,resizable,scrollbars=yes")
+	msgwin.focus()
+}
 </script>
-<body bgcolor=white>
-<?php echo "<font face=arial size=1>&nbsp; &nbsp;Script: fst_leer.php<p><font face=arial size=2>";
+<body>
+<?php echo "<label>Script: fst_leer.php</label>";
 ?>
- <b><?php echo $msgstr["fst"]?> &nbsp; (<a href=fdt_leer.php?base=<?php echo $arrHttp["base"]?> target=Fdt onclick=AbrirVentana()><?php echo $msgstr["displayfdt"]?><font color=black></a>)
- &nbsp; (<a href=adform_leer.php?base=<?php echo $arrHttp["base"]?> target=Fdt onclick=AbrirVentana()><?php echo $msgstr["advsearch"]?><font color=black></a>)
+ 
+ <label>
+ <?php echo $msgstr["fst"];?></label>
+ <a href=fdt_leer.php?base=<?php echo $arrHttp["base"];?> target="Fdt" onclick="AbrirVentana()">
+ <?php echo $msgstr["displayfdt"];?></a>
+ 
+ <a href=adform_leer.php?base=<?php echo $arrHttp["base"];?> target="Fdt" onclick="AbrirVentana()"><?php echo $msgstr["advsearch"];?></a>
 
  <br>
-		<table bgcolor=#EEEEEE>
-			<td>ID</td><td><?php echo $msgstr["itech"]?></td><td><?php echo $msgstr["extrpft"]?></td>
+<table class="table table-striped">
+			<td><label>ID</label></td>
+			<td><label><?php echo $msgstr["itech"];?></label></td>
+			<td><label><?php echo $msgstr["extrpft"];?></label></td>
 <?php
 $fst=$db_path.$arrHttp["base"]."/data/".$arrHttp["base"].".fst";
 if (file_exists($fst)){
@@ -43,11 +47,15 @@ if (file_exists($fst)){
 			$ix=strpos($value," ");
 			$ti=trim(substr($value,0,$ix));
 			$format=stripslashes(trim(substr($value,$ix+1)));
-			echo "<tr><td bgcolor=white valign=top>$id</td><td bgcolor=white valign=top>$ti</td><td bgcolor=white><font face=\"courier new\">$format</td>";
+			echo "<tr><td><label> $id </label></td>
+			<td><label> $ti </label></td>
+			<td><label> $format </label></td>";
 		}
 	}
-}else{	echo "<tr><td bgcolor=white valign=top>&nbsp</td><td bgcolor=white valign=top>&nbsp</td><td bgcolor=white>&nbsp;</td>";
-}
+}else{
+
+
+}
 ?>
 </table>
 

@@ -61,25 +61,22 @@ include("../common/institutional_info.php");
 		document.forma1.submit()
 	}
 </script>
-<div class="sectionInfo">
-	<div class="breadcrumb">
+
+
 	<h2><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i>   <label><?php echo $msgstr["new_report"];?></label></h2>
-	</div>
+
+
 	<div class="actions">
 
-		<a href=javascript:Guardar() class="defaultButton saveButton">
-			<img src="../images/defaultButton_iconBorder.gif" alt="" title="" />
-			<span><strong><?php echo $msgstr["update"]?></strong></span>
-		</a>
+		<a class="btn btn-success" href=javascript:Guardar() class="defaultButton saveButton">
+			<i class="fa fa-refresh" value="<?php echo $msgstr["update"]?>"></i></a>
 	</div>
 
-<div class="spacer">&#160;</div>
-</div>
-<div class="helper">
+
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 	
-echo "<font color=white>&nbsp; &nbsp; Script: output_circulation/print_add.php";
+echo "<label> Script: output_circulation/print_add.php</label>";
 ?>
 </font>
 	</div>
@@ -149,90 +146,105 @@ echo "<font color=white>&nbsp; &nbsp; Script: output_circulation/print_add.php";
 			}
 		}
 	}
-	echo "<td>".$msgstr["database"]."</td>";
-	echo "<td bgcolor=white>";
+	
+	echo "<label>".$msgstr["database"].":</label>";
+	
 	foreach ($base as $value){
-		echo "<input type=radio name=base value=$value";
-		if ($value=='$bd') echo " checked";
-		echo ">$value&nbsp; &nbsp;";
-		echo "<a href=javascript:LeerFst('$value')>FDT/FST</a>";
+		echo "<br><input type=radio name=base value=$value>";
+		if ($value=='$bd') echo " checked<br>";
+		echo "<label>$value</label><br>";
+		echo "<a href=javascript:LeerFst('$value')> FDT/FST</a>";
 	}
-	echo "</td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["o_code"]."</td>";
-	echo "<td bgcolor=white valign=top><input type=text name=code value=\"".$code."\"></td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["o_pft_name"]."</td>";
-	echo "<td bgcolor=white><input type=text name=pft value=\"".$pft_name."\">&nbsp; &nbsp; <a href=../dbadmin/leertxt.php?base=trans&desde=recibos&archivo=$pft_name target=_blank>".$msgstr["edit"]."</a></td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["o_rows"]."</td>";
+	
+	echo "<br><br><label>".$msgstr["o_code"].":</label>";
+
+	echo "<input type=text class=\"form-control\" name=code value=\"".$code."\"></td><br>";
+
+	echo "<label>".$msgstr["o_pft_name"].":</label>";
+	echo "<input class=\"form-control\" type=text name=pft value=\"".$pft_name."\">
+	<a href=../dbadmin/leertxt.php?base=trans&desde=recibos&archivo=$pft_name target=_blank class=\"btn btn-warning\"><i class=\"fa fa-pencil-square-o\" value=".$msgstr["edit"]."></i></a><br>";
+
+	echo "<label>".$msgstr["o_rows"].":</label>";
 	$rows=str_replace("#","\n",$rows);
-	echo "<td bgcolor=white valign=top><textarea name=heading cols=30 rows=3>$rows</textarea></td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["o_sort"]."</td>";
-	echo "<td bgcolor=white valign=top><textarea cols=100 rows=2 name=sort>$sort</textarea></td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["o_search"]."</td>";
-	echo "<td bgcolor=white valign=top><textarea cols=100 rows=2 name=expresion>$search</textarea></td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["o_title"]."</td>";
-	echo "<td bgcolor=white valign=top><input type=text name=title size=100 value=\"".$title."\"></td>";
-	echo "<tr><td colspan=2 bgcolor=white><table border=0 bgcolor=#dddddd width=100%>";
-	echo "<tr><td align=center width=200><font size=2>".$msgstr["o_ask"]."</td>";
-	echo "<td align=center><font size=2>( ".$msgstr["basedatos"].": trans)</font></td>";
-	echo "<td align=center><font size=2>( ".$msgstr["basedatos"].": suspml)</font></td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["date"]."</td>";
-	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"DATE_40\"";
+	echo "<td><textarea name=heading class=\"form-control\">$rows</textarea></td>";
+
+	echo "<label>".$msgstr["o_sort"].":</label>
+	<td><textarea class=\"form-control\" name=sort>$sort</textarea></td>";
+	
+	echo "<label>".$msgstr["o_search"].":</label>
+	<td><textarea class=\"form-control\" name=expresion>$search</textarea></td>";
+	
+	echo "<label>".$msgstr["o_title"].":</label>";
+	echo "<td><input type=text name=title class=\"form-control\" value=\"".$title."\"></td><br>";
+
+	echo "<table class=\"table\">";
+
+	echo "<label>".$msgstr["o_ask"]."</label>";
+	echo "<td><label>".$msgstr["basedatos"].": trans </label></td>";
+
+	echo "<td><label>".$msgstr["basedatos"].": suspml</label></td>";
+
+	echo "<tr><td><label>".$msgstr["date"]."</label></td>";
+	echo "<td><input type=radio name=ask value=\"DATE_40\"";
 	if ($ask_date=="DATE" and $tag_date_trans==$tag) echo " checked";
 	echo ">";
-	echo $msgstr["o_compare"]." >= ".$msgstr["tag"].": $tag_date_trans (".$msgstr["devdate"].")";
+	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label> $tag_date_trans ".$msgstr["devdate"]."</label>";
 	echo "</td>";
 
-	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"DATE_60\"";
+	echo "<td><input type=radio name=ask value=\"DATE_60\"";
 	if ($ask_date=="DATE" and $tag_date_suspml_1==$tag) echo " checked";
 	echo ">";
-	echo $msgstr["o_compare"]." >= ".$msgstr["tag"].": $tag_date_suspml_1 (".$msgstr["o_paymentdate"].")";
+	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label> $tag_date_suspml_1 ".$msgstr["o_paymentdate"]."</label>";
 	echo "</td>";
-    echo "<tr><td bgcolor=white valign=top>".$msgstr["date"]."</td>";
-	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"DATEQUAL_40\"";
+
+    echo "<tr><td><label>".$msgstr["date"]."</label></td>";
+	echo "<td><input type=radio name=ask value=\"DATEQUAL_40\"";
 	if ($ask_date=="DATEQUAL"  and $tag_date_trans==$tag) echo " checked";
 	echo ">";
-	echo $msgstr["o_compare"]." = &nbsp; ".$msgstr["tag"].": $tag_date_trans (".$msgstr["devdate"].")";
+	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label> $tag_date_trans ".$msgstr["devdate"]."</label>";
 	echo "</td>";
-	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"DATEQUAL_60\"";
+
+	echo "<td><input type=radio name=ask value=\"DATEQUAL_60\"";
 	if ($ask_date=="DATEQUAL"  and $tag_date_suspml_1==$tag) echo " checked";
 	echo ">";
-	echo $msgstr["o_compare"]." = &nbsp; ".$msgstr["tag"].": $tag_date_suspml_1 (".$msgstr["o_paymentdate"].")";
+	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label> $tag_date_suspml_1  ".$msgstr["o_paymentdate"]."</label>";
 	echo "</td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["date"]."</td>";
-	echo "<td bgcolor=white valign=top>";
+
+	echo "<tr><td><label>".$msgstr["date"]."</label></td>";
+	echo "<td>";
 	echo "<input type=radio name=ask value=\"DATELESS_40\"";
 	if ($ask_date=="DATELESS"  and $tag_date_trans==$tag) echo " checked";
 	echo ">";
-	echo $msgstr["o_compare"]." <= &nbsp; ".$msgstr["tag"].": $tag_date_trans (".$msgstr["devdate"].")";
+	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label> $tag_date_trans ".$msgstr["devdate"]."</label>";
 	echo "</td>";
 	echo "</td>";
 
-	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"DATE_110\"";
+	echo "<td><input type=radio name=ask value=\"DATE_110\"";
 	if ($ask_date=="DATE" and $tag_date_suspml_2==$tag) echo " checked";
 	echo ">";
-	echo $msgstr["o_compare"]." >= ".$msgstr["tag"].": $tag_date_suspml_2 (".$msgstr["o_canceldate"].")";
-	echo "</td>";
-    echo "<tr><td bgcolor=white valign=top>".$msgstr["date"]."</td>";
-	echo "<td bgcolor=white valign=top> </td>";
-	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"DATEQUAL_110\"";
-	if ($ask_date=="DATEQUAL" and $tag_date_suspml_2==$tag) echo " checked";
-	echo ">";
-	echo $msgstr["o_compare"]." = &nbsp; ".$msgstr["tag"].": $tag_date_suspml_2 (".$msgstr["o_canceldate"].")";
+	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label> $tag_date_suspml_2 ".$msgstr["o_canceldate"]."</label>";
 	echo "</td>";
 
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["typeofusers"]."</td>";
-	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"USERTYPE\"";
+    echo "<tr><td><label>".$msgstr["date"]."</label></td>";
+	echo "<td><input type=radio name=ask value=\"DATEQUAL_110\"";
+	if ($ask_date=="DATEQUAL" and $tag_date_suspml_2==$tag) echo " checked";
+	echo ">";
+	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label>  $tag_date_suspml_2 ".$msgstr["o_canceldate"]."</label>";
+	echo "</td>";
+
+	echo "<tr><td><label>".$msgstr["typeofusers"]."</label></td>";
+	echo "<td><input type=radio name=ask value=\"USERTYPE\"";
 	if ($ask_usertype=="USERTYPE") echo " checked";
 	echo ">";
-	echo $msgstr["o_compare"]." = &nbsp; ".$msgstr["tag"].": $tag_usertype";
-	echo "</td><td bgcolor=white></td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["typeofitems"]."</td>";
-	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"ITEMTYPE\"";
+	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label> $tag_usertype </label>";
+	echo "</td><td></td>";
+	echo "<tr><td><label>".$msgstr["typeofitems"]."</label></td>";
+	echo "<td><input type=radio name=ask value=\"ITEMTYPE\"";
 	if ($ask_itemtype=="ITEMTYPE") echo " checked";
 	echo ">";
-	echo $msgstr["o_compare"]." = &nbsp; ".$msgstr["tag"].": $tag_itemtype";
-	echo "</td><td bgcolor=white></td>";
-	echo "<tr><td bgcolor=white valign=top>".$msgstr["o_noask"]."</td>";
+	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label> $tag_itemtype</label>";
+	
+	echo "<tr><td><label>".$msgstr["o_noask"]."</label></td>";
 	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"\"";
 	echo ">";
 	echo "</td><td bgcolor=white> </td>";
