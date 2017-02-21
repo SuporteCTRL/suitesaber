@@ -325,22 +325,25 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 //	echo "<xmp>";
 //	print_r($profile_usr);
 //	echo "</xmp>";//die;
-	echo "<table class=\"table table-bordered\">";
+	echo "<table class=\"table\">";
 	echo "<thead>
 	<tr>
-		<td>".$msgstr["PROFILENAME"]."</td>
-		<td><input type=text name=profilename size=15 value=\"";
+		<td><label>".$msgstr["PROFILENAME"].":</label>
+		<td><input type=text name=profilename class=\"form-control\" value=\"";
 	if (isset($profile_usr["profilename"])) echo $profile_usr["profilename"];
 	echo "\"></td>";
-	echo "<tr><td>".$msgstr["PROFILEDESC"]."</td><td><input type=text name=profiledesc size=80 value=\"";
+
+	echo "<tr><td><label>".$msgstr["PROFILEDESC"].":</label></td>
+	<td><input type=text name=profiledesc class=\"form-control\" value=\"";
 	if (isset($profile_usr["profiledesc"])) echo $profile_usr["profiledesc"];
 	echo "\"></td>";
 	echo "</table>";
+
 	$fp=file($db_path."bases.dat");
 //	echo "<div style=\"position:relative;overflow:auto;height:300px;border-style:double;\">";
  	$inicio="S";
  	$bases_dat=array();
- 	$select_db= "<select name=select_db
+ 	$select_db= "<select name=select_db class=\"form-control\"
  	onchange=\"javascript:window.location.hash=this.options[this.selectedIndex].value\">\n<option></option>\n";
  	foreach($fp as $dbs){
  		$dbs=trim($dbs);
@@ -357,17 +360,17 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 			$dd=explode('|',$dbs);
 			$dbn=$dd[0];
 			if ($dd[0]!="acces" ){
-				echo "<a name=$dbn><table class=\"table table-bordered\">";
-				echo "<th width=33%>".$msgstr["DATABASES"]." ".$select_db."</th><th>".$msgstr["DISPLAYFORMAT"]."</th><th>".$msgstr["WORKSHEET"]."</th>";
+				echo "<a name=$dbn><table class=\"table\">";
+				echo "<th><label>".$msgstr["DATABASES"]." ".$select_db."</label></th><th>".$msgstr["DISPLAYFORMAT"]."</th><th>".$msgstr["WORKSHEET"]."</th>";
 				if ($inicio=="S"){
 					$inicio="N";
 
-					echo "<tr><td><input type=checkbox name=db_ALL value=ALL onclick=AllDatabases()><strong><font>".$msgstr["ALL"]."</font></td>";
+					echo "<tr><td><input type=checkbox name=db_ALL value=ALL onclick=AllDatabases()><label>".$msgstr["ALL"]."</label>";
 				}
                 $bases_dat[$dbn]=$dbn;
 				echo "<tr><td><input type=checkbox name=db_".$dbn." value=".$dbn;
 				if (isset($profile_usr["db_".$dbn])) echo " checked";
-				echo "><font>".$dd[1]." (".$dbn.")</font></td>\n";
+				echo "<label>".$dd[1]." (".$dbn.")</label></td>\n";
 				echo "<td>";
 				$file=$db_path.$dbn."/pfts/".$_SESSION["lang"]."/formatos.dat";
 				if (!file_exists($file)){
@@ -375,7 +378,7 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 				}
 				$checked="";
 				if (isset($profile_usr[$dbn."_pft_ALL"])) $checked=" checked";
-				echo "<input type=checkbox name=".$dbn."_pft_ALL $checked>".$msgstr["ALL"]."<br>\n";
+				echo "<input type=checkbox name=".$dbn."_pft_ALL $checked><label>".$msgstr["ALL"]."</label>\n";
 				if (file_exists($file)){
 					$pft=file($file);
 					foreach($pft as $val){
@@ -389,8 +392,6 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 							echo ">".$p[1]." (".$p[0].")<br>\n";
 						}
 					}
-				}else{
-					echo "&nbsp;";
 				}
 				echo "</td>";
 				echo "<td>";
@@ -420,7 +421,7 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 				}
 				echo "</td>";
 				echo "</table>";
-				echo "<table class=\"table table-bordered\">\n";
+				echo "<table class=\"table\">\n";
 				echo "<label>".$msgstr["PERMISSIONS"].": ".$msgstr["DATAENTRY"]." ($dbn)</label>\n";
 		        $i=3;
 		        $j=0;
@@ -463,12 +464,12 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 
 		$bgcolor="";
 		if (isset($msgstr[$key])) {
-			$bgcolor=" bgcolor=darkred";
+			
 			echo "<br><br>";
-			echo "<table class=\"table table-bordered\"><tr><th $bgcolor >\n";
-			echo "<font>".$msgstr["PERMISSIONS"].": ".$msgstr[$key];
+			echo "<table class=\"table\"><tr><th>\n";
+			echo "<label>".$msgstr["PERMISSIONS"].": ".$msgstr[$key]."</label>";
 		}else{
-			echo "<table class=\"table table-bordered\">";
+			echo "<table class=\"table\">";
 		}
 		$modulo="ADM";
 		switch($key){

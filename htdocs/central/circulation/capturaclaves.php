@@ -133,7 +133,7 @@ echo "function AbrirIndice(Termino){
 	
 	
 	<form method="post" name="Lista" onSubmit="javascript:return false">
-			<label><?php for ($i=65;$i<91;$i++ ) echo "<a href=javascript:AbrirIndice('".chr($i)."')>".chr($i)."</a>&nbsp; "?>
+			<label><?php for ($i=65;$i<91;$i++ ) echo "<a href=javascript:AbrirIndice('".chr($i)."')>".chr($i)."</a>";?>
 	
 	<select name="autoridades" class="form-control"  onchange="javascript:ObtenerTerminos()">
 	<option></option>
@@ -172,7 +172,7 @@ echo "function AbrirIndice(Termino){
 
 
 
-		<a href="Javascript:Continuar()"" class="btn btn-default">
+		<a href="Javascript:Continuar()" class="btn btn-default">
 		<label><?php echo $msgstr["continuar"];?></label></a>
 		<label><?php echo $msgstr["avanzara"];?>:</label>
 		 <input type="text" class="form-control" name="ira" value="">
