@@ -190,7 +190,7 @@ for ($i=$ix;$i<$ix+1;$i++){
 				<label>
 				<?php echo $msgstr["lines"];?>				
 				</label>
-				<a class="btn btn-success" href="javascript:Agregar('accent')" >Adicionar</a>
+				<a class="btn btn-success" href="javascript:Agregar('accent')" ><i class="fa fa-plus"></i></a>
 				
 				<?php
 				if (isset($arrHttp["encabezado"]))
@@ -198,7 +198,7 @@ for ($i=$ix;$i<$ix+1;$i++){
 				?>
 				</div>
 
-			<input class="btn btn-primary" type="submit" value="<?php echo $msgstr["update"]?>" onclick="javascript:Enviar()">
+			<button class="btn btn-primary" type="submit"  onclick="javascript:Enviar()"><i class="fa fa-refresh" value="<?php echo $msgstr["update"];?>"></i></button>
 			<input type="hidden" name="ValorCapturado">
 
 		</form>

@@ -85,14 +85,8 @@ include("../common/header.php");
 $encabezado="";
 include("../common/institutional_info.php");
 echo "
-		<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\"><h2><label>".
-				$msgstr["typeofitems"]."
-			</div></label></h2>
-			
-			
-		<div class=\"middle form\">
-			<div class=\"formContent\">";
+		<h2><label>".$msgstr["typeofitems"]."</label></h2>
+			";
 ?>
 		<br>
 			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId()),'BEFORE')"><?php echo $msgstr["addrowbef"];?></a>
@@ -101,7 +95,7 @@ echo "
 			
 			<a href="javascript:void(0)" class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
 
-	<table id="tblToGrid" class="dhtmlxGrid">
+	<table id="tblToGrid" class="table">
 <?php
 	echo "<tr>";
 	foreach ($rows_title as $cell) echo "<td><label>$cell</label></td>\n";
@@ -130,7 +124,7 @@ echo "
 			echo "\n<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\">\n";
 			$i=$i+1;
 			$t=explode("|",$value);
-			echo "<td width=200>".$t[0]."</td><td width=400>".$t[1]."</td>";
+			echo "<td>".$t[0]."</td><td>".$t[1]."</td>";
 			echo " </tr>";
 		}
 
@@ -144,11 +138,11 @@ echo "
     nfilas=<?php echo $nfilas."\n"?>
     var mygrid = new dhtmlXGridFromTable('tblToGrid');
 
-	mygrid.setInitWidths("200,400")
+	
 	mygrid.setColAlign("left,left")
 	mygrid.setColTypes("ed,ed");
 	mygrid.enableAutoWidth(true);
-    mygrid.enableAutoHeight(true,300);
+    mygrid.enableAutoHeight(true);
 
  	mygrid.setOnBeforeRowDeletedHandler(doBeforeRowDeleted);
  //	mygrid.setOnEditCellHandler(doOnCellEdit);

@@ -38,8 +38,8 @@ include("../lang/admin.php");
 include("../common/header.php");
 
 ?>
-<script src=js/lr_trim.js></script>
-<script language=javascript>
+<script src="js/lr_trim.js"></script>
+<script language="javascript">
    function AbrirVentana(Marc){
         msgwin=window.open("",Marc,"status=yes,resizable=yes,toolbar=no,menu=no,scrollbars=yes,width=800,height=600,top=00,left=00")
         msgwin.focus()
@@ -88,14 +88,14 @@ include("../common/header.php");
 		
 	<h2><label><?php echo $msgstr["catz3950"];?></label></h2>
 	<form method="post" action=z3950-01.php
-	<?php if (!isset($arrHttp["desde"])) echo "  target=z3950 "?> onSubmit="javascript:return false" name=z39 >
-	<input class="form-control" type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+	<?php if (!isset($arrHttp["desde"])) echo "target=z3950";?> onSubmit="javascript:return false" name="z39" >
+	<input class="form-control" type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
 	<input class="form-control" type="hidden" name="cipar" value="<?php echo $arrHttp["cipar"];?>">
-	<table  border=0 cellpadding=0 cellspacing=0>
-		<td class=td >
-			<?php echo $msgstr["connectto"]?>:
+	<table>
+		<td>
+			<label><?php echo $msgstr["connectto"];?>:</label>
 		</td>
-		<td class=td >
+		<td>
 			<select class="form-control" name="host">
 <?php
 
@@ -118,7 +118,7 @@ $archivo=$db_path.$arrHttp["base"]."/def/z3950.cnv";
 if (file_exists($archivo)){
 	$selected=" selected";
 	echo $msgstr["z3950_tab"].": ";
-	echo "<select name=cnvtab>";
+	echo "<select class=\"form-control\" name=cnvtab>";
 	echo "<option></option>";
 	$fp=file($archivo);
 	foreach ($fp as $value){
@@ -131,25 +131,26 @@ if (file_exists($archivo)){
 ?>
 		</td>
 		<tr>
-		<td class=td><?php echo $msgstr["busqueda"]?>:
+		<td><label><?php echo $msgstr["busqueda"];?>:</label>
 		</td>
 		<td>
-			<input class="form-control" type=""text""  name="term" value="">
-			<?php echo $msgstr["z3950_in"]?>&nbsp;
+			<input class="form-control" type="text"  name="term" value="">
+			
+			<label><?php echo $msgstr["z3950_in"];?></label>
 			<select class="form-control" name="field">
-				<option value="Todos los campos"><?php echo $msgstr["z3950_all"]?>
-				<option value="Título"><?php echo $msgstr["z3950_title"]?>
-				<option value="Autor"><?php echo $msgstr["z3950_author"]?>
-				<option value="ISBN"><?php echo $msgstr["z3950_isbn"]?>
-				<option value="ISSN"><?php echo $msgstr["z3950_issn"]?>
+				<option value="Todos los campos"><?php echo $msgstr["z3950_all"];?>
+				<option value="Título"><?php echo $msgstr["z3950_title"];?>
+				<option value="Autor"><?php echo $msgstr["z3950_author"];?>
+				<option value="ISBN"><?php echo $msgstr["z3950_isbn"];?>
+				<option value="ISSN"><?php echo $msgstr["z3950_issn"];?>
 			</select>
 
 		</td>
 		<tr>
 		<td></td>
 		<td>
-			<input class="form-control" type=""text"" size="50" name="term1" value="">
-			<?php echo $msgstr["z3950_in"];?>
+			<input class="form-control" type="text" name="term1" value="">
+			<label><?php echo $msgstr["z3950_in"];?></label>
 			<select class="form-control" name="field1">
 				<option value="Todos los campos"><?php echo $msgstr["z3950_all"];?>
 				<option value="Título"><?php echo $msgstr["z3950_title"];?>
@@ -158,62 +159,72 @@ if (file_exists($archivo)){
 				<option value="ISSN"><?php echo $msgstr["z3950_issn"];?>
 			</select>
 		</td>
-		<tr>
+	
 	</table>
-	<table width=600>
-		<td  colspan=5 class=td><?php echo $msgstr["z3950_msg"]?></td>
-		<tr>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<tr>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<tr>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<tr>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<tr>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-		<td align="center"><input type="text" size="15" name="isbn" value=""></td>
-	</table>
-<input type="hidden" name="isbn_l" value="">
-<br><?php echo $msgstr["show"];?> <input class="form-control" type="text" name="number" value="10" size="4"> <?php echo $msgstr["registros"];?>
-<?php echo $msgstr["z3950_retray"];?> <input type="text" name="reintentar" value="10" size="2"> <?php echo $msgstr["z3950_times"];?>
 <br>
-<input class="btn btn-primary" type="submit" name="action" onclick=Isbn() value="<?php echo $msgstr["busqueda"]?>"><input type=hidden name=start value="1">
+	<label><?php echo $msgstr["z3950_msg"];?>:</label>
+	<table class="table">
+		
+		<tr>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<tr>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<tr>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<tr>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<tr>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+		<td><input type="text" class="form-control" name="isbn" value=""></td>
+	</table>
+
+<input type="hidden" name="isbn_l" value="">
+
+<label><?php echo $msgstr["show"];?>:</label>
+ <input class="form-control" type="text" name="number" value="10">
+ <label> <?php echo $msgstr["registros"];?></label><br>
+
+ <label><?php echo $msgstr["z3950_retray"];?>:</label>
+  <input type="text" name="reintentar" class="form-control" value="10"><label> <?php echo $msgstr["z3950_times"];?></label>
+<br>
+<button class="btn btn-primary" type="submit" name="action" onclick="Isbn()"><i class="fa fa-search" value="<?php echo $msgstr["busqueda"];?>"></i></button>
+
+<input type=hidden name=start value="1">
 <input type="hidden" name="Opcion" value="<?php echo $arrHttp["Opcion"];?>">
 
 <?php
 if (isset($arrHttp["Mfn"])) echo "<input type=hidden name=Mfn value=".$arrHttp["Mfn"].">\n"; //COPY TO AN EXISTENT RECORD
 if (isset($arrHttp["test"])){
-	echo "<input class=\"btn btn-danger\" type=submit value='".$msgstr["cerrar"]."' onclick=javascript:self.close()>\n";
+	echo "<button class=\"btn btn-danger\" type=submit  onclick=javascript:self.close()><i class=\"fa fa-times\" value=".$msgstr["cerrar"]."></i></button> \n";
 	echo "<input type=hidden name=test value=Y>\n";
 
 }
 ?>
-</center>
-<p><!--a href=../lc/lc.html target=_new>Test</a -->
+
+<!--a href=../lc/lc.html target=_new>Test</a -->
 </form>
 
 </div>
-</div>
+
 <?php 
 include ("../common/footer.php");?>
 

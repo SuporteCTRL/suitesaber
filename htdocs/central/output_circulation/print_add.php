@@ -245,9 +245,9 @@ echo "<label> Script: output_circulation/print_add.php</label>";
 	echo $msgstr["o_compare"]." ".$msgstr["tag"].": <label> $tag_itemtype</label>";
 	
 	echo "<tr><td><label>".$msgstr["o_noask"]."</label></td>";
-	echo "<td bgcolor=white valign=top><input type=radio name=ask value=\"\"";
+	echo "<td><input type=radio name=ask value=\"\"";
 	echo ">";
-	echo "</td><td bgcolor=white> </td>";
+
 	echo "</table></td>";
     echo "
 
@@ -255,13 +255,13 @@ echo "<label> Script: output_circulation/print_add.php</label>";
 </table>
 <p>";
    if (isset($arrHttp["codigo"])){
-   	   echo $msgstr["saveas"];
-   	   echo "&nbsp;&nbsp;<input type=text name=saveas size=15>&nbsp;";
+   	   echo "<label><i class=\"fa fa-save fa-2x\"></i>     ".$msgstr["saveas"].":</label>";
+   	   echo "<input type=text name=saveas class=\"form-control\">";
    }
 ?>
 
 </form>
-<p>
+
 </div>
 </div>
 <?php

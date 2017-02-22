@@ -251,8 +251,8 @@ $encabezado="&encabezado=s";
 
 <div class="sectionInfo">
 	<div class="breadcrumb">
-		<form name=forma1 onsubmit="javascript:return false">
-		<?php echo $msgstr["admin"]." (".$arrHttp["base"],")"?>
+		<form name="forma1" onsubmit="javascript:return false">
+		<label><?php echo $msgstr["admin"]." (".$arrHttp["base"],")";?></label>
 		    <span>
 		    <input type="checkbox" name="showdeleted" value="show" 
                 <?php if (isset($arrHttp["showdeleted"])) echo " ";
@@ -299,11 +299,10 @@ if (file_exists($archivo)){
 
 
 		<div class="col-md-6">
-				<label for="searchExpr">
-					<strong><?php echo $msgstr["buscar"];?></strong>
-				</label>
+			<label><?php echo $msgstr["buscar"];?>:</label>
 				<input type="text" name="expre" id="Expre" class="form-control" 
-				value='<?php if (isset($arrHttp["Expresion"])) echo $arrHttp["Expresion"]?>' />
+				value="<?php if (isset($arrHttp["Expresion"])) 
+					echo $arrHttp["Expresion"];?>">
 				<br>
 				
 				<select name="indexes" class="form-control">
@@ -326,11 +325,12 @@ if (file_exists($archivo)){
 ?>
 				</select>
 <br>
-				<input class="btn btn-default" type="button" name="ok" value="<?php echo $msgstr["index"]?>" xclass="submit" onClick=javascript:PresentarDiccionario() />
+				<button class="btn btn-primary" type="submit" name="ok" onClick="javascript:PresentarDiccionario()"><i class="fa fa-list"
+				value="<?php echo $msgstr["index"];?>"></i></button>
 
-				<input class="btn btn-default" type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>" class="submit" onClick=javascript:document.diccionario.from.value=1;EjecutarBusqueda() />
+				<input class="btn btn-default" type="submit" name="ok" value="<?php echo $msgstr["buscar"]?>"  onClick="javascript:document.diccionario.from.value=1;EjecutarBusqueda()">
 				<?php if (isset($arrHttp["Expresion"]))
-					echo "\n<input type=\"submit\" name=\"ok\" value=\"".$msgstr["bmfn"]."\"  onClick=javascript:Browse() />"
+					echo "<input type=\"submit\" name=\"ok\" value=\"".$msgstr["bmfn"]."\"  onClick=javascript:Browse() />"
 				?>
 				<input type="hidden" name="Target" value="S">
 
@@ -342,7 +342,7 @@ if (file_exists($archivo)){
 
 echo "
 		
-			<table class=\"table table-striped\">
+			<table class=\"table\">
 				
 					
 	";
@@ -359,11 +359,11 @@ if (file_exists($archivo)){
 		$value=trim($value);
 		if (trim($value)!=""){
 			$t=explode('|',$value);
-			foreach ($t as $rot) echo "<th>$rot</th>";
+			foreach ($t as $rot) echo "<th><label>$rot</label></th>";
 		}
 	}
 }
-echo "<th class=\"action\">&nbsp;</th></tr>";
+echo "<th class=\"action\"></th></tr>";
 $desde=0;
 $hasta=0;
 foreach ($lista_users as $value){
@@ -414,23 +414,25 @@ echo "			</table>";
 <nav aria-label="Page navigation">
   <ul class="pagination">
     <li>
-      <a href="javascript:EjecutarBusqueda('first')" class="singleButton eraseButton">
-        <span aria-hidden="true">&laquo;<?php echo $msgstr["first"]?> </span>
+      <a href="javascript:EjecutarBusqueda('first')" class="btn btn-primary">
+        <i class="fa fa-angle-double-left" value="<?php echo $msgstr["first"];?>"></i>
       </a>
     </li>
     <li>
-    	<a href="javascript:EjecutarBusqueda('previous')" class="singleButton eraseButton"><?php echo $msgstr["previous"]?>
+    	<a href="javascript:EjecutarBusqueda('previous')" class="btn btn-primary">
+    	<i class="fa fa-angle-left" value="<?php echo $msgstr["previous"];?>"></i>
     		
     	</a>
     </li>
     <li>
-    	<a href="javascript:EjecutarBusqueda('next')" class="singleButton eraseButton"><?php echo $msgstr["next"] ?>
+    	<a href="javascript:EjecutarBusqueda('next')" class="btn btn-primary">
+    	<i class="fa fa-angle-right" value="<?php echo $msgstr["next"];?>"></i>
     		
     	</a>
     </li>
     <li>
-      <a href="javascript:EjecutarBusqueda('last')" class="singleButton eraseButton">
-        <span aria-hidden="true"> <?php echo $msgstr["last"]?> &raquo;</span>
+      <a href="javascript:EjecutarBusqueda('last')" class="btn btn-primary">
+        <i class="fa fa-angle-double-right" value=" <?php echo $msgstr["last"];?>"></i>
       </a>
     </li>
   </ul>

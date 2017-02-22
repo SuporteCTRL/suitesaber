@@ -97,7 +97,7 @@ if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentac
 			<a href="javascript:void(0)" class="btn btn-primary" onclick="AgregarFila(mygrid.getRowIndex(mygrid.getSelectedId())+1,'AFTER')"><?php echo $msgstr["addrowaf"]?></a>
 			<a href="javascript:void(0)" class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
 
-	<table class="table-striped"  id="tblToGrid" >
+ <table class="table table-hover" id="tblToGrid" >
 <?php
 	echo "<tr>";
 	foreach ($rows_title as $cell) echo "<td>".str_replace(","," ",$cell)."</td>\n";
