@@ -44,11 +44,11 @@ else
 	$db=$arrHttp["base"];
 include("../common/header.php");
 ?>
-<script src=../dataentry/js/lr_trim.js></script>
-<script language=javascript>
+<script src="../dataentry/js/lr_trim.js"></script>
+<script language="javascript">
 function Enviar(){
 	if (Trim(document.cnv.namecnvtb.value)=="" || Trim(document.cnv.descr.value)==""){
-		alert("<?php echo $msgstr["namecnvtamiss"]?>")
+		alert("<?php echo $msgstr["namecnvtamiss"];?>")
 		return
 	}
 	document.cnv.target=""
@@ -112,12 +112,12 @@ $Dir=$db_path.$arrHttp["base"]."/def/";
 $archivo=$db_path.$arrHttp["base"]."/def/".$_SESSION["lang"]."/".$arrHttp["base"].".fdt";
 if (!file_exists($archivo)) $archivo=$db_path.$arrHttp["base"]."/def/".$lang_db."/".$arrHttp["base"].".fdt";
 @ $fp=file($archivo);
-echo "<table class=\"table table-striped\">";
+echo "<table class=\"table\">";
 echo "
 <tr><td><label>".$msgstr["ft_f"]."</label></td> 
 <td><label>".$msgstr["tag"]."</label></td>
 <td><label>".$msgstr["ft_s"]."</label></td>
-<td nowrap><label>".$msgstr["z3950_cnv"]."</label></td>";
+<td><label>".$msgstr["z3950_cnv"]."</label></td>";
 $ix=-1;
 
 foreach ($fp as $value){
@@ -129,8 +129,8 @@ foreach ($fp as $value){
 			echo "<tr><td  class=td>";
 			echo $t[2];
 			echo "</td>";
-			echo "<td class=td>".$tag."<input class=\"form-control\" type=hidden name=tag$tag value=".$tag."></td>";
-			echo "<td  class=td>";
+			echo "<td><label>".$tag."</label><input class=\"form-control\" type=hidden name=tag$tag value=".$tag."></td>";
+			echo "<td>";
 			echo $t[5];
 			echo "</td>";
 			echo "<td ><textarea class=\"form-control\" z3950_conversion.php name=formato$tag>";
@@ -146,13 +146,15 @@ echo $msgstr["namecnvtb"].":</label>";
 if (!isset($arrHttp["table"])){
 	echo  "<input class=\"form-control\" type=text name=namecnvtb >";
 	echo $msgstr["description"].": ";
-	echo "<input class=\"form-control\" type=text name=descr>\n";
+	echo "<input class=\"form-control\" type=text name=descr>";
+
 }else{
-	echo "<input class=\"form-control\" type=text name=namecnvtb  value='".$arrHttp["Table"]."'>\n";
+
+	echo "<input class=\"form-control\"  name=namecnvtb  value='".$arrHttp["Table"]."'>";
 	echo $msgstr["description"].": ";
-	echo "<input class=\"form-control\" type=text name=descr  value='".$arrHttp["descr"]."'>\n";
+	echo "<input class=\"form-control\" name=descr  value=".$arrHttp["descr"].">";
 }
-echo "<a class=\"btn btn-success\" href=javascript:Enviar()>".$msgstr["update"]."</a>";
+echo "<br><a class=\"btn btn-success\" href=javascript:Enviar()><i class=\"fa fa-refresh\" value=".$msgstr["update"]."></i></a>";
 if (!isset($arrHttp["encabezado"])) echo "<a href=menu_modificardb.php?base=". $arrHttp["base"].">".$msgstr["cancel"]."</a>";
 echo "</form>";
 ?>

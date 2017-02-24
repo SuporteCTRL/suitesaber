@@ -290,25 +290,25 @@ function GenerarFormato(Tipo){
 	head=""    //COLUMNS HEADING
     switch (Tipo){
     	case "T":             //TABLE
-    		formato="'<table border=0 width=90%>'\n"
+    		formato="'<table>'\n"
     		for (i=0;i<document.forma1.list21.options.length;i++){
 			    campo=document.forma1.list21.options[i].value
 			    t=campo.split('|')
 				xTag=t[1]
 				xTipoE=t[0]
 				if (xTag=="" || xTipoE=="L"){
-					campo="'<tr><td colspan=2 valign=top><font face=arial size=2><b>"+t[2]+"</b></td>'/\n"
+					campo="'<tr><td><label>"+t[2]+"</label></td>'/\n"
 		    	}else {
 		    		if(Trim(t[5])!=""){
 						tag=SubCampos(xTag,t[5],t[6])
 					}else{
 						tag="v"+xTag+"+|<br>|"
 					}
-			    	campo="if p(v"+xTag+ ") then '<tr><td width=20% valign=top><font face=arial size=2><b>"+t[2]+"</b></td><td valign=top><font face=arial size=2>'"+tag+",'</td>' fi/\n"
+			    	campo="if p(v"+xTag+ ") then '<tr><td><label>"+t[2]+"</label></td><td><label>'"+tag+",'</label></td>' fi/"
 				}
 				formato+=campo
 			}
-			formato+="'</table><p>'";
+			formato+="'</table>'";
     		break
     	case "PL":
     	case "P":
@@ -321,7 +321,7 @@ function GenerarFormato(Tipo){
 					campo="'<br><b>"+t[2]+"</b></td>'/\n"
 		    	}else {
 		    		if (Tipo=='PL')
-		    			label_f=  "<font face=arial size=2><b>"+t[2]+"</b>: "
+		    			label_f=  "<label>"+t[2]+"</label>: "
 		 			else
 		 				label_f=""
 					if(Trim(t[5])!=""){

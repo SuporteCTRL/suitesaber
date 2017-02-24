@@ -325,16 +325,13 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 //	echo "<xmp>";
 //	print_r($profile_usr);
 //	echo "</xmp>";//die;
-	echo "<table class=\"table\">";
-	echo "<thead>
-	<tr>
-		<td><label>".$msgstr["PROFILENAME"].":</label>
-		<td><input type=text name=profilename class=\"form-control\" value=\"";
+	echo "<label>".$msgstr["PROFILENAME"].":</label>
+		<input type=text name=profilename class=\"form-control\" value=\"";
 	if (isset($profile_usr["profilename"])) echo $profile_usr["profilename"];
-	echo "\"></td>";
+	echo "\">";
 
-	echo "<tr><td><label>".$msgstr["PROFILEDESC"].":</label></td>
-	<td><input type=text name=profiledesc class=\"form-control\" value=\"";
+	echo "<label>".$msgstr["PROFILEDESC"].":</label>
+	<input type=text name=profiledesc class=\"form-control\" value=\"";
 	if (isset($profile_usr["profiledesc"])) echo $profile_usr["profiledesc"];
 	echo "\"></td>";
 	echo "</table>";
@@ -370,7 +367,7 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
                 $bases_dat[$dbn]=$dbn;
 				echo "<tr><td><input type=checkbox name=db_".$dbn." value=".$dbn;
 				if (isset($profile_usr["db_".$dbn])) echo " checked";
-				echo "<label>".$dd[1]." (".$dbn.")</label></td>\n";
+				echo "<label><br>".$dd[1]." (".$dbn.")</label></td>\n";
 				echo "<td>";
 				$file=$db_path.$dbn."/pfts/".$_SESSION["lang"]."/formatos.dat";
 				if (!file_exists($file)){
@@ -378,7 +375,8 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 				}
 				$checked="";
 				if (isset($profile_usr[$dbn."_pft_ALL"])) $checked=" checked";
-				echo "<input type=checkbox name=".$dbn."_pft_ALL $checked><label>".$msgstr["ALL"]."</label>\n";
+				echo "<input type=checkbox name=".$dbn."_pft_ALL $checked>
+				<label>".$msgstr["ALL"]."</label><br>";
 				if (file_exists($file)){
 					$pft=file($file);
 					foreach($pft as $val){
@@ -387,9 +385,13 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 							$p=explode('|',$val);
 							$checked="";
 							if (isset($profile_usr[$dbn."_pft_".$p[0]])) $checked=" checked";
+
+
+
 							echo "<input type=checkbox name=".$dbn."_pft_".$p[0]." value=".$p[0]." $checked";
+
 							echo " onclick=document.profile.".$dbn."_pft_ALL.checked=false";
-							echo ">".$p[1]." (".$p[0].")<br>\n";
+							echo "\n>".$p[1]." (".$p[0].")<br>\n";
 						}
 					}
 				}
@@ -402,7 +404,7 @@ global $db_path,$msgstr,$lang_db,$profiles_path;
 				$checked="";
 				if (isset($profile_usr[$dbn."_fmt_ALL"])) $checked=" checked";
 				echo "<input type=checkbox name=".$dbn."_fmt_ALL $checked";
-				echo ">".$msgstr["ALL"]."<br>\n";
+				echo "<label>".$msgstr["ALL"]."</label><br>";
 				if (file_exists($file)){
 					$pft=file($file);
 					foreach($pft as $val){

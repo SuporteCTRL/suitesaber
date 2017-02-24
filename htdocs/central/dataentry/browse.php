@@ -379,7 +379,8 @@ foreach ($lista_users as $value){
 		if (($Status==0 or $Status==-2) or (isset($arrHttp["showdeleted"]) and $Status==1)){
 			echo "<tr onmouseover=\"this.className = 'rowOver';\" onmouseout=\"this.className = '';\">\n";
 			echo "<td>".$u[2]."/",$u[3];
-			if ($Status==1) echo "<img  align=absmiddle alt=\"excluir base de dados\" title=\"excluir base de dados\" />";
+			if ($Status==1) 
+				echo "<img  align=absmiddle alt=\"excluir base de dados\" title=\"excluir base de dados\" />";
 			echo "</td>";
 			for ($ix=4;$ix<count($u);$ix++) echo "<td>" .$u[$ix]."</td>";
 			echo "<td class=\"action\" nowrap>

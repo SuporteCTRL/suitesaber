@@ -23,11 +23,11 @@ $Permiso=$_SESSION["permiso"];
 function LeerIniFile($ini_vars,$ini){
 	foreach ($ini_vars as $key=>$Opt){
 		echo "<tr>
-		         <td>$key</td>
+		         <td><label>$key</label></td>
 		         <td>";
 		switch ($Opt["it"]){
 		   	case "text":
-		   		echo "<input type=text name=ini_$key size=";
+		   		echo "<input class=\"form-control\" type=text name=ini_$key size=";
 		   		if (isset($Opt["size"]))
 		   			echo trim($Opt["size"]);
 				else
@@ -180,7 +180,7 @@ if (isset($arrHttp["base"]))
 	echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";
 if (!isset($arrHttp["Accion"])){
 	echo "<input type=hidden name=Accion value=\"actualizar\">\n";
-	echo "<table class=\"table table-striped\">";
+	echo "<table class=\"table\">";
 	LeerIniFile($ini_vars,$ini);
 	if ($arrHttp["Opcion"]=="abcd_def"){
 		echo "<tr>

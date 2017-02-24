@@ -33,7 +33,8 @@ function Enviar(){
 	include("../common/institutional_info.php");
 echo "
 	<div class=\"sectionInfo\">
-			<div class=\"breadcrumb\"><h2><i class=\"fa fa-sitemap fa-2x\" aria-hidden=\"true\"></i>     <label>Distribuição</label></h2>
+			<div class=\"breadcrumb\">
+			<h2><i class=\"fa fa-sitemap fa-2x\" aria-hidden=\"true\"></i>     <label>Distribuição</label></h2>
 			</div>
 			<div class=\"actions\">
 
@@ -47,7 +48,7 @@ if (!isset($arrHttp["Opcion"]) or $arrHttp["Opcion"]!=="actualizar"){
 ?>
 <?php
 
-echo " <font color=white>&nbsp; &nbsp; Script: dbadmin/editar_correo_ini.php";
+echo " <label>Script: dbadmin/editar_correo_ini.php</label>";
 $ini_vars=array("HOST","PORT","USERNAME","PASSWORD","FROM","FROMNAME","SUBJECT","TEST","PHPMAILER");
 $ini=array();
 if (file_exists($db_path."correo.ini")){
@@ -70,7 +71,7 @@ if (file_exists($db_path."correo.ini")){
 
 <?php
 if (!isset($arrHttp["Opcion"])){
-	echo "<table class=\"table table-striped\">";
+	echo "<table class=\"table\">";
 	foreach ($ini_vars as $key){
 		echo "<tr>
 		      <div class=\"col-md-6\">

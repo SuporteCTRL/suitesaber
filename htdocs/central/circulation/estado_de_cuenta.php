@@ -47,7 +47,7 @@ if ($formato_nombre=="") $formato_nombre="v30";
 # Se lee el formato para extraer el código de usuario
 $codigo=LeerPft("loans_uskey.pft","users");
 ?>
-<script src=../dataentry/js/lr_trim.js></script>
+<script src="../dataentry/js/lr_trim.js"></script>
 <script>
 function EnviarForma(Proceso){
 	if (Trim(document.usersearch.code.value)=="" && Trim(document.inventorysearch.inventory.value)==""){
@@ -135,9 +135,7 @@ else
 	$ayuda="user_statment.html"
 ?>
 
-<div id="loading">
-  <img id="loading-image" src="../dataentry/img/preloader.gif" alt="Loading..." />
-</div>
+
 <div class="sectionInfo">
 	<div class="breadcrumb">
 		<h2><i class="fa fa-folder-open-o fa-2x"></i>  <label><?php if (!isset($arrHttp["reserve"]))
