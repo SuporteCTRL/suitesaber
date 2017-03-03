@@ -511,7 +511,7 @@ function Validate(Opcion){
 		msgwin.document.writeln("<p>"+msg)
 		msgwin.focus()
 	}else{
-		msgwin.document.writeln("<p><?php echo $msgstr["noerrors"]?>")
+		msgwin.document.writeln("<p><?php echo $msgstr["noerrors"];?>")
 		msgwin.focus()
 	}
 
@@ -520,7 +520,7 @@ function Validate(Opcion){
 			msgwin.close()
 			return true
         }else{
-			msgwin.document.writeln("<h4><?php echo $msgstr["fdterr"]?></h4>")
+			msgwin.document.writeln("<h4><?php echo $msgstr["fdterr"];?></h4>")
 			msgwin.focus()
 			alert("<?php echo $msgstr["fdterr"]?>!!!")
 		}

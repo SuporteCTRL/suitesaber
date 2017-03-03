@@ -32,7 +32,7 @@ $base=$arrHttp["base"];
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_MODIFYDEF"]) or isset($_SESSION["permiso"][$base."_CENTRAL_MODIFYDEF"]) or isset($_SESSION["permiso"][$base."_CENTRAL_ALL"]) ){
 
 }else{
-	echo "<h2>".$msgstr["invalidright"]. " ".$base;
+	echo "".$msgstr["invalidright"]. " ".$base;
 	die;
 }
 

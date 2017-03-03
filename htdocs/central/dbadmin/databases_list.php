@@ -57,15 +57,9 @@ include("../common/institutional_info.php");
 <br>
 <table border="0">
 	<tr>
-		<td valign="center">
-   			<button value="Up" class="btn btn-success" onClick="moveOptionUp(this.form['lista'])">
-   			<i class="fa fa-angle-up" aria hidden="true"></i></button>
-			<br>
-			<button value="Down" class="btn btn-success"  onClick="moveOptionDown(this.form['lista'])">
-			<i class="fa fa-angle-down" aria hidden="true"></i></button>
-   		</td>
+		
 		<td>
-			<select name="lista" size="20">
+			<select name="lista" class="form-control">
 <?php
 $fp=file($db_path."bases.dat");
 foreach ($fp as $value){

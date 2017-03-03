@@ -126,10 +126,10 @@ foreach ($fp as $value){
 		$ix=$ix+1;
 		$tag=$t[1];
 		if ($tag!=""){
-			echo "<tr><td  class=td>";
+			echo "<tr><td>";
 			echo $t[2];
 			echo "</td>";
-			echo "<td><label>".$tag."</label><input class=\"form-control\" type=hidden name=tag$tag value=".$tag."></td>";
+			echo "<td>".$tag."<input class=\"form-control\" type=hidden name=tag$tag value=".$tag."></td>";
 			echo "<td>";
 			echo $t[5];
 			echo "</td>";
@@ -151,7 +151,7 @@ if (!isset($arrHttp["table"])){
 }else{
 
 	echo "<input class=\"form-control\"  name=namecnvtb  value='".$arrHttp["Table"]."'>";
-	echo $msgstr["description"].": ";
+	echo "<label>" .$msgstr["description"].": </label>";
 	echo "<input class=\"form-control\" name=descr  value=".$arrHttp["descr"].">";
 }
 echo "<br><a class=\"btn btn-success\" href=javascript:Enviar()><i class=\"fa fa-refresh\" value=".$msgstr["update"]."></i></a>";

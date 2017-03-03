@@ -50,11 +50,12 @@ echo "
 <form method=post action=actualizararchivotxt.php>
 <input type=hidden name=archivo value='".$arrHttp["archivo"]."'>";
 if (!isset($arrHttp["retorno"]))
-	echo "<font face=arial><h4>".$file." &nbsp; <a href=javascript:self.close()>".$msgstr["close"]."</a></h4>";
-echo "<textarea name=txt rows=20 cols=100 style=\"font-family:courier\";>";
+	echo "<label><h4>".$file."</label> 
+<a class=\"btn btn-danger\" href=javascript:self.close()><i class=\"fa fa-times\" value=".$msgstr["close"]."></i></a>";
+echo "<textarea name=txt rows=20 cols=100 class=\"form-control\" style=\"font-family:courier\";>";
 foreach ($fp as $value) echo $value;
 echo "</textarea>
-<br><input type=submit value=".$msgstr["update"].">";
+<br><button class=\"btn btn-primary\" type=submit ><i class=\"fa fa-refresh\" value=".$msgstr["update"]."></i></button>    ";
 if (isset($arrHttp["retorno"]))
 	echo "<input type=hidden name=retorno value=\"".$arrHttp["retorno"]."\">\n";
 if (isset($arrHttp["encabezado"]))

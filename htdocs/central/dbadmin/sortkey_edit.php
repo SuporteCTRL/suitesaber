@@ -128,7 +128,7 @@ if (isset($arrHttp["encabezado"])){
 ?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
-<?php echo $msgstr["sortkeycreate"]." (".$arrHttp["base"].")" ?>
+<h2><label><?php echo $msgstr["sortkeycreate"]." (".$arrHttp["base"].")" ?></label></h2>
 	</div>
 
 
@@ -148,8 +148,8 @@ else
 	$fp[]="  ";
 $ix=-1;
 echo "<table class=\"table table-striped\"><label><thead>";
-echo "<th> ".$msgstr['r_desc']." </th> 
- 	 <th> ".$msgstr['pftex']."</th></thead>";
+echo "<th><label> ".$msgstr['r_desc']." </label></th> 
+ 	 <th><label> ".$msgstr['pftex']."</label></th></thead>";
 
 echo "</label><div id=accent>";
 foreach ($fp as $value){
@@ -157,29 +157,30 @@ foreach ($fp as $value){
 		$ix=$ix+1;
 		$v=explode('|',$value);
 		echo "<br><tbody>";
-		echo "<td><input type=text size=20 name=ac$ix id=iac$ix value=\"".$v[0]."\"></td>";
-		echo "<td><input type=text size=60 name=nac$ix id=inac$ix value=\"".$v[1]."\"></td>";
+		echo "<td><input class=\"form-control\" name=ac$ix id=iac$ix value=\"".$v[0]."\"></td>";
+		echo "<td><input class=\"form-control\" name=nac$ix id=inac$ix value=\"".$v[1]."\"></td>";
 	}
 }
 $ix=$ix+1;
 for ($i=$ix;$i<$ix+5;$i++){
 	echo "<br>";
-	echo "<td><input type=text size=20 name=ac$i id=iac$i value=\"\"></td>";
-	echo "<td><input type=text size=60 name=nac$i id=inac$i value=\"\"></td></tbody>";
+	echo "<td><input class=\"form-control\" name=ac$i id=iac$i value=\"\"></td>";
+	echo "<td><input class=\"form-control\" name=nac$i id=inac$i value=\"\"></td></tbody>";
 }
 
 echo "</div><br>";
 
 
-echo $msgstr["add"]." 
-<input type=text name=agregar class=\"form-control\"> ".$msgstr["lines"];
-echo " &nbsp; <a href='javascript:Agregar(\"accent\")'>".$msgstr["add"]."</a>";
+echo "<label> ".$msgstr["add"]." :</label> 
+<input name=agregar class=\"form-control\"><label> ".$msgstr["lines"]."</label>";
+echo " <a class=\"btn btn-primary\" href='javascript:Agregar(\"accent\")'><i class=\"fa fa-plus\" value=".$msgstr["add"]."></i></a>";
 
 if (isset($arrHttp["encabezado"]))
 	echo "<input type=hidden name=encabezado value=s>\n";
 ?>
 <input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
-<input type="submit" value="<?php echo $msgstr["update"];?>" onclick='javascript:Enviar()''>
+<br>
+<button type="submit" class="btn btn-primary" onclick='javascript:Enviar()''><i class="fa fa-refresh" value="<?php echo $msgstr["update"];?>"></i></button>
 <input type="hidden" name="ValorCapturado">
 </table>
 </form>
