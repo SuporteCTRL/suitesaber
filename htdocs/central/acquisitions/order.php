@@ -160,15 +160,15 @@ function EnviarForma(){
 		<?php echo $msgstr["approvacq"]." ".$msgstr["sorted"]?>
 		<div class="pagination">
 
-			<a href='javascript:Enviar("PV")' class="btn btn-primary"><?php echo $msgstr["provider"];?></a>
+			<a href="javascript:Enviar('PV')" class="btn btn-primary"><?php echo $msgstr["provider"];?></a>
 			
-			<a href='javascript:Enviar("TI")' class="btn btn-warning"><?php echo $msgstr["title"];?></a>
+			<a href="javascript:Enviar('TI')" class="btn btn-warning"><?php echo $msgstr["title"];?></a>
 
-			<a 'href=javascript:Enviar("DA")' class="btn btn-info"><?php echo $msgstr["date_app"];?></a>
+			<a href="javascript:Enviar('DA')" class="btn btn-info"><?php echo $msgstr["date_app"];?></a>
 
-			<a href=javascript:Enviar("SN") class="btn btn-danger"><?php echo $msgstr["suggestno"];?></a>
+			<a href="javascript:Enviar('SN')" class="btn btn-danger"><?php echo $msgstr["suggestno"];?></a>
 
-			<a href=javascript:Enviar("OP") class="btn btn-success"><?php echo $msgstr["operator"];?> </a>
+			<a href="javascript:Enviar('OP')" class="btn btn-success"><?php echo $msgstr["operator"];?> </a>
             
             <br>
 			<input type=checkbox name=see_all
@@ -181,7 +181,7 @@ function EnviarForma(){
 
 <?php
 // se imprime la lista de recomendaciones pendientes
-	echo "<th>&nbsp;</th>";
+	
 	$t=explode('|',$tit_tab);
 	foreach ($t as $v)  echo "<th>".$v."</th>";
     $ixelem=0;
@@ -196,21 +196,22 @@ function EnviarForma(){
 		if ($check=="SI"){
 			$ixelem=$ixelem+1;
 			echo "\n<tr>";
+			
 			foreach ($r as $cell){
 				$at=$at+1;
 				if ($ix1=="")
 					$ix1=1;
 				else
 					if ($ix1==1){
-						echo "<td nowrap><a href=javascript:Mostrar('$cell') class=\"btn btn-primary\"><i class=\"fa fa-search\"></i></a>";
-						echo "<input type=checkbox name=oc value=\"$cell\">&nbsp;";
-						echo "</td>";
+						
 						$ix1=2;
 					}else{
 						if ($at!=16){
+
 							echo "<td>$cell</td>";
 						}else{
 							$ixpos=strpos($cell,'^',2);
+
 							echo "<td>".substr($cell,$ixpos+2)."</td>";
 						}
 					}

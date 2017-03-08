@@ -669,9 +669,9 @@ if ($arrHttp["Opcion"]!="new"){
 
 
 
-<?php echo "<strong>".$msgstr["r_fgent"]."</strong>";?>
-<a href=http://bvsmodelo.bvsalud.org/download/cisis/CISIS-LinguagemFormato4-<?php echo $_SESSION["lang"]?>.pdf target=_blank><font size=1><?php echo $msgstr["cisis"]?></a>
-
+<?php echo "<label>".$msgstr["r_fgent"]."</label>";?>
+<a href=http://bvsmodelo.bvsalud.org/download/cisis/CISIS-LinguagemFormato4-<?php echo $_SESSION["lang"]?>.pdf target="_blank"><font size=1><?php echo $msgstr["cisis"]?></a>
+<label>pft.php</label>
 
 
 
@@ -724,6 +724,7 @@ if ($arrHttp["Opcion"]!="new"){
 
 
 	</select>
+	<br>
 	<a class="btn btn-primary" href="javascript:LeerArchivo()"><?php echo $msgstr["edit"];?></a> 
 	<a class="btn btn-danger" href="javascript:EliminarFormato()"><?php echo $msgstr["delete"];?></a>
 
@@ -775,13 +776,13 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
    </div>
 
 <div class="col-md-1">
- 	<a href="" ="#" class="btn btn-default campo" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"> <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+ 	<a href="" ="#" class="btn btn-primary campo" onClick="moveSelectedOptions(document.forms[0]['list11'],document.forms[0]['list21'],false);return false;"> <i class="fa fa-angle-right" aria-hidden="true"></i></a>
  
-	<a href="" ="#"  class="btn btn-default campo" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+	<a href="" ="#"  class="btn btn-primary campo" onClick="moveSelectedOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
 
- 	<a href="" ="#" class="btn btn-default campo" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+ 	<a href="" ="#" class="btn btn-primary campo" onClick="moveAllOptions(document.forms[0]['list11'],document.forms[0]['list21'],false); return false;"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
 
-	<a href="" ="#" class="btn btn-default campo" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+	<a href="" ="#" class="btn btn-primary campo" onClick="moveAllOptions(document.forms[0]['list21'],document.forms[0]['list11'],false); return false;"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
 </div>
 
 <div class="col-md-5">
@@ -791,12 +792,12 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"][$ar
 
 <div class="col-md-1">
 
-<a href=# class="btn btn-default campo" onClick="moveOptionUp(document.forms[0]['list21'])" title="<?php echo $msgstr["r_subir"]?>" ><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+<a href=# class="btn btn-success campo" onClick="moveOptionUp(document.forms[0]['list21'])" title="<?php echo $msgstr["r_subir"]?>" ><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 					
-<a href=# onClick=" moveOptionDown(document.forms[0]['list21'])" class="btn btn-default campo" title="<?php echo $msgstr["r_bajar"]?>">
+<a href=# onClick=" moveOptionDown(document.forms[0]['list21'])" class="btn btn-success campo" title="<?php echo $msgstr["r_bajar"]?>">
 <i class="fa fa-angle-down" aria-hidden="true"></i></a>
 	
-<a href=# onClick='javascript:BorrarFormato("pft")' class="btn btn-default campo" title="<?php echo $msgstr["borrar"]?>">
+<a href=# onClick='javascript:BorrarFormato("pft")' class="btn btn-warning campo" title="<?php echo $msgstr["borrar"]?>">
 <i class="fa fa-eraser" aria-hidden="true"></i></a>
 
 
@@ -873,19 +874,19 @@ if ($arrHttp["Opcion"]!="new"){?>
     <input class="form-control" id="textinput" name="Mfn" type="text"class="input-medium" required="">
    <label class="control-label" for="textinput"><?php echo $msgstr["r_hasta"]?></label>
     <input class="form-control" id="textinput" name="to" type="text"class="input-medium" required="">
-
-     <a href='javascript:BorrarRango()' class="btn btn-default campo" title="<?php echo $msgstr["borrar"]?>"><i class="fa fa-trash" aria-hidden="true"></i></a> 
+<br>
+     <a href='javascript:BorrarRango()' class="btn btn-warning campo" title="<?php echo $msgstr["borrar"]?>"><i class="fa fa-trash" aria-hidden="true"></i></a> 
      <script>
       if (top.window.frames.length>0)
-			document.writeln(<?php echo $msgstr["maxmfn"]?>: "+top.maxmfn+")")
+			document.writeln(<?php echo $msgstr["maxmfn"]?>: "+top.maxmfn+")
 </script>
 	<?php
 	if (isset($arrHttp["seleccionados"])){
 		echo "<tr>
-				  <td  align=center colspan=2><strong>".$msgstr["selected_records"]."</strong>:";
+				  <td><label>".$msgstr["selected_records"]."</label>:";
 		$sel=str_replace("__",",",trim($arrHttp["seleccionados"]));
 		$sel=str_replace("_","",$sel);
-		echo "<input type=text name=seleccionados size=100 value=$sel>\n";
+		echo "<input type=text name=seleccionados class=\"form-control\" value=$sel>\n";
 		echo "</td></tr>";
 	}
 	?>
@@ -895,8 +896,9 @@ if ($arrHttp["Opcion"]!="new"){?>
 
    </div>
 </div>
+<br>
   <label><?php echo $msgstr["r_busqueda"];?></label>
-    <a href=javascript:Buscar() title="<?php echo $msgstr["new"];?>" class="btn btn-default campo"><i class="fa fa-search" aria-hidden="true"></i></a>
+    <a href=javascript:Buscar() title="<?php echo $msgstr["new"];?>" class="btn btn-primary campo"><i class="fa fa-search" aria-hidden="true"></i></a>
 
   <?php
 unset($fp);
@@ -929,6 +931,7 @@ if (isset($fp)){
 <div class="form-group">
    <textarea class="form-control col-md-11" rows="3" cols="80" name="Expresion"><?php if ($Expresion!="") echo $Expresion?></textarea>
 
+<br><br>
     <a href=javascript:BorrarExpresion() class= "btn btn-danger campo col-md-1" title="<?php echo $msgstr["borrar"]?>"><i class="fa fa-trash" aria-hidden="true"></i></a> 
 
 <?php
@@ -951,7 +954,7 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CE
 
 
        
-<h5>Chave de ordenação: 
+<h5><label>Chave de ordenação: </label></h5>
 <input  id="textinput" name="textinput" type="text" class="form-control" required=""></h5>
  <select class="form-control" name=sort  onChange=CopySortKey()>
     		<option value=""></option>
@@ -976,7 +979,7 @@ echo "			</select>";
 ?>
 
 
-<a href=javascript:CreateSortKey() title="<?php echo $msgstr["sortkeycreate"];?>" class="btn btn-default campo"><i class="fa fa-plus" aria-hidden="true"></i></a>
+<a href=javascript:CreateSortKey() title="<?php echo $msgstr["sortkeycreate"];?>" class="btn btn-primary campo"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
 <?php
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDSORT"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_EDSORT"])){
@@ -988,19 +991,19 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CE
 
 <label><?php echo $msgstr["sendto"];?></label>
 <br><br>
-	<a href="javascript:EnviarForma('WP')"  class="btn btn-default campo" title="<?php echo $msgstr["word"];?>">
+	<a href="javascript:EnviarForma('WP')"  class="btn btn-primary campo" title="<?php echo $msgstr["word"];?>">
 		<i class="fa fa-file-word-o" aria-hidden="true"></i>
 	</a> 
 	
-	<a href="javascript:EnviarForma('TB')" title="<?php echo $msgstr["wsproc"];?>" class="btn btn-default campo">
+	<a href="javascript:EnviarForma('TB')" title="<?php echo $msgstr["wsproc"];?>" class="btn btn-primary campo">
 		<i 	class="fa fa-file-excel-o" aria-hidden="true"></i>
 	</a> 
 
-	<a href="javascript:EnviarForma('TXT')" value="T" class="btn btn-default campo">
+	<a href="javascript:EnviarForma('TXT')" value="T" class="btn btn-primary campo">
 		<i class="fa fa-file-text-o" aria-hidden="true"></i>
 	</a> 
 	
-	<a href="javascript:EnviarForma('P')" title="<?php echo $msgstr["vistap"];?>" class="btn btn-default campo">
+	<a href="javascript:EnviarForma('P')" title="<?php echo $msgstr["vistap"];?>" class="btn btn-primary campo">
 		<i class="fa fa-eye" aria-hidden="true"></i>
 	</a> 
 
@@ -1019,19 +1022,15 @@ if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CE
 if (isset($_SESSION["permiso"]["CENTRAL_ALL"]) or isset($_SESSION["permiso"]["CENTRAL_EDPFT"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"]) or isset($_SESSION["permiso"][$arrHttp["base"]."_CENTRAL_ALL"])){
 $save="Y";
 ?>
-<table width=600 cellpadding=5 class=listTable>
-	<tr>
-		<td>
-			 <a href="javascript:toggleLayer('saveformat')"><u><strong><?php echo $msgstr["r_guardar"]?></strong></u></a>
-    		<div id=saveformat><p>
-			<table width=600 border=0 cellpadding=0>
-				<td  align=right >
-				<font face=arial size=1><?php echo $msgstr["r_guardar"]." ".$db_path.$arrHttp["base"]."/". $arrHttp["Dir"]?>/ </td>
-				<td><input type=text name=nombre size=20 maxlength=30></td>
-				<tr><td align=right valign=top><font face=arial size=1>
-					<?php echo $msgstr["r_desc"]?></td><td valign=top><input class="form-control" type=text name=descripcion maxlength=50 size=50>
 
-					<a href=javascript:GuardarFormato()><img src=../dataentry/img/toolbarSave.png border=0></a>
+			 <a href="javascript:toggleLayer('saveformat')"><label><?php echo $msgstr["r_guardar"]?></label></a>
+    		<div id=saveformat>
+				<label><?php echo $msgstr["r_guardar"]." ".$db_path.$arrHttp["base"]."/". $arrHttp["Dir"];?> </label></td>
+				<input type="text" name="nombre" class="form-control">
+					<label><?php echo $msgstr["r_desc"];?></label>
+					<input class="form-control" type="text" name="descripcion" >
+
+					<a class="btn btn-primary" href=javascript:GuardarFormato()><i class="fa fa-save"></i></a>
 
 
 <!--FECHA container conteudo-->
@@ -1053,38 +1052,38 @@ if (!isset($arrHttp["Modulo"]))
 <input type=hidden name=sel_oper>
 </form>
 
-<form name=guardar method=post action=pft_update.php>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=pft>
-<input type=hidden name=nombre>
-<input type=hidden name=descripcion>
-<input type=hidden name=tipof>
-<input type=hidden name=headings>
-<input type=hidden name=pftname>
-<input type=hidden name=Modulo value=<?php if (isset($arrHttp["Modulo"])) echo $arrHttp["Modulo"]?>>
-<input type=hidden name=sel_oper>
+<form name="guardar" method="post" action="pft_update.php">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="pft">
+<input type="hidden" name="nombre">
+<input type="hidden" name="descripcion">
+<input type="hidden" name="tipof">
+<input type="hidden" name="headings">
+<input type="hidden" name="pftname">
+<input type="hidden" name="Modulo" value="<?php if (isset($arrHttp["Modulo"])) echo $arrHttp["Modulo"];?>">
+<input type="hidden" name="sel_oper">
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>"; ?>
 </form>
 
-<form name=frmdelete action=pft_delete.php method=post>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-<input type=hidden name=pft>
+<form name="frmdelete" action="pft_delete.php" method="post">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+<input type="hidden" name="pft">
 <?php if (isset($arrHttp["encabezado"])) echo "<input type=hidden name=encabezado value=S>"; ?>
 </form>
 
-<form name=savesearch action=../dataentry/busqueda_guardar.php method=post target=savesearch>
-	<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-	<input type=hidden name=Expresion value="">
-	<input type=hidden name=Descripcion value="">
+<form name="savesearch" action="../dataentry/busqueda_guardar.php" method="post" target="savesearch">
+	<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+	<input type="hidden" name="Expresion" value="">
+	<input type="hidden" name="Descripcion" value="">
 </form>	<p>
 
-<form name=sortkey method=post action=sortkey_edit.php target=sortkey>
-	<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
-	<input type=hidden name=encabezado value=s>
+<form name="sortkey" method="post" action="sortkey_edit.php" target="sortkey">
+	<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
+	<input type="hidden" name="encabezado" value="s">
 </form>
 
-<form name=listadosfrm method=post>
-<input type=hidden name=base value=<?php echo $arrHttp["base"]?>>
+<form name="listadosfrm" method="post">
+<input type="hidden" name="base" value="<?php echo $arrHttp["base"];?>">
 </form>
 
 

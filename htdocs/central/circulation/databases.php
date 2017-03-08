@@ -94,8 +94,8 @@ echo "<br><br>";
 echo "<label>".$msgstr["seldbdoc"]."</label>";
 
 echo "<br><br>";
-echo $msgstr["database"];
-echo ": <select name=base>
+echo "<label> ".$msgstr["database"]."</label>";
+echo ": <select class=\"form-control\" name=base>
 <option value=''>\n";
 $fp=file($db_path."bases.dat");
 $bases_p=array();
@@ -121,11 +121,11 @@ foreach ($fp as $value){
 }
 echo "</select></td>";
 echo "<br><br>";
-echo "".$msgstr["alreadysel"].": <br>$ya_elegida";
+echo "<label>".$msgstr["alreadysel"].":</label> $ya_elegida";
 echo "<br>";
 
-echo "<a class=\"btn btn-default\" href=javascript:Continuar()>".$msgstr["continue"]."</a> " ;
-echo " | <a class=\"btn btn-default\" href=javascript:Deshabilitar()>".$msgstr["disable"]."</a> ";
+echo "<a class=\"btn btn-primary\" href=javascript:Continuar()>".$msgstr["continue"]."</a> " ;
+echo " <a class=\"btn btn-primary\" href=javascript:Deshabilitar()>".$msgstr["disable"]."</a> ";
 
 include("../common/footer.php");
 echo "</body></html>" ;

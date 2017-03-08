@@ -30,7 +30,7 @@ if (isset($arrHttp["archivo"]) and $arrHttp["archivo"]!="*.pft" ) {
 	$a=$arrHttp["archivo"].$fs;
 
 	if (isset($arrHttp["Opcion"])and $arrHttp["Opcion"]=="guardar") {
-		echo "<font face=verdana size=2>Formato: <b>$a</b></font><br>";
+		echo "<label>Formato: <b>$a</label><br>";
     	$fp=fopen($db_path.$arrHttp["base"]."/www/".$arrHttp["archivo"].$fs,"w",0);
 		fputs($fp, stripslashes( $arrHttp["formato"])); #write all of $data to our opened file
   		fclose($fp); #close the file
@@ -67,10 +67,10 @@ function Enviar(){
 }
 </script>
 
-<body><font color=black>
+<body>
 
-<form name=forma1 action=leertxt.php method=post>
-<?php echo "<font face=verdana size=1>Format: <b>$a</b>"?>
+<form name="forma1" action="leertxt.php" method="post">
+<?php echo "<label>Format:</label> $a";?>
 <p><?php echo $msgstr["edit"]." ".$msgstr["pft"]?>
 <?php if (isset($arrHttp["pft"])) {
 //    echo   " Al terminar de clic sobre </font> <b>enviar</b> <font color=black> para almacenar los cambios</span>  <br>";
@@ -82,7 +82,7 @@ function Enviar(){
 <input type="hidden" name="Opcion">
 <input type="hidden" name="base" value=<?php echo $arrHttp["base"];?>>
 <?php echo "
-		<textarea class=\"form-control\" name=formato rows=20 cols=100% nowrap>";
+		<textarea class=\"form-control\" name=formato >";
 
   	$fp = file($a);
 	foreach ($fp as $linea){

@@ -75,7 +75,8 @@ foreach ($fp as $value){
 			</select>
 		</td>
 </table>
-<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 <input class="btn btn-primary" type="submit" value="<?php echo $msgstr["update"]?>" onClick="javascript:Enviar()">
 <input class="btn btn-warning" type="submit" value="<?php echo $msgstr["edit"];?>" onClick="javascript:Editar()">
 <input class="btn btn-danger" type="submit" value="<?php echo $msgstr["cancel"];?>" onClick="document.cancelar.submit();return false">

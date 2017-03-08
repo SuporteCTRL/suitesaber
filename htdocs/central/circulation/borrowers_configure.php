@@ -140,17 +140,22 @@ echo "
 
 <table class=\"table\">
 
-<tr><td><label>1. ".$msgstr["uskey"]." (loans_uskey.tab)</td><td><input type=text name=uskey value=\"".$uskey."\"></td>
-<tr><td><label>2. ".$msgstr["usname"]." (loans_uskey.tab)</td><td><input type=text name=usname value=\"".$usname."\"></td>
-<tr><td><label>3. ".$msgstr["uspft"]." (loans_uskey.tab)</td><td><input type=text name=uspft value=\"".$uspft."\"></td>
-<tr><td><label>4. ".$msgstr["pft_uskey"]." (loans_uskey.pft)</td><td><textarea rows=2 cols=80 name=pft_uskey>".$pft_uskey."</textarea></td>
-<tr><td><label>5. ".$msgstr["pft_ustype"] ." (loans_ustype.pft)</td><td><textarea rows=2 cols=80 name=pft_ustype>".$pft_ustype."</textarea></td>
-<tr><td><label>6. ".$msgstr["pft_usvig"] ." (loans_usvig.pft)</td><td><textarea name=pft_usvig>".$pft_usvig."</textarea></td>
+<tr><td><label>1. ".$msgstr["uskey"]." (loans_uskey.tab)</td><td><input class=\"form-control\" type=text name=uskey value=\"".$uskey."\"></td>
 
-<tr><td><label>7. ".$msgstr["pft_usdisp"] ." (loans_usdisp.pft)</td><td><textarea name=pft_usdisp>".$pft_usdisp."</textarea></td>
+<tr><td><label>2. ".$msgstr["usname"]." (loans_uskey.tab)</td><td><input class=\"form-control\" type=text name=usname value=\"".$usname."\"></td>
+
+<tr><td><label>3. ".$msgstr["uspft"]." (loans_uskey.tab)</td><td><input class=\"form-control\" type=text name=uspft value=\"".$uspft."\"></td>
+
+<tr><td><label>4. ".$msgstr["pft_uskey"]." (loans_uskey.pft)</td><td><textarea class=\"form-control\" name=pft_uskey>".$pft_uskey."</textarea></td>
+
+<tr><td><label>5. ".$msgstr["pft_ustype"] ." (loans_ustype.pft)</td><td><textarea class=\"form-control\" name=pft_ustype>".$pft_ustype."</textarea></td>
+
+<tr><td><label>6. ".$msgstr["pft_usvig"] ." (loans_usvig.pft)</td><td><textarea class=\"form-control\" name=pft_usvig>".$pft_usvig."</textarea></td>
+
+<tr><td><label>7. ".$msgstr["pft_usdisp"] ." (loans_usdisp.pft)</td><td><textarea class=\"form-control\" name=pft_usdisp>".$pft_usdisp."</textarea></td>
 </table>
 ";
-echo "<label> Mfn: </label> <input class=\"form-control\" type=text name=Mfn size=10>
+echo "<label> Mfn: </label> <input class=\"form-control\" type=text name=Mfn>
 
 <br>
 <a class=\"btn btn-primary\" href=javascript:Test()>".$msgstr["test"]."</a>

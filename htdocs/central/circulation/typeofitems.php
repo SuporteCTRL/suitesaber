@@ -95,7 +95,7 @@ echo "
 			
 			<a href="javascript:void(0)" class="btn btn-primary" onclick="mygrid.deleteSelectedItem()"><?php echo $msgstr["remselrow"]?></a>
 
-	<table id="tblToGrid" class="table">
+	<table class="table">
 <?php
 	echo "<tr>";
 	foreach ($rows_title as $cell) echo "<td><label>$cell</label></td>\n";

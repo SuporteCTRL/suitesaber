@@ -114,8 +114,8 @@ if (isset($arrHttp["actualizar"]) and $arrHttp["actualizar"]=="Y"){
 	echo "\"></td>
 	</table>\n";
 }
-echo "</form></div></div>";
-include("../common/footer.php");
+echo "</form></div></div><br>";
+
 echo "</body></html>" ;
 
 ?>

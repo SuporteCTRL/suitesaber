@@ -1,8 +1,8 @@
 <?php
-$copies="";
+@$copies="";
 $archivo=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/".$arrHttp["tipo"].".conf";
 $msg_err="";
-if (!file_exists($archivo)){
+@ if (!file_exists($archivo)){
 	 $msg_err= " ".$msgstr["barcode_conf"]." (".$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/".$arrHttp["tipo"].".conf".")";
 }else{
 	$fp=file($archivo);
