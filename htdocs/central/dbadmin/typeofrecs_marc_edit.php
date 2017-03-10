@@ -347,7 +347,7 @@ for ($k=$j+1;$k<$j+8;$k++){
 		}
 		$value=trim($value);
 		if ($i!=1 and $i!=2)echo "
-			<input type=text name=cell$k"."_".$i." value=\"$value\" $xsize>";
+			<input class=\"form-control\" type=text name=cell$k"."_".$i." value=\"$value\" $xsize>";
 	}
 
 }

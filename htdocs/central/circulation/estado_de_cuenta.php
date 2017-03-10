@@ -223,7 +223,7 @@ else
 			
 			<button class=\"btn btn-primary\" name=rs04 onClick=\"javascript:Output('attended','rs04')\" >".$msgstr["rs04"]."</button>
 
-		   <button class=\"btn btn-primary\" name=rs05  onClick=\"javascript:Output('cancelled','rs05')\" >".$msgstr["rs05"]."</button>
+		   <button class=\"btn btn-primary\" name=rs05  onClick=javascript:Output('cancelled','rs05') >".$msgstr["rs05"]."</button>
 			<br><br></div>";
 		}
 ?>
